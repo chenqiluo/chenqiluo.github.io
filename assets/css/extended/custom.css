@@ -1,0 +1,7 @@
+/* 代码块横向滚动，不换行，修复 ASCII 图错位 */
+pre, pre code {
+    white-space: pre !important;
+    overflow-x: auto;
+    word-wrap: normal;
+    word-break: normal;
+}
