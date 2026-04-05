@@ -1,14 +1,14 @@
 baseURL = "https://302668600.github.io/"
 languageCode = "zh-cn"
-title = "我的个人博客"
+title = "luochenqi's Blog"
 theme = "PaperMod"
 defaultContentLanguage = "zh"
 
 [params]
   env = "production"
-  title = "我的个人博客"
+  title = "luochenqi's Blog"
   description = "记录日常、分享知识、沉淀思考"
-  author = "你的名字"
+  author = "luochenqi"
   defaultTheme = "auto"  # auto / light / dark
   ShowReadingTime = true
   ShowShareButtons = false
@@ -19,7 +19,7 @@ defaultContentLanguage = "zh"
   TocOpen = false
   
   [params.homeInfoParams]
-    Title = "👋 你好，欢迎来到我的博客"
+    Title = "👋 你好，我是 luochenqi"
     Content = "这里记录我的每日目标、学习笔记和知识积累。"
 
   [[params.socialIcons]]
