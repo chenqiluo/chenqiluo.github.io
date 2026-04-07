@@ -5,3 +5,94 @@ pre, pre code {
     word-wrap: normal;
     word-break: normal;
 }
+
+/* =============================================
+   响应式正文宽度适配
+   默认 720px 在 4K 大屏上太窄，按屏幕宽度动态调整
+   ============================================= */
+
+/* 普通桌面 (1280px ~ 1920px)：适当加宽 */
+@media screen and (min-width: 1280px) {
+    :root {
+        --main-width: 900px;
+    }
+}
+
+/* 大屏 / 2K (1920px ~ 2560px)：进一步加宽 */
+@media screen and (min-width: 1920px) {
+    :root {
+        --main-width: 1100px;
+    }
+}
+
+/* 超大屏 / 4K (2560px 及以上)：最大化利用宽度，但保持可读性 */
+@media screen and (min-width: 2560px) {
+    :root {
+        --main-width: 1400px;
+    }
+}
+
+/* =============================================
+   移动端优化 (≤ 768px)
+   ============================================= */
+@media screen and (max-width: 768px) {
+    /* 正文字体大小，手机端略微缩小 */
+    .post-content {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    /* 标题在移动端缩小，避免太大撑破布局 */
+    .post-title {
+        font-size: 26px;
+    }
+
+    .post-content h1 {
+        font-size: 26px;
+    }
+
+    .post-content h2 {
+        font-size: 22px;
+    }
+
+    .post-content h3 {
+        font-size: 19px;
+    }
+
+    /* 表格在移动端支持横向滚动 */
+    .post-content table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* 代码块在移动端缩小字体 */
+    .post-content pre code {
+        font-size: 13px;
+    }
+
+    /* 图片在移动端铺满宽度 */
+    .post-content img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* =============================================
+   超小屏优化 (≤ 480px)
+   ============================================= */
+@media screen and (max-width: 480px) {
+    .post-content {
+        font-size: 14px;
+    }
+
+    .post-title {
+        font-size: 22px;
+    }
+
+    /* 减少内外边距，让内容区更宽 */
+    :root {
+        --gap: 12px;
+        --content-gap: 16px;
+    }
+}
