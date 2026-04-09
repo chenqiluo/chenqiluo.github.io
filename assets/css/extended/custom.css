@@ -9,6 +9,13 @@ body {
     background-repeat: no-repeat;
 }
 
+/* 让主内容区和顶部区域背景透明，让背景图透出来 */
+.main,
+#top,
+main {
+    background: transparent !important;
+}
+
 /* 顶部导航栏半透明 */
 header.header {
     background-color: rgba(255, 255, 255, 0.75) !important;
