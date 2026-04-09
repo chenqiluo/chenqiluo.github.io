@@ -3,6 +3,7 @@ languageCode = "zh-cn"
 title = "luochenqi's Blog"
 theme = "PaperMod"
 defaultContentLanguage = "zh"
+summaryLength = 50
 
 [params]
   env = "production"

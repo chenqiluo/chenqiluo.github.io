@@ -1,18 +1,27 @@
 /* =============================================
    全局背景图片
    ============================================= */
+
+/* 覆盖 PaperMod 主题的背景色变量为透明 */
+:root {
+    --theme: transparent;
+}
+
 body {
-    background-image: url('/images/bg.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-image: url('/images/bg.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    background-color: #e8e4dc !important; /* 图片加载前的占位色 */
 }
 
 /* 让主内容区和顶部区域背景透明，让背景图透出来 */
 .main,
 #top,
-main {
+main,
+.list,
+.page {
     background: transparent !important;
 }
 
