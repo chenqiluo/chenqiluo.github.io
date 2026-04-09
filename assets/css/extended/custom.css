@@ -2,8 +2,13 @@
    全局背景图片
    ============================================= */
 
-/* 覆盖 PaperMod 主题的背景色变量为透明 */
+/* 覆盖 PaperMod 主题的 --theme 变量（浅色模式默认白色会遮住背景图） */
 :root {
+    --theme: transparent;
+}
+
+/* 深色模式下也覆盖为透明 */
+.dark {
     --theme: transparent;
 }
 
@@ -13,7 +18,7 @@ body {
     background-position: center center !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat !important;
-    background-color: #e8e4dc !important; /* 图片加载前的占位色 */
+    background-color: #d4cfc6 !important; /* 图片加载前的占位色 */
 }
 
 /* 让主内容区和顶部区域背景透明，让背景图透出来 */
