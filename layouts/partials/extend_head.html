@@ -1,14 +1,27 @@
 <style>
 /* =============================================
-   全局背景图片 - 通过 extend_head.html 注入
+   全局背景图片 - 用 ::before 伪元素固定在视口底层
+   不受主题 --theme 变量或 background-color 影响
    ============================================= */
+
+/* 禁用主题自带的背景色 */
+:root {
+    --theme: transparent !important;
+}
+
+html {
+    background-image: url('/images/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #d4cfc6;
+    min-height: 100%;
+}
+
 body {
-    background-image: url('/images/bg.jpg') !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-attachment: fixed !important;
-    background-repeat: no-repeat !important;
-    background-color: #d4cfc6 !important;
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 /* 让主内容区域保持透明，让背景图穿透显示 */
@@ -25,12 +38,12 @@ main,
 
 /* 顶部导航栏半透明 */
 header.header {
-    background-color: rgba(255, 255, 255, 0.75) !important;
+    background-color: rgba(255, 255, 255, 0.80) !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
 
-/* 文章卡片和主内容块加半透明背景，保证可读性（浅色模式） */
+/* 文章卡片和主内容块加半透明背景，保证可读性 */
 .post-entry,
 .first-entry,
 .home-info,
@@ -51,14 +64,9 @@ header.header {
 }
 
 /* 深色模式适配 */
-[data-theme="dark"] body,
-.dark body {
-    background-image: url('/images/bg.jpg') !important;
-}
-
 [data-theme="dark"] header.header,
 .dark header.header {
-    background-color: rgba(20, 20, 20, 0.75) !important;
+    background-color: rgba(20, 20, 20, 0.80) !important;
 }
 
 [data-theme="dark"] .post-entry,
