@@ -2,32 +2,27 @@
    全局背景图片
    ============================================= */
 
-/* 覆盖 PaperMod 主题的 --theme 变量（浅色模式默认白色会遮住背景图） */
-:root {
-    --theme: transparent;
-}
-
-/* 深色模式下也覆盖为透明 */
-.dark {
-    --theme: transparent;
-}
-
-body {
+body,
+body.dark {
     background-image: url('/images/bg.jpg') !important;
     background-size: cover !important;
     background-position: center center !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat !important;
-    background-color: #d4cfc6 !important; /* 图片加载前的占位色 */
+    /* 直接覆盖 PaperMod 的 --theme 白色背景 */
+    background-color: #d4cfc6 !important;
 }
 
-/* 让主内容区和顶部区域背景透明，让背景图透出来 */
+/* 让主内容区域保持透明，让背景图穿透显示 */
 .main,
 #top,
 main,
 .list,
-.page {
+.page,
+.post-single,
+.archive-posts {
     background: transparent !important;
+    background-color: transparent !important;
 }
 
 /* 顶部导航栏半透明 */
