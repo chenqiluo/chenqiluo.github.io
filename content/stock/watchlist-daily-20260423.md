@@ -133,7 +133,7 @@ draft: false
 </style>
 <div class="sr-hdr" style="background:linear-gradient(135deg,#0d47a1,#283593 50%,#1976d2)">
 <h1>自选股深度日报</h1>
-<div class="sub">2026-04-23 尾盘版 | 10 只标的 | 生成于 19:17:43</div>
+<div class="sub">2026-04-23 尾盘版 | 10 只标的 | 生成于 19:26:11</div>
 </div>
 <div class="sr-sec">市场概况</div>
 <div class="mkt-grid"><div class="mkt-card"><div class="mkt-name">上证指数</div><div class="mkt-price">4093.25</div><div class="mkt-chg" style="color:#388e3c">&#9660; -0.32%</div></div><div class="mkt-card"><div class="mkt-name">黄金ETF</div><div class="mkt-price">9.90</div><div class="mkt-chg" style="color:#388e3c">&#9660; -1.04%</div></div><div class="mkt-card"><div class="mkt-name">红利ETF</div><div class="mkt-price">3.29</div><div class="mkt-chg" style="color:#d32f2f">&#9650; +0.73%</div></div><div class="mkt-card"><div class="mkt-name">沪深300ETF</div><div class="mkt-price">0.00</div><div class="mkt-chg" style="color:#d32f2f">&#9650; +0.00%</div></div></div>
