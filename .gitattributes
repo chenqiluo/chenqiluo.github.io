@@ -1,0 +1,20 @@
+# 统一换行符：所有文本文件在仓库中存储为 LF，检出时保持 LF（不转 CRLF）
+* text=auto eol=lf
+
+# Markdown 文件强制 LF
+*.md text eol=lf
+
+# HTML 文件强制 LF
+*.html text eol=lf
+
+# 二进制文件不做转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
