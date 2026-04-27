@@ -49,6 +49,11 @@ summaryLength = 50
     url = "/stock/"
     weight = 35
   [[menu.main]]
+    identifier = "reading"
+    name = "研读"
+    url = "/reading/"
+    weight = 37
+  [[menu.main]]
     identifier = "ai-leaderboard"
     name = "AI天梯榜"
     url = "/ai-leaderboard/"
