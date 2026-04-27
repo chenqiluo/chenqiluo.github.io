@@ -56,7 +56,7 @@ summaryLength = 50
   [[menu.main]]
     identifier = "ai-leaderboard"
     name = "AI天梯榜"
-    url = "/ai-leaderboard/"
+    url = "https://arena.ai/leaderboard/text"
     weight = 38
   [[menu.main]]
     identifier = "tags"
