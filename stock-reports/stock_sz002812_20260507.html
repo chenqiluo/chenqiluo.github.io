@@ -1,0 +1,357 @@
+<style>
+.sr-wrap{--sr-blue:#1a73e8;--sr-blue-dark:#0d47a1;--sr-green:#34a853;--sr-red:#ea4335;--sr-orange:#f57c00;--sr-bg:#f0f2f5;--sr-card:#ffffff;--sr-text:#202124;--sr-sub:#5f6368;--sr-border:#dadce0;color:var(--sr-text);font-size:14px;line-height:1.6}
+.dark .sr-wrap{--sr-bg:#1a1b1e;--sr-card:#1e2129;--sr-text:#e0e0e0;--sr-sub:#9aa0a6;--sr-border:#2d3139}
+.sr-wrap *{box-sizing:border-box}
+.sr-header{background:linear-gradient(135deg,#0d47a1 0%,#1a73e8 100%);color:#fff;border-radius:12px;padding:28px 32px;margin-bottom:18px}
+.sr-header h2{font-size:22px;font-weight:700;margin:0 0 4px;color:#fff}
+.sr-header .sr-meta{font-size:12px;opacity:.85}
+.sr-price-hero{display:flex;align-items:baseline;gap:10px;margin-top:12px;flex-wrap:wrap}
+.sr-price-hero .sr-price{font-size:40px;font-weight:700}
+.sr-price-hero .sr-neg{font-size:18px;color:#ff8a80}
+.sr-price-hero .sr-pos{font-size:18px;color:#a5d6a7}
+.sr-price-hero .sr-info{font-size:13px;opacity:.75}
+.sr-score-banner{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.sr-score-card{flex:1;min-width:140px;background:var(--sr-card);border-radius:10px;padding:14px 16px;border:1px solid var(--sr-border);text-align:center}
+.sr-score-card .sr-label{font-size:11px;color:var(--sr-sub);margin-bottom:5px}
+.sr-score-card .sr-val{font-size:26px;font-weight:700}
+.sr-score-card .sr-sub2{font-size:11px;color:var(--sr-sub);margin-top:3px}
+.sr-val-red{color:#ea4335}.sr-val-green{color:#34a853}.sr-val-orange{color:#f57c00}.sr-val-blue{color:#1a73e8}.sr-val-yellow{color:#f9a825}
+.sr-section{background:var(--sr-card);border-radius:10px;border:1px solid var(--sr-border);margin-bottom:14px;overflow:hidden}
+.sr-section-title{background:var(--sr-bg);padding:12px 18px;font-weight:600;font-size:14px;border-bottom:1px solid var(--sr-border)}
+.sr-section-body{padding:18px}
+.sr-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sr-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.sr-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:680px){.sr-grid2,.sr-grid3,.sr-grid4{grid-template-columns:1fr 1fr}}
+.sr-kv{background:var(--sr-bg);border-radius:8px;padding:10px 12px}
+.sr-kv .sr-k{font-size:11px;color:var(--sr-sub);margin-bottom:2px}
+.sr-kv .sr-v{font-size:15px;font-weight:600}
+.sr-table{width:100%;border-collapse:collapse;font-size:13px}
+.sr-table th{background:var(--sr-bg);color:var(--sr-sub);font-weight:600;padding:7px 9px;text-align:left;border-bottom:1px solid var(--sr-border)}
+.sr-table td{padding:7px 9px;border-bottom:1px solid var(--sr-border);color:var(--sr-text)}
+.sr-table tr:last-child td{border-bottom:none}
+.sr-badge{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;font-weight:600}
+.sr-badge-red{background:#fce8e6;color:#c62828}.sr-badge-green{background:#e6f4ea;color:#1b5e20}
+.sr-badge-orange{background:#fff3e0;color:#e65100}.sr-badge-blue{background:#e8f0fe;color:#1565c0}
+.sr-badge-gray{background:#f1f3f4;color:#555}.sr-badge-yellow{background:#fff9c4;color:#f57f17}
+.dark .sr-badge-red{background:#4a1010;color:#ff8a80}.dark .sr-badge-green{background:#0d2e18;color:#81c995}
+.dark .sr-badge-orange{background:#3e2000;color:#ffcc80}.dark .sr-badge-blue{background:#0d2045;color:#82b1ff}
+.dark .sr-badge-gray{background:#2d2d2d;color:#bbb}
+.sr-bar-wrap{background:#e0e0e0;border-radius:4px;height:7px;margin-top:5px}
+.dark .sr-bar-wrap{background:#444}
+.sr-bar{height:7px;border-radius:4px}
+.sr-bar-green{background:#34a853}.sr-bar-red{background:#ea4335}.sr-bar-blue{background:#1a73e8}.sr-bar-orange{background:#f57c00}
+.sr-news-item{padding:9px 0;border-bottom:1px solid var(--sr-border);display:flex;gap:8px;align-items:flex-start}
+.sr-news-item:last-child{border-bottom:none}
+.sr-news-title{font-size:13px;color:var(--sr-text)}
+.sr-news-meta{font-size:11px;color:var(--sr-sub);margin-top:2px}
+.sr-warn-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:12px 14px;font-size:13px;color:#e65100;margin-top:10px}
+.dark .sr-warn-box{background:#2a1e00;border-color:#5a3e00;color:#ffcc80}
+.sr-danger-box{background:#fce8e6;border:1px solid #ef9a9a;border-radius:8px;padding:12px 14px;font-size:13px;color:#c62828;margin-top:10px}
+.sr-advice-block{border-radius:10px;padding:18px 20px;margin-bottom:12px}
+.sr-advice-buy{background:#e8f5e9;border:1px solid #a5d6a7}
+.dark .sr-advice-buy{background:#0d2e18;border-color:#2e7d32}
+.sr-advice-watch{background:#fff8e1;border:1px solid #ffe082}
+.dark .sr-advice-watch{background:#2a1e00;border-color:#5a3e00}
+.sr-advice-sell{background:#fce8e6;border:1px solid #ef9a9a}
+.dark .sr-advice-sell{background:#4a1010;border-color:#c62828}
+.sr-advice-title{font-size:16px;font-weight:700;margin-bottom:8px;color:#e65100}
+.dark .sr-advice-title{color:#ffcc80}
+.sr-price-row{display:flex;gap:12px;flex-wrap:wrap}
+.sr-price-box{background:var(--sr-card);border-radius:8px;padding:10px 14px;flex:1;min-width:110px;border:1px solid var(--sr-border)}
+.sr-price-box .sr-pk{font-size:11px;color:var(--sr-sub);margin-bottom:2px}
+.sr-price-box .sr-pv{font-size:16px;font-weight:700}
+.sr-footer-tip{font-size:12px;color:var(--sr-sub);background:var(--sr-bg);border-radius:8px;padding:10px 14px;margin-top:10px}
+.sr-risk-disclaimer{font-size:12px;color:#c62828;background:#fce8e6;border-radius:8px;padding:12px 14px;line-height:1.8}
+</style>
+
+<div class="sr-wrap">
+
+<div class="sr-header">
+<div class="sr-meta">A股 · 电力设备 · sz002812 · 2026-05-07 收盘</div>
+<h2>恩捷股份(sz002812) 全面行情分析报告</h2>
+<div class="sr-price-hero">
+<span class="sr-price">85.31</span>
+<span class="sr-pos">▼ 2.56%</span>
+<span class="sr-info">元 &nbsp;|&nbsp; 振幅 0.00% &nbsp;|&nbsp; 成交额 +42.48亿元</span>
+</div>
+</div>
+
+<div class="sr-score-banner">
+<div class="sr-score-card">
+<div class="sr-label">基本面</div>
+<div class="sr-val sr-val-orange">4</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">新闻面</div>
+<div class="sr-val sr-val-green">6</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">资金面</div>
+<div class="sr-val sr-val-red">3</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">技术面</div>
+<div class="sr-val sr-val-orange">5</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card" style="background:linear-gradient(135deg,#fff3e0,#fce8e6)">
+<div class="sr-label">综合评分</div>
+<div class="sr-val" style="color:#f57c00">5.1</div>
+<div class="sr-sub2">/ 10 &nbsp;<span class="sr-badge sr-badge-orange">谨慎观望，控制仓位</span></div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">一、基本行情概览</div>
+<div class="sr-section-body">
+<div class="sr-grid4"><div class="sr-kv"><div class="sr-k">收盘价</div><div class="sr-v sr-val-green">¥85.31</div></div><div class="sr-kv"><div class="sr-k">今日涨跌</div><div class="sr-v sr-val-green">▼ 2.56%</div></div><div class="sr-kv"><div class="sr-k">开盘 / 昨收</div><div class="sr-v ">¥87 / ¥0</div></div><div class="sr-kv"><div class="sr-k">今日高 / 低</div><div class="sr-v ">¥87.49 / ¥84</div></div><div class="sr-kv"><div class="sr-k">成交额</div><div class="sr-v ">+42.48亿元</div></div><div class="sr-kv"><div class="sr-k">换手率 / 量比</div><div class="sr-v ">6.05% / 0.85</div></div><div class="sr-kv"><div class="sr-k">PE(TTM) / PB</div><div class="sr-v ">222.32x / 3.28x</div></div><div class="sr-kv"><div class="sr-k">总市值</div><div class="sr-v ">+0元</div></div><div class="sr-kv"><div class="sr-k">52周高 / 低</div><div class="sr-v ">¥87.71 / ¥25.87</div></div><div class="sr-kv"><div class="sr-k">距52周高 / 低</div><div class="sr-v "><span class="sr-val-red">-2.7%</span> / <span class="sr-val-green">+229.8%</span></div></div><div class="sr-kv"><div class="sr-k">年初至今</div><div class="sr-v "><span class="sr-val-red">+50.62%</span></div></div><div class="sr-kv"><div class="sr-k">近60日</div><div class="sr-v "><span class="sr-val-red">+75.35%</span></div></div></div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">二、K线走势（近60日）</div>
+<div class="sr-section-body">
+<canvas id="sr-kline" style="width:100%;display:block" height="300"></canvas>
+<div style="margin-top:12px;font-size:13px;color:var(--sr-sub)">
+<b>走势回顾：</b>恩捷股份近60个交易日累计上涨75.35%，呈现出强劲的中期上升趋势，股价已从52周低点25.87元大幅反弹至当前85.31元，处于近一年价格区间的96%分位，接近87.71元的52周高点。近20日涨幅达28.81%，显示短期上升动能依然充沛，而近5日小幅上涨5.52%，节奏较前期有所放缓。今日股价回调2.56%，属于连续大涨后的正常技术性休整；换手率6.05%维持相对活跃水平，但量比0.85表明今日成交量较近期平均水平略有萎缩，市场追高意愿暂时降温。
+</div>
+</div>
+</div>
+<script>
+(function(){
+var canvas=document.getElementById('sr-kline');
+if(!canvas)return;
+var ctx=canvas.getContext('2d');
+var dpr=window.devicePixelRatio||1;
+var W=canvas.parentElement.clientWidth||860;
+var H=300;
+canvas.width=W*dpr;canvas.height=H*dpr;
+canvas.style.width=W+'px';canvas.style.height=H+'px';
+ctx.scale(dpr,dpr);
+var raw=[{d:"01-30",o:49.86,c:50.99,h:51.7,l:49.22},
+{d:"02-02",o:50.9,c:50.92,h:52.47,l:50.3},
+{d:"02-03",o:51.13,c:51.7,h:52.75,l:51.13},
+{d:"02-04",o:51.2,c:52.96,h:53.23,l:50.89},
+{d:"02-05",o:53.2,c:52.22,h:55.4,l:52.06},
+{d:"02-06",o:51,c:57.44,h:57.44,l:50.77},
+{d:"02-09",o:59,c:58.1,h:59.5,l:57.5},
+{d:"02-10",o:58.5,c:57.5,h:59.06,l:56.9},
+{d:"02-11",o:57.16,c:60.93,h:61.37,l:56.6},
+{d:"02-12",o:59.8,c:61.5,h:61.84,l:59.2},
+{d:"02-13",o:60.44,c:64.5,h:65.5,l:59.98},
+{d:"02-24",o:64.57,c:66.31,h:68.8,l:64},
+{d:"02-25",o:66,c:65.66,h:68.5,l:64.73},
+{d:"02-26",o:66.9,c:62.49,h:66.99,l:62.38},
+{d:"02-27",o:62.57,c:61.93,h:62.96,l:61.25},
+{d:"03-02",o:60.85,c:60.68,h:62.5,l:60},
+{d:"03-03",o:60.9,c:61.59,h:63.45,l:59.47},
+{d:"03-04",o:60.49,c:61.75,h:62.75,l:60.01},
+{d:"03-05",o:62.68,c:61.56,h:63.18,l:60.99},
+{d:"03-06",o:61.55,c:61.25,h:62.08,l:60.49},
+{d:"03-09",o:60,c:65.65,h:65.9,l:59.65},
+{d:"03-10",o:65.8,c:66.39,h:68.3,l:65.51},
+{d:"03-11",o:66.04,c:69.74,h:70.88,l:65.87},
+{d:"03-12",o:69.39,c:70.89,h:72.7,l:68.6},
+{d:"03-13",o:71.48,c:72.99,h:76.57,l:71.23},
+{d:"03-16",o:72.97,c:71.66,h:74.5,l:71.2},
+{d:"03-17",o:71.66,c:68.9,h:72.66,l:68},
+{d:"03-18",o:68.94,c:68.79,h:70.84,l:67.67},
+{d:"03-19",o:68.23,c:64.66,h:68.5,l:63.68},
+{d:"03-20",o:64.76,c:66.65,h:70.28,l:64.2},
+{d:"03-23",o:65.31,c:66,h:68.37,l:64.68},
+{d:"03-24",o:66.5,c:66.59,h:67.45,l:62.6},
+{d:"03-25",o:67,c:67.01,h:68.48,l:65.5},
+{d:"03-26",o:67.02,c:70.19,h:72.77,l:66.28},
+{d:"03-27",o:68.35,c:72.17,h:72.17,l:68.35},
+{d:"03-30",o:71.52,c:74.2,h:74.61,l:69.47},
+{d:"03-31",o:73,c:67.78,h:74.19,l:67.76},
+{d:"04-01",o:68.63,c:66.87,h:70.1,l:66.5},
+{d:"04-02",o:66.6,c:65.9,h:69.02,l:65.13},
+{d:"04-03",o:65.68,c:66.23,h:66.91,l:64.13},
+{d:"04-07",o:66.25,c:69.79,h:70.52,l:65.6},
+{d:"04-08",o:70,c:68.94,h:70.4,l:68},
+{d:"04-09",o:69.18,c:65.82,h:69.48,l:65.8},
+{d:"04-10",o:65.51,c:66.79,h:67.95,l:65.13},
+{d:"04-13",o:65.93,c:66.88,h:67.8,l:65.25},
+{d:"04-14",o:67.48,c:70.7,h:70.72,l:67.26},
+{d:"04-15",o:72,c:70.76,h:72.18,l:69.58},
+{d:"04-16",o:71.58,c:71.38,h:72.55,l:70.06},
+{d:"04-17",o:70.94,c:71.67,h:73.66,l:70.6},
+{d:"04-20",o:71.49,c:72.15,h:72.98,l:70.45},
+{d:"04-21",o:72.6,c:75.84,h:76.35,l:70.61},
+{d:"04-22",o:75.08,c:74.74,h:77.78,l:73.91},
+{d:"04-23",o:74,c:70.16,h:74.25,l:69.6},
+{d:"04-24",o:70.5,c:77.18,h:77.18,l:70.1},
+{d:"04-27",o:80.24,c:80.85,h:84,l:80.01},
+{d:"04-28",o:80.86,c:78.51,h:81.25,l:76.77},
+{d:"04-29",o:78.53,c:84.47,h:85.89,l:77.8},
+{d:"04-30",o:84,c:82.95,h:85.66,l:82.01},
+{d:"05-06",o:83.78,c:87.55,h:87.71,l:82.91},
+{d:"05-07",o:87,c:85.31,h:87.49,l:84}];
+var avgCost=72.33;
+var pad={left:52,right:15,top:18,bottom:28};
+var cw=W-pad.left-pad.right,ch=H-pad.top-pad.bottom;
+var allP=raw.flatMap(function(k){return[k.h,k.l]});
+var minP=Math.min.apply(null,allP)-allP.reduce(function(a,b){return a+b},0)/allP.length*0.02;
+var maxP=Math.max.apply(null,allP)+allP.reduce(function(a,b){return a+b},0)/allP.length*0.02;
+var range=maxP-minP,n=raw.length;
+var bw=Math.max(3,Math.floor(cw/n*0.65));
+function py(p){return pad.top+ch*(1-(p-minP)/range)}
+function px(i){return pad.left+(i+0.5)*(cw/n)}
+ctx.fillStyle='#ffffff';ctx.fillRect(0,0,W,H);
+var gridColor='#e8eaed';var labelColor='#888';
+ctx.strokeStyle=gridColor;ctx.lineWidth=0.5;
+for(var i=0;i<=4;i++){
+var y=pad.top+ch*i/4;
+ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(W-pad.right,y);ctx.stroke();
+var val=(maxP-range*i/4).toFixed(2);
+ctx.fillStyle=labelColor;ctx.font='11px sans-serif';ctx.textAlign='right';
+ctx.fillText(val,pad.left-4,y+4);
+}
+// MA5
+ctx.strokeStyle='#1a73e8';ctx.lineWidth=1.4;ctx.beginPath();
+var started5=false;
+for(var i=4;i<n;i++){
+var ma5=0;for(var j=i-4;j<=i;j++)ma5+=raw[j].c;ma5/=5;
+var x=px(i),yy=py(ma5);
+if(!started5){ctx.moveTo(x,yy);started5=true;}else{ctx.lineTo(x,yy);};
+}ctx.stroke();
+// MA20
+ctx.strokeStyle='#f57c00';ctx.lineWidth=1.2;ctx.beginPath();
+var started20=false;
+for(var i=19;i<n;i++){
+var ma=0;for(var j=i-19;j<=i;j++)ma+=raw[j].c;ma/=20;
+var x=px(i),yy=py(ma);
+if(!started20){ctx.moveTo(x,yy);started20=true;}else{ctx.lineTo(x,yy);};
+}ctx.stroke();
+// 均价线
+if(avgCost>0){
+ctx.strokeStyle='#ff8f00';ctx.lineWidth=1.4;ctx.setLineDash([5,3]);
+ctx.beginPath();ctx.moveTo(pad.left,py(avgCost));ctx.lineTo(W-pad.right,py(avgCost));ctx.stroke();
+ctx.setLineDash([]);
+ctx.fillStyle='#ff8f00';ctx.font='10px sans-serif';ctx.textAlign='left';
+ctx.fillText('均价'+avgCost.toFixed(2),pad.left+4,py(avgCost)-4);
+}
+// K线
+raw.forEach(function(k,i){
+var x=px(i),up=k.c>=k.o;
+var color=up?'#34a853':'#ea4335';
+ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=1;
+ctx.beginPath();ctx.moveTo(x,py(k.h));ctx.lineTo(x,py(k.l));ctx.stroke();
+var y1=py(Math.max(k.o,k.c)),y2=py(Math.min(k.o,k.c)),bh=Math.max(1,y2-y1);
+if(up){ctx.strokeRect(x-bw/2,y1,bw,bh);}else{ctx.fillRect(x-bw/2,y1,bw,bh);};
+});
+// X轴标签
+ctx.fillStyle=labelColor;ctx.font='10px sans-serif';ctx.textAlign='center';
+var step=Math.max(1,Math.floor(n/8));
+for(var i=0;i<n;i+=step)ctx.fillText(raw[i].d,px(i),H-8);
+// 图例
+ctx.font='11px sans-serif';ctx.textAlign='left';
+ctx.fillStyle='#1a73e8';ctx.fillRect(pad.left,4,14,3);
+ctx.fillStyle=labelColor;ctx.fillText('MA5',pad.left+18,11);
+ctx.fillStyle='#f57c00';ctx.fillRect(pad.left+50,4,14,3);
+ctx.fillStyle=labelColor;ctx.fillText('MA20',pad.left+68,11);
+ctx.fillStyle='#34a853';ctx.fillRect(pad.left+110,3,9,9);
+ctx.fillStyle=labelColor;ctx.fillText('阳线',pad.left+123,12);
+ctx.fillStyle='#ea4335';ctx.fillRect(pad.left+155,3,9,9);
+ctx.fillStyle=labelColor;ctx.fillText('阴线',pad.left+168,12);
+})();
+</script>
+
+<div class="sr-section">
+<div class="sr-section-title">三、技术面分析</div>
+<div class="sr-section-body">
+<div class="sr-grid2">
+<div><b style="font-size:13px;display:block;margin-bottom:8px">均线系统</b><table class="sr-table"><tr><th>均线</th><th>数值</th><th>信号</th></tr><tr><td>MA5</td><td>83.76</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA10</td><td>79.76</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA20</td><td>74.62</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA30</td><td>72.51</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA60</td><td>67.39</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr></table></div>
+<div><b style="font-size:13px;display:block;margin-bottom:8px">主要技术指标</b><table class="sr-table"><tr><th>指标</th><th>数值</th><th>信号</th></tr><tr><td>MACD(DIF/DEA)</td><td>4.65 / 3.41</td><td><span class="sr-badge sr-badge-green">MACD金叉</span></td></tr><tr><td>KDJ(K/D/J)</td><td>86.3 / 81.9 / 95.0</td><td><span class="sr-badge sr-badge-red">超买</span></td></tr><tr><td>RSI(6/12)</td><td>66.7 / 66.1</td><td><span class="sr-badge sr-badge-gray">中性67</span></td></tr><tr><td>布林带(上/中/下)</td><td>0 / 0 / 0</td><td><span class="sr-badge sr-badge-blue">中轨运行</span></td></tr><tr><td>SAR抛物线</td><td>—</td><td><span class="sr-badge sr-badge-gray">无数据</span></td></tr></table></div>
+</div>
+<div style="margin-top:14px">
+<b style="font-size:13px">支撑与压力位</b>
+<div class="sr-grid4" style="margin-top:8px">
+<div class="sr-kv"><div class="sr-k">强压力</div><div class="sr-v sr-val-red">¥83.32</div></div>
+<div class="sr-kv"><div class="sr-k">次压力</div><div class="sr-v sr-val-orange">¥79.76（MA区间）</div></div>
+<div class="sr-kv"><div class="sr-k">支撑1</div><div class="sr-v sr-val-green">¥74.62（MA20）</div></div>
+<div class="sr-kv"><div class="sr-k">支撑2</div><div class="sr-v sr-val-green">¥25.87（布林下轨）</div></div>
+</div>
+</div>
+<div class="sr-warn-box"><b>技术面小结：</b>恩捷股份当前均线系统呈典型多头排列，MA5（83.76）＞MA10（79.76）＞MA20（74.62）＞MA60（67.39），短期均线陡峭向上表明上涨趋势强劲且速度加快，股价（85.31）已站上全部均线并形成有效支撑。MACD指标中DIF（4.650）上穿DEA（3.410）且红柱扩大至2.490，DIFF与DEA双双位于零轴上方并持续发散，确认多头动能正在增强，短期尚无顶背离信号。RSI(6)=66.7、RSI(12)=66.1均处于强势区但尚未突破70超买线，KDJ指标中K=86.3、D=81.9、J=95.0已进入严重超买区间（J值接近100），提示短期追高风险加大、回调概率上升。布林带与SAR数据缺失无法直接判断轨道位置，但已知SAR止损点位于价格下方，说明趋势方向仍偏多，下轨支撑位74.62与MA20重合、上档压力79.76及83.32已被突破，下一压力需关注前高附近。综合来看，该股技术面偏强，但KDJ超买与短期涨幅较大暗示存在技术性回调需求，建议持仓者可继续持有并依托MA5或74.62支撑位设止盈止损，未持仓者不宜追高，可等待回踩MA10（79.76）或MA20（74.62）附近企稳后再考虑介入。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">四、资金面分析（A股主力资金流向）</div>
+<div class="sr-section-body">
+<div class="sr-grid4"><div class="sr-kv"><div class="sr-k">主力净流入（今日）</div><div class="sr-v "><span class="sr-val-green">-5.78亿元</span><div class="sr-bar-wrap"><div class="sr-bar sr-bar-red" style="width:4%"></div></div><div style="font-size:11px;color:var(--sr-sub)">净比 +0.8%</div></div></div><div class="sr-kv"><div class="sr-k">超大单净流入</div><div class="sr-v "><span class="sr-val-green">-4.88亿元</span><div style="font-size:11px;color:var(--sr-sub)">买入+0 / 卖出+0</div></div></div><div class="sr-kv"><div class="sr-k">大单净流入</div><div class="sr-v "><span class="sr-val-red">+1.81亿元</span></div></div><div class="sr-kv"><div class="sr-k">散户净流入</div><div class="sr-v "><span class="sr-val-red">+3.97亿元</span><div style="font-size:11px;color:var(--sr-sub)">5日累计：-4.98亿元</div></div></div></div>
+<div class="sr-grid2" style="margin-top:14px">
+<div><b style="font-size:13px;display:block;margin-bottom:8px">融资融券</b><table class="sr-table"><tr><th>项目</th><th>数值</th></tr><tr><td>融资余额</td><td>+0元</td></tr><tr><td>融资买入额</td><td><span class="sr-val-red">+0元</span></td></tr><tr><td>融券卖出额</td><td><span class="sr-val-green">+0元</span></td></tr></table></div>
+
+</div>
+<div class="sr-warn-box"><b>资金面小结：</b>今日恩捷股份主力资金呈净流出态势，主力净流出5.78亿元，主力净比为+0.8%，显示大资金整体处于撤退状态。从超大单净流出4.88亿元来看，机构或游资正在大幅离场，而大单净流入1.81亿元与散户小单净流入3.97亿元形成承接，侧面印证筹码正加速从大资金向散户转移。近5日主力累计净流出4.98亿元，融资余额维持0.00亿元无变化，说明短期资金持续萎缩且杠杆资金观望情绪浓厚。机构评级方面，无买入、持有或卖出评级，目标价缺失，反映出机构对该股当前方向缺乏明确共识。综合判断，当前资金面呈"主力撤退+散户接盘"格局，缺乏机构背书和融资助力，短期或延续调整压力，不排除继续洗盘甚至出货可能，需警惕主力出货风险。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">五、基本面分析</div>
+<div class="sr-section-body">
+<div class="sr-grid2"><div><b style="font-size:13px;display:block;margin-bottom:8px">公司简介</b><table class="sr-table"><tr><th>项目</th><th>内容</th></tr><tr><td style="color:var(--sr-sub)">公司全名</td><td>恩捷股份</td></tr><tr><td style="color:var(--sr-sub)">所属行业</td><td>电力设备</td></tr><tr><td style="color:var(--sr-sub)">主营业务</td><td style="font-size:12px">提供各类包装印刷产品、包装制品及服务;锂电池隔离膜、铝塑膜、水处理膜等业务。</td></tr></table></div><div><b style="font-size:13px;display:block;margin-bottom:8px">估值与市场指标</b><table class="sr-table"><tr><th>指标</th><th>数值</th><th>评价</th></tr><tr><td>PE(TTM)</td><td>222.32x</td><td><span class="sr-badge sr-badge-orange">偏高</span></td></tr><tr><td>PB</td><td>3.28x</td><td><span class="sr-badge sr-badge-blue">合理</span></td></tr><tr><td>总市值</td><td colspan="2">+0元</td></tr></table></div></div>
+
+
+
+<div style="margin-top:14px"><b style="font-size:13px;display:block;margin-bottom:8px">机构一致预期</b><table class="sr-table"><tr><th>指标</th><th>当年预期</th><th>次年预期</th></tr><tr><td>营业收入</td><td>—</td><td>—</td></tr><tr><td>净利润</td><td>—</td><td>—</td></tr></table></div>
+<div class="sr-warn-box" style="margin-top:12px"><b>基本面小结：</b>恩捷股份当前PE(TTM)高达222.3倍，PB为3.28倍，估值水平显著偏高，市场已充分甚至过度反映其锂电池隔膜龙头的成长预期；从最新财报来看，营收同比、净利润同比及ROE数据缺失，无法有效验证其成长性是否与估值匹配，但结合其业务布局（锂电池隔离膜、铝塑膜等新能源材料）及历史表现，过去成长性较强；毛利率、净利率数据缺失，ROE暂无法评估，若其能维持高ROE则可部分支撑高估值；机构评级显示0家给出明确评级，无目标价参考，说明市场信心不足或分歧较大，上行空间缺乏共识；综合来看，公司处于新能源优质赛道但当前估值明显偏贵，在成长性与盈利能力数据尚不明确、机构态度谨慎的背景下，基本面投资价值存在较大不确定性，短期偏贵，需等待业绩验证或估值回归后再做决策。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">六、新闻面与国际局势</div>
+<div class="sr-section-body">
+<div class="sr-grid2">
+<div>
+<b style="font-size:13px;display:block;margin-bottom:8px">近期重要资讯</b>
+<div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">恩捷股份子公司补缴4610万元税款及滞纳金，预计将影响今年净利约4343万元</div><div class="sr-news-meta">2026-05-07 · 读创客户端</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-red">利空</span></div><div><div class="sr-news-title">恩捷股份主力资金净流出5.8亿元 短期情绪谨慎待重组落地与业绩验证</div><div class="sr-news-meta">2026-05-07 · 智选洞察</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-green">利好</span></div><div><div class="sr-news-title">恩捷股份5月6日获融资净买入8609万元 环比增加33.18%</div><div class="sr-news-meta">2026-05-07 · 市场透视</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-green">利好</span></div><div><div class="sr-news-title">恩捷股份主力资金净流入9581万 并购预期升温触发短期情绪回暖</div><div class="sr-news-meta">2026-05-06 · 智选洞察</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">预计5月行业排产将继续攀升 电池产业链午后活跃 容百科技涨近14%</div><div class="sr-news-meta">2026-05-06 · 财闻</div></div></div>
+</div>
+<div><b style="font-size:13px;display:block;margin-bottom:8px">国际局势与宏观因素</b><table class="sr-table"><tr><th>因素</th><th>方向</th><th>说明</th></tr><tr><td>主力资金今日</td><td><span class="sr-badge sr-badge-red">利空</span></td><td>主力净流出5.78亿元，主力阶段性撤退</td></tr><tr><td>近5日趋势</td><td><span class="sr-badge sr-badge-green">利好</span></td><td>近5日累计+5.5%，短期动能较强</td></tr><tr><td>估值水平</td><td><span class="sr-badge sr-badge-red">利空</span></td><td>PE=222.3x，估值偏高</td></tr><tr><td>机构评级</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>机构评级数据待更新</td></tr><tr><td>融资融券</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>融资融券数据待更新</td></tr><tr><td>国内货币政策</td><td><span class="sr-badge sr-badge-green">利好</span></td><td>降准降息预期支撑市场，流动性环境宽松</td></tr><tr><td>中美贸易摩擦</td><td><span class="sr-badge sr-badge-orange">偏空</span></td><td>关税博弈带来外需不确定性，出口链承压</td></tr><tr><td>行业政策</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>关注行业监管与产业政策动态，政策面影响短期情绪</td></tr></table></div>
+</div>
+<div style="margin-top:14px;background:var(--sr-bg);border-radius:10px;padding:12px 16px">
+<div class="sr-warn-box"><b>新闻面与宏观小结：</b>恩捷股份近期新闻面呈现多空交织态势。利好方面，5月6日融资净买入8609万元且环比增长33.18%，显示杠杆资金对该股的并购预期及短期情绪回暖有所认可；利空方面，5月7日主力资金大幅净流出5.8亿元，叠加子公司补缴4610万元税款及滞纳金对今年净利润的拖累，反映出市场资金对重组落地进度与业绩验证仍持谨慎态度。从宏观环境看，国内降准降息预期对新能源产业链整体构成流动性支撑，但中美贸易摩擦下的关税博弈令外需不确定性上升，对恩捷股份作为全球隔膜龙头的海外订单及出口业务形成潜在压制。该股主营业务为锂电池隔膜，高度绑定动力电池及储能产业链，当前行业排产攀升虽为产业链活跃信号，但机构评级维持零覆盖状态，说明主流机构仍在观望重组整合后的协同效应释放。综合判断，短期股价受资金面博弈主导，主力资金的大幅进出预示情绪波动加剧，并购预期与业绩压力相互对冲，预计短期内股价将维持震荡整理格局，待重组方案落地及二季度业绩明朗后方向方有望逐步清晰。</div>
+</div>
+</div>
+</div>
+
+<div class="sr-section"><div class="sr-section-title">七、平均筹码成本与价格位置</div><div class="sr-section-body"><div class="sr-grid4"><div class="sr-kv"><div class="sr-k">当前价格</div><div class="sr-v sr-val-green">¥85.31</div></div><div class="sr-kv"><div class="sr-k">筹码均价</div><div class="sr-v sr-val-green">¥72.33</div></div><div class="sr-kv"><div class="sr-k">获利比例</div><div class="sr-v sr-val-green">93.1%</div></div><div class="sr-kv"><div class="sr-k">70%集中度</div><div class="sr-v sr-val-blue">12.1%</div></div></div><div style="margin-top:14px"><b style="font-size:13px">获利盘分布</b><div class="sr-bar-wrap" style="margin-top:8px;height:12px"><div class="sr-bar sr-bar-green" style="width:93%"></div></div><div style="font-size:11px;color:var(--sr-sub);margin-top:4px">获利93% / 套牢7%</div></div><div class="sr-warn-box"><b>筹码分析小结：</b>恩捷股份当前市价85.31元，明显高于市场平均持仓成本72.33元，偏高接近18%，这意味着大部分人的买入成本都比现在低，低位进场的人已经积累了比较厚的安全垫。高达93%的获利比例说明账面上赚钱的人占了绝大多数，这部分获利盘随时可能因为"落袋为安"的心理而选择卖出，所以当前位置面临的抛压不可忽视。从筹码集中度12.1%来看，筹码分布比较集中，说明大量持仓聚集在相对较窄的成本区间内，市场对该股的成本共识较强。综合来看，目前股价正处于筹码密集区的上沿而非真空区，下方72元附近有较为坚实的成本支撑带，但同时上方也存在大量获利筹码可能兑现利润，短期内股价想要继续向上突破需要先消化这部分浮筹压力。</div></div></div>
+
+<div class="sr-section"><div class="sr-section-title">八、未来走势预估</div><div class="sr-section-body"><div class="sr-grid3"><div style="background:#fff8e1;border-left:4px solid #ffb300;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">短期（1-2周）</div><div style="font-size:14px;font-weight:800;color:#f57c00;margin-bottom:8px">震荡筑底</div><div style="font-size:12px;color:#5f6368;line-height:1.8">技术面信号混合，短期在0-74.62区间震荡的概率较大。RSI(67)、KDJ-J(95)处于中性区间，方向待定。建议等待成交量配合方向突破后再做判断。</div></div><div style="background:#fce8e6;border-left:4px solid #ef5350;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">中期（1-3个月）</div><div style="font-size:14px;font-weight:800;color:#c0392b;margin-bottom:8px">中期仍有压力</div><div style="font-size:12px;color:#5f6368;line-height:1.8">主力资金连续净流出（今日-5.78亿元，5日累计-4.98亿元），中期上行阻力较大。均线仍呈空头排列，建议等待资金面好转信号再评估。若跌破¥0（布林下轨），则需进一步关注下方支撑。</div></div><div style="background:#fce8e6;border-left:4px solid #ef5350;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">长期（6-12个月）</div><div style="font-size:14px;font-weight:800;color:#c0392b;margin-bottom:8px">高估值制约长期回报</div><div style="font-size:12px;color:#5f6368;line-height:1.8">当前PE=222.3倍估值偏高，长期回报率受估值压制。需持续验证业绩增速，若收入增速维持20%+则高PE有一定合理性；若增速放缓，估值收缩风险将显著放大。长期配置需保持耐心和适当仓位。</div></div></div><div class="sr-danger-box" style="margin-top:14px"><b>主要风险：</b><br>① 技术面：若成交量持续萎缩无法配合，即使价格上涨也难以形成有效突破<br>② 资金面：主力近5日持续净流出+4.98亿元，机构减持压力较大，需等待资金回流<br>③ 估值风险：PE=222倍处于高位，若业绩增速不达预期，存在明显杀估值风险<br>④ 宏观风险：国内经济增速放缓、流动性收紧或监管政策调整，可能引发整体板块系统性回调<br>⑤ 仓位风险：任何单一标的的仓位不宜超过总仓位20%，严格执行止损纪律，防止单笔损失过大</div></div></div>
+
+<div class="sr-section">
+<div class="sr-section-title">九、综合投资建议</div>
+<div class="sr-section-body">
+<div class="sr-advice-sell sr-advice-block">
+<div class="sr-advice-title">综合评分 5.1/10 — 谨慎观望，控制仓位</div>
+<p style="font-size:13px;line-height:1.8;color:var(--sr-text)">综合来看，恩捷股份当前风险偏大，建议轻仓观望或适当减仓控制风险。
+均线系统多头排列，趋势偏强。
+资金面：主力今日净流出+5.78亿元。
+
+</p>
+</div>
+<div class="sr-price-row" style="margin-top:14px"><div class="sr-price-box"><div class="sr-pk">激进建仓</div><div class="sr-pv sr-val-green">¥82.75</div><div style="font-size:11px;color:var(--sr-sub)">MA/BOLL支撑区</div></div><div class="sr-price-box"><div class="sr-pk">稳健建仓</div><div class="sr-pv sr-val-green">¥74.55</div><div style="font-size:11px;color:var(--sr-sub)">MA20+BOLL下轨区</div></div><div class="sr-price-box"><div class="sr-pk">中期目标价</div><div class="sr-pv sr-val-blue">¥85.96</div><div style="font-size:11px;color:var(--sr-sub)">趋势延续前提</div></div><div class="sr-price-box"><div class="sr-pk">止损价</div><div class="sr-pv sr-val-red">¥72.38</div><div style="font-size:11px;color:var(--sr-sub)">跌破则离场</div></div></div>
+<div style="margin-top:14px">
+<b style="font-size:13px;display:block;margin-bottom:8px">能否加仓？分情况建议</b>
+<div class="sr-invest-block" style="border-left:4px solid #16a34a;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#16a34a;margin-bottom:6px;">🚀 激进者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">激进者可在当前价格¥85.31附近建仓，若回调至82-83元区间可积极加仓，有望突破前期压力位¥83.32后向上挑战中期目标价¥85.96。止损位设在¥72.38一线，若放量站稳¥79.76上方可考虑追加仓位博弈更大空间。该股近60日涨幅达75.35%显示较强动能，但需警惕今日主力净流出5.78亿元带来的短期回调压力。</div></div><div class="sr-invest-block" style="border-left:4px solid #2563eb;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#2563eb;margin-bottom:6px;">🛡️ 稳健者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">稳健者建议保持观望或分批建仓，首批可在82-83元区间试探性建仓，第二批在回调至79-80元附近加仓，第三批在75-77元区域完成布局以控制持仓成本在80元以下。若股价跌破¥74.62支撑位且三日不收回则应减仓止损，重点关注主力资金流向转为净流入后再考虑加码。</div></div><div class="sr-invest-block" style="border-left:4px solid #9333ea;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#9333ea;margin-bottom:6px;">👁️ 中立者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">保守投资者当前不宜急于进场，该股PE高达222.3倍且机构评级为零覆盖，基本面支撑不足。建议观察三个确认信号：一是主力资金从净流出转为连续净流入，二是股价有效站稳¥79.76压力位上方，三是PE估值回落至150倍以下。同时需留意北向资金动向和隔膜行业需求变化，待技术面和资金面共振后再择机介入。</div></div>
+</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-body">
+<div class="sr-risk-disclaimer">
+<b>风险提示：</b>本报告由程序自动生成，仅供参考，不构成任何投资建议。股市有风险，投资须谨慎。过去表现不代表未来收益。请结合自身风险承受能力独立判断。
+</div>
+<div class="sr-footer-tip">数据来源：westock-data / 东方财富 &nbsp;·&nbsp; 报告生成时间：2026-05-07 19:46:49</div>
+</div>
+</div>
+
+</div>

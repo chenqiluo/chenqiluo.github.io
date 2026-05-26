@@ -1,0 +1,357 @@
+<style>
+.sr-wrap{--sr-blue:#1a73e8;--sr-blue-dark:#0d47a1;--sr-green:#34a853;--sr-red:#ea4335;--sr-orange:#f57c00;--sr-bg:#f0f2f5;--sr-card:#ffffff;--sr-text:#202124;--sr-sub:#5f6368;--sr-border:#dadce0;color:var(--sr-text);font-size:14px;line-height:1.6}
+.dark .sr-wrap{--sr-bg:#1a1b1e;--sr-card:#1e2129;--sr-text:#e0e0e0;--sr-sub:#9aa0a6;--sr-border:#2d3139}
+.sr-wrap *{box-sizing:border-box}
+.sr-header{background:linear-gradient(135deg,#0d47a1 0%,#1a73e8 100%);color:#fff;border-radius:12px;padding:28px 32px;margin-bottom:18px}
+.sr-header h2{font-size:22px;font-weight:700;margin:0 0 4px;color:#fff}
+.sr-header .sr-meta{font-size:12px;opacity:.85}
+.sr-price-hero{display:flex;align-items:baseline;gap:10px;margin-top:12px;flex-wrap:wrap}
+.sr-price-hero .sr-price{font-size:40px;font-weight:700}
+.sr-price-hero .sr-neg{font-size:18px;color:#ff8a80}
+.sr-price-hero .sr-pos{font-size:18px;color:#a5d6a7}
+.sr-price-hero .sr-info{font-size:13px;opacity:.75}
+.sr-score-banner{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.sr-score-card{flex:1;min-width:140px;background:var(--sr-card);border-radius:10px;padding:14px 16px;border:1px solid var(--sr-border);text-align:center}
+.sr-score-card .sr-label{font-size:11px;color:var(--sr-sub);margin-bottom:5px}
+.sr-score-card .sr-val{font-size:26px;font-weight:700}
+.sr-score-card .sr-sub2{font-size:11px;color:var(--sr-sub);margin-top:3px}
+.sr-val-red{color:#ea4335}.sr-val-green{color:#34a853}.sr-val-orange{color:#f57c00}.sr-val-blue{color:#1a73e8}.sr-val-yellow{color:#f9a825}
+.sr-section{background:var(--sr-card);border-radius:10px;border:1px solid var(--sr-border);margin-bottom:14px;overflow:hidden}
+.sr-section-title{background:var(--sr-bg);padding:12px 18px;font-weight:600;font-size:14px;border-bottom:1px solid var(--sr-border)}
+.sr-section-body{padding:18px}
+.sr-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sr-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.sr-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:680px){.sr-grid2,.sr-grid3,.sr-grid4{grid-template-columns:1fr 1fr}}
+.sr-kv{background:var(--sr-bg);border-radius:8px;padding:10px 12px}
+.sr-kv .sr-k{font-size:11px;color:var(--sr-sub);margin-bottom:2px}
+.sr-kv .sr-v{font-size:15px;font-weight:600}
+.sr-table{width:100%;border-collapse:collapse;font-size:13px}
+.sr-table th{background:var(--sr-bg);color:var(--sr-sub);font-weight:600;padding:7px 9px;text-align:left;border-bottom:1px solid var(--sr-border)}
+.sr-table td{padding:7px 9px;border-bottom:1px solid var(--sr-border);color:var(--sr-text)}
+.sr-table tr:last-child td{border-bottom:none}
+.sr-badge{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;font-weight:600}
+.sr-badge-red{background:#fce8e6;color:#c62828}.sr-badge-green{background:#e6f4ea;color:#1b5e20}
+.sr-badge-orange{background:#fff3e0;color:#e65100}.sr-badge-blue{background:#e8f0fe;color:#1565c0}
+.sr-badge-gray{background:#f1f3f4;color:#555}.sr-badge-yellow{background:#fff9c4;color:#f57f17}
+.dark .sr-badge-red{background:#4a1010;color:#ff8a80}.dark .sr-badge-green{background:#0d2e18;color:#81c995}
+.dark .sr-badge-orange{background:#3e2000;color:#ffcc80}.dark .sr-badge-blue{background:#0d2045;color:#82b1ff}
+.dark .sr-badge-gray{background:#2d2d2d;color:#bbb}
+.sr-bar-wrap{background:#e0e0e0;border-radius:4px;height:7px;margin-top:5px}
+.dark .sr-bar-wrap{background:#444}
+.sr-bar{height:7px;border-radius:4px}
+.sr-bar-green{background:#34a853}.sr-bar-red{background:#ea4335}.sr-bar-blue{background:#1a73e8}.sr-bar-orange{background:#f57c00}
+.sr-news-item{padding:9px 0;border-bottom:1px solid var(--sr-border);display:flex;gap:8px;align-items:flex-start}
+.sr-news-item:last-child{border-bottom:none}
+.sr-news-title{font-size:13px;color:var(--sr-text)}
+.sr-news-meta{font-size:11px;color:var(--sr-sub);margin-top:2px}
+.sr-warn-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:12px 14px;font-size:13px;color:#e65100;margin-top:10px}
+.dark .sr-warn-box{background:#2a1e00;border-color:#5a3e00;color:#ffcc80}
+.sr-danger-box{background:#fce8e6;border:1px solid #ef9a9a;border-radius:8px;padding:12px 14px;font-size:13px;color:#c62828;margin-top:10px}
+.sr-advice-block{border-radius:10px;padding:18px 20px;margin-bottom:12px}
+.sr-advice-buy{background:#e8f5e9;border:1px solid #a5d6a7}
+.dark .sr-advice-buy{background:#0d2e18;border-color:#2e7d32}
+.sr-advice-watch{background:#fff8e1;border:1px solid #ffe082}
+.dark .sr-advice-watch{background:#2a1e00;border-color:#5a3e00}
+.sr-advice-sell{background:#fce8e6;border:1px solid #ef9a9a}
+.dark .sr-advice-sell{background:#4a1010;border-color:#c62828}
+.sr-advice-title{font-size:16px;font-weight:700;margin-bottom:8px;color:#e65100}
+.dark .sr-advice-title{color:#ffcc80}
+.sr-price-row{display:flex;gap:12px;flex-wrap:wrap}
+.sr-price-box{background:var(--sr-card);border-radius:8px;padding:10px 14px;flex:1;min-width:110px;border:1px solid var(--sr-border)}
+.sr-price-box .sr-pk{font-size:11px;color:var(--sr-sub);margin-bottom:2px}
+.sr-price-box .sr-pv{font-size:16px;font-weight:700}
+.sr-footer-tip{font-size:12px;color:var(--sr-sub);background:var(--sr-bg);border-radius:8px;padding:10px 14px;margin-top:10px}
+.sr-risk-disclaimer{font-size:12px;color:#c62828;background:#fce8e6;border-radius:8px;padding:12px 14px;line-height:1.8}
+</style>
+
+<div class="sr-wrap">
+
+<div class="sr-header">
+<div class="sr-meta">A股 · 国防军工 · sz300696 · 2026-05-07 收盘</div>
+<h2>爱乐达(sz300696) 全面行情分析报告</h2>
+<div class="sr-price-hero">
+<span class="sr-price">39.68</span>
+<span class="sr-neg">▲ 0.38%</span>
+<span class="sr-info">元 &nbsp;|&nbsp; 振幅 0.00% &nbsp;|&nbsp; 成交额 +2.36亿元</span>
+</div>
+</div>
+
+<div class="sr-score-banner">
+<div class="sr-score-card">
+<div class="sr-label">基本面</div>
+<div class="sr-val sr-val-orange">4</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">新闻面</div>
+<div class="sr-val sr-val-green">6</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">资金面</div>
+<div class="sr-val sr-val-orange">5</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">技术面</div>
+<div class="sr-val sr-val-green">6</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card" style="background:linear-gradient(135deg,#fff3e0,#fce8e6)">
+<div class="sr-label">综合评分</div>
+<div class="sr-val" style="color:#c0392b">4.9</div>
+<div class="sr-sub2">/ 10 &nbsp;<span class="sr-badge sr-badge-red">谨慎观望，控制仓位</span></div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">一、基本行情概览</div>
+<div class="sr-section-body">
+<div class="sr-grid4"><div class="sr-kv"><div class="sr-k">收盘价</div><div class="sr-v sr-val-red">¥39.68</div></div><div class="sr-kv"><div class="sr-k">今日涨跌</div><div class="sr-v sr-val-red">▲ 0.38%</div></div><div class="sr-kv"><div class="sr-k">开盘 / 昨收</div><div class="sr-v ">¥40 / ¥0</div></div><div class="sr-kv"><div class="sr-k">今日高 / 低</div><div class="sr-v ">¥40 / ¥38.86</div></div><div class="sr-kv"><div class="sr-k">成交额</div><div class="sr-v ">+2.36亿元</div></div><div class="sr-kv"><div class="sr-k">换手率 / 量比</div><div class="sr-v ">2.26% / 0.65</div></div><div class="sr-kv"><div class="sr-k">PE(TTM) / PB</div><div class="sr-v ">216.76x / 6.09x</div></div><div class="sr-kv"><div class="sr-k">总市值</div><div class="sr-v ">+0元</div></div><div class="sr-kv"><div class="sr-k">52周高 / 低</div><div class="sr-v ">¥40.45 / ¥19.58</div></div><div class="sr-kv"><div class="sr-k">距52周高 / 低</div><div class="sr-v "><span class="sr-val-red">-1.9%</span> / <span class="sr-val-green">+102.7%</span></div></div><div class="sr-kv"><div class="sr-k">年初至今</div><div class="sr-v "><span class="sr-val-red">+24.35%</span></div></div><div class="sr-kv"><div class="sr-k">近60日</div><div class="sr-v "><span class="sr-val-red">+17.40%</span></div></div></div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">二、K线走势（近60日）</div>
+<div class="sr-section-body">
+<canvas id="sr-kline" style="width:100%;display:block" height="300"></canvas>
+<div style="margin-top:12px;font-size:13px;color:var(--sr-sub)">
+<b>走势回顾：</b>[执行命令] 爱乐达近60日累计上涨17.40%，MA60位于31.71元，中期已形成稳健的上升通道。近20日股价加速攀升，涨幅高达53.50%，MA20已上移至34.84元，5日均线38.98元保持多头排列，显示短期上攻动能充沛。今日小幅收涨0.38%报39.68元，股价已逼近52周高点40.45元，处于52周价格区间的96%分位，逼近前期高点附近心理关口。不过当日换手率仅2.26%，量比仅0.65，成交量较近期明显萎缩，显示市场在高位追涨意愿减弱，多空双方趋于谨慎。
+</div>
+</div>
+</div>
+<script>
+(function(){
+var canvas=document.getElementById('sr-kline');
+if(!canvas)return;
+var ctx=canvas.getContext('2d');
+var dpr=window.devicePixelRatio||1;
+var W=canvas.parentElement.clientWidth||860;
+var H=300;
+canvas.width=W*dpr;canvas.height=H*dpr;
+canvas.style.width=W+'px';canvas.style.height=H+'px';
+ctx.scale(dpr,dpr);
+var raw=[{d:"01-30",o:34.44,c:32.06,h:34.49,l:30.52},
+{d:"02-02",o:31.5,c:31.25,h:32.85,l:31.14},
+{d:"02-03",o:31.67,c:32,h:32.59,l:31.02},
+{d:"02-04",o:31.76,c:32.1,h:33.4,l:31.32},
+{d:"02-05",o:31.5,c:32.29,h:32.88,l:31.5},
+{d:"02-06",o:31.8,c:31.6,h:33.15,l:31.5},
+{d:"02-09",o:32.01,c:30.92,h:32.5,l:30.88},
+{d:"02-10",o:30.85,c:31.79,h:32.35,l:30.32},
+{d:"02-11",o:31.79,c:30.8,h:31.82,l:30.7},
+{d:"02-12",o:30.66,c:32.6,h:33,l:30.59},
+{d:"02-13",o:32.62,c:32.8,h:33.38,l:32.62},
+{d:"02-24",o:33.09,c:33.17,h:33.48,l:32.43},
+{d:"02-25",o:33.3,c:32.88,h:33.32,l:32.58},
+{d:"02-26",o:33.06,c:32.81,h:33.1,l:32.28},
+{d:"02-27",o:32.55,c:32.83,h:33.7,l:32.42},
+{d:"03-02",o:33.53,c:32.37,h:33.72,l:32.3},
+{d:"03-03",o:32.47,c:30.4,h:32.79,l:30.13},
+{d:"03-04",o:29.98,c:30.45,h:30.9,l:29.6},
+{d:"03-05",o:30.69,c:30.33,h:30.99,l:30.01},
+{d:"03-06",o:30.49,c:30.58,h:31.58,l:30},
+{d:"03-09",o:30.12,c:30.15,h:30.36,l:29.24},
+{d:"03-10",o:30.56,c:30.86,h:31.27,l:30.18},
+{d:"03-11",o:30.91,c:30.24,h:31.12,l:30.13},
+{d:"03-12",o:30.33,c:29.09,h:30.4,l:28.99},
+{d:"03-13",o:29.09,c:29.18,h:29.75,l:28.43},
+{d:"03-16",o:29.16,c:30.27,h:30.48,l:28.8},
+{d:"03-17",o:30.5,c:29.95,h:31.36,l:29.92},
+{d:"03-18",o:30.1,c:30.14,h:30.16,l:29.61},
+{d:"03-19",o:29.75,c:29.48,h:29.98,l:29.28},
+{d:"03-20",o:29.59,c:28.26,h:29.82,l:28.22},
+{d:"03-23",o:27.69,c:26.7,h:28.16,l:26.4},
+{d:"03-24",o:27.5,c:27.13,h:27.5,l:26.41},
+{d:"03-25",o:27.27,c:27.64,h:27.67,l:27.1},
+{d:"03-26",o:28.05,c:27.58,h:28.5,l:27.5},
+{d:"03-27",o:27.3,c:27.8,h:27.89,l:27.23},
+{d:"03-30",o:27.42,c:28.3,h:28.3,l:27.31},
+{d:"03-31",o:28.1,c:27.15,h:28.3,l:26.85},
+{d:"04-01",o:27.8,c:27.26,h:27.8,l:27},
+{d:"04-02",o:27.33,c:26.62,h:27.33,l:26.46},
+{d:"04-03",o:26.7,c:25.85,h:26.81,l:25.82},
+{d:"04-07",o:26,c:25.9,h:26.1,l:25.7},
+{d:"04-08",o:26.5,c:28.3,h:28.62,l:26.4},
+{d:"04-09",o:27.96,c:30.07,h:30.59,l:27.76},
+{d:"04-10",o:30.09,c:29.69,h:30.96,l:29.66},
+{d:"04-13",o:29.55,c:29.12,h:30,l:29},
+{d:"04-14",o:29.25,c:31.99,h:32.56,l:29.17},
+{d:"04-15",o:32.5,c:31.56,h:33.3,l:31.47},
+{d:"04-16",o:31.86,c:34.26,h:35,l:31.55},
+{d:"04-17",o:34.66,c:34.91,h:36.15,l:33.69},
+{d:"04-20",o:34.77,c:36.33,h:36.88,l:34.32},
+{d:"04-21",o:35.82,c:36,h:36.63,l:35.6},
+{d:"04-22",o:35.64,c:38.52,h:38.6,l:35.64},
+{d:"04-23",o:39.3,c:38.94,h:40.45,l:38.41},
+{d:"04-24",o:38.8,c:37.64,h:39.44,l:37.1},
+{d:"04-27",o:36.9,c:38.61,h:39.11,l:36.2},
+{d:"04-28",o:38.22,c:38.29,h:39.24,l:37.92},
+{d:"04-29",o:38.29,c:38.16,h:38.63,l:37.71},
+{d:"04-30",o:37.96,c:39.25,h:39.79,l:37.56},
+{d:"05-06",o:40,c:39.53,h:40,l:38.4},
+{d:"05-07",o:40,c:39.68,h:40,l:38.86}];
+var avgCost=32.93;
+var pad={left:52,right:15,top:18,bottom:28};
+var cw=W-pad.left-pad.right,ch=H-pad.top-pad.bottom;
+var allP=raw.flatMap(function(k){return[k.h,k.l]});
+var minP=Math.min.apply(null,allP)-allP.reduce(function(a,b){return a+b},0)/allP.length*0.02;
+var maxP=Math.max.apply(null,allP)+allP.reduce(function(a,b){return a+b},0)/allP.length*0.02;
+var range=maxP-minP,n=raw.length;
+var bw=Math.max(3,Math.floor(cw/n*0.65));
+function py(p){return pad.top+ch*(1-(p-minP)/range)}
+function px(i){return pad.left+(i+0.5)*(cw/n)}
+ctx.fillStyle='#ffffff';ctx.fillRect(0,0,W,H);
+var gridColor='#e8eaed';var labelColor='#888';
+ctx.strokeStyle=gridColor;ctx.lineWidth=0.5;
+for(var i=0;i<=4;i++){
+var y=pad.top+ch*i/4;
+ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(W-pad.right,y);ctx.stroke();
+var val=(maxP-range*i/4).toFixed(2);
+ctx.fillStyle=labelColor;ctx.font='11px sans-serif';ctx.textAlign='right';
+ctx.fillText(val,pad.left-4,y+4);
+}
+// MA5
+ctx.strokeStyle='#1a73e8';ctx.lineWidth=1.4;ctx.beginPath();
+var started5=false;
+for(var i=4;i<n;i++){
+var ma5=0;for(var j=i-4;j<=i;j++)ma5+=raw[j].c;ma5/=5;
+var x=px(i),yy=py(ma5);
+if(!started5){ctx.moveTo(x,yy);started5=true;}else{ctx.lineTo(x,yy);};
+}ctx.stroke();
+// MA20
+ctx.strokeStyle='#f57c00';ctx.lineWidth=1.2;ctx.beginPath();
+var started20=false;
+for(var i=19;i<n;i++){
+var ma=0;for(var j=i-19;j<=i;j++)ma+=raw[j].c;ma/=20;
+var x=px(i),yy=py(ma);
+if(!started20){ctx.moveTo(x,yy);started20=true;}else{ctx.lineTo(x,yy);};
+}ctx.stroke();
+// 均价线
+if(avgCost>0){
+ctx.strokeStyle='#ff8f00';ctx.lineWidth=1.4;ctx.setLineDash([5,3]);
+ctx.beginPath();ctx.moveTo(pad.left,py(avgCost));ctx.lineTo(W-pad.right,py(avgCost));ctx.stroke();
+ctx.setLineDash([]);
+ctx.fillStyle='#ff8f00';ctx.font='10px sans-serif';ctx.textAlign='left';
+ctx.fillText('均价'+avgCost.toFixed(2),pad.left+4,py(avgCost)-4);
+}
+// K线
+raw.forEach(function(k,i){
+var x=px(i),up=k.c>=k.o;
+var color=up?'#34a853':'#ea4335';
+ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=1;
+ctx.beginPath();ctx.moveTo(x,py(k.h));ctx.lineTo(x,py(k.l));ctx.stroke();
+var y1=py(Math.max(k.o,k.c)),y2=py(Math.min(k.o,k.c)),bh=Math.max(1,y2-y1);
+if(up){ctx.strokeRect(x-bw/2,y1,bw,bh);}else{ctx.fillRect(x-bw/2,y1,bw,bh);};
+});
+// X轴标签
+ctx.fillStyle=labelColor;ctx.font='10px sans-serif';ctx.textAlign='center';
+var step=Math.max(1,Math.floor(n/8));
+for(var i=0;i<n;i+=step)ctx.fillText(raw[i].d,px(i),H-8);
+// 图例
+ctx.font='11px sans-serif';ctx.textAlign='left';
+ctx.fillStyle='#1a73e8';ctx.fillRect(pad.left,4,14,3);
+ctx.fillStyle=labelColor;ctx.fillText('MA5',pad.left+18,11);
+ctx.fillStyle='#f57c00';ctx.fillRect(pad.left+50,4,14,3);
+ctx.fillStyle=labelColor;ctx.fillText('MA20',pad.left+68,11);
+ctx.fillStyle='#34a853';ctx.fillRect(pad.left+110,3,9,9);
+ctx.fillStyle=labelColor;ctx.fillText('阳线',pad.left+123,12);
+ctx.fillStyle='#ea4335';ctx.fillRect(pad.left+155,3,9,9);
+ctx.fillStyle=labelColor;ctx.fillText('阴线',pad.left+168,12);
+})();
+</script>
+
+<div class="sr-section">
+<div class="sr-section-title">三、技术面分析</div>
+<div class="sr-section-body">
+<div class="sr-grid2">
+<div><b style="font-size:13px;display:block;margin-bottom:8px">均线系统</b><table class="sr-table"><tr><th>均线</th><th>数值</th><th>信号</th></tr><tr><td>MA5</td><td>38.98</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA10</td><td>38.46</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA20</td><td>34.84</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA30</td><td>32.29</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA60</td><td>31.71</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr></table></div>
+<div><b style="font-size:13px;display:block;margin-bottom:8px">主要技术指标</b><table class="sr-table"><tr><th>指标</th><th>数值</th><th>信号</th></tr><tr><td>MACD(DIF/DEA)</td><td>2.64 / 2.24</td><td><span class="sr-badge sr-badge-green">MACD金叉</span></td></tr><tr><td>KDJ(K/D/J)</td><td>80.4 / 79.7 / 81.7</td><td><span class="sr-badge sr-badge-gray">J=82</span></td></tr><tr><td>RSI(6/12)</td><td>78.4 / 74.4</td><td><span class="sr-badge sr-badge-red">超买</span></td></tr><tr><td>布林带(上/中/下)</td><td>0 / 0 / 0</td><td><span class="sr-badge sr-badge-blue">中轨运行</span></td></tr><tr><td>SAR抛物线</td><td>—</td><td><span class="sr-badge sr-badge-gray">无数据</span></td></tr></table></div>
+</div>
+<div style="margin-top:14px">
+<b style="font-size:13px">支撑与压力位</b>
+<div class="sr-grid4" style="margin-top:8px">
+<div class="sr-kv"><div class="sr-k">强压力</div><div class="sr-v sr-val-red">¥38.43</div></div>
+<div class="sr-kv"><div class="sr-k">次压力</div><div class="sr-v sr-val-orange">¥38.46（MA区间）</div></div>
+<div class="sr-kv"><div class="sr-k">支撑1</div><div class="sr-v sr-val-green">¥34.84（MA20）</div></div>
+<div class="sr-kv"><div class="sr-k">支撑2</div><div class="sr-v sr-val-green">¥19.58（布林下轨）</div></div>
+</div>
+</div>
+<div class="sr-warn-box"><b>技术面小结：</b>爱乐达当前处于多头排列格局，MA5（38.98）、MA10（38.46）、MA20（34.84）、MA60（31.71）依次向上发散，股价（39.68）站上所有均线且距离MA5较近，短期趋势强劲。MACD指标中DIF（2.640）上穿DEA（2.240）且红柱扩大至0.800，呈现典型多头加速信号。RSI（6）为78.4、RSI（12）为74.4均进入超买区间，KDJ的K/D/J值分别为80.4/79.7/81.7三线齐超80，短期技术性过热情绪显著。SAR止损点位显示价格处于下方，预示空头压制风险仍在，布林指标缺失暂无法判断通道偏离度。综合而言，短期趋势偏强但多项指标集体超买，建议持仓者在38.46附近压力位区间适当止盈减仓，待RSI回落至70以下、回调巩固34.84支撑位后再考虑加仓。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">四、资金面分析（A股主力资金流向）</div>
+<div class="sr-section-body">
+<div class="sr-grid4"><div class="sr-kv"><div class="sr-k">主力净流入（今日）</div><div class="sr-v "><span class="sr-val-green">-169.9万元</span><div class="sr-bar-wrap"><div class="sr-bar sr-bar-red" style="width:0%"></div></div><div style="font-size:11px;color:var(--sr-sub)">净比 +0.0%</div></div></div><div class="sr-kv"><div class="sr-k">超大单净流入</div><div class="sr-v "><span class="sr-val-green">-1117.9万元</span><div style="font-size:11px;color:var(--sr-sub)">买入+0 / 卖出+0</div></div></div><div class="sr-kv"><div class="sr-k">大单净流入</div><div class="sr-v "><span class="sr-val-red">+396.7万元</span></div></div><div class="sr-kv"><div class="sr-k">散户净流入</div><div class="sr-v "><span class="sr-val-green">-226.8万元</span><div style="font-size:11px;color:var(--sr-sub)">5日累计：+1.17亿元</div></div></div></div>
+<div class="sr-grid2" style="margin-top:14px">
+<div><b style="font-size:13px;display:block;margin-bottom:8px">融资融券</b><table class="sr-table"><tr><th>项目</th><th>数值</th></tr><tr><td>融资余额</td><td>+0元</td></tr><tr><td>融资买入额</td><td><span class="sr-val-red">+0元</span></td></tr><tr><td>融券卖出额</td><td><span class="sr-val-green">+0元</span></td></tr></table></div>
+
+</div>
+<div class="sr-warn-box"><b>资金面小结：</b>爱乐达今日主力资金呈微弱净流出态势，主力净流入-0.02亿元，净占比仅0.0%，显示主力当日几乎无实质性动作，处于短暂休整或观望状态，未有明显建仓或撤退意图。从超大单来看，超大单净流出0.11亿元，但买入与卖出金额均显示为0.00亿，数据异常或说明超大单成交极其清淡，未有大体量机构或游资进场拉升或砸盘。近5日主力累计净流入+1.17亿元，表明短期资金整体仍为净流入格局，但今日转为小幅流出，结合融资余额维持0.00亿元无变化，短线存在获利派发或洗盘整理的可能。机构评级方面，当前买入、持有、卖出家数均为0，目标价缺失，显示近期无主流券商覆盖或给予明确评级，机构观点高度空白，缺乏一致性利好背书。综合判断，爱乐达当前资金面处于"近5日建仓后今日小幅洗盘"的阶段性特征，主力未有大举撤退迹象，但缺乏机构评级支撑和融资杠杆助力，资金情绪偏中性，后续需观察主力能否重新回流以确认洗盘结束。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">五、基本面分析</div>
+<div class="sr-section-body">
+<div class="sr-grid2"><div><b style="font-size:13px;display:block;margin-bottom:8px">公司简介</b><table class="sr-table"><tr><th>项目</th><th>内容</th></tr><tr><td style="color:var(--sr-sub)">公司全名</td><td>爱乐达</td></tr><tr><td style="color:var(--sr-sub)">所属行业</td><td>国防军工</td></tr><tr><td style="color:var(--sr-sub)">主营业务</td><td style="font-size:12px">军用飞机和民用客机零部件的精密加工业务。</td></tr></table></div><div><b style="font-size:13px;display:block;margin-bottom:8px">估值与市场指标</b><table class="sr-table"><tr><th>指标</th><th>数值</th><th>评价</th></tr><tr><td>PE(TTM)</td><td>216.76x</td><td><span class="sr-badge sr-badge-orange">偏高</span></td></tr><tr><td>PB</td><td>6.09x</td><td><span class="sr-badge sr-badge-orange">高</span></td></tr><tr><td>总市值</td><td colspan="2">+0元</td></tr></table></div></div>
+
+
+
+<div style="margin-top:14px"><b style="font-size:13px;display:block;margin-bottom:8px">机构一致预期</b><table class="sr-table"><tr><th>指标</th><th>当年预期</th><th>次年预期</th></tr><tr><td>营业收入</td><td>—</td><td>—</td></tr><tr><td>净利润</td><td>—</td><td>—</td></tr></table></div>
+<div class="sr-warn-box" style="margin-top:12px"><b>基本面小结：</b>爱乐达当前PE(TTM)高达216.8倍、PB为6.09倍，估值水平显著偏高，处于明显高估区间。最新财报营收与净利润同比数据缺失，无法判断短期成长性，但鉴于航天军工行业的政策驱动属性，公司仍具备一定的长期成长潜力，不过当前估值已严重透支预期。ROE及毛利率、净利率等盈利指标均未披露，机构评级呈现空白状态（0家覆盖），市场上缺乏专业机构的认可与定价锚定，投资参考价值有限。综合来看，爱乐达目前属于典型的"估值高空、数据真空"状态，基本面不确定性极大，股价在缺乏业绩和机构支撑的情况下已显得相当昂贵，短期不具备基本面安全边际，中长线投资者需高度警惕估值回归风险，建议等待业绩拐点或估值回归合理区间后再行关注。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">六、新闻面与国际局势</div>
+<div class="sr-section-body">
+<div class="sr-grid2">
+<div>
+<b style="font-size:13px;display:block;margin-bottom:8px">近期重要资讯</b>
+<div class="sr-news-item"><div><span class="sr-badge sr-badge-red">利空</span></div><div><div class="sr-news-title">爱乐达主力资金净流出169.9万 短期情绪谨慎待景气验证</div><div class="sr-news-meta">2026-05-07 · 智选洞察</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-green">利好</span></div><div><div class="sr-news-title">爱乐达5月6日获融资净买入141万元</div><div class="sr-news-meta">2026-05-07 · 市场透视</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-green">利好</span></div><div><div class="sr-news-title">爱乐达主力资金净流入2641.6万元 短期做多意愿增强上行压力减轻</div><div class="sr-news-meta">2026-05-06 · 智选洞察</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-red">利空</span></div><div><div class="sr-news-title">爱乐达4月30日被融资净卖出950万元</div><div class="sr-news-meta">2026-05-06 · 市场透视</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">爱乐达：4月30日召开业绩说明会，投资者参与</div><div class="sr-news-meta">2026-05-01 · 证星公司调研</div></div></div>
+</div>
+<div><b style="font-size:13px;display:block;margin-bottom:8px">国际局势与宏观因素</b><table class="sr-table"><tr><th>因素</th><th>方向</th><th>说明</th></tr><tr><td>主力资金今日</td><td><span class="sr-badge sr-badge-red">利空</span></td><td>主力净流出0.02亿元，主力阶段性撤退</td></tr><tr><td>近5日趋势</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>近5日累计+2.8%，震荡寻底</td></tr><tr><td>估值水平</td><td><span class="sr-badge sr-badge-red">利空</span></td><td>PE=216.8x，估值偏高</td></tr><tr><td>机构评级</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>机构评级数据待更新</td></tr><tr><td>融资融券</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>融资融券数据待更新</td></tr><tr><td>国内货币政策</td><td><span class="sr-badge sr-badge-green">利好</span></td><td>降准降息预期支撑市场，流动性环境宽松</td></tr><tr><td>中美贸易摩擦</td><td><span class="sr-badge sr-badge-orange">偏空</span></td><td>关税博弈带来外需不确定性，出口链承压</td></tr><tr><td>行业政策</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>关注行业监管与产业政策动态，政策面影响短期情绪</td></tr></table></div>
+</div>
+<div style="margin-top:14px;background:var(--sr-bg);border-radius:10px;padding:12px 16px">
+<div class="sr-warn-box"><b>新闻面与宏观小结：</b>爱乐达作为航空零部件制造企业，近期消息面呈现多空交织态势。利好方面，5月6日主力资金净流入2641.6万元且融资净买入141万元，显示短期部分资金做多意愿有所增强；利空方面，最新交易日主力资金净流出169.9万元，4月30日融资净卖出950万元，反映市场情绪仍偏谨慎，资金分歧明显。宏观层面，国内降准降息预期对制造业形成流动性支撑，但中美贸易摩擦带来的外需不确定性对航空零部件出口业务构成潜在压力，尤其需关注关税博弈对航空产业链上下游的影响。当前机构零评级覆盖，叠加主力资金整体净流出0.02亿元，说明机构观望情绪浓厚。综合来看，短期内该股将面临国内政策宽松与外部贸易环境不确定性的博弈，资金面的反复波动预示股价可能维持震荡整理格局，短期情绪面偏向谨慎，需等待行业景气度进一步验证及外部风险落地后再做方向性判断。</div>
+</div>
+</div>
+</div>
+
+<div class="sr-section"><div class="sr-section-title">七、平均筹码成本与价格位置</div><div class="sr-section-body"><div class="sr-grid4"><div class="sr-kv"><div class="sr-k">当前价格</div><div class="sr-v sr-val-red">¥39.68</div></div><div class="sr-kv"><div class="sr-k">筹码均价</div><div class="sr-v sr-val-green">¥32.93</div></div><div class="sr-kv"><div class="sr-k">获利比例</div><div class="sr-v sr-val-green">98.4%</div></div><div class="sr-kv"><div class="sr-k">70%集中度</div><div class="sr-v sr-val-blue">13.2%</div></div></div><div style="margin-top:14px"><b style="font-size:13px">获利盘分布</b><div class="sr-bar-wrap" style="margin-top:8px;height:12px"><div class="sr-bar sr-bar-green" style="width:98%"></div></div><div style="font-size:11px;color:var(--sr-sub);margin-top:4px">获利98% / 套牢2%</div></div><div class="sr-warn-box"><b>筹码分析小结：</b>当前价¥39.68较市场平均持仓成本¥32.93高出20.5%，说明前期入场的投资者大多已有浮盈，整体持仓成本压力较小。获利比例高达98%意味着几乎所有持仓者都处于赚钱状态，短期获利了结的卖盘压力较大，股价继续上攻可能面临一定的抛压。70%筹码集中度13.2%属于较低水平，叠加筹码峰分布较集中的特征，表明大部分筹码锁定在相对狭窄的价位区间内，持仓结构比较稳定。综合来看，当前价位正处于筹码密集分布区域，下方有较为厚实的成本支撑，但上方也因获利盘众多而缺乏明显的筹码真空区，股价更可能在现有筹码集中区间内震荡消化。</div></div></div>
+
+<div class="sr-section"><div class="sr-section-title">八、未来走势预估</div><div class="sr-section-body"><div class="sr-grid3"><div style="background:#fff8e1;border-left:4px solid #ffb300;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">短期（1-2周）</div><div style="font-size:14px;font-weight:800;color:#f57c00;margin-bottom:8px">震荡筑底</div><div style="font-size:12px;color:#5f6368;line-height:1.8">技术面信号混合，短期在0-34.84区间震荡的概率较大。RSI(78)、KDJ-J(82)处于中性区间，方向待定。建议等待成交量配合方向突破后再做判断。</div></div><div style="background:#e8f5e9;border-left:4px solid #43a047;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">中期（1-3个月）</div><div style="font-size:14px;font-weight:800;color:#27ae60;margin-bottom:8px">区间震荡偏多</div><div style="font-size:12px;color:#5f6368;line-height:1.8">综合技术与资金面，中期在¥0（布林下轨）~¥38.32（MA20上方10%）区间震荡。业绩催化剂（季报、年报）可能成为中期突破的契机，关注¥34.84能否企稳。</div></div><div style="background:#fce8e6;border-left:4px solid #ef5350;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">长期（6-12个月）</div><div style="font-size:14px;font-weight:800;color:#c0392b;margin-bottom:8px">高估值制约长期回报</div><div style="font-size:12px;color:#5f6368;line-height:1.8">当前PE=216.8倍估值偏高，长期回报率受估值压制。需持续验证业绩增速，若收入增速维持20%+则高PE有一定合理性；若增速放缓，估值收缩风险将显著放大。长期配置需保持耐心和适当仓位。</div></div></div><div class="sr-danger-box" style="margin-top:14px"><b>主要风险：</b><br>① 技术面：RSI(78)超买，短线回调风险较高，建议不在当前位置追高<br>② 资金面：若大盘出现系统性调整，个股资金面可能快速恶化，流动性风险不可忽视<br>③ 估值风险：PE=217倍处于高位，若业绩增速不达预期，存在明显杀估值风险<br>④ 宏观风险：国内经济增速放缓、流动性收紧或监管政策调整，可能引发整体板块系统性回调<br>⑤ 仓位风险：任何单一标的的仓位不宜超过总仓位20%，严格执行止损纪律，防止单笔损失过大</div></div></div>
+
+<div class="sr-section">
+<div class="sr-section-title">九、综合投资建议</div>
+<div class="sr-section-body">
+<div class="sr-advice-sell sr-advice-block">
+<div class="sr-advice-title">综合评分 4.9/10 — 谨慎观望，控制仓位</div>
+<p style="font-size:13px;line-height:1.8;color:var(--sr-text)">综合来看，爱乐达当前风险偏大，建议轻仓观望或适当减仓控制风险。
+均线系统多头排列，趋势偏强。
+资金面：主力今日净流出+169.9万元。
+
+</p>
+</div>
+<div class="sr-price-row" style="margin-top:14px"><div class="sr-price-box"><div class="sr-pk">激进建仓</div><div class="sr-pv sr-val-green">¥38.49</div><div style="font-size:11px;color:var(--sr-sub)">MA/BOLL支撑区</div></div><div class="sr-price-box"><div class="sr-pk">稳健建仓</div><div class="sr-pv sr-val-green">¥34.81</div><div style="font-size:11px;color:var(--sr-sub)">MA20+BOLL下轨区</div></div><div class="sr-price-box"><div class="sr-pk">中期目标价</div><div class="sr-pv sr-val-blue">¥39.64</div><div style="font-size:11px;color:var(--sr-sub)">趋势延续前提</div></div><div class="sr-price-box"><div class="sr-pk">止损价</div><div class="sr-pv sr-val-red">¥33.8</div><div style="font-size:11px;color:var(--sr-sub)">跌破则离场</div></div></div>
+<div style="margin-top:14px">
+<b style="font-size:13px;display:block;margin-bottom:8px">能否加仓？分情况建议</b>
+<div class="sr-invest-block" style="border-left:4px solid #16a34a;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#16a34a;margin-bottom:6px;">🚀 激进者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">爱乐达(sz300696)今日放量突破¥38.46前期压力位，近20日涨幅达53.50%，短期上攻动能强劲，符合趋势追涨策略。激进者可于¥38.49附近轻仓跟进，若回调至¥37.50-¥38.00区间可分批加仓至目标仓位。严格设置止盈位¥43.00、止损位¥33.80，跌破止损位无条件离场。短期博弈军工板块轮动预期，目标收益率10%-15%。</div></div><div class="sr-invest-block" style="border-left:4px solid #2563eb;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#2563eb;margin-bottom:6px;">🛡️ 稳健者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">该股基本面评分仅4/10，PE高达216.8倍估值偏贵，且机构零覆盖缺乏业绩共识，暂不具备价值配置的安全边际。如看好军工零部件赛道，建议等待回调企稳后分三批布局：第一批于¥36.00、第二批于¥34.80（接近短期支撑位）、第三批于¥32.00附近，综合持仓成本控制在¥34.50以下。若股价放量跌破¥33.80支撑位或基本面出现恶化信号，需果断止损并重新评估。</div></div><div class="sr-invest-block" style="border-left:4px solid #9333ea;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#9333ea;margin-bottom:6px;">👁️ 中立者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">当前股价已反弹至机构参考买入价¥38.49附近，综合评分4.9/10处于观望区间，不建议急于介入。建议持续观察以下信号后再做决策：一是股价能否在¥38.46压力位上方持续站稳3-5个交易日确认有效突破；二是主力资金是否由净流出转为持续性净流入；三是后续季度业绩能否改善以支撑当前216.8倍的高估值。在明确趋势反转信号出现前，建议保持空仓或极小仓位跟踪观察。</div></div>
+</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-body">
+<div class="sr-risk-disclaimer">
+<b>风险提示：</b>本报告由程序自动生成，仅供参考，不构成任何投资建议。股市有风险，投资须谨慎。过去表现不代表未来收益。请结合自身风险承受能力独立判断。
+</div>
+<div class="sr-footer-tip">数据来源：westock-data / 东方财富 &nbsp;·&nbsp; 报告生成时间：2026-05-07 19:47:47</div>
+</div>
+</div>
+
+</div>

@@ -1,0 +1,357 @@
+<style>
+.sr-wrap{--sr-blue:#1a73e8;--sr-blue-dark:#0d47a1;--sr-green:#34a853;--sr-red:#ea4335;--sr-orange:#f57c00;--sr-bg:#f0f2f5;--sr-card:#ffffff;--sr-text:#202124;--sr-sub:#5f6368;--sr-border:#dadce0;color:var(--sr-text);font-size:14px;line-height:1.6}
+.dark .sr-wrap{--sr-bg:#1a1b1e;--sr-card:#1e2129;--sr-text:#e0e0e0;--sr-sub:#9aa0a6;--sr-border:#2d3139}
+.sr-wrap *{box-sizing:border-box}
+.sr-header{background:linear-gradient(135deg,#0d47a1 0%,#1a73e8 100%);color:#fff;border-radius:12px;padding:28px 32px;margin-bottom:18px}
+.sr-header h2{font-size:22px;font-weight:700;margin:0 0 4px;color:#fff}
+.sr-header .sr-meta{font-size:12px;opacity:.85}
+.sr-price-hero{display:flex;align-items:baseline;gap:10px;margin-top:12px;flex-wrap:wrap}
+.sr-price-hero .sr-price{font-size:40px;font-weight:700}
+.sr-price-hero .sr-neg{font-size:18px;color:#ff8a80}
+.sr-price-hero .sr-pos{font-size:18px;color:#a5d6a7}
+.sr-price-hero .sr-info{font-size:13px;opacity:.75}
+.sr-score-banner{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.sr-score-card{flex:1;min-width:140px;background:var(--sr-card);border-radius:10px;padding:14px 16px;border:1px solid var(--sr-border);text-align:center}
+.sr-score-card .sr-label{font-size:11px;color:var(--sr-sub);margin-bottom:5px}
+.sr-score-card .sr-val{font-size:26px;font-weight:700}
+.sr-score-card .sr-sub2{font-size:11px;color:var(--sr-sub);margin-top:3px}
+.sr-val-red{color:#ea4335}.sr-val-green{color:#34a853}.sr-val-orange{color:#f57c00}.sr-val-blue{color:#1a73e8}.sr-val-yellow{color:#f9a825}
+.sr-section{background:var(--sr-card);border-radius:10px;border:1px solid var(--sr-border);margin-bottom:14px;overflow:hidden}
+.sr-section-title{background:var(--sr-bg);padding:12px 18px;font-weight:600;font-size:14px;border-bottom:1px solid var(--sr-border)}
+.sr-section-body{padding:18px}
+.sr-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sr-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.sr-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:680px){.sr-grid2,.sr-grid3,.sr-grid4{grid-template-columns:1fr 1fr}}
+.sr-kv{background:var(--sr-bg);border-radius:8px;padding:10px 12px}
+.sr-kv .sr-k{font-size:11px;color:var(--sr-sub);margin-bottom:2px}
+.sr-kv .sr-v{font-size:15px;font-weight:600}
+.sr-table{width:100%;border-collapse:collapse;font-size:13px}
+.sr-table th{background:var(--sr-bg);color:var(--sr-sub);font-weight:600;padding:7px 9px;text-align:left;border-bottom:1px solid var(--sr-border)}
+.sr-table td{padding:7px 9px;border-bottom:1px solid var(--sr-border);color:var(--sr-text)}
+.sr-table tr:last-child td{border-bottom:none}
+.sr-badge{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;font-weight:600}
+.sr-badge-red{background:#fce8e6;color:#c62828}.sr-badge-green{background:#e6f4ea;color:#1b5e20}
+.sr-badge-orange{background:#fff3e0;color:#e65100}.sr-badge-blue{background:#e8f0fe;color:#1565c0}
+.sr-badge-gray{background:#f1f3f4;color:#555}.sr-badge-yellow{background:#fff9c4;color:#f57f17}
+.dark .sr-badge-red{background:#4a1010;color:#ff8a80}.dark .sr-badge-green{background:#0d2e18;color:#81c995}
+.dark .sr-badge-orange{background:#3e2000;color:#ffcc80}.dark .sr-badge-blue{background:#0d2045;color:#82b1ff}
+.dark .sr-badge-gray{background:#2d2d2d;color:#bbb}
+.sr-bar-wrap{background:#e0e0e0;border-radius:4px;height:7px;margin-top:5px}
+.dark .sr-bar-wrap{background:#444}
+.sr-bar{height:7px;border-radius:4px}
+.sr-bar-green{background:#34a853}.sr-bar-red{background:#ea4335}.sr-bar-blue{background:#1a73e8}.sr-bar-orange{background:#f57c00}
+.sr-news-item{padding:9px 0;border-bottom:1px solid var(--sr-border);display:flex;gap:8px;align-items:flex-start}
+.sr-news-item:last-child{border-bottom:none}
+.sr-news-title{font-size:13px;color:var(--sr-text)}
+.sr-news-meta{font-size:11px;color:var(--sr-sub);margin-top:2px}
+.sr-warn-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:12px 14px;font-size:13px;color:#e65100;margin-top:10px}
+.dark .sr-warn-box{background:#2a1e00;border-color:#5a3e00;color:#ffcc80}
+.sr-danger-box{background:#fce8e6;border:1px solid #ef9a9a;border-radius:8px;padding:12px 14px;font-size:13px;color:#c62828;margin-top:10px}
+.sr-advice-block{border-radius:10px;padding:18px 20px;margin-bottom:12px}
+.sr-advice-buy{background:#e8f5e9;border:1px solid #a5d6a7}
+.dark .sr-advice-buy{background:#0d2e18;border-color:#2e7d32}
+.sr-advice-watch{background:#fff8e1;border:1px solid #ffe082}
+.dark .sr-advice-watch{background:#2a1e00;border-color:#5a3e00}
+.sr-advice-sell{background:#fce8e6;border:1px solid #ef9a9a}
+.dark .sr-advice-sell{background:#4a1010;border-color:#c62828}
+.sr-advice-title{font-size:16px;font-weight:700;margin-bottom:8px;color:#e65100}
+.dark .sr-advice-title{color:#ffcc80}
+.sr-price-row{display:flex;gap:12px;flex-wrap:wrap}
+.sr-price-box{background:var(--sr-card);border-radius:8px;padding:10px 14px;flex:1;min-width:110px;border:1px solid var(--sr-border)}
+.sr-price-box .sr-pk{font-size:11px;color:var(--sr-sub);margin-bottom:2px}
+.sr-price-box .sr-pv{font-size:16px;font-weight:700}
+.sr-footer-tip{font-size:12px;color:var(--sr-sub);background:var(--sr-bg);border-radius:8px;padding:10px 14px;margin-top:10px}
+.sr-risk-disclaimer{font-size:12px;color:#c62828;background:#fce8e6;border-radius:8px;padding:12px 14px;line-height:1.8}
+</style>
+
+<div class="sr-wrap">
+
+<div class="sr-header">
+<div class="sr-meta">港股 ·  · hk00700 · 2026-05-07 收盘</div>
+<h2>腾讯控股(hk00700) 全面行情分析报告</h2>
+<div class="sr-price-hero">
+<span class="sr-price">477.4</span>
+<span class="sr-neg">▲ 3.11%</span>
+<span class="sr-info">港元 &nbsp;|&nbsp; 振幅 0.00% &nbsp;|&nbsp; 成交额 +1950750.75亿港元</span>
+</div>
+</div>
+
+<div class="sr-score-banner">
+<div class="sr-score-card">
+<div class="sr-label">基本面</div>
+<div class="sr-val sr-val-orange">5</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">新闻面</div>
+<div class="sr-val sr-val-green">6</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">资金面</div>
+<div class="sr-val sr-val-green">6</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">技术面</div>
+<div class="sr-val sr-val-orange">5</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card" style="background:linear-gradient(135deg,#fff3e0,#fce8e6)">
+<div class="sr-label">综合评分</div>
+<div class="sr-val" style="color:#f57c00">5.6</div>
+<div class="sr-sub2">/ 10 &nbsp;<span class="sr-badge sr-badge-orange">谨慎观望，控制仓位</span></div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">一、基本行情概览</div>
+<div class="sr-section-body">
+<div class="sr-grid4"><div class="sr-kv"><div class="sr-k">收盘价</div><div class="sr-v sr-val-red">HK$477.4</div></div><div class="sr-kv"><div class="sr-k">今日涨跌</div><div class="sr-v sr-val-red">▲ 3.11%</div></div><div class="sr-kv"><div class="sr-k">开盘 / 昨收</div><div class="sr-v ">HK$472.2 / HK$0</div></div><div class="sr-kv"><div class="sr-k">今日高 / 低</div><div class="sr-v ">HK$481 / HK$472.2</div></div><div class="sr-kv"><div class="sr-k">成交额</div><div class="sr-v ">+1950750.75亿港元</div></div><div class="sr-kv"><div class="sr-k">换手率 / 量比</div><div class="sr-v ">0.45% / 1.47</div></div><div class="sr-kv"><div class="sr-k">PE(TTM) / PB</div><div class="sr-v ">17.50x / 3.44x</div></div><div class="sr-kv"><div class="sr-k">总市值</div><div class="sr-v ">+0港元</div></div><div class="sr-kv"><div class="sr-k">52周高 / 低</div><div class="sr-v ">HK$683 / HK$460.2</div></div><div class="sr-kv"><div class="sr-k">距52周高 / 低</div><div class="sr-v "><span class="sr-val-red">-30.1%</span> / <span class="sr-val-green">+3.7%</span></div></div><div class="sr-kv"><div class="sr-k">年初至今</div><div class="sr-v "><span class="sr-val-green">-20.30%</span></div></div><div class="sr-kv"><div class="sr-k">近60日</div><div class="sr-v "><span class="sr-val-green">-17.83%</span></div></div></div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">二、K线走势（近60日）</div>
+<div class="sr-section-body">
+<canvas id="sr-kline" style="width:100%;display:block" height="300"></canvas>
+<div style="margin-top:12px;font-size:13px;color:var(--sr-sub)">
+<b>走势回顾：</b>腾讯控股过去60个交易日整体呈明显下行态势，累计跌幅达17.83%，股价从500港元上方一路滑落至当前477.4港元，创下52周低点460.2港元后略有企稳迹象。近20日来看，该股仍未能摆脱调整格局，跌幅为6.02%，但近5日已明显收窄至微跌0.38%，短期有止跌迹象。目前股价处于52周区间的8%极低分位，距离52周高点683港元已回落三成，技术指标上MA5（470.7）、MA20（492.1）、MA60（513.5）仍呈空头排列，尚未出现有效收复。今日该股补涨劲头较足，单日大涨3.11%报477.4港元，成交量有所放大、量比达到1.47倍，显示低位有资金回补迹象。
+</div>
+</div>
+</div>
+<script>
+(function(){
+var canvas=document.getElementById('sr-kline');
+if(!canvas)return;
+var ctx=canvas.getContext('2d');
+var dpr=window.devicePixelRatio||1;
+var W=canvas.parentElement.clientWidth||860;
+var H=300;
+canvas.width=W*dpr;canvas.height=H*dpr;
+canvas.style.width=W+'px';canvas.style.height=H+'px';
+ctx.scale(dpr,dpr);
+var raw=[{d:"02-04",o:572,c:558,h:574.5,l:558},
+{d:"02-05",o:550,c:558.5,h:561.5,l:541},
+{d:"02-06",o:546,c:547.5,h:557.5,l:543},
+{d:"02-09",o:550,c:560,h:562.5,l:550},
+{d:"02-10",o:563,c:551,h:566,l:547},
+{d:"02-11",o:543,c:548,h:550.5,l:543},
+{d:"02-12",o:537,c:535.5,h:541,l:530.5},
+{d:"02-13",o:525.5,c:532,h:534.5,l:525},
+{d:"02-16",o:530,c:533,h:535,l:527.5},
+{d:"02-20",o:531.5,c:522,h:533,l:518},
+{d:"02-23",o:529,c:538,h:543,l:528},
+{d:"02-24",o:534.5,c:520,h:534.5,l:516},
+{d:"02-25",o:522.5,c:522.5,h:529,l:522},
+{d:"02-26",o:529,c:512,h:529.5,l:512},
+{d:"02-27",o:510.5,c:518,h:530.5,l:510.5},
+{d:"03-02",o:511.5,c:514,h:520,l:507},
+{d:"03-03",o:518,c:510.5,h:525.5,l:510.5},
+{d:"03-04",o:506,c:506,h:515,l:498.8},
+{d:"03-05",o:509.5,c:502,h:515.5,l:501.5},
+{d:"03-06",o:504,c:519,h:522,l:502},
+{d:"03-09",o:502.5,c:516,h:517.5,l:502.5},
+{d:"03-10",o:525,c:553.5,h:556,l:525},
+{d:"03-11",o:578,c:552,h:578,l:548},
+{d:"03-12",o:550.5,c:546.5,h:557,l:541.5},
+{d:"03-13",o:546.5,c:547.5,h:558.5,l:543},
+{d:"03-16",o:551,c:558.5,h:565.5,l:543.5},
+{d:"03-17",o:563,c:550,h:566,l:549},
+{d:"03-18",o:546.5,c:550.5,h:552,l:542.5},
+{d:"03-19",o:528,c:513,h:529.5,l:512},
+{d:"03-20",o:505,c:508,h:519,l:505},
+{d:"03-23",o:497.8,c:498.4,h:506,l:495.2},
+{d:"03-24",o:508,c:514,h:520,l:500},
+{d:"03-25",o:519,c:505.5,h:521.5,l:502},
+{d:"03-26",o:501,c:495.6,h:507.5,l:495},
+{d:"03-27",o:491.2,c:493.4,h:498.2,l:487.6},
+{d:"03-30",o:485,c:481.6,h:485.8,l:476},
+{d:"03-31",o:484.4,c:484,h:492,l:480},
+{d:"04-01",o:504,c:496.6,h:504,l:493},
+{d:"04-02",o:496,c:489.2,h:496,l:485},
+{d:"04-08",o:504.5,c:508,h:510,l:501},
+{d:"04-09",o:506.5,c:508.5,h:514.5,l:503},
+{d:"04-10",o:508,c:504.5,h:514,l:501},
+{d:"04-13",o:498.4,c:490,h:503,l:487.8},
+{d:"04-14",o:497.4,c:493.2,h:497.4,l:486.2},
+{d:"04-15",o:500,c:499,h:510,l:497.4},
+{d:"04-16",o:506.5,c:517,h:517,l:504},
+{d:"04-17",o:512,c:510.5,h:517,l:506},
+{d:"04-20",o:509.5,c:522.5,h:526.5,l:504.5},
+{d:"04-21",o:523,c:519,h:525.5,l:515.5},
+{d:"04-22",o:513.5,c:504,h:514.5,l:502},
+{d:"04-23",o:500,c:495.2,h:502,l:495.2},
+{d:"04-24",o:487,c:493.4,h:495,l:487},
+{d:"04-27",o:490,c:478.6,h:491,l:478},
+{d:"04-28",o:476,c:473.8,h:481.6,l:472},
+{d:"04-29",o:474.6,c:479.2,h:480.6,l:474.6},
+{d:"04-30",o:474,c:467.8,h:474.8,l:463.2},
+{d:"05-04",o:469.8,c:473,h:478.8,l:469.8},
+{d:"05-05",o:469,c:472.2,h:472.4,l:465.6},
+{d:"05-06",o:470.6,c:463,h:473.4,l:460.2},
+{d:"05-07",o:472.2,c:477.4,h:481,l:472.2}];
+var avgCost=0;
+var pad={left:52,right:15,top:18,bottom:28};
+var cw=W-pad.left-pad.right,ch=H-pad.top-pad.bottom;
+var allP=raw.flatMap(function(k){return[k.h,k.l]});
+var minP=Math.min.apply(null,allP)-allP.reduce(function(a,b){return a+b},0)/allP.length*0.02;
+var maxP=Math.max.apply(null,allP)+allP.reduce(function(a,b){return a+b},0)/allP.length*0.02;
+var range=maxP-minP,n=raw.length;
+var bw=Math.max(3,Math.floor(cw/n*0.65));
+function py(p){return pad.top+ch*(1-(p-minP)/range)}
+function px(i){return pad.left+(i+0.5)*(cw/n)}
+ctx.fillStyle='#ffffff';ctx.fillRect(0,0,W,H);
+var gridColor='#e8eaed';var labelColor='#888';
+ctx.strokeStyle=gridColor;ctx.lineWidth=0.5;
+for(var i=0;i<=4;i++){
+var y=pad.top+ch*i/4;
+ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(W-pad.right,y);ctx.stroke();
+var val=(maxP-range*i/4).toFixed(2);
+ctx.fillStyle=labelColor;ctx.font='11px sans-serif';ctx.textAlign='right';
+ctx.fillText(val,pad.left-4,y+4);
+}
+// MA5
+ctx.strokeStyle='#1a73e8';ctx.lineWidth=1.4;ctx.beginPath();
+var started5=false;
+for(var i=4;i<n;i++){
+var ma5=0;for(var j=i-4;j<=i;j++)ma5+=raw[j].c;ma5/=5;
+var x=px(i),yy=py(ma5);
+if(!started5){ctx.moveTo(x,yy);started5=true;}else{ctx.lineTo(x,yy);};
+}ctx.stroke();
+// MA20
+ctx.strokeStyle='#f57c00';ctx.lineWidth=1.2;ctx.beginPath();
+var started20=false;
+for(var i=19;i<n;i++){
+var ma=0;for(var j=i-19;j<=i;j++)ma+=raw[j].c;ma/=20;
+var x=px(i),yy=py(ma);
+if(!started20){ctx.moveTo(x,yy);started20=true;}else{ctx.lineTo(x,yy);};
+}ctx.stroke();
+// 均价线
+if(avgCost>0){
+ctx.strokeStyle='#ff8f00';ctx.lineWidth=1.4;ctx.setLineDash([5,3]);
+ctx.beginPath();ctx.moveTo(pad.left,py(avgCost));ctx.lineTo(W-pad.right,py(avgCost));ctx.stroke();
+ctx.setLineDash([]);
+ctx.fillStyle='#ff8f00';ctx.font='10px sans-serif';ctx.textAlign='left';
+ctx.fillText('均价'+avgCost.toFixed(2),pad.left+4,py(avgCost)-4);
+}
+// K线
+raw.forEach(function(k,i){
+var x=px(i),up=k.c>=k.o;
+var color=up?'#34a853':'#ea4335';
+ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=1;
+ctx.beginPath();ctx.moveTo(x,py(k.h));ctx.lineTo(x,py(k.l));ctx.stroke();
+var y1=py(Math.max(k.o,k.c)),y2=py(Math.min(k.o,k.c)),bh=Math.max(1,y2-y1);
+if(up){ctx.strokeRect(x-bw/2,y1,bw,bh);}else{ctx.fillRect(x-bw/2,y1,bw,bh);};
+});
+// X轴标签
+ctx.fillStyle=labelColor;ctx.font='10px sans-serif';ctx.textAlign='center';
+var step=Math.max(1,Math.floor(n/8));
+for(var i=0;i<n;i+=step)ctx.fillText(raw[i].d,px(i),H-8);
+// 图例
+ctx.font='11px sans-serif';ctx.textAlign='left';
+ctx.fillStyle='#1a73e8';ctx.fillRect(pad.left,4,14,3);
+ctx.fillStyle=labelColor;ctx.fillText('MA5',pad.left+18,11);
+ctx.fillStyle='#f57c00';ctx.fillRect(pad.left+50,4,14,3);
+ctx.fillStyle=labelColor;ctx.fillText('MA20',pad.left+68,11);
+ctx.fillStyle='#34a853';ctx.fillRect(pad.left+110,3,9,9);
+ctx.fillStyle=labelColor;ctx.fillText('阳线',pad.left+123,12);
+ctx.fillStyle='#ea4335';ctx.fillRect(pad.left+155,3,9,9);
+ctx.fillStyle=labelColor;ctx.fillText('阴线',pad.left+168,12);
+})();
+</script>
+
+<div class="sr-section">
+<div class="sr-section-title">三、技术面分析</div>
+<div class="sr-section-body">
+<div class="sr-grid2">
+<div><b style="font-size:13px;display:block;margin-bottom:8px">均线系统</b><table class="sr-table"><tr><th>均线</th><th>数值</th><th>信号</th></tr><tr><td>MA5</td><td>470.7</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA10</td><td>477.4</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA20</td><td>492.1</td><td><span class="sr-badge sr-badge-red">价格在下 空头</span></td></tr><tr><td>MA30</td><td>493.6</td><td><span class="sr-badge sr-badge-red">价格在下 空头</span></td></tr><tr><td>MA60</td><td>513.5</td><td><span class="sr-badge sr-badge-red">价格在下 空头</span></td></tr></table></div>
+<div><b style="font-size:13px;display:block;margin-bottom:8px">主要技术指标</b><table class="sr-table"><tr><th>指标</th><th>数值</th><th>信号</th></tr><tr><td>MACD(DIF/DEA)</td><td>-11.75 / -10.22</td><td><span class="sr-badge sr-badge-red">MACD死叉</span></td></tr><tr><td>KDJ(K/D/J)</td><td>24.9 / 19.8 / 35.0</td><td><span class="sr-badge sr-badge-gray">J=35</span></td></tr><tr><td>RSI(6/12)</td><td>47.2 / 43.1</td><td><span class="sr-badge sr-badge-gray">中性47</span></td></tr><tr><td>布林带(上/中/下)</td><td>0 / 0 / 0</td><td><span class="sr-badge sr-badge-blue">中轨运行</span></td></tr><tr><td>SAR抛物线</td><td>—</td><td><span class="sr-badge sr-badge-gray">无数据</span></td></tr></table></div>
+</div>
+<div style="margin-top:14px">
+<b style="font-size:13px">支撑与压力位</b>
+<div class="sr-grid4" style="margin-top:8px">
+<div class="sr-kv"><div class="sr-k">强压力</div><div class="sr-v sr-val-red">HK$648.9</div></div>
+<div class="sr-kv"><div class="sr-k">次压力</div><div class="sr-v sr-val-orange">HK$492.1（MA区间）</div></div>
+<div class="sr-kv"><div class="sr-k">支撑1</div><div class="sr-v sr-val-green">HK$492.1（MA20）</div></div>
+<div class="sr-kv"><div class="sr-k">支撑2</div><div class="sr-v sr-val-green">HK$460.2（布林下轨）</div></div>
+</div>
+</div>
+<div class="sr-warn-box"><b>技术面小结：</b>腾讯控股当前均线呈空头排列，MA5（470.7）、MA10（477.4）、MA20（492.1）、MA60（513.5）依次向下发散，当前价477.4恰位于MA5与MA10之间，整体仍处于下行通道中。MACD指标DIF（-11.750）运行于DEA（-10.220）之下且双线均处于零轴下方，MACD柱为-3.060显示空头动能仍在释放中，尚未见明显企稳迹象。RSI(6)为47.2、RSI(12)为43.1均处于50中性值下方偏弱区域，KDJ指标中K值24.9、D值19.8虽处于低位但尚未进入严重超卖区，J值35.0三线维持低位纠缠，暗示短期或有震荡整理需求。布林通道与SAR止损点数据暂缺但价格已处于SAR下方，确认当前偏空格局。综合而言，个股技术面偏弱，短期在MA5附近或有反复，上方面临MA20（492.1）压力，建议维持观望为主，待股价有效站上MA20且MACD柱由负转正后再考虑逢低布局，若跌破MA5收回副暂不介入。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">四、资金面分析（港股通资金流向）</div>
+<div class="sr-section-body">
+<div class="sr-grid4"><div class="sr-kv"><div class="sr-k">主力净流入（今日）</div><div class="sr-v "><span class="sr-val-red">+17.87亿元</span><div class="sr-bar-wrap"><div class="sr-bar sr-bar-green" style="width:0%"></div></div><div style="font-size:11px;color:var(--sr-sub)">净比 +0.0%</div></div></div><div class="sr-kv"><div class="sr-k">主力买入/卖出</div><div class="sr-v "><span class="sr-val-red">+17.87亿元</span><div style="font-size:11px;color:var(--sr-sub)">买入+39.93亿 / 卖出+22.06亿</div></div></div><div class="sr-kv"><div class="sr-k">大单（港股暂无分项）</div><div class="sr-v "><span class="sr-val-red">+0元</span><div style="font-size:11px;color:var(--sr-sub)">港股数据源不拆分大单</div></div></div><div class="sr-kv"><div class="sr-k">散户净流入</div><div class="sr-v "><span class="sr-val-green">-4.93亿元</span><div style="font-size:11px;color:var(--sr-sub)">港股通散户净流向</div></div></div></div>
+<div class="sr-grid2" style="margin-top:14px">
+<div><b style="font-size:13px;display:block;margin-bottom:8px">港股通持股情况</b><table class="sr-table"><tr><th>项目</th><th>数值</th></tr><tr><td>港股通持股比例</td><td>11.83%</td></tr><tr><td>南下持仓股数</td><td>+10.79亿股</td></tr><tr><td>今日日变动（股数）</td><td><span class="sr-val-red">+0股</span></td></tr><tr><td>今日日变动（港元）</td><td><span class="sr-val-red">+0元</span></td></tr><tr><td>季度累计（股数）</td><td><span class="sr-val-red">+5293.0万股</span></td></tr><tr><td>季度累计（港元）</td><td><span class="sr-val-red">+290.91亿元</span></td></tr></table></div>
+
+</div>
+<div class="sr-warn-box"><b>资金面小结：</b>腾讯控股今日主力净流入17.87亿元，主力净比持平于0.0%，显示主力资金整体保持中性偏稳的观望或对冲状态，暂不构成明确的单边建仓或撤退信号。从超大单维度看，买入39.93亿元远超卖出22.06亿元，净流入17.87亿元全部来自超大单，大单净流入为零，说明机构或游资级别的大额资金正在积极介入，筹码由超大单集中承接，散户小单净流出4.93亿元，呈现典型的主力吸筹、散户离场的洗盘特征。南下资金今日未录得净买入，但本季度已累计净流入290.9亿港元，持股比例维持在11.8%，表明港股通长线资金对腾讯的配置底仓稳固，短期暂停加仓可能源于估值博弈或调仓节奏，而非趋势性看空。机构评级显示买入、持有、卖出家数均为零，目标价与现价空间持平，反映当前卖方研究覆盖处于真空或静默期，缺乏一致预期指引，资金面判断需更依赖实际交易行为而非乐观预期指引。综合来看，超大单买入远超卖出构成核心支撑，主力资金行为指向机构级建仓而非撤退，散户持续流出进一步印证筹码从散向聚的积极换手，但南下资金日内静默和机构评级缺位提示短线缺乏增量催化，资金面整体定性为"超大单主导的吸筹洗盘阶段，主力未撤退但需等待共识重聚"。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">五、基本面分析</div>
+<div class="sr-section-body">
+<div class="sr-grid2"><div><b style="font-size:13px;display:block;margin-bottom:8px">公司简介</b><table class="sr-table"><tr><th>项目</th><th>内容</th></tr><tr><td style="color:var(--sr-sub)">公司全名</td><td>腾讯控股</td></tr><tr><td style="color:var(--sr-sub)">所属行业</td><td></td></tr><tr><td style="color:var(--sr-sub)">主营业务</td><td style="font-size:12px">腾讯以技术丰富互联网用户的生活。公司旗下社交网络及通讯平台微信和 QQ 将用户连接到多元化的数字内容,包括游戏、视频、音乐和文学。腾讯自主开发的目标用户定向技术协助广告主触达数以亿计的中国消费者。在基础设施服务方面,腾讯在移动支付、网络安全...</td></tr></table></div><div><b style="font-size:13px;display:block;margin-bottom:8px">估值与市场指标</b><table class="sr-table"><tr><th>指标</th><th>数值</th><th>评价</th></tr><tr><td>PE(TTM)</td><td>17.50x</td><td><span class="sr-badge sr-badge-blue">合理</span></td></tr><tr><td>PB</td><td>3.44x</td><td><span class="sr-badge sr-badge-blue">合理</span></td></tr><tr><td>股息率(TTM)</td><td>0.95%</td><td><span class="sr-badge sr-badge-blue">有分红</span></td></tr><tr><td>总市值</td><td colspan="2">+0港元</td></tr></table></div></div>
+
+<div style="margin-top:14px"><b style="font-size:13px;display:block;margin-bottom:8px">财务报表摘要（利润表）</b><table class="sr-table"><tr><th>财务指标</th><th>2025-12-31</th></tr><tr><td style="color:var(--sr-sub)">营业收入</td><td>+8323.18亿</td></tr><tr><td style="color:var(--sr-sub)">净利润</td><td>+2544.24亿</td></tr><tr><td style="color:var(--sr-sub)">毛利率</td><td>56.2%</td></tr><tr><td style="color:var(--sr-sub)">净利率</td><td>30.6%</td></tr><tr><td style="color:var(--sr-sub)">ROE(加权)</td><td>21.4%</td></tr><tr><td style="color:var(--sr-sub)">基本EPS</td><td>27.401</td></tr><tr><td style="color:var(--sr-sub)">营收增速</td><td>16.7%</td></tr><tr><td style="color:var(--sr-sub)">净利增速</td><td>19.9%</td></tr></table></div>
+<div style="margin-top:14px"><b style="font-size:13px;display:block;margin-bottom:8px">近期分红</b><table class="sr-table"><tr><th>派息日期</th><th>每股派息</th></tr><tr><td>—</td><td>— 港元</td></tr></table></div>
+
+<div class="sr-warn-box" style="margin-top:12px"><b>基本面小结：</b>腾讯控股当前PE(TTM)为17.5倍，PB为3.44倍，对于一家互联网平台巨头而言估值处于合理偏区间，并未明显高估或低估，具备一定安全边际。公司最新财报营收同比增长16.7%、净利润同比增长19.9%，双位数稳健增长显示出核心业务仍具韧性，利润增速略高于收入增速反映经营效率有所提升。ROE高达21.4%，毛利率56.2%、净利率30.6%，盈利质量优异，高资本回报能力和强现金创造能力是其护城河的有力体现。当前机构目标价与现价持平，上行空间为0%，显示市场对短期估值扩张预期趋于中性，但仍认可其业绩兑现能力。综合来看，腾讯基本面扎实、盈利能力突出，当前估值在成长性与确定性之间取得较好平衡，适合作为长期配置标的，短期或缺乏强催化但下行风险可控。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">六、新闻面与国际局势</div>
+<div class="sr-section-body">
+<div class="sr-grid2">
+<div>
+<b style="font-size:13px;display:block;margin-bottom:8px">近期重要资讯</b>
+<div class="sr-news-item"><div><span class="sr-badge sr-badge-green">利好</span></div><div><div class="sr-news-title">报告：腾讯WorkBuddy月访问量居AI原生办公智能体市场首位</div><div class="sr-news-meta">2026-05-07 · C114通信网</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">腾讯控股05月07日主力大幅流入17.9亿元 散户资金抛售</div><div class="sr-news-meta">2026-05-07 · 市场透视</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">恒科突发！暴增16.5倍！腾讯控股传来大消息！</div><div class="sr-news-meta">2026-05-07 · 券商中国</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">腾讯24%持股游戏科学：一场重构行业规则的“轻控股”实验</div><div class="sr-news-meta">2026-05-07 · 知顿</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-green">利好</span></div><div><div class="sr-news-title">腾讯大涨2.3%，港股AI"业绩大考"将至，阿里腾讯13日披露Q1财报</div><div class="sr-news-meta">2026-05-07 · 财联社</div></div></div>
+</div>
+<div><b style="font-size:13px;display:block;margin-bottom:8px">国际局势与宏观因素</b><table class="sr-table"><tr><th>因素</th><th>方向</th><th>说明</th></tr><tr><td>中美贸易摩擦</td><td><span class="sr-badge sr-badge-red">利空</span></td><td>港股外资情绪持续承压，中美关税博弈压制估值</td></tr><tr><td>美联储利率政策</td><td><span class="sr-badge sr-badge-orange">偏空</span></td><td>高利率环境压制港股估值扩张，降息预期偏谨慎</td></tr><tr><td>南下资金今日</td><td><span class="sr-badge sr-badge-green">利好</span></td><td>南下资金流向待更新</td></tr><tr><td>南下资金本季</td><td><span class="sr-badge sr-badge-green">利好</span></td><td>本季度净买入290.9亿港元，中长线信号积极</td></tr><tr><td>主力资金今日</td><td><span class="sr-badge sr-badge-green">利好</span></td><td>主力净流入17.87亿港元，机构主动参与</td></tr><tr><td>机构评级</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>机构评级数据待更新</td></tr><tr><td>估值水平</td><td><span class="sr-badge sr-badge-green">利好</span></td><td>PE=17.5x，估值偏低</td></tr><tr><td>港元联汇制</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>港元与美元挂钩，无法像A股宽松对冲，流动性受制约</td></tr></table></div>
+</div>
+<div style="margin-top:14px;background:var(--sr-bg);border-radius:10px;padding:12px 16px">
+<div class="sr-warn-box"><b>新闻面与宏观小结：</b>腾讯控股近期新闻面整体偏向利好，其中WorkBuddy登顶AI原生办公智能体市场和Q1财报即将披露（5月13日）最受关注，反映AI商业化加速和业绩确定性预期；主力资金大幅净流入17.87亿港元亦强化短期资金看多信号。宏观层面，中美贸易摩擦与美联储高利率仍对港股估值形成压制，但南下资金托底、主力主动吸筹对冲了部分外资离场压力。综合而言，AI应用落地（WorkBuddy、混元大模型）和游戏广告基本盘的结构性亮点，正在弱化宏观利空对腾讯的边际冲击。短期来看，财报披露前的业绩预期博弈叠加AI概念催化，市场情绪偏乐观，股价有望维持偏强震荡，但需警惕宏观突发风险及财报不及预期的回调压力。</div>
+</div>
+</div>
+</div>
+
+<div class="sr-section"><div class="sr-section-title">七、平均筹码成本与价格位置</div><div class="sr-section-body" style="color:var(--sr-sub)">港股/ETF/指数暂无筹码数据。请结合均线和成交量判断市场持仓成本分布。</div></div>
+
+<div class="sr-section"><div class="sr-section-title">八、未来走势预估</div><div class="sr-section-body"><div class="sr-grid3"><div style="background:#fce8e6;border-left:4px solid #ef5350;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">短期（1-2周）</div><div style="font-size:14px;font-weight:800;color:#c0392b;margin-bottom:8px">弱势震荡，等待信号</div><div style="font-size:12px;color:#5f6368;line-height:1.8">均线呈空头排列，价格处于MA20(492.1)下方，短期趋势偏弱。RSI(47)位于弱势区，短线不宜追空但也不急于抄底。若出现缩量企稳配合主力资金回流，可关注0（布林下轨）区域的低吸机会。</div></div><div style="background:#e8f5e9;border-left:4px solid #43a047;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">中期（1-3个月）</div><div style="font-size:14px;font-weight:800;color:#27ae60;margin-bottom:8px">区间震荡偏多</div><div style="font-size:12px;color:#5f6368;line-height:1.8">综合技术与资金面，中期在HK$0（布林下轨）~HK$541.3（MA20上方10%）区间震荡。业绩催化剂（季报、年报）可能成为中期突破的契机，关注HK$492.1能否企稳。</div></div><div style="background:#fff8e1;border-left:4px solid #ffb300;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">长期（6-12个月）</div><div style="font-size:14px;font-weight:800;color:#f57c00;margin-bottom:8px">长期走势取决于基本面</div><div style="font-size:12px;color:#5f6368;line-height:1.8">长期表现的核心取决于公司核心竞争力和行业景气度的可持续性。建议每季度根据财报数据重新评估基本面，动态调整仓位。</div></div></div><div class="sr-danger-box" style="margin-top:14px"><b>主要风险：</b><br>① 技术面：均线空头排列，若价格持续低于MA20(492.1)，下行趋势可能延续，需设置止损<br>② 资金面：外资系统性减仓港股风险，中美贸易摩擦升温可能加大外资流出压力<br>③ 趋势风险：近60日跌幅17.8%，中期下行趋势未止，反弹力度和持续性有待验证<br>④ 宏观风险：美联储持续高利率环境压制港股估值，港元联汇制无法宽松对冲，外部风险难以规避<br>⑤ 仓位风险：任何单一标的的仓位不宜超过总仓位20%，严格执行止损纪律，防止单笔损失过大</div></div></div>
+
+<div class="sr-section">
+<div class="sr-section-title">九、综合投资建议</div>
+<div class="sr-section-body">
+<div class="sr-advice-sell sr-advice-block">
+<div class="sr-advice-title">综合评分 5.6/10 — 谨慎观望，控制仓位</div>
+<p style="font-size:13px;line-height:1.8;color:var(--sr-text)">综合来看，腾讯控股当前风险偏大，建议轻仓观望或适当减仓控制风险。
+均线系统空头排列，趋势偏弱。
+资金面：主力今日净流入+17.87亿元。
+
+</p>
+</div>
+<div class="sr-price-row" style="margin-top:14px"><div class="sr-price-box"><div class="sr-pk">激进建仓</div><div class="sr-pv sr-val-green">HK$463.1</div><div style="font-size:11px;color:var(--sr-sub)">MA/BOLL支撑区</div></div><div class="sr-price-box"><div class="sr-pk">稳健建仓</div><div class="sr-pv sr-val-green">HK$443.6</div><div style="font-size:11px;color:var(--sr-sub)">MA20+BOLL下轨区</div></div><div class="sr-price-box"><div class="sr-pk">中期目标价</div><div class="sr-pv sr-val-blue">HK$549</div><div style="font-size:11px;color:var(--sr-sub)">趋势延续前提</div></div><div class="sr-price-box"><div class="sr-pk">止损价</div><div class="sr-pv sr-val-red">HK$430.7</div><div style="font-size:11px;color:var(--sr-sub)">跌破则离场</div></div></div>
+<div style="margin-top:14px">
+<b style="font-size:13px;display:block;margin-bottom:8px">能否加仓？分情况建议</b>
+<div class="sr-invest-block" style="border-left:4px solid #16a34a;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#16a34a;margin-bottom:6px;">🚀 激进者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">激进投资者可在当前价477.4港元附近小幅试仓，若股价回调至参考买入价463.1港元以下可果断加仓，区间460-466港元为较好加仓窗口。止损位严格设在430.7港元，若跌破此位需毫不犹豫离场。中期目标价看至549港元，预期收益空间约15%-18%，今日主力净流入17.87亿港元显示短期资金态度偏积极，可借势参与反弹。</div></div><div class="sr-invest-block" style="border-left:4px solid #2563eb;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#2563eb;margin-bottom:6px;">🛡️ 稳健者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">稳健投资者建议采取分2-3批的分批建仓策略，首批可在463港元附近介入一成仓位，若继续下探至455-460港元区域加第二批，极端回调至支撑位460.2港元下方再加第三批，总体持仓成本控制在465港元以内为佳。止损条件设为股价连续3个交易日收盘价低于460港元或单日放量跌破430.7港元，不触发则耐心持有至中期目标549港元附近分批获利。</div></div><div class="sr-invest-block" style="border-left:4px solid #9333ea;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#9333ea;margin-bottom:6px;">👁️ 中立者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">当前建议保持观望，腾讯近60日累计下跌17.83%显示中期趋势仍偏弱，虽然今日反弹3.11%且资金净流入，但尚未确认扭转颓势。建议等待以下确认信号再进场：一是股价连续站稳492.1港元压力位之上，二是20日均线拐头向上形成支撑，三是机构评级覆盖恢复并出现买入评级。期间可继续观察主力资金流向持续性、港股大盘恒生指数企稳情况及腾讯游戏业务收入复苏进展。</div></div>
+</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-body">
+<div class="sr-risk-disclaimer">
+<b>风险提示：</b>本报告由程序自动生成，仅供参考，不构成任何投资建议。股市有风险，投资须谨慎。过去表现不代表未来收益。请结合自身风险承受能力独立判断。
+</div>
+<div class="sr-footer-tip">数据来源：westock-data / 东方财富 &nbsp;·&nbsp; 报告生成时间：2026-05-07 19:45:37</div>
+</div>
+</div>
+
+</div>

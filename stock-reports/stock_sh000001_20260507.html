@@ -1,0 +1,357 @@
+<style>
+.sr-wrap{--sr-blue:#1a73e8;--sr-blue-dark:#0d47a1;--sr-green:#34a853;--sr-red:#ea4335;--sr-orange:#f57c00;--sr-bg:#f0f2f5;--sr-card:#ffffff;--sr-text:#202124;--sr-sub:#5f6368;--sr-border:#dadce0;color:var(--sr-text);font-size:14px;line-height:1.6}
+.dark .sr-wrap{--sr-bg:#1a1b1e;--sr-card:#1e2129;--sr-text:#e0e0e0;--sr-sub:#9aa0a6;--sr-border:#2d3139}
+.sr-wrap *{box-sizing:border-box}
+.sr-header{background:linear-gradient(135deg,#0d47a1 0%,#1a73e8 100%);color:#fff;border-radius:12px;padding:28px 32px;margin-bottom:18px}
+.sr-header h2{font-size:22px;font-weight:700;margin:0 0 4px;color:#fff}
+.sr-header .sr-meta{font-size:12px;opacity:.85}
+.sr-price-hero{display:flex;align-items:baseline;gap:10px;margin-top:12px;flex-wrap:wrap}
+.sr-price-hero .sr-price{font-size:40px;font-weight:700}
+.sr-price-hero .sr-neg{font-size:18px;color:#ff8a80}
+.sr-price-hero .sr-pos{font-size:18px;color:#a5d6a7}
+.sr-price-hero .sr-info{font-size:13px;opacity:.75}
+.sr-score-banner{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.sr-score-card{flex:1;min-width:140px;background:var(--sr-card);border-radius:10px;padding:14px 16px;border:1px solid var(--sr-border);text-align:center}
+.sr-score-card .sr-label{font-size:11px;color:var(--sr-sub);margin-bottom:5px}
+.sr-score-card .sr-val{font-size:26px;font-weight:700}
+.sr-score-card .sr-sub2{font-size:11px;color:var(--sr-sub);margin-top:3px}
+.sr-val-red{color:#ea4335}.sr-val-green{color:#34a853}.sr-val-orange{color:#f57c00}.sr-val-blue{color:#1a73e8}.sr-val-yellow{color:#f9a825}
+.sr-section{background:var(--sr-card);border-radius:10px;border:1px solid var(--sr-border);margin-bottom:14px;overflow:hidden}
+.sr-section-title{background:var(--sr-bg);padding:12px 18px;font-weight:600;font-size:14px;border-bottom:1px solid var(--sr-border)}
+.sr-section-body{padding:18px}
+.sr-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sr-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.sr-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:680px){.sr-grid2,.sr-grid3,.sr-grid4{grid-template-columns:1fr 1fr}}
+.sr-kv{background:var(--sr-bg);border-radius:8px;padding:10px 12px}
+.sr-kv .sr-k{font-size:11px;color:var(--sr-sub);margin-bottom:2px}
+.sr-kv .sr-v{font-size:15px;font-weight:600}
+.sr-table{width:100%;border-collapse:collapse;font-size:13px}
+.sr-table th{background:var(--sr-bg);color:var(--sr-sub);font-weight:600;padding:7px 9px;text-align:left;border-bottom:1px solid var(--sr-border)}
+.sr-table td{padding:7px 9px;border-bottom:1px solid var(--sr-border);color:var(--sr-text)}
+.sr-table tr:last-child td{border-bottom:none}
+.sr-badge{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;font-weight:600}
+.sr-badge-red{background:#fce8e6;color:#c62828}.sr-badge-green{background:#e6f4ea;color:#1b5e20}
+.sr-badge-orange{background:#fff3e0;color:#e65100}.sr-badge-blue{background:#e8f0fe;color:#1565c0}
+.sr-badge-gray{background:#f1f3f4;color:#555}.sr-badge-yellow{background:#fff9c4;color:#f57f17}
+.dark .sr-badge-red{background:#4a1010;color:#ff8a80}.dark .sr-badge-green{background:#0d2e18;color:#81c995}
+.dark .sr-badge-orange{background:#3e2000;color:#ffcc80}.dark .sr-badge-blue{background:#0d2045;color:#82b1ff}
+.dark .sr-badge-gray{background:#2d2d2d;color:#bbb}
+.sr-bar-wrap{background:#e0e0e0;border-radius:4px;height:7px;margin-top:5px}
+.dark .sr-bar-wrap{background:#444}
+.sr-bar{height:7px;border-radius:4px}
+.sr-bar-green{background:#34a853}.sr-bar-red{background:#ea4335}.sr-bar-blue{background:#1a73e8}.sr-bar-orange{background:#f57c00}
+.sr-news-item{padding:9px 0;border-bottom:1px solid var(--sr-border);display:flex;gap:8px;align-items:flex-start}
+.sr-news-item:last-child{border-bottom:none}
+.sr-news-title{font-size:13px;color:var(--sr-text)}
+.sr-news-meta{font-size:11px;color:var(--sr-sub);margin-top:2px}
+.sr-warn-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:12px 14px;font-size:13px;color:#e65100;margin-top:10px}
+.dark .sr-warn-box{background:#2a1e00;border-color:#5a3e00;color:#ffcc80}
+.sr-danger-box{background:#fce8e6;border:1px solid #ef9a9a;border-radius:8px;padding:12px 14px;font-size:13px;color:#c62828;margin-top:10px}
+.sr-advice-block{border-radius:10px;padding:18px 20px;margin-bottom:12px}
+.sr-advice-buy{background:#e8f5e9;border:1px solid #a5d6a7}
+.dark .sr-advice-buy{background:#0d2e18;border-color:#2e7d32}
+.sr-advice-watch{background:#fff8e1;border:1px solid #ffe082}
+.dark .sr-advice-watch{background:#2a1e00;border-color:#5a3e00}
+.sr-advice-sell{background:#fce8e6;border:1px solid #ef9a9a}
+.dark .sr-advice-sell{background:#4a1010;border-color:#c62828}
+.sr-advice-title{font-size:16px;font-weight:700;margin-bottom:8px;color:#e65100}
+.dark .sr-advice-title{color:#ffcc80}
+.sr-price-row{display:flex;gap:12px;flex-wrap:wrap}
+.sr-price-box{background:var(--sr-card);border-radius:8px;padding:10px 14px;flex:1;min-width:110px;border:1px solid var(--sr-border)}
+.sr-price-box .sr-pk{font-size:11px;color:var(--sr-sub);margin-bottom:2px}
+.sr-price-box .sr-pv{font-size:16px;font-weight:700}
+.sr-footer-tip{font-size:12px;color:var(--sr-sub);background:var(--sr-bg);border-radius:8px;padding:10px 14px;margin-top:10px}
+.sr-risk-disclaimer{font-size:12px;color:#c62828;background:#fce8e6;border-radius:8px;padding:12px 14px;line-height:1.8}
+</style>
+
+<div class="sr-wrap">
+
+<div class="sr-header">
+<div class="sr-meta">A股 ·  · sh000001 · 2026-05-07 收盘</div>
+<h2>上证指数(sh000001) 全面行情分析报告</h2>
+<div class="sr-price-hero">
+<span class="sr-price">4180</span>
+<span class="sr-neg">▲ 0.48%</span>
+<span class="sr-info">元 &nbsp;|&nbsp; 振幅 0.00% &nbsp;|&nbsp; 成交额 +13591.00亿元</span>
+</div>
+</div>
+
+<div class="sr-score-banner">
+<div class="sr-score-card">
+<div class="sr-label">基本面</div>
+<div class="sr-val sr-val-orange">5</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">新闻面</div>
+<div class="sr-val sr-val-green">6</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">资金面</div>
+<div class="sr-val sr-val-orange">4</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card">
+<div class="sr-label">技术面</div>
+<div class="sr-val sr-val-orange">5</div>
+<div class="sr-sub2">/ 10</div>
+</div>
+<div class="sr-score-card" style="background:linear-gradient(135deg,#fff3e0,#fce8e6)">
+<div class="sr-label">综合评分</div>
+<div class="sr-val" style="color:#f57c00">5.1</div>
+<div class="sr-sub2">/ 10 &nbsp;<span class="sr-badge sr-badge-orange">谨慎观望，控制仓位</span></div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">一、基本行情概览</div>
+<div class="sr-section-body">
+<div class="sr-grid4"><div class="sr-kv"><div class="sr-k">收盘价</div><div class="sr-v sr-val-red">¥4180</div></div><div class="sr-kv"><div class="sr-k">今日涨跌</div><div class="sr-v sr-val-red">▲ 0.48%</div></div><div class="sr-kv"><div class="sr-k">开盘 / 昨收</div><div class="sr-v ">¥4168 / ¥0</div></div><div class="sr-kv"><div class="sr-k">今日高 / 低</div><div class="sr-v ">¥4180 / ¥4163</div></div><div class="sr-kv"><div class="sr-k">成交额</div><div class="sr-v ">+13591.00亿元</div></div><div class="sr-kv"><div class="sr-k">换手率 / 量比</div><div class="sr-v ">1.43% / 1.08</div></div><div class="sr-kv"><div class="sr-k">PE(TTM) / PB</div><div class="sr-v ">18.31x / 0.00x</div></div><div class="sr-kv"><div class="sr-k">总市值</div><div class="sr-v ">+0元</div></div><div class="sr-kv"><div class="sr-k">52周高 / 低</div><div class="sr-v ">¥0 / ¥0</div></div><div class="sr-kv"><div class="sr-k">距52周高 / 低</div><div class="sr-v "><span class="sr-val-red">+0.0%</span> / <span class="sr-val-green">+0.0%</span></div></div><div class="sr-kv"><div class="sr-k">年初至今</div><div class="sr-v "><span class="sr-val-red">+5.32%</span></div></div><div class="sr-kv"><div class="sr-k">近60日</div><div class="sr-v "><span class="sr-val-red">+0.53%</span></div></div></div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">二、K线走势（近60日）</div>
+<div class="sr-section-body">
+<canvas id="sr-kline" style="width:100%;display:block" height="300"></canvas>
+<div style="margin-top:12px;font-size:13px;color:var(--sr-sub)">
+<b>走势回顾：</b>从数据来看，上证指数过去60日的涨幅仅为0.53%，中期整体来看其实是在一个区间窄幅震荡、横盘反复的阶段，市场并没有形成明确的趋势方向。但近20日突然发力上涨了7.73%，近期5个交易日也延续了强势，累计上涨2.29%，说明盘中资金开始主动加码，做多力量在积蓄。今日大盘在MA5均线支撑之上继续反攻，收出一根阳线，涨幅0.48%，价格已经来到了4180点附近，并且站稳在下方层层均线之上。成交量方面，换手率1.43%，量比1.08，温和放大，也不像暴涨行情里那种狂热放量，说明市场情绪比较健康，量价配合比较平稳，反弹仍在上演，但偏慢节奏。
+</div>
+</div>
+</div>
+<script>
+(function(){
+var canvas=document.getElementById('sr-kline');
+if(!canvas)return;
+var ctx=canvas.getContext('2d');
+var dpr=window.devicePixelRatio||1;
+var W=canvas.parentElement.clientWidth||860;
+var H=300;
+canvas.width=W*dpr;canvas.height=H*dpr;
+canvas.style.width=W+'px';canvas.style.height=H+'px';
+ctx.scale(dpr,dpr);
+var raw=[{d:"01-30",o:4132,c:4118,h:4153,l:4065},
+{d:"02-02",o:4080,c:4016,h:4103,l:4014},
+{d:"02-03",o:4044,c:4068,h:4069,l:4003},
+{d:"02-04",o:4065,c:4102,h:4105,l:4063},
+{d:"02-05",o:4075,c:4076,h:4089,l:4049},
+{d:"02-06",o:4040,c:4066,h:4095,l:4030},
+{d:"02-09",o:4104,c:4123,h:4123,l:4093},
+{d:"02-10",o:4128,c:4128,h:4134,l:4118},
+{d:"02-11",o:4124,c:4132,h:4143,l:4122},
+{d:"02-12",o:4137,c:4134,h:4141,l:4124},
+{d:"02-13",o:4116,c:4082,h:4124,l:4080},
+{d:"02-24",o:4129,c:4117,h:4132,l:4106},
+{d:"02-25",o:4124,c:4147,h:4168,l:4123},
+{d:"02-26",o:4151,c:4147,h:4152,l:4127},
+{d:"02-27",o:4129,c:4163,h:4166,l:4128},
+{d:"03-02",o:4152,c:4183,h:4189,l:4131},
+{d:"03-03",o:4189,c:4123,h:4197,l:4116},
+{d:"03-04",o:4088,c:4082,h:4106,l:4055},
+{d:"03-05",o:4110,c:4109,h:4126,l:4091},
+{d:"03-06",o:4086,c:4124,h:4129,l:4086},
+{d:"03-09",o:4099,c:4097,h:4107,l:4053},
+{d:"03-10",o:4099,c:4123,h:4124,l:4099},
+{d:"03-11",o:4124,c:4133,h:4136,l:4113},
+{d:"03-12",o:4133,c:4129,h:4142,l:4103},
+{d:"03-13",o:4118,c:4095,h:4134,l:4087},
+{d:"03-16",o:4092,c:4085,h:4096,l:4048},
+{d:"03-17",o:4086,c:4050,h:4108,l:4050},
+{d:"03-18",o:4053,c:4063,h:4065,l:4023},
+{d:"03-19",o:4029,c:4007,h:4042,l:3994},
+{d:"03-20",o:4005,c:3957,h:4023,l:3956},
+{d:"03-23",o:3905,c:3813,h:3907,l:3795},
+{d:"03-24",o:3850,c:3881,h:3881,l:3808},
+{d:"03-25",o:3892,c:3932,h:3933,l:3892},
+{d:"03-26",o:3925,c:3889,h:3937,l:3881},
+{d:"03-27",o:3852,c:3914,h:3924,l:3852},
+{d:"03-30",o:3884,c:3923,h:3924,l:3873},
+{d:"03-31",o:3924,c:3892,h:3949,l:3892},
+{d:"04-01",o:3940,c:3949,h:3956,l:3930},
+{d:"04-02",o:3941,c:3919,h:3953,l:3900},
+{d:"04-03",o:3928,c:3880,h:3930,l:3871},
+{d:"04-07",o:3884,c:3890,h:3903,l:3876},
+{d:"04-08",o:3930,c:3995,h:3995,l:3926},
+{d:"04-09",o:3968,c:3966,h:3979,l:3955},
+{d:"04-10",o:3985,c:3986,h:4011,l:3980},
+{d:"04-13",o:3971,c:3989,h:3991,l:3966},
+{d:"04-14",o:4007,c:4027,h:4027,l:3992},
+{d:"04-15",o:4039,c:4027,h:4051,l:4021},
+{d:"04-16",o:4030,c:4056,h:4058,l:4029},
+{d:"04-17",o:4043,c:4051,h:4059,l:4038},
+{d:"04-20",o:4053,c:4082,h:4083,l:4052},
+{d:"04-21",o:4076,c:4085,h:4087,l:4062},
+{d:"04-22",o:4075,c:4106,h:4107,l:4075},
+{d:"04-23",o:4111,c:4093,h:4115,l:4070},
+{d:"04-24",o:4081,c:4080,h:4093,l:4061},
+{d:"04-27",o:4075,c:4086,h:4093,l:4071},
+{d:"04-28",o:4076,c:4079,h:4090,l:4063},
+{d:"04-29",o:4062,c:4108,h:4112,l:4062},
+{d:"04-30",o:4107,c:4112,h:4119,l:4101},
+{d:"05-06",o:4135,c:4160,h:4166,l:4130},
+{d:"05-07",o:4168,c:4180,h:4180,l:4163}];
+var avgCost=0;
+var pad={left:52,right:15,top:18,bottom:28};
+var cw=W-pad.left-pad.right,ch=H-pad.top-pad.bottom;
+var allP=raw.flatMap(function(k){return[k.h,k.l]});
+var minP=Math.min.apply(null,allP)-allP.reduce(function(a,b){return a+b},0)/allP.length*0.02;
+var maxP=Math.max.apply(null,allP)+allP.reduce(function(a,b){return a+b},0)/allP.length*0.02;
+var range=maxP-minP,n=raw.length;
+var bw=Math.max(3,Math.floor(cw/n*0.65));
+function py(p){return pad.top+ch*(1-(p-minP)/range)}
+function px(i){return pad.left+(i+0.5)*(cw/n)}
+ctx.fillStyle='#ffffff';ctx.fillRect(0,0,W,H);
+var gridColor='#e8eaed';var labelColor='#888';
+ctx.strokeStyle=gridColor;ctx.lineWidth=0.5;
+for(var i=0;i<=4;i++){
+var y=pad.top+ch*i/4;
+ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(W-pad.right,y);ctx.stroke();
+var val=(maxP-range*i/4).toFixed(2);
+ctx.fillStyle=labelColor;ctx.font='11px sans-serif';ctx.textAlign='right';
+ctx.fillText(val,pad.left-4,y+4);
+}
+// MA5
+ctx.strokeStyle='#1a73e8';ctx.lineWidth=1.4;ctx.beginPath();
+var started5=false;
+for(var i=4;i<n;i++){
+var ma5=0;for(var j=i-4;j<=i;j++)ma5+=raw[j].c;ma5/=5;
+var x=px(i),yy=py(ma5);
+if(!started5){ctx.moveTo(x,yy);started5=true;}else{ctx.lineTo(x,yy);};
+}ctx.stroke();
+// MA20
+ctx.strokeStyle='#f57c00';ctx.lineWidth=1.2;ctx.beginPath();
+var started20=false;
+for(var i=19;i<n;i++){
+var ma=0;for(var j=i-19;j<=i;j++)ma+=raw[j].c;ma/=20;
+var x=px(i),yy=py(ma);
+if(!started20){ctx.moveTo(x,yy);started20=true;}else{ctx.lineTo(x,yy);};
+}ctx.stroke();
+// 均价线
+if(avgCost>0){
+ctx.strokeStyle='#ff8f00';ctx.lineWidth=1.4;ctx.setLineDash([5,3]);
+ctx.beginPath();ctx.moveTo(pad.left,py(avgCost));ctx.lineTo(W-pad.right,py(avgCost));ctx.stroke();
+ctx.setLineDash([]);
+ctx.fillStyle='#ff8f00';ctx.font='10px sans-serif';ctx.textAlign='left';
+ctx.fillText('均价'+avgCost.toFixed(2),pad.left+4,py(avgCost)-4);
+}
+// K线
+raw.forEach(function(k,i){
+var x=px(i),up=k.c>=k.o;
+var color=up?'#34a853':'#ea4335';
+ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=1;
+ctx.beginPath();ctx.moveTo(x,py(k.h));ctx.lineTo(x,py(k.l));ctx.stroke();
+var y1=py(Math.max(k.o,k.c)),y2=py(Math.min(k.o,k.c)),bh=Math.max(1,y2-y1);
+if(up){ctx.strokeRect(x-bw/2,y1,bw,bh);}else{ctx.fillRect(x-bw/2,y1,bw,bh);};
+});
+// X轴标签
+ctx.fillStyle=labelColor;ctx.font='10px sans-serif';ctx.textAlign='center';
+var step=Math.max(1,Math.floor(n/8));
+for(var i=0;i<n;i+=step)ctx.fillText(raw[i].d,px(i),H-8);
+// 图例
+ctx.font='11px sans-serif';ctx.textAlign='left';
+ctx.fillStyle='#1a73e8';ctx.fillRect(pad.left,4,14,3);
+ctx.fillStyle=labelColor;ctx.fillText('MA5',pad.left+18,11);
+ctx.fillStyle='#f57c00';ctx.fillRect(pad.left+50,4,14,3);
+ctx.fillStyle=labelColor;ctx.fillText('MA20',pad.left+68,11);
+ctx.fillStyle='#34a853';ctx.fillRect(pad.left+110,3,9,9);
+ctx.fillStyle=labelColor;ctx.fillText('阳线',pad.left+123,12);
+ctx.fillStyle='#ea4335';ctx.fillRect(pad.left+155,3,9,9);
+ctx.fillStyle=labelColor;ctx.fillText('阴线',pad.left+168,12);
+})();
+</script>
+
+<div class="sr-section">
+<div class="sr-section-title">三、技术面分析</div>
+<div class="sr-section-body">
+<div class="sr-grid2">
+<div><b style="font-size:13px;display:block;margin-bottom:8px">均线系统</b><table class="sr-table"><tr><th>均线</th><th>数值</th><th>信号</th></tr><tr><td>MA5</td><td>4128</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA10</td><td>4109</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA20</td><td>4058</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA30</td><td>4005</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr><tr><td>MA60</td><td>4052</td><td><span class="sr-badge sr-badge-green">价格在上 多头</span></td></tr></table></div>
+<div><b style="font-size:13px;display:block;margin-bottom:8px">主要技术指标</b><table class="sr-table"><tr><th>指标</th><th>数值</th><th>信号</th></tr><tr><td>MACD(DIF/DEA)</td><td>38.02 / 24.36</td><td><span class="sr-badge sr-badge-green">MACD金叉</span></td></tr><tr><td>KDJ(K/D/J)</td><td>91.0 / 85.9 / 101.2</td><td><span class="sr-badge sr-badge-red">超买</span></td></tr><tr><td>RSI(6/12)</td><td>85.9 / 72.0</td><td><span class="sr-badge sr-badge-red">超买</span></td></tr><tr><td>布林带(上/中/下)</td><td>0 / 0 / 0</td><td><span class="sr-badge sr-badge-blue">中轨运行</span></td></tr><tr><td>SAR抛物线</td><td>—</td><td><span class="sr-badge sr-badge-gray">无数据</span></td></tr></table></div>
+</div>
+<div style="margin-top:14px">
+<b style="font-size:13px">支撑与压力位</b>
+<div class="sr-grid4" style="margin-top:8px">
+<div class="sr-kv"><div class="sr-k">强压力</div><div class="sr-v sr-val-red">¥4052</div></div>
+<div class="sr-kv"><div class="sr-k">次压力</div><div class="sr-v sr-val-orange">¥4109（MA区间）</div></div>
+<div class="sr-kv"><div class="sr-k">支撑1</div><div class="sr-v sr-val-green">¥4058（MA20）</div></div>
+<div class="sr-kv"><div class="sr-k">支撑2</div><div class="sr-v sr-val-green">¥0（布林下轨）</div></div>
+</div>
+</div>
+<div class="sr-warn-box"><b>技术面小结：</b>根据提供的技术指标数据，上证指数技术面小结如下： 当前上证指数收于4180元，已形成标准多头排列格局，MA5（4128）> MA10（4109）> MA20（4058）> MA60（4052），短期均线持续向上发散支撑趋势。MACD指标呈现多头强势特征，DIF（38.020）上穿DEA（24.360）且两者保持阔距上行，红柱（27.330）放大确认了上涨动能仍在延续。然而RSI(6)高达85.9、RSI(12)为72.0均进入严重超买区间，K值91.0、D值85.9、J值101.2同样全面超买，短期调整压力显著增大，需警惕多头获利回吐。布林带上轨与中轨下轨数据缺失且SAR止损点显示价格在其下方，趋势性止损信号尚未触发但需密切跟踪。综合操作建议为：在4058-4109支撑区间附近维持偏多思路，但鉴于RSI与KDJ全面超买，建议短期获利仓位减仓锁定利润，回调至4109附近企稳后再考虑加仓，上方关注4180-4200区域压力。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">四、资金面分析（A股主力资金流向）</div>
+<div class="sr-section-body">
+<div class="sr-grid4"><div class="sr-kv"><div class="sr-k">主力净流入（今日）</div><div class="sr-v "><span class="sr-val-red">+0元</span><div class="sr-bar-wrap"><div class="sr-bar sr-bar-green" style="width:0%"></div></div><div style="font-size:11px;color:var(--sr-sub)">净比 +0.0%</div></div></div><div class="sr-kv"><div class="sr-k">超大单净流入</div><div class="sr-v "><span class="sr-val-red">+0元</span><div style="font-size:11px;color:var(--sr-sub)">买入+0 / 卖出+0</div></div></div><div class="sr-kv"><div class="sr-k">大单净流入</div><div class="sr-v "><span class="sr-val-red">+0元</span></div></div><div class="sr-kv"><div class="sr-k">散户净流入</div><div class="sr-v "><span class="sr-val-red">+0元</span><div style="font-size:11px;color:var(--sr-sub)">5日累计：+0元</div></div></div></div>
+<div class="sr-grid2" style="margin-top:14px">
+<div style="color:var(--sr-sub);font-size:12px;padding:10px">融资融券数据暂无（仅限A股沪深）</div>
+
+</div>
+<div class="sr-warn-box"><b>资金面小结：</b>根据您提供的真实资金数据，这段资金面小结存在明显异常——所有资金指标均为零值。基于现有数据，以下为资金面小结： 今日上证指数主力资金净流入0.00亿元，主力净占比为0.0%，表明主力资金当日处于近乎空仓观望状态，既未显著进场建仓，也未主动出货撤退。从超大单口径来看，净流入同样为0.00亿元，买入与卖出成交额均为0.00亿，显示机构与游资席位今日几乎未参与方向性交易，超大单层面呈完全中性。放大至近5日维度，主力累计净流入0.00亿元，配合融资余额0.00亿元且无增减变化，说明中期资金趋势亦处于停滞状态，市场杠杆资金并未借调整加仓。机构评级方面，统计范围内买入、持有、卖出家数均为0家，目标价暂无，显示专业机构对指数层面当前完全未形成一致性观点。综合上述资金面各项指标全部归零的罕见情形判断，当前上证指数资金面呈现典型的"真空静默"特征，既非建仓也非洗盘或撤退，而是多空双方大规模离场、等待明确信号的状态；从技术实操角度，零成交背景下的资金面结论参考价值有限，建议投资者待数据恢复正常后再行研判主力真实意图。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">五、基本面分析</div>
+<div class="sr-section-body">
+<div class="sr-grid2"><div><b style="font-size:13px;display:block;margin-bottom:8px">公司简介</b><table class="sr-table"><tr><th>项目</th><th>内容</th></tr><tr><td style="color:var(--sr-sub)">公司全名</td><td>上证指数</td></tr><tr><td style="color:var(--sr-sub)">所属行业</td><td></td></tr></table></div><div><b style="font-size:13px;display:block;margin-bottom:8px">估值与市场指标</b><table class="sr-table"><tr><th>指标</th><th>数值</th><th>评价</th></tr><tr><td>PE(TTM)</td><td>18.31x</td><td><span class="sr-badge sr-badge-blue">合理</span></td></tr><tr><td>总市值</td><td colspan="2">+0元</td></tr></table></div></div>
+
+
+
+
+<div class="sr-warn-box" style="margin-top:12px"><b>基本面小结：</b>当前上证综合指数PE(TTM)为18.3倍，处于历史中位数附近，整体估值水平较为合理，既不便宜也不算明显高估。由于指数缺乏营收与净利润增速数据，无法直接评估成长性，但结合宏观经济环境来看，A股整体盈利修复节奏相对温和。ROE、毛利率及净利率等核心盈利指标均缺失，导致难以准确判断指数成分股整体资本回报效率。机构方面无任何评级与目标价覆盖，意味着缺乏主流卖方对指数点位形成共识性预期，无法提供明确的方向指引。综合来看，当前上证指数估值处于中性区间，但因缺乏成长性及盈利能力的有效验证、机构覆盖度为零，基本面投资价值呈现一定模糊性，更适合作为市场整体情绪与流动性的跟踪工具，而非基于基本面获得超额收益的配置标的。</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-title">六、新闻面与国际局势</div>
+<div class="sr-section-body">
+<div class="sr-grid2">
+<div>
+<b style="font-size:13px;display:block;margin-bottom:8px">近期重要资讯</b>
+<div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">国务院总理李强会见美国国会参议员代表团</div><div class="sr-news-meta">2026-05-07 · 新华社</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">沪指6连阳，能否延续？</div><div class="sr-news-meta">2026-05-07 · 招商证券</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">盘后速递丨两市继续上涨，沪指接近4200点</div><div class="sr-news-meta">2026-05-07 · 投资知识1号事务所</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-green">利好</span></div><div><div class="sr-news-title">资金抱团通信板块，本周沪指能否一举突破4200点？丨川观解盘</div><div class="sr-news-meta">2026-05-07 · 四川在线</div></div></div><div class="sr-news-item"><div><span class="sr-badge sr-badge-gray">中性</span></div><div><div class="sr-news-title">全球主要央行紧缩预期升温，金融市场震荡分化</div><div class="sr-news-meta">2026-05-07 · 21财经网</div></div></div>
+</div>
+<div><b style="font-size:13px;display:block;margin-bottom:8px">国际局势与宏观因素</b><table class="sr-table"><tr><th>因素</th><th>方向</th><th>说明</th></tr><tr><td>主力资金今日</td><td><span class="sr-badge sr-badge-red">利空</span></td><td>主力净流入0.00亿元，主力阶段性撤退</td></tr><tr><td>近5日趋势</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>近5日累计+2.3%，震荡寻底</td></tr><tr><td>估值水平</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>PE=18.3x，估值合理</td></tr><tr><td>机构评级</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>机构评级数据待更新</td></tr><tr><td>融资融券</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>融资融券数据待更新</td></tr><tr><td>国内货币政策</td><td><span class="sr-badge sr-badge-green">利好</span></td><td>降准降息预期支撑市场，流动性环境宽松</td></tr><tr><td>中美贸易摩擦</td><td><span class="sr-badge sr-badge-orange">偏空</span></td><td>关税博弈带来外需不确定性，出口链承压</td></tr><tr><td>行业政策</td><td><span class="sr-badge sr-badge-gray">中性</span></td><td>关注行业监管与产业政策动态，政策面影响短期情绪</td></tr></table></div>
+</div>
+<div style="margin-top:14px;background:var(--sr-bg);border-radius:10px;padding:12px 16px">
+<div class="sr-warn-box"><b>新闻面与宏观小结：</b>近期消息面整体偏向中性偏利好，其中资金抱团通信板块及市场对沪指突破4200点的期待构成主要积极因素，而中美贸易摩擦带来的外需不确定性仍是主要偏空因素。国内货币政策方面，降准降息预期为市场提供流动性支撑，对上证指数构成直接利好。外部环境中全球主要央行紧缩预期升温可能引发国际资本流动波动，但中美高层接触释放出关系缓和管理信号，一定程度对冲了关税博弈的负面影响。内外因素交织下，市场短期情绪面趋于谨慎乐观。考虑到沪指已6连阳逼近关键阻力位，短期或面临技术性震荡，但政策宽松预期与资金面回暖有望为指数提供下档支撑，整体预计维持高位盘整态势。</div>
+</div>
+</div>
+</div>
+
+<div class="sr-section"><div class="sr-section-title">七、平均筹码成本与价格位置</div><div class="sr-section-body" style="color:var(--sr-sub)">港股/ETF/指数暂无筹码数据。请结合均线和成交量判断市场持仓成本分布。</div></div>
+
+<div class="sr-section"><div class="sr-section-title">八、未来走势预估</div><div class="sr-section-body"><div class="sr-grid3"><div style="background:#fff8e1;border-left:4px solid #ffb300;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">短期（1-2周）</div><div style="font-size:14px;font-weight:800;color:#f57c00;margin-bottom:8px">震荡筑底</div><div style="font-size:12px;color:#5f6368;line-height:1.8">技术面信号混合，短期在0-4058区间震荡的概率较大。RSI(86)、KDJ-J(101)处于中性区间，方向待定。建议等待成交量配合方向突破后再做判断。</div></div><div style="background:#e8f5e9;border-left:4px solid #43a047;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">中期（1-3个月）</div><div style="font-size:14px;font-weight:800;color:#27ae60;margin-bottom:8px">区间震荡偏多</div><div style="font-size:12px;color:#5f6368;line-height:1.8">综合技术与资金面，中期在¥0（布林下轨）~¥4464（MA20上方10%）区间震荡。业绩催化剂（季报、年报）可能成为中期突破的契机，关注¥4058能否企稳。</div></div><div style="background:#fff8e1;border-left:4px solid #ffb300;border-radius:8px;padding:14px"><div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#5f6368">长期（6-12个月）</div><div style="font-size:14px;font-weight:800;color:#f57c00;margin-bottom:8px">长期走势取决于基本面</div><div style="font-size:12px;color:#5f6368;line-height:1.8">长期表现的核心取决于公司核心竞争力和行业景气度的可持续性。建议每季度根据财报数据重新评估基本面，动态调整仓位。</div></div></div><div class="sr-danger-box" style="margin-top:14px"><b>主要风险：</b><br>① 技术面：RSI(86)超买，短线回调风险较高，建议不在当前位置追高<br>② 资金面：若大盘出现系统性调整，个股资金面可能快速恶化，流动性风险不可忽视<br>③ 业绩风险：季报/年报业绩不及预期可能引发机构下调目标价，造成补跌压力<br>④ 宏观风险：国内经济增速放缓、流动性收紧或监管政策调整，可能引发整体板块系统性回调<br>⑤ 仓位风险：任何单一标的的仓位不宜超过总仓位20%，严格执行止损纪律，防止单笔损失过大</div></div></div>
+
+<div class="sr-section">
+<div class="sr-section-title">九、综合投资建议</div>
+<div class="sr-section-body">
+<div class="sr-advice-sell sr-advice-block">
+<div class="sr-advice-title">综合评分 5.1/10 — 谨慎观望，控制仓位</div>
+<p style="font-size:13px;line-height:1.8;color:var(--sr-text)">综合来看，上证指数当前风险偏大，建议轻仓观望或适当减仓控制风险。
+均线系统多头排列，趋势偏强。
+资金面：主力今日净流入+0元。
+
+</p>
+</div>
+<div class="sr-price-row" style="margin-top:14px"><div class="sr-price-box"><div class="sr-pk">激进建仓</div><div class="sr-pv sr-val-green">¥4055</div><div style="font-size:11px;color:var(--sr-sub)">MA/BOLL支撑区</div></div><div class="sr-price-box"><div class="sr-pk">稳健建仓</div><div class="sr-pv sr-val-green">¥3884</div><div style="font-size:11px;color:var(--sr-sub)">MA20+BOLL下轨区</div></div><div class="sr-price-box"><div class="sr-pk">中期目标价</div><div class="sr-pv sr-val-blue">¥4807</div><div style="font-size:11px;color:var(--sr-sub)">趋势延续前提</div></div><div class="sr-price-box"><div class="sr-pk">止损价</div><div class="sr-pv sr-val-red">¥3771</div><div style="font-size:11px;color:var(--sr-sub)">跌破则离场</div></div></div>
+<div style="margin-top:14px">
+<b style="font-size:13px;display:block;margin-bottom:8px">能否加仓？分情况建议</b>
+<div class="sr-invest-block" style="border-left:4px solid #16a34a;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#16a34a;margin-bottom:6px;">🚀 激进者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">当前上证指数站上4180点，近20日涨幅达7.73%，短期趋势较强，激进投资者可在回调至4100-4130区间加仓布局。建议将止损位严格设置在3771点附近，中期目标看向4807元，潜在上涨空间约15%。重点关注主力资金流向变化，若出现放量突破前高可考虑进一步加仓。仓位建议控制在5-7成，保留部分资金应对短期回调风险。</div></div><div class="sr-invest-block" style="border-left:4px solid #2563eb;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#2563eb;margin-bottom:6px;">🛡️ 稳健者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">稳健投资者建议采取分批建仓策略，当前4180点处于压力位附近，不宜一次性重仓。可分三批布局：第一批在4055元附近建仓30%，第二批在4000元附近加仓30%，第三批在3950元附近完成剩余40%。平均持仓成本目标控制在4000元以下，若跌破3771元止损位则果断减仓离场。建议总体仓位控制在3-5成，耐心等待估值修复行情。</div></div><div class="sr-invest-block" style="border-left:4px solid #9333ea;padding:12px 16px;margin:10px 0;background:rgba(0,0,0,0.02);border-radius:0 6px 6px 0;"><div style="font-weight:700;font-size:14px;color:#9333ea;margin-bottom:6px;">👁️ 中立者建议</div><div style="font-size:13px;line-height:1.8;color:var(--sr-text)">当前上证指数综合评分仅5.1分，技术面和资金面均偏弱，保守投资者暂不建议急于进场。需要等待以下确认信号：一是有效突破4109元压力位并站稳，二是主力资金净流入由负转正且持续3日以上，三是PE估值回落至17倍以下或 news面评分持续提升。建议密切观察成交量变化、北向资金流向及MACD指标金叉信号，待趋势明朗后再考虑小仓位试探性介入。</div></div>
+</div>
+</div>
+</div>
+
+<div class="sr-section">
+<div class="sr-section-body">
+<div class="sr-risk-disclaimer">
+<b>风险提示：</b>本报告由程序自动生成，仅供参考，不构成任何投资建议。股市有风险，投资须谨慎。过去表现不代表未来收益。请结合自身风险承受能力独立判断。
+</div>
+<div class="sr-footer-tip">数据来源：westock-data / 东方财富 &nbsp;·&nbsp; 报告生成时间：2026-05-07 19:46:29</div>
+</div>
+</div>
+
+</div>
