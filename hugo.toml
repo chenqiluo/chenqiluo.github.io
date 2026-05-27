@@ -19,6 +19,9 @@ summaryLength = 50
   ShowToc = true
   TocOpen = false
   
+  [params.assets]
+    disableFingerprinting = true
+
   [params.homeInfoParams]
     Title = "👋 你好，我是 luochenqi"
     Content = "这里记录我的每日目标、学习笔记和知识积累。"
