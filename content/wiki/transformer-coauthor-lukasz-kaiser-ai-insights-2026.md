@@ -1,5 +1,5 @@
 ---
-title: "Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以"外星人逻辑"泛化"
+title: 'Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化'
 date: 2026-06-04
 draft: false
 tags: ["AI", "Transformer", "大语言模型", "机器学习", "AGI", "OpenAI"]
