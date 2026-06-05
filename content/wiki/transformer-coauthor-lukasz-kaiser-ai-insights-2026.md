@@ -13,6 +13,8 @@ TocOpen: true
 >
 > 受访者：**Lukasz Kaiser**——改变世界的"Transformer 八子"之一，前 Google Brain 核心成员，前 OpenAI 顶尖科学家。
 
+{{< figure src="/images/wiki/lukasz-kaiser/01-cover-lukasz-kaiser.png" alt="Transformer作者Lukasz Kaiser访谈深度解读配图封面" caption="Transformer 作者揭秘：AI 正在以「外星人逻辑」泛化" width="480px" >}}
+
 ---
 
 ## 这篇访谈在聊什么？
@@ -56,6 +58,8 @@ AI 其实具备泛化能力，但路径很奇怪。Lukasz 举了一个有趣的�
 换句话说，AI 的"泛化路径"看起来是锯齿状的、不连贯的——**在人类眼中明明很相近的两件事，AI 却可能一个会一个不会**，因为在它的"思维空间"里这两件事相差甚远。
 
 **这为什么重要？** 这就是为什么你不能完全信任 AI，因为你永远不知道它在哪个角落突然翻车。
+
+{{< figure src="/images/wiki/lukasz-kaiser/02-content-ai-learning.png" alt="AI学习方式与外星人逻辑泛化配图" caption="观点①②：万亿Token学习法 & 外星人逻辑泛化" width="480px" >}}
 
 ---
 
@@ -111,6 +115,8 @@ AI 处理超长对话（比如一个几十万字的代码库）一直是个难�
 
 更进一步的启示：**不再需要在大公司才能做前沿研究**。独立研究员、学术圈、爱好者，都有机会复现甚至推进 AI 研究的前沿。
 
+{{< figure src="/images/wiki/lukasz-kaiser/03-content-efficiency-hardware.png" alt="AI研究效率提升和硬件民主化配图" caption="观点③⑤：5~10倍效率提升 & 一张 5090 = 当年整个机房" width="480px" >}}
+
 ---
 
 ## 六、小模型很厉害，但"巨无霸"大模型无可替代
@@ -145,6 +151,8 @@ AI 处理超长对话（比如一个几十万字的代码库）一直是个难�
 
 **但代价是**：你必须在脑子里对系统的全局架构有更清晰的认知，否则 AI 随时会跑偏。
 
+{{< figure src="/images/wiki/lukasz-kaiser/04-content-coding-models.png" alt="编程革命与大小模型对比配图" caption="观点⑥⑦：编程方式进化 & 大模型依然无可替代" width="480px" >}}
+
 ---
 
 ## 八、AI 编程战争的赢家：Anthropic 的"弯道超车"故事
@@ -173,6 +181,8 @@ Lukasz 属于那种"理性中间派"：既不认为 AI 会灭绝人类（那种�
 
 **他真正担心的**：AI 现在的编程能力这么强，完全可能被用来发动网络攻击——黑入基础设施、破坏电网、攻击医疗系统。这些是**今天就可能发生的风险**，而不是科幻小说里的未来场景。
 
+{{< figure src="/images/wiki/lukasz-kaiser/05-content-anthropic-risks.png" alt="Anthropic战略与AI安全风险配图" caption="观点⑧⑨：Anthropic弯道超车 & 更怕电网被黑" width="480px" >}}
+
 ---
 
 ## 十、Andrej Karpathy 加入 Anthropic 研究"递归自我提升"——靠谱吗？
@@ -199,6 +209,8 @@ Lukasz 属于那种"理性中间派"：既不认为 AI 会灭绝人类（那种�
 | 硬件进步 | 一张 5090 = 当年整个 Transformer 机房的 2.5 倍 |
 | AI 编程未来 | 不是谁赢谁输，而是如何延伸到非技术人群 |
 | AI 安全 | 更担心近期的网络攻击风险，不太担心科幻式灭绝风险 |
+
+{{< figure src="/images/wiki/lukasz-kaiser/06-ending-summary.png" alt="核心洞见速览汇总配图" caption="核心洞见速览 · AI不是来替代你的，是来放大你的" width="480px" >}}
 
 ---
 
