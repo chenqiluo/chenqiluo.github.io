@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化 | luochenqi&#39;s Blog</title>
+<meta name="keywords" content="AI, Transformer, 大语言模型, 机器学习, AGI, OpenAI">
+<meta name="description" content="Transformer 八位作者之一 Lukasz Kaiser 最新播客访谈全解读——AI 的泛化怪癖、一张 5090 显卡能干多少事、Anthropic 为什么专注编程赛道，以及写代码为何不再需要编辑器。">
+<meta name="author" content="luochenqi">
+<link rel="canonical" href="https://chenqiluo.github.io/wiki/transformer-coauthor-lukasz-kaiser-ai-insights-2026/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://chenqiluo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://chenqiluo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://chenqiluo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://chenqiluo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://chenqiluo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://chenqiluo.github.io/wiki/transformer-coauthor-lukasz-kaiser-ai-insights-2026/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><style>
+ 
+
+ 
+:root {
+    --theme: transparent !important;
+}
+
+html {
+    background-image: url('/images/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #d4cfc6;
+    min-height: 100%;
+}
+
+body {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+ 
+.main,
+#top,
+main,
+.list,
+.page,
+.post-single,
+.archive-posts {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+ 
+header.header {
+    background-color: rgba(255, 255, 255, 0.80) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+ 
+.post-entry,
+.first-entry,
+.home-info,
+.profile,
+.page-header,
+.post-header,
+.post-content,
+.toc,
+.post-footer,
+.pagination,
+.terms-tags {
+    background-color: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+
+ 
+[data-theme="dark"] header.header,
+.dark header.header {
+    background-color: rgba(20, 20, 20, 0.80) !important;
+}
+
+[data-theme="dark"] .post-entry,
+[data-theme="dark"] .first-entry,
+[data-theme="dark"] .home-info,
+[data-theme="dark"] .profile,
+[data-theme="dark"] .page-header,
+[data-theme="dark"] .post-header,
+[data-theme="dark"] .post-content,
+[data-theme="dark"] .toc,
+[data-theme="dark"] .post-footer,
+[data-theme="dark"] .pagination,
+[data-theme="dark"] .terms-tags,
+.dark .post-entry,
+.dark .first-entry,
+.dark .home-info,
+.dark .profile,
+.dark .page-header,
+.dark .post-header,
+.dark .post-content,
+.dark .toc,
+.dark .post-footer,
+.dark .pagination,
+.dark .terms-tags {
+    background-color: rgba(20, 20, 20, 0.85) !important;
+}
+</style>
+
+<meta property="og:url" content="https://chenqiluo.github.io/wiki/transformer-coauthor-lukasz-kaiser-ai-insights-2026/">
+  <meta property="og:site_name" content="luochenqi&#39;s Blog">
+  <meta property="og:title" content="Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化">
+  <meta property="og:description" content="Transformer 八位作者之一 Lukasz Kaiser 最新播客访谈全解读——AI 的泛化怪癖、一张 5090 显卡能干多少事、Anthropic 为什么专注编程赛道，以及写代码为何不再需要编辑器。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="wiki">
+    <meta property="article:published_time" content="2026-06-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-04T00:00:00+00:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Transformer">
+    <meta property="article:tag" content="大语言模型">
+    <meta property="article:tag" content="机器学习">
+    <meta property="article:tag" content="AGI">
+    <meta property="article:tag" content="OpenAI">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化">
+  <meta name="twitter:description" content="Transformer 八位作者之一 Lukasz Kaiser 最新播客访谈全解读——AI 的泛化怪癖、一张 5090 显卡能干多少事、Anthropic 为什么专注编程赛道，以及写代码为何不再需要编辑器。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "知识库索引",
+      "item": "https://chenqiluo.github.io/wiki/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化",
+      "item": "https://chenqiluo.github.io/wiki/transformer-coauthor-lukasz-kaiser-ai-insights-2026/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化",
+  "name": "Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化",
+  "description": "Transformer 八位作者之一 Lukasz Kaiser 最新播客访谈全解读——AI 的泛化怪癖、一张 5090 显卡能干多少事、Anthropic 为什么专注编程赛道，以及写代码为何不再需要编辑器。",
+  "keywords": [
+    "AI", "Transformer", "大语言模型", "机器学习", "AGI", "OpenAI"
+  ],
+  "articleBody": " 原文来源：51CTO技术栈公众号，编辑 | 林芯（2026年6月4日）\n受访者：Lukasz Kaiser——改变世界的\"Transformer 八子\"之一，前 Google Brain 核心成员，前 OpenAI 顶尖科学家。\nTransformer 作者揭秘：AI 正在以「外星人逻辑」泛化\n这篇访谈在聊什么？ Transformer 是 ChatGPT、Claude、DeepSeek 等一切现代 AI 大模型的底层架构。2017 年，8 位 Google 工程师联名发表了那篇改变世界的论文《Attention is All You Need》，Lukasz Kaiser 就是其中之一。\n2026 年，他接受了一期播客访谈，聊了他对当前 AI 发展的深度看法。这篇文章是对该访谈的通俗解读，帮你把那些硬核观点翻译成人话。\n一、AI 学东西，需要\"万亿 Token\"才能明白一个概念 原话：“大语言模型也是这样，它们会学习一个概念，但必须在用尽所有其他选项之后。”\n通俗理解：\n想象你教一个孩子认识\"苹果\"，你只需要给他看几个苹果，他就能举一反三，认出各种苹果。\n但现在的 AI 大模型不是这样的。它需要在海量文章、网页里看过成千上万次\"苹果\"相关的描述，才能真正\"理解\"苹果这个概念。这种学习方式有点像——把所有表面现象都学完之后，最后才归纳出那个本质规律。\nLukasz 的比喻非常形象：美国人在用尽所有其他选项后才会做正确的事——大语言模型也是如此。\n这意味着什么？ 当前 AI 的学习方式和人类有本质区别，它还没找到人类那种\"高效归纳概念\"的能力。\n二、AI 是在以\"外星人逻辑\"泛化 原话：“模型并不是不具备泛化能力。它在泛化，只不过是以一种奇怪的、类似’外星人’的方式在进行。”\n通俗理解：\n“泛化\"就是举一反三的能力——学会了 A，就能推理 B。\nAI 其实具备泛化能力，但路径很奇怪。Lukasz 举了一个有趣的例子：\nAI 在数学竞赛中，有很长一段时间解不了几何题。你会以为它\"没有空间理解能力”。但后来，只要多给它一些几何题的数据，它就突然会了。\n问题是，那些几何题数据并不是空间理解数据，也不是物理世界的数据，只是更多的几何题文字描述而已。\n换句话说，AI 的\"泛化路径\"看起来是锯齿状的、不连贯的——在人类眼中明明很相近的两件事，AI 却可能一个会一个不会，因为在它的\"思维空间\"里这两件事相差甚远。\n这为什么重要？ 这就是为什么你不能完全信任 AI，因为你永远不知道它在哪个角落突然翻车。\n观点①②：万亿Token学习法 \u0026 外星人逻辑泛化\n三、AI 让研究员思维更敏锐，还引发了\"精神狂热\" 原话：“这在如今的研究人员中已经引发了一种轻度的’精神狂热’，我们根本停不下来。”\n通俗理解：\n很多人担心 AI 会让人越来越懒、越来越笨。但 Lukasz 的亲身体验恰恰相反：\n他用 Codex（OpenAI 的 AI 编程工具）复现一篇论文，原来需要 3 周，现在只需 2 天。更关键的是，他现在可以同时并行启动 3 个研究任务，以前只能专心做 1 个。\n为什么反而让思维更敏锐？ 他解释说：\n“我不再需要关注每个类名或每个细小的函数，但我必须对全局有绝对的掌控。AI 随时可能跑偏——比如它擅自给代码加了一个’辅助损失函数’，结果完全搞错了方向。所以你的大脑必须始终保持在最高战略层面上，这反而是一种更高强度的思维训练。”\n一句话总结：AI 帮你干了脏活，但你必须比以前更清楚地知道自己想要什么。\n四、长上下文的解法：用 grep 搜文件——听起来像\"拙劣的应付手段\"，但它真的有效 原话：“如果你 5 年前告诉我这些，我会说：‘这分明是个拙劣的应付手段。‘但它确实运行得非常好。”\n通俗理解：\nAI 处理超长对话（比如一个几十万字的代码库）一直是个难题，因为\"上下文窗口\"有限，就像人的短期记忆一样，只能记住最近的内容。\n没想到现在的解决方案非常朴素：让 AI 把东西写进文件，然后用搜索工具（grep）去查，再建个索引文件。这基本上就是一个最原始的\"文件系统检索\"方案。\n这在学术圈的眼光来看，简直是\"创口贴式的应付\"，完全不优雅。但 Lukasz 说：\n“我们不以解决方案的外表来评判它们，我们以效果来评判——它确实有效。”\n这也说明了一个 AI 研究的普遍规律：很多最终有效的方法，一开始都被认为太土太丑，比如 Dropout（随机关掉一些神经元）——听起来很荒谬，但它是正则化的经典技巧。\n五、一张 5090 显卡，算力超过当年写 Transformer 时整个机房的 2.5 倍 原话：“你现在完全可以在家里厨房里，把当年关于 Transformer 的所有研究全部跑一遍。”\n通俗理解：\n2017 年，Lukasz 和同事们用 8 张 GPU 写出了 Transformer 论文，整台机器的真实算力大约是 70~80 Teraflops（万亿次浮点运算）。\n2026 年，他自己买了一张 RTX 5090 显卡放在桌子底下——这张卡的算力约 200 Teraflops，是当年整台顶尖服务器的 2.5 倍以上。\n这意味着什么？\n“当年需要 Google 级别的机房才能做的 AI 研究，现在一个大学生在宿舍里用一张显卡就能跑了。”\n更进一步的启示：不再需要在大公司才能做前沿研究。独立研究员、学术圈、爱好者，都有机会复现甚至推进 AI 研究的前沿。\n观点③⑤：5~10倍效率提升 \u0026 一张 5090 = 当年整个机房\n六、小模型很厉害，但\"巨无霸\"大模型无可替代 原话：“如果你真的想轻松解决重大问题、完美适应你的数据和业务上下文，目前似乎依然没有什么能替代那些真正庞大的’巨无霸’模型。”\n通俗理解：\n前两年流行一个说法：大模型太贵了，小模型才是未来。确实，现在的小模型（比如几十亿参数的 Gemma）已经非常强了，以前只有千亿参数才能做到的零样本学习，现在 30 亿参数也能做。\n但 Lukasz 的结论是：小模型好用，大模型更好用，而且两者差距没消失。\n就像汽车和卡车，小汽车可以跑，但拉货还是得靠卡车。对于真正复杂、需要深度理解的任务，大模型的优势依然是决定性的。\n蒸馏模型（小模型学大模型）的局限：蒸馏出来的模型在大多数情况下表现不错，但总在某些地方会\"翻车\"，让你花大量时间排查，最后还是得用回大模型。\n七、写代码完全不用编辑器了，直接告诉 AI 改 原话：“我以前也完全没想到自己写代码时会连编辑器都不用，但现在我真的不用了，我直接告诉它去修改代码就行。”\n这是 Lukasz 说的\"过去一年中最大的认知颠覆\"。\n通俗理解：\n对于程序员来说，这意味着编程的工作流已经发生根本性变化：\n以前：打开编辑器 → 亲手写代码 → 调 Bug 现在：告诉 AI 想要什么 → 验证结果 → 指出问题 → AI 修改 你不再是\"代码的书写者\"，而是\"代码的指挥官\"。\n但代价是：你必须在脑子里对系统的全局架构有更清晰的认知，否则 AI 随时会跑偏。\n观点⑥⑦：编程方式进化 \u0026 大模型依然无可替代\n八、AI 编程战争的赢家：Anthropic 的\"弯道超车\"故事 原话：“Anthropic 做出了一项非常明智的决断，那就是一心专注于编程——这个决定是在 OpenAI 正全力以赴做 ChatGPT 的时候做出的。”\n通俗理解：\n当 OpenAI 的 ChatGPT 风靡全球、获得十亿用户时，Anthropic 其实在聊天机器人领域根本没有竞争力。他们聪明地找了一个差异化赛道：专注于编程助手。\n这一押注在 Claude Code 上获得了巨大成功。\n但 Lukasz 也指出，编程市场其实够大，容得下多个优秀产品（OpenAI Codex 和 Anthropic Claude Code 都能存活）。真正的下一战不是谁在编程领域更强，而是：\n“如何把这种 AI 能力延伸到其他行业和岗位的人们？”\n会计、法律、医疗、教育……编程只是个起点。\n九、存在性风险？不怕 AI 毁灭人类，更怕 AI 被人用来黑进电网 原话：“我目前更关注的还是那些具体的、迫在眉睫的风险——比如 AI 可能会黑进我们的某些系统、导致电网瘫痪。”\nLukasz 属于那种\"理性中间派\"：既不认为 AI 会灭绝人类（那种科幻式的存在性风险），也不觉得可以掉以轻心。\n他真正担心的：AI 现在的编程能力这么强，完全可能被用来发动网络攻击——黑入基础设施、破坏电网、攻击医疗系统。这些是今天就可能发生的风险，而不是科幻小说里的未来场景。\n观点⑧⑨：Anthropic弯道超车 \u0026 更怕电网被黑\n十、Andrej Karpathy 加入 Anthropic 研究\"递归自我提升\"——靠谱吗？ 背景：AI 界大佬 Andrej Karpathy（特斯拉前 AI 总监、OpenAI 联合创始人之一）宣布加入 Anthropic，加入的是 RSI（递归自我提升）团队——也就是研究\"AI 改进自己\"的方向。\nLukasz 的冷静判断：\n“就算用上世界上最厉害的 AI 智能体，它们也只是人类研究员水平，最多是'10倍速研究员’。但别忘了，过去这么多年里，数以百计的顶尖人类研究员已经在拼命攻克这些难题，依然没有成功。”\n换句话说：AI 辅助可以让研究效率大幅提升，但能不能找到正确的研究方向，这需要\"极其惊人的运气和实力\"。研究上的重大突破，不是靠效率就能保证的。\n总结：这篇访谈的核心洞见 话题 Lukasz 的观点 Transformer 的未来 还没走到头，但\"后 Transformer\"时代已经在酝酿中 AI 的泛化方式 在以\"外星人逻辑\"泛化，路径和人类直觉完全不同 AI 对研究效率的影响 5~10 倍提升，引发研究员\"精神狂热\" 长上下文解法 用 grep + 文件索引，听起来土但有效 小模型 vs 大模型 大模型依然不可替代，蒸馏小模型总有盲区 硬件进步 一张 5090 = 当年整个 Transformer 机房的 2.5 倍 AI 编程未来 不是谁赢谁输，而是如何延伸到非技术人群 AI 安全 更担心近期的网络攻击风险，不太担心科幻式灭绝风险 核心洞见速览 · AI不是来替代你的，是来放大你的\n原始播客来源：YouTube\n",
+  "wordCount" : "325",
+  "inLanguage": "zh",
+  "datePublished": "2026-06-04T00:00:00Z",
+  "dateModified": "2026-06-04T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "luochenqi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chenqiluo.github.io/wiki/transformer-coauthor-lukasz-kaiser-ai-insights-2026/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "luochenqi's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://chenqiluo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://chenqiluo.github.io/" accesskey="h" title="luochenqi&#39;s Blog (Alt + H)">luochenqi&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://chenqiluo.github.io/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/daily/" title="每日目标">
+                    <span>每日目标</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/wiki/" title="知识库">
+                    <span>知识库</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/stock/" title="股票分析">
+                    <span>股票分析</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/reading/" title="研读">
+                    <span>研读</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://arena.ai/leaderboard/text" title="AI天梯榜">
+                    <span>AI天梯榜</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/search/" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://chenqiluo.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://chenqiluo.github.io/wiki/">知识库索引</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化
+    </h1>
+    <div class="post-description">
+      Transformer 八位作者之一 Lukasz Kaiser 最新播客访谈全解读——AI 的泛化怪癖、一张 5090 显卡能干多少事、Anthropic 为什么专注编程赛道，以及写代码为何不再需要编辑器。
+    </div>
+    <div class="post-meta"><span title='2026-06-04 00:00:00 +0000 UTC'>2026年6月4日</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e8%bf%99%e7%af%87%e8%ae%bf%e8%b0%88%e5%9c%a8%e8%81%8a%e4%bb%80%e4%b9%88" aria-label="这篇访谈在聊什么？">这篇访谈在聊什么？</a></li>
+                <li>
+                    <a href="#%e4%b8%80ai-%e5%ad%a6%e4%b8%9c%e8%a5%bf%e9%9c%80%e8%a6%81%e4%b8%87%e4%ba%bf-token%e6%89%8d%e8%83%bd%e6%98%8e%e7%99%bd%e4%b8%80%e4%b8%aa%e6%a6%82%e5%bf%b5" aria-label="一、AI 学东西，需要&quot;万亿 Token&quot;才能明白一个概念">一、AI 学东西，需要&quot;万亿 Token&quot;才能明白一个概念</a></li>
+                <li>
+                    <a href="#%e4%ba%8cai-%e6%98%af%e5%9c%a8%e4%bb%a5%e5%a4%96%e6%98%9f%e4%ba%ba%e9%80%bb%e8%be%91%e6%b3%9b%e5%8c%96" aria-label="二、AI 是在以&quot;外星人逻辑&quot;泛化">二、AI 是在以&quot;外星人逻辑&quot;泛化</a></li>
+                <li>
+                    <a href="#%e4%b8%89ai-%e8%ae%a9%e7%a0%94%e7%a9%b6%e5%91%98%e6%80%9d%e7%bb%b4%e6%9b%b4%e6%95%8f%e9%94%90%e8%bf%98%e5%bc%95%e5%8f%91%e4%ba%86%e7%b2%be%e7%a5%9e%e7%8b%82%e7%83%ad" aria-label="三、AI 让研究员思维更敏锐，还引发了&quot;精神狂热&quot;">三、AI 让研究员思维更敏锐，还引发了&quot;精神狂热&quot;</a></li>
+                <li>
+                    <a href="#%e5%9b%9b%e9%95%bf%e4%b8%8a%e4%b8%8b%e6%96%87%e7%9a%84%e8%a7%a3%e6%b3%95%e7%94%a8-grep-%e6%90%9c%e6%96%87%e4%bb%b6%e5%90%ac%e8%b5%b7%e6%9d%a5%e5%83%8f%e6%8b%99%e5%8a%a3%e7%9a%84%e5%ba%94%e4%bb%98%e6%89%8b%e6%ae%b5%e4%bd%86%e5%ae%83%e7%9c%9f%e7%9a%84%e6%9c%89%e6%95%88" aria-label="四、长上下文的解法：用 grep 搜文件——听起来像&quot;拙劣的应付手段&quot;，但它真的有效">四、长上下文的解法：用 grep 搜文件——听起来像&quot;拙劣的应付手段&quot;，但它真的有效</a></li>
+                <li>
+                    <a href="#%e4%ba%94%e4%b8%80%e5%bc%a0-5090-%e6%98%be%e5%8d%a1%e7%ae%97%e5%8a%9b%e8%b6%85%e8%bf%87%e5%bd%93%e5%b9%b4%e5%86%99-transformer-%e6%97%b6%e6%95%b4%e4%b8%aa%e6%9c%ba%e6%88%bf%e7%9a%84-25-%e5%80%8d" aria-label="五、一张 5090 显卡，算力超过当年写 Transformer 时整个机房的 2.5 倍">五、一张 5090 显卡，算力超过当年写 Transformer 时整个机房的 2.5 倍</a></li>
+                <li>
+                    <a href="#%e5%85%ad%e5%b0%8f%e6%a8%a1%e5%9e%8b%e5%be%88%e5%8e%89%e5%ae%b3%e4%bd%86%e5%b7%a8%e6%97%a0%e9%9c%b8%e5%a4%a7%e6%a8%a1%e5%9e%8b%e6%97%a0%e5%8f%af%e6%9b%bf%e4%bb%a3" aria-label="六、小模型很厉害，但&quot;巨无霸&quot;大模型无可替代">六、小模型很厉害，但&quot;巨无霸&quot;大模型无可替代</a></li>
+                <li>
+                    <a href="#%e4%b8%83%e5%86%99%e4%bb%a3%e7%a0%81%e5%ae%8c%e5%85%a8%e4%b8%8d%e7%94%a8%e7%bc%96%e8%be%91%e5%99%a8%e4%ba%86%e7%9b%b4%e6%8e%a5%e5%91%8a%e8%af%89-ai-%e6%94%b9" aria-label="七、写代码完全不用编辑器了，直接告诉 AI 改">七、写代码完全不用编辑器了，直接告诉 AI 改</a></li>
+                <li>
+                    <a href="#%e5%85%abai-%e7%bc%96%e7%a8%8b%e6%88%98%e4%ba%89%e7%9a%84%e8%b5%a2%e5%ae%b6anthropic-%e7%9a%84%e5%bc%af%e9%81%93%e8%b6%85%e8%bd%a6%e6%95%85%e4%ba%8b" aria-label="八、AI 编程战争的赢家：Anthropic 的&quot;弯道超车&quot;故事">八、AI 编程战争的赢家：Anthropic 的&quot;弯道超车&quot;故事</a></li>
+                <li>
+                    <a href="#%e4%b9%9d%e5%ad%98%e5%9c%a8%e6%80%a7%e9%a3%8e%e9%99%a9%e4%b8%8d%e6%80%95-ai-%e6%af%81%e7%81%ad%e4%ba%ba%e7%b1%bb%e6%9b%b4%e6%80%95-ai-%e8%a2%ab%e4%ba%ba%e7%94%a8%e6%9d%a5%e9%bb%91%e8%bf%9b%e7%94%b5%e7%bd%91" aria-label="九、存在性风险？不怕 AI 毁灭人类，更怕 AI 被人用来黑进电网">九、存在性风险？不怕 AI 毁灭人类，更怕 AI 被人用来黑进电网</a></li>
+                <li>
+                    <a href="#%e5%8d%81andrej-karpathy-%e5%8a%a0%e5%85%a5-anthropic-%e7%a0%94%e7%a9%b6%e9%80%92%e5%bd%92%e8%87%aa%e6%88%91%e6%8f%90%e5%8d%87%e9%9d%a0%e8%b0%b1%e5%90%97" aria-label="十、Andrej Karpathy 加入 Anthropic 研究&quot;递归自我提升&quot;——靠谱吗？">十、Andrej Karpathy 加入 Anthropic 研究&quot;递归自我提升&quot;——靠谱吗？</a></li>
+                <li>
+                    <a href="#%e6%80%bb%e7%bb%93%e8%bf%99%e7%af%87%e8%ae%bf%e8%b0%88%e7%9a%84%e6%a0%b8%e5%bf%83%e6%b4%9e%e8%a7%81" aria-label="总结：这篇访谈的核心洞见">总结：这篇访谈的核心洞见</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>原文来源：51CTO技术栈公众号，编辑 | 林芯（2026年6月4日）</p>
+<p>受访者：<strong>Lukasz Kaiser</strong>——改变世界的&quot;Transformer 八子&quot;之一，前 Google Brain 核心成员，前 OpenAI 顶尖科学家。</p></blockquote>
+<figure>
+    <img loading="lazy" src="/images/wiki/lukasz-kaiser/01-cover-lukasz-kaiser.png"
+         alt="Transformer作者Lukasz Kaiser访谈深度解读配图封面" width="480px"/> <figcaption>
+            <p>Transformer 作者揭秘：AI 正在以「外星人逻辑」泛化</p>
+        </figcaption>
+</figure>
+
+<hr>
+<h2 id="这篇访谈在聊什么">这篇访谈在聊什么？<a hidden class="anchor" aria-hidden="true" href="#这篇访谈在聊什么">#</a></h2>
+<p>Transformer 是 ChatGPT、Claude、DeepSeek 等一切现代 AI 大模型的底层架构。2017 年，8 位 Google 工程师联名发表了那篇改变世界的论文《Attention is All You Need》，Lukasz Kaiser 就是其中之一。</p>
+<p>2026 年，他接受了一期播客访谈，聊了他对当前 AI 发展的深度看法。这篇文章是对该访谈的<strong>通俗解读</strong>，帮你把那些硬核观点翻译成人话。</p>
+<hr>
+<h2 id="一ai-学东西需要万亿-token才能明白一个概念">一、AI 学东西，需要&quot;万亿 Token&quot;才能明白一个概念<a hidden class="anchor" aria-hidden="true" href="#一ai-学东西需要万亿-token才能明白一个概念">#</a></h2>
+<p><strong>原话</strong>：&ldquo;大语言模型也是这样，它们会学习一个概念，但必须在用尽所有其他选项之后。&rdquo;</p>
+<p><strong>通俗理解</strong>：</p>
+<p>想象你教一个孩子认识&quot;苹果&quot;，你只需要给他看几个苹果，他就能举一反三，认出各种苹果。</p>
+<p>但现在的 AI 大模型不是这样的。它需要在海量文章、网页里看过成千上万次&quot;苹果&quot;相关的描述，才能真正&quot;理解&quot;苹果这个概念。这种学习方式有点像——把所有表面现象都学完之后，最后才归纳出那个本质规律。</p>
+<p>Lukasz 的比喻非常形象：<strong>美国人在用尽所有其他选项后才会做正确的事——大语言模型也是如此。</strong></p>
+<p><strong>这意味着什么？</strong> 当前 AI 的学习方式和人类有本质区别，它还没找到人类那种&quot;高效归纳概念&quot;的能力。</p>
+<hr>
+<h2 id="二ai-是在以外星人逻辑泛化">二、AI 是在以&quot;外星人逻辑&quot;泛化<a hidden class="anchor" aria-hidden="true" href="#二ai-是在以外星人逻辑泛化">#</a></h2>
+<p><strong>原话</strong>：&ldquo;模型并不是不具备泛化能力。它在泛化，只不过是以一种奇怪的、类似&rsquo;外星人&rsquo;的方式在进行。&rdquo;</p>
+<p><strong>通俗理解</strong>：</p>
+<p>&ldquo;泛化&quot;就是举一反三的能力——学会了 A，就能推理 B。</p>
+<p>AI 其实具备泛化能力，但路径很奇怪。Lukasz 举了一个有趣的例子：</p>
+<blockquote>
+<p>AI 在数学竞赛中，有很长一段时间解不了几何题。你会以为它&quot;没有空间理解能力&rdquo;。但后来，只要多给它一些几何题的数据，它就突然会了。</p></blockquote>
+<p>问题是，那些几何题数据<strong>并不是空间理解数据，也不是物理世界的数据</strong>，只是更多的几何题文字描述而已。</p>
+<p>换句话说，AI 的&quot;泛化路径&quot;看起来是锯齿状的、不连贯的——<strong>在人类眼中明明很相近的两件事，AI 却可能一个会一个不会</strong>，因为在它的&quot;思维空间&quot;里这两件事相差甚远。</p>
+<p><strong>这为什么重要？</strong> 这就是为什么你不能完全信任 AI，因为你永远不知道它在哪个角落突然翻车。</p>
+<figure>
+    <img loading="lazy" src="/images/wiki/lukasz-kaiser/02-content-ai-learning.png"
+         alt="AI学习方式与外星人逻辑泛化配图" width="480px"/> <figcaption>
+            <p>观点①②：万亿Token学习法 &amp; 外星人逻辑泛化</p>
+        </figcaption>
+</figure>
+
+<hr>
+<h2 id="三ai-让研究员思维更敏锐还引发了精神狂热">三、AI 让研究员思维更敏锐，还引发了&quot;精神狂热&quot;<a hidden class="anchor" aria-hidden="true" href="#三ai-让研究员思维更敏锐还引发了精神狂热">#</a></h2>
+<p><strong>原话</strong>：&ldquo;这在如今的研究人员中已经引发了一种轻度的&rsquo;精神狂热&rsquo;，我们根本停不下来。&rdquo;</p>
+<p><strong>通俗理解</strong>：</p>
+<p>很多人担心 AI 会让人越来越懒、越来越笨。但 Lukasz 的亲身体验恰恰相反：</p>
+<p>他用 Codex（OpenAI 的 AI 编程工具）复现一篇论文，<strong>原来需要 3 周，现在只需 2 天</strong>。更关键的是，他现在可以同时并行启动 3 个研究任务，以前只能专心做 1 个。</p>
+<p><strong>为什么反而让思维更敏锐？</strong> 他解释说：</p>
+<blockquote>
+<p>&ldquo;我不再需要关注每个类名或每个细小的函数，但我必须对全局有绝对的掌控。AI 随时可能跑偏——比如它擅自给代码加了一个&rsquo;辅助损失函数&rsquo;，结果完全搞错了方向。所以你的大脑必须始终保持在最高战略层面上，这反而是一种更高强度的思维训练。&rdquo;</p></blockquote>
+<p>一句话总结：<strong>AI 帮你干了脏活，但你必须比以前更清楚地知道自己想要什么。</strong></p>
+<hr>
+<h2 id="四长上下文的解法用-grep-搜文件听起来像拙劣的应付手段但它真的有效">四、长上下文的解法：用 grep 搜文件——听起来像&quot;拙劣的应付手段&quot;，但它真的有效<a hidden class="anchor" aria-hidden="true" href="#四长上下文的解法用-grep-搜文件听起来像拙劣的应付手段但它真的有效">#</a></h2>
+<p><strong>原话</strong>：&ldquo;如果你 5 年前告诉我这些，我会说：&lsquo;这分明是个拙劣的应付手段。&lsquo;但它确实运行得非常好。&rdquo;</p>
+<p><strong>通俗理解</strong>：</p>
+<p>AI 处理超长对话（比如一个几十万字的代码库）一直是个难题，因为&quot;上下文窗口&quot;有限，就像人的短期记忆一样，只能记住最近的内容。</p>
+<p>没想到现在的解决方案非常朴素：<strong>让 AI 把东西写进文件，然后用搜索工具（grep）去查，再建个索引文件</strong>。这基本上就是一个最原始的&quot;文件系统检索&quot;方案。</p>
+<p>这在学术圈的眼光来看，简直是&quot;创口贴式的应付&quot;，完全不优雅。但 Lukasz 说：</p>
+<blockquote>
+<p><strong>&ldquo;我们不以解决方案的外表来评判它们，我们以效果来评判——它确实有效。&rdquo;</strong></p></blockquote>
+<p>这也说明了一个 AI 研究的普遍规律：<strong>很多最终有效的方法，一开始都被认为太土太丑，比如 Dropout（随机关掉一些神经元）——听起来很荒谬，但它是正则化的经典技巧。</strong></p>
+<hr>
+<h2 id="五一张-5090-显卡算力超过当年写-transformer-时整个机房的-25-倍">五、一张 5090 显卡，算力超过当年写 Transformer 时整个机房的 2.5 倍<a hidden class="anchor" aria-hidden="true" href="#五一张-5090-显卡算力超过当年写-transformer-时整个机房的-25-倍">#</a></h2>
+<p><strong>原话</strong>：&ldquo;你现在完全可以在家里厨房里，把当年关于 Transformer 的所有研究全部跑一遍。&rdquo;</p>
+<p><strong>通俗理解</strong>：</p>
+<p>2017 年，Lukasz 和同事们用 8 张 GPU 写出了 Transformer 论文，整台机器的真实算力大约是 <strong>70~80 Teraflops（万亿次浮点运算）</strong>。</p>
+<p>2026 年，他自己买了一张 RTX 5090 显卡放在桌子底下——这张卡的算力约 <strong>200 Teraflops</strong>，是当年整台顶尖服务器的 2.5 倍以上。</p>
+<p>这意味着什么？</p>
+<blockquote>
+<p><strong>&ldquo;当年需要 Google 级别的机房才能做的 AI 研究，现在一个大学生在宿舍里用一张显卡就能跑了。&rdquo;</strong></p></blockquote>
+<p>更进一步的启示：<strong>不再需要在大公司才能做前沿研究</strong>。独立研究员、学术圈、爱好者，都有机会复现甚至推进 AI 研究的前沿。</p>
+<figure>
+    <img loading="lazy" src="/images/wiki/lukasz-kaiser/03-content-efficiency-hardware.png"
+         alt="AI研究效率提升和硬件民主化配图" width="480px"/> <figcaption>
+            <p>观点③⑤：5~10倍效率提升 &amp; 一张 5090 = 当年整个机房</p>
+        </figcaption>
+</figure>
+
+<hr>
+<h2 id="六小模型很厉害但巨无霸大模型无可替代">六、小模型很厉害，但&quot;巨无霸&quot;大模型无可替代<a hidden class="anchor" aria-hidden="true" href="#六小模型很厉害但巨无霸大模型无可替代">#</a></h2>
+<p><strong>原话</strong>：&ldquo;如果你真的想轻松解决重大问题、完美适应你的数据和业务上下文，目前似乎依然没有什么能替代那些真正庞大的&rsquo;巨无霸&rsquo;模型。&rdquo;</p>
+<p><strong>通俗理解</strong>：</p>
+<p>前两年流行一个说法：大模型太贵了，小模型才是未来。确实，现在的小模型（比如几十亿参数的 Gemma）已经非常强了，以前只有千亿参数才能做到的零样本学习，现在 30 亿参数也能做。</p>
+<p>但 Lukasz 的结论是：<strong>小模型好用，大模型更好用，而且两者差距没消失。</strong></p>
+<p>就像汽车和卡车，小汽车可以跑，但拉货还是得靠卡车。对于真正复杂、需要深度理解的任务，大模型的优势依然是决定性的。</p>
+<p><strong>蒸馏模型（小模型学大模型）的局限</strong>：蒸馏出来的模型在大多数情况下表现不错，但总在某些地方会&quot;翻车&quot;，让你花大量时间排查，最后还是得用回大模型。</p>
+<hr>
+<h2 id="七写代码完全不用编辑器了直接告诉-ai-改">七、写代码完全不用编辑器了，直接告诉 AI 改<a hidden class="anchor" aria-hidden="true" href="#七写代码完全不用编辑器了直接告诉-ai-改">#</a></h2>
+<p><strong>原话</strong>：&ldquo;我以前也完全没想到自己写代码时会连编辑器都不用，但现在我真的不用了，我直接告诉它去修改代码就行。&rdquo;</p>
+<p>这是 Lukasz 说的&quot;过去一年中最大的认知颠覆&quot;。</p>
+<p><strong>通俗理解</strong>：</p>
+<p>对于程序员来说，这意味着编程的工作流已经发生根本性变化：</p>
+<ul>
+<li>以前：打开编辑器 → 亲手写代码 → 调 Bug</li>
+<li>现在：告诉 AI 想要什么 → 验证结果 → 指出问题 → AI 修改</li>
+</ul>
+<p>你不再是&quot;代码的书写者&quot;，而是&quot;代码的指挥官&quot;。</p>
+<p><strong>但代价是</strong>：你必须在脑子里对系统的全局架构有更清晰的认知，否则 AI 随时会跑偏。</p>
+<figure>
+    <img loading="lazy" src="/images/wiki/lukasz-kaiser/04-content-coding-models.png"
+         alt="编程革命与大小模型对比配图" width="480px"/> <figcaption>
+            <p>观点⑥⑦：编程方式进化 &amp; 大模型依然无可替代</p>
+        </figcaption>
+</figure>
+
+<hr>
+<h2 id="八ai-编程战争的赢家anthropic-的弯道超车故事">八、AI 编程战争的赢家：Anthropic 的&quot;弯道超车&quot;故事<a hidden class="anchor" aria-hidden="true" href="#八ai-编程战争的赢家anthropic-的弯道超车故事">#</a></h2>
+<p><strong>原话</strong>：&ldquo;Anthropic 做出了一项非常明智的决断，那就是一心专注于编程——这个决定是在 OpenAI 正全力以赴做 ChatGPT 的时候做出的。&rdquo;</p>
+<p><strong>通俗理解</strong>：</p>
+<p>当 OpenAI 的 ChatGPT 风靡全球、获得十亿用户时，Anthropic 其实在聊天机器人领域根本没有竞争力。他们聪明地找了一个差异化赛道：<strong>专注于编程助手</strong>。</p>
+<p>这一押注在 Claude Code 上获得了巨大成功。</p>
+<p>但 Lukasz 也指出，编程市场其实够大，容得下多个优秀产品（OpenAI Codex 和 Anthropic Claude Code 都能存活）。<strong>真正的下一战</strong>不是谁在编程领域更强，而是：</p>
+<blockquote>
+<p><strong>&ldquo;如何把这种 AI 能力延伸到其他行业和岗位的人们？&rdquo;</strong></p></blockquote>
+<p>会计、法律、医疗、教育……编程只是个起点。</p>
+<hr>
+<h2 id="九存在性风险不怕-ai-毁灭人类更怕-ai-被人用来黑进电网">九、存在性风险？不怕 AI 毁灭人类，更怕 AI 被人用来黑进电网<a hidden class="anchor" aria-hidden="true" href="#九存在性风险不怕-ai-毁灭人类更怕-ai-被人用来黑进电网">#</a></h2>
+<p><strong>原话</strong>：&ldquo;我目前更关注的还是那些具体的、迫在眉睫的风险——比如 AI 可能会黑进我们的某些系统、导致电网瘫痪。&rdquo;</p>
+<p>Lukasz 属于那种&quot;理性中间派&quot;：既不认为 AI 会灭绝人类（那种科幻式的存在性风险），也不觉得可以掉以轻心。</p>
+<p><strong>他真正担心的</strong>：AI 现在的编程能力这么强，完全可能被用来发动网络攻击——黑入基础设施、破坏电网、攻击医疗系统。这些是<strong>今天就可能发生的风险</strong>，而不是科幻小说里的未来场景。</p>
+<figure>
+    <img loading="lazy" src="/images/wiki/lukasz-kaiser/05-content-anthropic-risks.png"
+         alt="Anthropic战略与AI安全风险配图" width="480px"/> <figcaption>
+            <p>观点⑧⑨：Anthropic弯道超车 &amp; 更怕电网被黑</p>
+        </figcaption>
+</figure>
+
+<hr>
+<h2 id="十andrej-karpathy-加入-anthropic-研究递归自我提升靠谱吗">十、Andrej Karpathy 加入 Anthropic 研究&quot;递归自我提升&quot;——靠谱吗？<a hidden class="anchor" aria-hidden="true" href="#十andrej-karpathy-加入-anthropic-研究递归自我提升靠谱吗">#</a></h2>
+<p><strong>背景</strong>：AI 界大佬 Andrej Karpathy（特斯拉前 AI 总监、OpenAI 联合创始人之一）宣布加入 Anthropic，加入的是 RSI（递归自我提升）团队——也就是研究&quot;AI 改进自己&quot;的方向。</p>
+<p><strong>Lukasz 的冷静判断</strong>：</p>
+<blockquote>
+<p>&ldquo;就算用上世界上最厉害的 AI 智能体，它们也只是人类研究员水平，最多是'10倍速研究员&rsquo;。但别忘了，过去这么多年里，数以百计的顶尖人类研究员已经在拼命攻克这些难题，依然没有成功。&rdquo;</p></blockquote>
+<p>换句话说：AI 辅助可以让研究效率大幅提升，但能不能找到正确的研究方向，这需要&quot;极其惊人的运气和实力&quot;。<strong>研究上的重大突破，不是靠效率就能保证的。</strong></p>
+<hr>
+<h2 id="总结这篇访谈的核心洞见">总结：这篇访谈的核心洞见<a hidden class="anchor" aria-hidden="true" href="#总结这篇访谈的核心洞见">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>话题</th>
+          <th>Lukasz 的观点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Transformer 的未来</td>
+          <td>还没走到头，但&quot;后 Transformer&quot;时代已经在酝酿中</td>
+      </tr>
+      <tr>
+          <td>AI 的泛化方式</td>
+          <td>在以&quot;外星人逻辑&quot;泛化，路径和人类直觉完全不同</td>
+      </tr>
+      <tr>
+          <td>AI 对研究效率的影响</td>
+          <td>5~10 倍提升，引发研究员&quot;精神狂热&quot;</td>
+      </tr>
+      <tr>
+          <td>长上下文解法</td>
+          <td>用 grep + 文件索引，听起来土但有效</td>
+      </tr>
+      <tr>
+          <td>小模型 vs 大模型</td>
+          <td>大模型依然不可替代，蒸馏小模型总有盲区</td>
+      </tr>
+      <tr>
+          <td>硬件进步</td>
+          <td>一张 5090 = 当年整个 Transformer 机房的 2.5 倍</td>
+      </tr>
+      <tr>
+          <td>AI 编程未来</td>
+          <td>不是谁赢谁输，而是如何延伸到非技术人群</td>
+      </tr>
+      <tr>
+          <td>AI 安全</td>
+          <td>更担心近期的网络攻击风险，不太担心科幻式灭绝风险</td>
+      </tr>
+  </tbody>
+</table>
+<figure>
+    <img loading="lazy" src="/images/wiki/lukasz-kaiser/06-ending-summary.png"
+         alt="核心洞见速览汇总配图" width="480px"/> <figcaption>
+            <p>核心洞见速览 · AI不是来替代你的，是来放大你的</p>
+        </figcaption>
+</figure>
+
+<hr>
+<blockquote>
+<p>原始播客来源：<a href="https://youtu.be/N1geOimmdDo?si=bKDzcOI15Oc-b2Lj">YouTube</a></p></blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://chenqiluo.github.io/tags/ai/">AI</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/transformer/">Transformer</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/agi/">AGI</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/openai/">OpenAI</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://chenqiluo.github.io/">luochenqi&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

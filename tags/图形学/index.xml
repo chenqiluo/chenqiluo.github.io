@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>图形学 on luochenqi&#39;s Blog</title>
+    <link>https://chenqiluo.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</link>
+    <description>Recent content in 图形学 on luochenqi&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 28 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://chenqiluo.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SIGGRAPH 2026 清华三篇获奖论文精读：蒙特卡洛估计中的相关性艺术</title>
+      <link>https://chenqiluo.github.io/posts/siggraph2026-tsinghua-variance-reduction/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://chenqiluo.github.io/posts/siggraph2026-tsinghua-variance-reduction/</guid>
+      <description>SIGGRAPH 2026 最佳论文提名中，清华大学三篇工作有一条共同主线：如何通过挖掘样本间的相关性，在极有限的采样预算下实现大幅降方差。本文精读这三篇论文的核心观点与推导过程。</description>
+    </item>
+  </channel>
+</rss>

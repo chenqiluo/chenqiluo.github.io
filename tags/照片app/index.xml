@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>照片App on luochenqi&#39;s Blog</title>
+    <link>https://chenqiluo.github.io/tags/%E7%85%A7%E7%89%87app/</link>
+    <description>Recent content in 照片App on luochenqi&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 28 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://chenqiluo.github.io/tags/%E7%85%A7%E7%89%87app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows防止图片默认修改</title>
+      <link>https://chenqiluo.github.io/wiki/windows-prevent-default-photo-change/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://chenqiluo.github.io/wiki/windows-prevent-default-photo-change/</guid>
+      <description>通过注册表加 NoOpenWith 标记或关闭安全软件默认程序保护，彻底防止 Windows 照片 App 反复抢占图片默认打开方式。</description>
+    </item>
+  </channel>
+</rss>
