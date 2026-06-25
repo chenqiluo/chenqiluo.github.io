@@ -1,23 +1,764 @@
-<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界 | luochenqi's Blog</title>
-<meta name=keywords content="AI,LLM,JEPA,世界模型,深度学习,杨立昆,LeCun"><meta name=description content="图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。"><meta name=author content="luochenqi"><link rel=canonical href=https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/><link crossorigin=anonymous href=/assets/css/stylesheet.css rel="preload stylesheet" as=style><link rel=icon href=https://chenqiluo.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://chenqiluo.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://chenqiluo.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://chenqiluo.github.io/apple-touch-icon.png><link rel=mask-icon href=https://chenqiluo.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>:root{--theme:transparent !important}html{background-image:url(/images/bg.jpg);background-size:cover;background-position:50%;background-attachment:fixed;background-repeat:no-repeat;background-color:#d4cfc6;min-height:100%}body{background:0 0!important;background-color:transparent!important}.main,#top,main,.list,.page,.post-single,.archive-posts{background:0 0!important;background-color:transparent!important}header.header{background-color:rgba(255,255,255,.8)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.post-entry,.first-entry,.home-info,.profile,.page-header,.post-header,.post-content,.toc,.post-footer,.pagination,.terms-tags{background-color:rgba(255,255,255,.88)!important;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border-radius:8px;padding:12px 16px;margin-bottom:8px}[data-theme=dark] header.header,.dark header.header{background-color:rgba(20,20,20,.8)!important}[data-theme=dark] .post-entry,[data-theme=dark] .first-entry,[data-theme=dark] .home-info,[data-theme=dark] .profile,[data-theme=dark] .page-header,[data-theme=dark] .post-header,[data-theme=dark] .post-content,[data-theme=dark] .toc,[data-theme=dark] .post-footer,[data-theme=dark] .pagination,[data-theme=dark] .terms-tags,.dark .post-entry,.dark .first-entry,.dark .home-info,.dark .profile,.dark .page-header,.dark .post-header,.dark .post-content,.dark .toc,.dark .post-footer,.dark .pagination,.dark .terms-tags{background-color:rgba(20,20,20,.85)!important}</style><meta property="og:url" content="https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/"><meta property="og:site_name" content="luochenqi's Blog"><meta property="og:title" content="AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界"><meta property="og:description" content="图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-05-16T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-16T00:00:00+00:00"><meta property="article:tag" content="AI"><meta property="article:tag" content="LLM"><meta property="article:tag" content="JEPA"><meta property="article:tag" content="世界模型"><meta property="article:tag" content="深度学习"><meta property="article:tag" content="杨立昆"><meta name=twitter:card content="summary"><meta name=twitter:title content="AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界"><meta name=twitter:description content="图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://chenqiluo.github.io/posts/"},{"@type":"ListItem","position":2,"name":"AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界","item":"https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界","name":"AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界","description":"图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。","keywords":["AI","LLM","JEPA","世界模型","深度学习","杨立昆","LeCun"],"articleBody":" 原文来源：51CTO技术栈《五年内，JEPA全面统治！LeCun直言：我对Llama没有任何贡献！OpenAI是下一个Sun公司！LLM有内生缺陷！开源会追上闭源》（2026年5月16日）\n原视频：https://youtu.be/ngBraLDqzdI\n🧭 一句话背景 图灵奖得主、“AI教父\"之一杨立昆（Yann LeCun），最近在一次深度播客访谈中，抛出了一系列颠覆行业主流认知的观点。他不是在骂ChatGPT没用——他是在说：ChatGPT和所有大语言模型，都只是AI长征路上的一个阶段，而不是终点。\n这篇文章，我来帮你把访谈里的核心内容，从浅到深，一层一层讲清楚。\n🗺️ AI发展脉络：从\"学语言\"到\"理解世界” 要理解杨立昆在说什么，得先知道AI这几十年是怎么走过来的。\n早期AI（规则系统） ↓ 神经网络复兴（1980s-1990s，LeCun发明卷积神经网络CNN） ↓ 深度学习爆发（2012，ImageNet，GPU加速） ↓ 自监督学习 / 预训练模型（2018-，BERT/GPT系列） ↓ 大语言模型时代（2022-，ChatGPT，GPT-4，Llama...） ↓ ❓ 下一个范式？（JEPA / 世界模型） 杨立昆的核心主张就是：当前LLM的成功是特殊情况，不是通用智能的路。 他自己的研究方向——JEPA（联合嵌入预测架构）和世界模型——才是他认为走向真正智能的下一步。\n🔑 核心观点逐层拆解 1. LLM很有用，但它有一个根本性的局限 通俗理解： 大语言模型就像一个\"超级记忆+超级文字接龙\"的系统。它读遍了互联网上的文字，学会了大量的语言模式。你问它问题，它就根据训练过的模式\"接\"出下一句。\n它擅长什么：\n数学证明题（因为数学本身是用符号/语言表达的） 写代码（代码是一种语言） 总结文章、翻译、聊天 它做不到什么：\n理解物理世界（瓶子会怎么倒，水会怎么流） 真正的规划（它每次只是在\"预测下一个词\"，没有真正的搜索和规划） 零样本解决全新任务（没见过的问题它会\"编\"而不是\"想\"） 杨立昆说了一个很贴切的例子：\n一个17岁的年轻人，只需要大约20小时就能学会开车。但我们已经有了数百万小时的人类驾驶数据，却至今做不出真正的Level 5自动驾驶。这说明什么？单纯的\"模仿学习\"根本不够用。\n2. LLM的内生缺陷：它其实不知道自己在干什么 这是杨立昆最具争议的观点，也是他说\"LLM从根本上就是不安全的\"的原因。\n打个比方：\n想象你训练了一个厨师机器人，让它看了几百万道菜谱视频。它确实能\"做菜\"——因为它学会了\"如果前面步骤是这样，下一步通常是那样\"的模式。\n但如果你临时换了一种食材，或者厨房设备不一样，它可能就会按原来的模式乱来——比如把盐误当成糖还\"信心满满\"。\n原因是： LLM系统内部没有\"真正理解这道菜是什么、吃起来应该是什么味道\"的能力。它只是在\"模式匹配\"。\n技术说法： 系统内部没有硬编码的约束，去强制它理解任务目标、预测行动结果是否正确。它完成任务，仅仅是因为训练数据碰巧让它学会了这种模式。\n3. 什么是\"世界模型\"？为什么它很重要？ 通俗理解： 世界模型就是\"在脑子里模拟世界\"的能力。\n人类做任何事之前，都会在脑子里先\"想象一下会发生什么\"：\n推这个瓶子，它会倒吗？往哪个方向倒？ 开车变道，后面的车会怎么反应？ 这个\"脑内模拟\"就是世界模型。\n杨立昆认为，任何真正意义上的智能系统，都必须具备两个核心能力：\n预测自身行为的后果 通过搜索和规划找到能达成目标的行动序列 LLM两个都没有——它只是在不断\"预测下一个token\"，而不是真正地\"思考\"。\n4. JEPA：杨立昆的答案 JEPA = Joint Embedding Predictive Architecture（联合嵌入预测架构）\n这个名字有点学术，我们来拆解一下：\n为什么不直接预测像素？\n早期很多研究想让AI\"看懂视频\"，方法是：给AI看前半段视频，让它预测后半段的每一个像素。\n但这太难了，而且没有意义——你不需要知道每颗水滴会落在哪，你只需要知道\"水会洒出来\"。\nJEPA的思路是：在抽象层面做预测，而不是在像素层面。\n原始输入（图像/视频） ↓ 编码器A ↓ 编码器B 抽象表征A 抽象表征B ↑________________________________↑ 预测器：用B的表征预测A的表征 关键在于： 预测的是\"抽象特征\"，不是原始像素。这就像你的大脑不会记住每一帧画面，而是记住\"概念\"和\"关系\"。\n一个挑战：表征塌缩（Representation Collapse）\n如果两个编码器都输出一个\"恒定值\"（比如全零），预测也会\"成功\"——因为用零预测零，总是正确的。这就是表征塌缩，是JEPA最大的技术难题。\n解决方案（技术扩展）：\n对比学习（Contrastive Learning）：同时提供\"应该能互相预测的样本对\"和\"不应该互相预测的样本对\"，强迫系统学到有意义的区分 蒸馏方法（Distillation）：如DINO、BYOL，用\"教师-学生\"网络机制防止塌缩 信息正则化（SIGREG等）：通过正则项强制编码器输出足够丰富的信息 5. VLA失败了，世界模型才是机器人的出路 VLA = Vision-Language-Action（视觉-语言-动作模型）\n简单说，就是把LLM技术直接用于机器人：给机器人看图片、听指令，然后输出动作。\n为什么失败了？\n需要海量的示范数据，成本极高 非常脆弱：机器人每学一个新任务，都得重新收集大量数据 没有真正的泛化能力：换个场景就不会了 世界模型的优势：\n机器人可以在脑子里\"模拟\"各种场景，然后规划行动 泛化能力强：用少量数据甚至零样本就能解决新问题 更像人类学习的方式 6. 开源会追上闭源：OpenAI是下一个Sun Microsystems 这是杨立昆最犀利的预测之一。\n历史类比：\n1995年，Sun Microsystems和HP等公司主导互联网服务器市场，他们的专有Unix系统（Solaris、HP-UX）被认为是无法替代的。\n结果呢？Linux出来了，把他们全部干掉了。现在整个互联网——包括微软Azure——都跑在Linux上。\n杨立昆的判断：\n现在的OpenAI、Anthropic，就相当于当年的Sun Microsystems 它们的闭源模型存在能力上限：公开文本数据基本已经训练完了，没有更多数据了 开源模型（通过Tapestry等联邦学习机制）最终会追上甚至超过闭源模型 理由：AI正在变成\"平台\"，而平台天然走向开放（就像Linux、互联网协议） 7. AI主权与Tapestry：谁来定义你的认知世界？ 这是文章里最有前瞻性的一个议题。\n问题是这样的： 如果未来每个人都通过AI助手获取信息（就像现在你问ChatGPT而不是用谷歌搜索），那么：\n谁来决定AI助手给你什么答案？ 如果你是印度农民、法国哲学家、或者越南工人，你的文化、语言、价值观能被一个硅谷或中国公司训练的AI代表吗？ Tapestry的解决方案：\n类似联邦学习——各国/各机构可以用本地数据在本地训练模型，只共享\"参数向量\"而不共享原始数据。最终所有人的参数汇聚成一个\"全球共识模型\"，相当于全人类知识的仓库。\n任何人可以基于这个开放基础模型，针对自己的语言、文化、价值观进行微调。\n8. 三位图灵奖得主，为什么看法不同？ 杨立昆、Geoffrey Hinton（辛顿）、Yoshua Bengio（本吉奥）三人共同获得了2018年图灵奖，但他们对AI现状和未来的看法存在显著分歧。\n学者 对LLM的态度 主要担忧 杨立昆 LLM有用但不是终点，路径有误 LLM内生不安全，AI风险被夸大 辛顿 GPT-4出来后认为LLM接近人类智能 AI可能带来的存在性风险 本吉奥 对LLM持较乐观态度 社会不平等、AI收益分配问题 杨立昆认为，辛顿和本吉奥是在GPT-4出现后\"改变了观点\"，而他自己对LLM的判断始终一致：有用，但不是通往真正智能的路。\n📚 扩展阅读：文章涉及的核心技术方法 🔵 自监督学习（Self-Supervised Learning） 是什么： 不需要人工标注数据，让模型通过\"预测被遮盖的部分\"来学习。\nBERT（2018，Google）：在NLP中，随机遮盖单词，让模型预测被遮盖的词 MAE（Masked Autoencoder）（2021，Meta）：随机遮盖图片的一部分，让模型重建 I-JEPA / V-JEPA（2023-2024，Meta）：在表征空间而非像素空间做预测 📖 推荐入门：Andrej Karpathy的博客《The Unreasonable Effectiveness of Recurrent Neural Networks》；Meta官方I-JEPA论文\n🔵 对比学习（Contrastive Learning） 是什么： 通过区分\"相似样本对\"和\"不相似样本对\"，学习有意义的表征。\nSimCLR（2020，Google）：数据增强生成正负样本对 MoCo（2020，Meta）：动量对比学习 CLIP（2021，OpenAI）：图文对比学习，奠定多模态基础 📖 推荐论文：《A Simple Framework for Contrastive Learning of Visual Representations》(Chen et al., 2020)\n🔵 DINO / BYOL：蒸馏类自监督方法 是什么： 用\"教师-学生\"网络架构，在不使用负样本的情况下防止表征塌缩。\nDINO（2021，Meta）：教师网络通过指数滑动平均更新，学生网络通过反向传播学习 BYOL（Bootstrap Your Own Latent）（2020，DeepMind）：类似思路，无需负样本 这类方法\"能用，但我们不完全理解为什么有效\"——杨立昆本人如是说。\n🔵 世界模型（World Model） 是什么： 让AI系统能够在内部\"模拟\"世界运行，预测行动后果。\nDreamer系列（DeepMind）：在隐空间中训练世界模型，结合强化学习 Genie（2024，Google DeepMind）：从视频中学习可交互世界模型 Sora（2024，OpenAI）：生成式视频世界模型（但杨立昆认为这是像素预测的路线） 📖 核心概念来自：Schmidhuber 1991年《A Possibility for Implementing Curiosity and Boredom in Model-Building Neural Controllers》\n🔵 联邦学习（Federated Learning） 是什么： 多方在本地训练模型，只共享参数更新而非原始数据，保护隐私。\nGoogle在移动端的键盘预测中广泛使用 Tapestry项目本质是联邦学习的全球化延伸 📖 推荐：Google AI Blog《Federated Learning: Collaborative Machine Learning without Centralized Training Data》\n🔵 双系统理论（System 1 / System 2） 来自心理学家Daniel Kahneman的著作《思考，快与慢》。\nSystem 1（快思考）：直觉、自动化、快速反应——当前LLM就像这个 System 2（慢思考）：深思熟虑、逻辑推理、规划——JEPA/世界模型试图实现这个 📖 推荐书目：《Thinking, Fast and Slow》（Daniel Kahneman）\n🧩 总结：这场争论的本质是什么？ 用一句话总结杨立昆的核心主张：\nLLM是\"会说话的AI\"，但真正的智能需要\"会思考的AI\"。 说话和思考，是两件本质不同的事情。\n这场争论的更深层，是对\"什么是智能\"的根本分歧：\nLLM派认为：规模足够大、数据足够多，“涌现\"就会出现真正的智能 杨立昆派认为：没有世界模型、没有规划能力、没有行动后果预测，无论规模多大，都只是更好的\"语言机器” 到底谁是对的？杨立昆说：2027年初，答案会对所有人变得显而易见。\n作者按：本文基于2026年5月16日51CTO技术栈对杨立昆播客访谈的整理，结合相关技术背景扩展撰写。原始访谈视频：https://youtu.be/ngBraLDqzdI\n","wordCount":"279","inLanguage":"zh","datePublished":"2026-05-16T00:00:00Z","dateModified":"2026-05-16T00:00:00Z","author":{"@type":"Person","name":"luochenqi"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/"},"publisher":{"@type":"Organization","name":"luochenqi's Blog","logo":{"@type":"ImageObject","url":"https://chenqiluo.github.io/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://chenqiluo.github.io/ accesskey=h title="luochenqi's Blog (Alt + H)">luochenqi's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://chenqiluo.github.io/posts/ title=文章><span>文章</span></a></li><li><a href=https://chenqiluo.github.io/daily/ title=每日目标><span>每日目标</span></a></li><li><a href=https://chenqiluo.github.io/wiki/ title=知识库><span>知识库</span></a></li><li><a href=https://chenqiluo.github.io/stock/ title=股票分析><span>股票分析</span></a></li><li><a href=https://chenqiluo.github.io/reading/ title=研读><span>研读</span></a></li><li><a href=https://arena.ai/leaderboard/text title=AI天梯榜><span>AI天梯榜</span>&nbsp;<svg fill="none" shape-rendering="geometricPrecision" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://chenqiluo.github.io/tags/ title=标签><span>标签</span></a></li><li><a href=https://chenqiluo.github.io/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://chenqiluo.github.io/>主页</a>&nbsp;»&nbsp;<a href=https://chenqiluo.github.io/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界</h1><div class=post-description>图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。</div><div class=post-meta><span title='2026-05-16 00:00:00 +0000 UTC'>2026年5月16日</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#-%e4%b8%80%e5%8f%a5%e8%af%9d%e8%83%8c%e6%99%af aria-label="🧭 一句话背景">🧭 一句话背景</a></li><li><a href=#-ai%e5%8f%91%e5%b1%95%e8%84%89%e7%bb%9c%e4%bb%8e%e5%ad%a6%e8%af%ad%e8%a8%80%e5%88%b0%e7%90%86%e8%a7%a3%e4%b8%96%e7%95%8c aria-label='🗺️ AI发展脉络：从"学语言"到"理解世界&rdquo;'>🗺️ AI发展脉络：从"学语言"到"理解世界&rdquo;</a></li><li><a href=#-%e6%a0%b8%e5%bf%83%e8%a7%82%e7%82%b9%e9%80%90%e5%b1%82%e6%8b%86%e8%a7%a3 aria-label="🔑 核心观点逐层拆解">🔑 核心观点逐层拆解</a><ul><li><a href=#1-llm%e5%be%88%e6%9c%89%e7%94%a8%e4%bd%86%e5%ae%83%e6%9c%89%e4%b8%80%e4%b8%aa%e6%a0%b9%e6%9c%ac%e6%80%a7%e7%9a%84%e5%b1%80%e9%99%90 aria-label="1. LLM很有用，但它有一个根本性的局限">1. LLM很有用，但它有一个根本性的局限</a></li><li><a href=#2-llm%e7%9a%84%e5%86%85%e7%94%9f%e7%bc%ba%e9%99%b7%e5%ae%83%e5%85%b6%e5%ae%9e%e4%b8%8d%e7%9f%a5%e9%81%93%e8%87%aa%e5%b7%b1%e5%9c%a8%e5%b9%b2%e4%bb%80%e4%b9%88 aria-label="2. LLM的内生缺陷：它其实不知道自己在干什么">2. LLM的内生缺陷：它其实不知道自己在干什么</a></li><li><a href=#3-%e4%bb%80%e4%b9%88%e6%98%af%e4%b8%96%e7%95%8c%e6%a8%a1%e5%9e%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e5%ae%83%e5%be%88%e9%87%8d%e8%a6%81 aria-label='3. 什么是"世界模型"？为什么它很重要？'>3. 什么是"世界模型"？为什么它很重要？</a></li><li><a href=#4-jepa%e6%9d%a8%e7%ab%8b%e6%98%86%e7%9a%84%e7%ad%94%e6%a1%88 aria-label="4. JEPA：杨立昆的答案">4. JEPA：杨立昆的答案</a></li><li><a href=#5-vla%e5%a4%b1%e8%b4%a5%e4%ba%86%e4%b8%96%e7%95%8c%e6%a8%a1%e5%9e%8b%e6%89%8d%e6%98%af%e6%9c%ba%e5%99%a8%e4%ba%ba%e7%9a%84%e5%87%ba%e8%b7%af aria-label="5. VLA失败了，世界模型才是机器人的出路">5. VLA失败了，世界模型才是机器人的出路</a></li><li><a href=#6-%e5%bc%80%e6%ba%90%e4%bc%9a%e8%bf%bd%e4%b8%8a%e9%97%ad%e6%ba%90openai%e6%98%af%e4%b8%8b%e4%b8%80%e4%b8%aasun-microsystems aria-label="6. 开源会追上闭源：OpenAI是下一个Sun Microsystems">6. 开源会追上闭源：OpenAI是下一个Sun Microsystems</a></li><li><a href=#7-ai%e4%b8%bb%e6%9d%83%e4%b8%8etapestry%e8%b0%81%e6%9d%a5%e5%ae%9a%e4%b9%89%e4%bd%a0%e7%9a%84%e8%ae%a4%e7%9f%a5%e4%b8%96%e7%95%8c aria-label="7. AI主权与Tapestry：谁来定义你的认知世界？">7. AI主权与Tapestry：谁来定义你的认知世界？</a></li><li><a href=#8-%e4%b8%89%e4%bd%8d%e5%9b%be%e7%81%b5%e5%a5%96%e5%be%97%e4%b8%bb%e4%b8%ba%e4%bb%80%e4%b9%88%e7%9c%8b%e6%b3%95%e4%b8%8d%e5%90%8c aria-label="8. 三位图灵奖得主，为什么看法不同？">8. 三位图灵奖得主，为什么看法不同？</a></li></ul></li><li><a href=#-%e6%89%a9%e5%b1%95%e9%98%85%e8%af%bb%e6%96%87%e7%ab%a0%e6%b6%89%e5%8f%8a%e7%9a%84%e6%a0%b8%e5%bf%83%e6%8a%80%e6%9c%af%e6%96%b9%e6%b3%95 aria-label="📚 扩展阅读：文章涉及的核心技术方法">📚 扩展阅读：文章涉及的核心技术方法</a><ul><li><a href=#-%e8%87%aa%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0self-supervised-learning aria-label="🔵 自监督学习（Self-Supervised Learning）">🔵 自监督学习（Self-Supervised Learning）</a></li><li><a href=#-%e5%af%b9%e6%af%94%e5%ad%a6%e4%b9%a0contrastive-learning aria-label="🔵 对比学习（Contrastive Learning）">🔵 对比学习（Contrastive Learning）</a></li><li><a href=#-dino--byol%e8%92%b8%e9%a6%8f%e7%b1%bb%e8%87%aa%e7%9b%91%e7%9d%a3%e6%96%b9%e6%b3%95 aria-label="🔵 DINO / BYOL：蒸馏类自监督方法">🔵 DINO / BYOL：蒸馏类自监督方法</a></li><li><a href=#-%e4%b8%96%e7%95%8c%e6%a8%a1%e5%9e%8bworld-model aria-label="🔵 世界模型（World Model）">🔵 世界模型（World Model）</a></li><li><a href=#-%e8%81%94%e9%82%a6%e5%ad%a6%e4%b9%a0federated-learning aria-label="🔵 联邦学习（Federated Learning）">🔵 联邦学习（Federated Learning）</a></li><li><a href=#-%e5%8f%8c%e7%b3%bb%e7%bb%9f%e7%90%86%e8%ae%basystem-1--system-2 aria-label="🔵 双系统理论（System 1 / System 2）">🔵 双系统理论（System 1 / System 2）</a></li></ul></li><li><a href=#-%e6%80%bb%e7%bb%93%e8%bf%99%e5%9c%ba%e4%ba%89%e8%ae%ba%e7%9a%84%e6%9c%ac%e8%b4%a8%e6%98%af%e4%bb%80%e4%b9%88 aria-label="🧩 总结：这场争论的本质是什么？">🧩 总结：这场争论的本质是什么？</a></li></ul></div></details></div><div class=post-content><blockquote><p>原文来源：51CTO技术栈《五年内，JEPA全面统治！LeCun直言：我对Llama没有任何贡献！OpenAI是下一个Sun公司！LLM有内生缺陷！开源会追上闭源》（2026年5月16日）</p><p>原视频：https://youtu.be/ngBraLDqzdI</p></blockquote><hr><h2 id=-一句话背景>🧭 一句话背景<a hidden class=anchor aria-hidden=true href=#-一句话背景>#</a></h2><p>图灵奖得主、&ldquo;AI教父"之一<strong>杨立昆（Yann LeCun）</strong>，最近在一次深度播客访谈中，抛出了一系列颠覆行业主流认知的观点。他不是在骂ChatGPT没用——他是在说：<strong>ChatGPT和所有大语言模型，都只是AI长征路上的一个阶段，而不是终点。</strong></p><p>这篇文章，我来帮你把访谈里的核心内容，从浅到深，一层一层讲清楚。</p><hr><h2 id=-ai发展脉络从学语言到理解世界>🗺️ AI发展脉络：从"学语言"到"理解世界&rdquo;<a hidden class=anchor aria-hidden=true href=#-ai发展脉络从学语言到理解世界>#</a></h2><p>要理解杨立昆在说什么，得先知道AI这几十年是怎么走过来的。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>早期AI（规则系统）
-</span></span><span class=line><span class=cl>    ↓
-</span></span><span class=line><span class=cl>神经网络复兴（1980s-1990s，LeCun发明卷积神经网络CNN）
-</span></span><span class=line><span class=cl>    ↓
-</span></span><span class=line><span class=cl>深度学习爆发（2012，ImageNet，GPU加速）
-</span></span><span class=line><span class=cl>    ↓
-</span></span><span class=line><span class=cl>自监督学习 / 预训练模型（2018-，BERT/GPT系列）
-</span></span><span class=line><span class=cl>    ↓
-</span></span><span class=line><span class=cl>大语言模型时代（2022-，ChatGPT，GPT-4，Llama...）
-</span></span><span class=line><span class=cl>    ↓
-</span></span><span class=line><span class=cl>❓ 下一个范式？（JEPA / 世界模型）
-</span></span></code></pre></div><p>杨立昆的核心主张就是：<strong>当前LLM的成功是特殊情况，不是通用智能的路。</strong> 他自己的研究方向——<strong>JEPA（联合嵌入预测架构）和世界模型</strong>——才是他认为走向真正智能的下一步。</p><hr><h2 id=-核心观点逐层拆解>🔑 核心观点逐层拆解<a hidden class=anchor aria-hidden=true href=#-核心观点逐层拆解>#</a></h2><h3 id=1-llm很有用但它有一个根本性的局限>1. LLM很有用，但它有一个根本性的局限<a hidden class=anchor aria-hidden=true href=#1-llm很有用但它有一个根本性的局限>#</a></h3><p><strong>通俗理解：</strong> 大语言模型就像一个"超级记忆+超级文字接龙"的系统。它读遍了互联网上的文字，学会了大量的语言模式。你问它问题，它就根据训练过的模式"接"出下一句。</p><p><strong>它擅长什么：</strong></p><ul><li>数学证明题（因为数学本身是用符号/语言表达的）</li><li>写代码（代码是一种语言）</li><li>总结文章、翻译、聊天</li></ul><p><strong>它做不到什么：</strong></p><ul><li>理解物理世界（瓶子会怎么倒，水会怎么流）</li><li>真正的规划（它每次只是在"预测下一个词"，没有真正的搜索和规划）</li><li>零样本解决全新任务（没见过的问题它会"编"而不是"想"）</li></ul><p>杨立昆说了一个很贴切的例子：</p><blockquote><p>一个17岁的年轻人，只需要大约20小时就能学会开车。但我们已经有了数百万小时的人类驾驶数据，却至今做不出真正的Level 5自动驾驶。这说明什么？单纯的"模仿学习"根本不够用。</p></blockquote><hr><h3 id=2-llm的内生缺陷它其实不知道自己在干什么>2. LLM的内生缺陷：它其实不知道自己在干什么<a hidden class=anchor aria-hidden=true href=#2-llm的内生缺陷它其实不知道自己在干什么>#</a></h3><p>这是杨立昆最具争议的观点，也是他说"LLM从根本上就是不安全的"的原因。</p><p><strong>打个比方：</strong></p><p>想象你训练了一个厨师机器人，让它看了几百万道菜谱视频。它确实能"做菜"——因为它学会了"如果前面步骤是这样，下一步通常是那样"的模式。</p><p>但如果你临时换了一种食材，或者厨房设备不一样，它可能就会按原来的模式乱来——比如把盐误当成糖还"信心满满"。</p><p><strong>原因是：</strong> LLM系统内部没有"真正理解这道菜是什么、吃起来应该是什么味道"的能力。它只是在"模式匹配"。</p><p><strong>技术说法：</strong> 系统内部没有硬编码的约束，去强制它理解任务目标、预测行动结果是否正确。它完成任务，仅仅是因为训练数据碰巧让它学会了这种模式。</p><hr><h3 id=3-什么是世界模型为什么它很重要>3. 什么是"世界模型"？为什么它很重要？<a hidden class=anchor aria-hidden=true href=#3-什么是世界模型为什么它很重要>#</a></h3><p><strong>通俗理解：</strong> 世界模型就是"在脑子里模拟世界"的能力。</p><p>人类做任何事之前，都会在脑子里先"想象一下会发生什么"：</p><ul><li>推这个瓶子，它会倒吗？往哪个方向倒？</li><li>开车变道，后面的车会怎么反应？</li></ul><p><strong>这个"脑内模拟"就是世界模型。</strong></p><p>杨立昆认为，任何真正意义上的智能系统，都必须具备两个核心能力：</p><ol><li><strong>预测自身行为的后果</strong></li><li><strong>通过搜索和规划找到能达成目标的行动序列</strong></li></ol><p>LLM两个都没有——它只是在不断"预测下一个token"，而不是真正地"思考"。</p><hr><h3 id=4-jepa杨立昆的答案>4. JEPA：杨立昆的答案<a hidden class=anchor aria-hidden=true href=#4-jepa杨立昆的答案>#</a></h3><p><strong>JEPA = Joint Embedding Predictive Architecture（联合嵌入预测架构）</strong></p><p>这个名字有点学术，我们来拆解一下：</p><p><strong>为什么不直接预测像素？</strong></p><p>早期很多研究想让AI"看懂视频"，方法是：给AI看前半段视频，让它预测后半段的每一个像素。</p><p>但这太难了，而且没有意义——你不需要知道每颗水滴会落在哪，你只需要知道"水会洒出来"。</p><p><strong>JEPA的思路是：在抽象层面做预测，而不是在像素层面。</strong></p><pre style=background:#f6f8fa;padding:1em;border-radius:6px;font-size:.9em;line-height:1.6>
+<!DOCTYPE html>
+<html lang="zh" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界 | luochenqi&#39;s Blog</title>
+<meta name="keywords" content="AI, LLM, JEPA, 世界模型, 深度学习, 杨立昆, LeCun">
+<meta name="description" content="图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。">
+<meta name="author" content="luochenqi">
+<link rel="canonical" href="https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://chenqiluo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://chenqiluo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://chenqiluo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://chenqiluo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://chenqiluo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><style>
+ 
+
+ 
+:root {
+    --theme: transparent !important;
+}
+
+html {
+    background-image: url('/images/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #d4cfc6;
+    min-height: 100%;
+}
+
+body {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+ 
+.main,
+#top,
+main,
+.list,
+.page,
+.post-single,
+.archive-posts {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+ 
+header.header {
+    background-color: rgba(255, 255, 255, 0.80) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+ 
+.post-entry,
+.first-entry,
+.home-info,
+.profile,
+.page-header,
+.post-header,
+.post-content,
+.toc,
+.post-footer,
+.pagination,
+.terms-tags {
+    background-color: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+
+ 
+[data-theme="dark"] header.header,
+.dark header.header {
+    background-color: rgba(20, 20, 20, 0.80) !important;
+}
+
+[data-theme="dark"] .post-entry,
+[data-theme="dark"] .first-entry,
+[data-theme="dark"] .home-info,
+[data-theme="dark"] .profile,
+[data-theme="dark"] .page-header,
+[data-theme="dark"] .post-header,
+[data-theme="dark"] .post-content,
+[data-theme="dark"] .toc,
+[data-theme="dark"] .post-footer,
+[data-theme="dark"] .pagination,
+[data-theme="dark"] .terms-tags,
+.dark .post-entry,
+.dark .first-entry,
+.dark .home-info,
+.dark .profile,
+.dark .page-header,
+.dark .post-header,
+.dark .post-content,
+.dark .toc,
+.dark .post-footer,
+.dark .pagination,
+.dark .terms-tags {
+    background-color: rgba(20, 20, 20, 0.85) !important;
+}
+</style>
+
+<meta property="og:url" content="https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/">
+  <meta property="og:site_name" content="luochenqi&#39;s Blog">
+  <meta property="og:title" content="AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界">
+  <meta property="og:description" content="图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="JEPA">
+    <meta property="article:tag" content="世界模型">
+    <meta property="article:tag" content="深度学习">
+    <meta property="article:tag" content="杨立昆">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界">
+  <meta name="twitter:description" content="图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://chenqiluo.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界",
+      "item": "https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界",
+  "name": "AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界",
+  "description": "图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。",
+  "keywords": [
+    "AI", "LLM", "JEPA", "世界模型", "深度学习", "杨立昆", "LeCun"
+  ],
+  "articleBody": " 原文来源：51CTO技术栈《五年内，JEPA全面统治！LeCun直言：我对Llama没有任何贡献！OpenAI是下一个Sun公司！LLM有内生缺陷！开源会追上闭源》（2026年5月16日）\n原视频：https://youtu.be/ngBraLDqzdI\n🧭 一句话背景 图灵奖得主、“AI教父\"之一杨立昆（Yann LeCun），最近在一次深度播客访谈中，抛出了一系列颠覆行业主流认知的观点。他不是在骂ChatGPT没用——他是在说：ChatGPT和所有大语言模型，都只是AI长征路上的一个阶段，而不是终点。\n这篇文章，我来帮你把访谈里的核心内容，从浅到深，一层一层讲清楚。\n🗺️ AI发展脉络：从\"学语言\"到\"理解世界” 要理解杨立昆在说什么，得先知道AI这几十年是怎么走过来的。\n早期AI（规则系统） ↓ 神经网络复兴（1980s-1990s，LeCun发明卷积神经网络CNN） ↓ 深度学习爆发（2012，ImageNet，GPU加速） ↓ 自监督学习 / 预训练模型（2018-，BERT/GPT系列） ↓ 大语言模型时代（2022-，ChatGPT，GPT-4，Llama...） ↓ ❓ 下一个范式？（JEPA / 世界模型） 杨立昆的核心主张就是：当前LLM的成功是特殊情况，不是通用智能的路。 他自己的研究方向——JEPA（联合嵌入预测架构）和世界模型——才是他认为走向真正智能的下一步。\n🔑 核心观点逐层拆解 1. LLM很有用，但它有一个根本性的局限 通俗理解： 大语言模型就像一个\"超级记忆+超级文字接龙\"的系统。它读遍了互联网上的文字，学会了大量的语言模式。你问它问题，它就根据训练过的模式\"接\"出下一句。\n它擅长什么：\n数学证明题（因为数学本身是用符号/语言表达的） 写代码（代码是一种语言） 总结文章、翻译、聊天 它做不到什么：\n理解物理世界（瓶子会怎么倒，水会怎么流） 真正的规划（它每次只是在\"预测下一个词\"，没有真正的搜索和规划） 零样本解决全新任务（没见过的问题它会\"编\"而不是\"想\"） 杨立昆说了一个很贴切的例子：\n一个17岁的年轻人，只需要大约20小时就能学会开车。但我们已经有了数百万小时的人类驾驶数据，却至今做不出真正的Level 5自动驾驶。这说明什么？单纯的\"模仿学习\"根本不够用。\n2. LLM的内生缺陷：它其实不知道自己在干什么 这是杨立昆最具争议的观点，也是他说\"LLM从根本上就是不安全的\"的原因。\n打个比方：\n想象你训练了一个厨师机器人，让它看了几百万道菜谱视频。它确实能\"做菜\"——因为它学会了\"如果前面步骤是这样，下一步通常是那样\"的模式。\n但如果你临时换了一种食材，或者厨房设备不一样，它可能就会按原来的模式乱来——比如把盐误当成糖还\"信心满满\"。\n原因是： LLM系统内部没有\"真正理解这道菜是什么、吃起来应该是什么味道\"的能力。它只是在\"模式匹配\"。\n技术说法： 系统内部没有硬编码的约束，去强制它理解任务目标、预测行动结果是否正确。它完成任务，仅仅是因为训练数据碰巧让它学会了这种模式。\n3. 什么是\"世界模型\"？为什么它很重要？ 通俗理解： 世界模型就是\"在脑子里模拟世界\"的能力。\n人类做任何事之前，都会在脑子里先\"想象一下会发生什么\"：\n推这个瓶子，它会倒吗？往哪个方向倒？ 开车变道，后面的车会怎么反应？ 这个\"脑内模拟\"就是世界模型。\n杨立昆认为，任何真正意义上的智能系统，都必须具备两个核心能力：\n预测自身行为的后果 通过搜索和规划找到能达成目标的行动序列 LLM两个都没有——它只是在不断\"预测下一个token\"，而不是真正地\"思考\"。\n4. JEPA：杨立昆的答案 JEPA = Joint Embedding Predictive Architecture（联合嵌入预测架构）\n这个名字有点学术，我们来拆解一下：\n为什么不直接预测像素？\n早期很多研究想让AI\"看懂视频\"，方法是：给AI看前半段视频，让它预测后半段的每一个像素。\n但这太难了，而且没有意义——你不需要知道每颗水滴会落在哪，你只需要知道\"水会洒出来\"。\nJEPA的思路是：在抽象层面做预测，而不是在像素层面。\n原始输入（图像/视频） ↓ 编码器A ↓ 编码器B 抽象表征A 抽象表征B ↑________________________________↑ 预测器：用B的表征预测A的表征 关键在于： 预测的是\"抽象特征\"，不是原始像素。这就像你的大脑不会记住每一帧画面，而是记住\"概念\"和\"关系\"。\n一个挑战：表征塌缩（Representation Collapse）\n如果两个编码器都输出一个\"恒定值\"（比如全零），预测也会\"成功\"——因为用零预测零，总是正确的。这就是表征塌缩，是JEPA最大的技术难题。\n解决方案（技术扩展）：\n对比学习（Contrastive Learning）：同时提供\"应该能互相预测的样本对\"和\"不应该互相预测的样本对\"，强迫系统学到有意义的区分 蒸馏方法（Distillation）：如DINO、BYOL，用\"教师-学生\"网络机制防止塌缩 信息正则化（SIGREG等）：通过正则项强制编码器输出足够丰富的信息 5. VLA失败了，世界模型才是机器人的出路 VLA = Vision-Language-Action（视觉-语言-动作模型）\n简单说，就是把LLM技术直接用于机器人：给机器人看图片、听指令，然后输出动作。\n为什么失败了？\n需要海量的示范数据，成本极高 非常脆弱：机器人每学一个新任务，都得重新收集大量数据 没有真正的泛化能力：换个场景就不会了 世界模型的优势：\n机器人可以在脑子里\"模拟\"各种场景，然后规划行动 泛化能力强：用少量数据甚至零样本就能解决新问题 更像人类学习的方式 6. 开源会追上闭源：OpenAI是下一个Sun Microsystems 这是杨立昆最犀利的预测之一。\n历史类比：\n1995年，Sun Microsystems和HP等公司主导互联网服务器市场，他们的专有Unix系统（Solaris、HP-UX）被认为是无法替代的。\n结果呢？Linux出来了，把他们全部干掉了。现在整个互联网——包括微软Azure——都跑在Linux上。\n杨立昆的判断：\n现在的OpenAI、Anthropic，就相当于当年的Sun Microsystems 它们的闭源模型存在能力上限：公开文本数据基本已经训练完了，没有更多数据了 开源模型（通过Tapestry等联邦学习机制）最终会追上甚至超过闭源模型 理由：AI正在变成\"平台\"，而平台天然走向开放（就像Linux、互联网协议） 7. AI主权与Tapestry：谁来定义你的认知世界？ 这是文章里最有前瞻性的一个议题。\n问题是这样的： 如果未来每个人都通过AI助手获取信息（就像现在你问ChatGPT而不是用谷歌搜索），那么：\n谁来决定AI助手给你什么答案？ 如果你是印度农民、法国哲学家、或者越南工人，你的文化、语言、价值观能被一个硅谷或中国公司训练的AI代表吗？ Tapestry的解决方案：\n类似联邦学习——各国/各机构可以用本地数据在本地训练模型，只共享\"参数向量\"而不共享原始数据。最终所有人的参数汇聚成一个\"全球共识模型\"，相当于全人类知识的仓库。\n任何人可以基于这个开放基础模型，针对自己的语言、文化、价值观进行微调。\n8. 三位图灵奖得主，为什么看法不同？ 杨立昆、Geoffrey Hinton（辛顿）、Yoshua Bengio（本吉奥）三人共同获得了2018年图灵奖，但他们对AI现状和未来的看法存在显著分歧。\n学者 对LLM的态度 主要担忧 杨立昆 LLM有用但不是终点，路径有误 LLM内生不安全，AI风险被夸大 辛顿 GPT-4出来后认为LLM接近人类智能 AI可能带来的存在性风险 本吉奥 对LLM持较乐观态度 社会不平等、AI收益分配问题 杨立昆认为，辛顿和本吉奥是在GPT-4出现后\"改变了观点\"，而他自己对LLM的判断始终一致：有用，但不是通往真正智能的路。\n📚 扩展阅读：文章涉及的核心技术方法 🔵 自监督学习（Self-Supervised Learning） 是什么： 不需要人工标注数据，让模型通过\"预测被遮盖的部分\"来学习。\nBERT（2018，Google）：在NLP中，随机遮盖单词，让模型预测被遮盖的词 MAE（Masked Autoencoder）（2021，Meta）：随机遮盖图片的一部分，让模型重建 I-JEPA / V-JEPA（2023-2024，Meta）：在表征空间而非像素空间做预测 📖 推荐入门：Andrej Karpathy的博客《The Unreasonable Effectiveness of Recurrent Neural Networks》；Meta官方I-JEPA论文\n🔵 对比学习（Contrastive Learning） 是什么： 通过区分\"相似样本对\"和\"不相似样本对\"，学习有意义的表征。\nSimCLR（2020，Google）：数据增强生成正负样本对 MoCo（2020，Meta）：动量对比学习 CLIP（2021，OpenAI）：图文对比学习，奠定多模态基础 📖 推荐论文：《A Simple Framework for Contrastive Learning of Visual Representations》(Chen et al., 2020)\n🔵 DINO / BYOL：蒸馏类自监督方法 是什么： 用\"教师-学生\"网络架构，在不使用负样本的情况下防止表征塌缩。\nDINO（2021，Meta）：教师网络通过指数滑动平均更新，学生网络通过反向传播学习 BYOL（Bootstrap Your Own Latent）（2020，DeepMind）：类似思路，无需负样本 这类方法\"能用，但我们不完全理解为什么有效\"——杨立昆本人如是说。\n🔵 世界模型（World Model） 是什么： 让AI系统能够在内部\"模拟\"世界运行，预测行动后果。\nDreamer系列（DeepMind）：在隐空间中训练世界模型，结合强化学习 Genie（2024，Google DeepMind）：从视频中学习可交互世界模型 Sora（2024，OpenAI）：生成式视频世界模型（但杨立昆认为这是像素预测的路线） 📖 核心概念来自：Schmidhuber 1991年《A Possibility for Implementing Curiosity and Boredom in Model-Building Neural Controllers》\n🔵 联邦学习（Federated Learning） 是什么： 多方在本地训练模型，只共享参数更新而非原始数据，保护隐私。\nGoogle在移动端的键盘预测中广泛使用 Tapestry项目本质是联邦学习的全球化延伸 📖 推荐：Google AI Blog《Federated Learning: Collaborative Machine Learning without Centralized Training Data》\n🔵 双系统理论（System 1 / System 2） 来自心理学家Daniel Kahneman的著作《思考，快与慢》。\nSystem 1（快思考）：直觉、自动化、快速反应——当前LLM就像这个 System 2（慢思考）：深思熟虑、逻辑推理、规划——JEPA/世界模型试图实现这个 📖 推荐书目：《Thinking, Fast and Slow》（Daniel Kahneman）\n🧩 总结：这场争论的本质是什么？ 用一句话总结杨立昆的核心主张：\nLLM是\"会说话的AI\"，但真正的智能需要\"会思考的AI\"。 说话和思考，是两件本质不同的事情。\n这场争论的更深层，是对\"什么是智能\"的根本分歧：\nLLM派认为：规模足够大、数据足够多，“涌现\"就会出现真正的智能 杨立昆派认为：没有世界模型、没有规划能力、没有行动后果预测，无论规模多大，都只是更好的\"语言机器” 到底谁是对的？杨立昆说：2027年初，答案会对所有人变得显而易见。\n作者按：本文基于2026年5月16日51CTO技术栈对杨立昆播客访谈的整理，结合相关技术背景扩展撰写。原始访谈视频：https://youtu.be/ngBraLDqzdI\n",
+  "wordCount" : "279",
+  "inLanguage": "zh",
+  "datePublished": "2026-05-16T00:00:00Z",
+  "dateModified": "2026-05-16T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "luochenqi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chenqiluo.github.io/posts/lecun-jepa-llm-future-2026/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "luochenqi's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://chenqiluo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://chenqiluo.github.io/" accesskey="h" title="luochenqi&#39;s Blog (Alt + H)">luochenqi&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://chenqiluo.github.io/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/daily/" title="每日目标">
+                    <span>每日目标</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/wiki/" title="知识库">
+                    <span>知识库</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/stock/" title="股票分析">
+                    <span>股票分析</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/reading/" title="研读">
+                    <span>研读</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://arena.ai/leaderboard/text" title="AI天梯榜">
+                    <span>AI天梯榜</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/search/" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://chenqiluo.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://chenqiluo.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      AI下一个范式在哪里？——杨立昆深度访谈解读：JEPA、世界模型与LLM的边界
+    </h1>
+    <div class="post-description">
+      图灵奖得主杨立昆最新深度访谈全解析：LLM有哪些内生缺陷？什么是JEPA和世界模型？AI下一个范式将走向何方？通俗梳理AI发展脉络，附扩展阅读。
+    </div>
+    <div class="post-meta"><span title='2026-05-16 00:00:00 +0000 UTC'>2026年5月16日</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#-%e4%b8%80%e5%8f%a5%e8%af%9d%e8%83%8c%e6%99%af" aria-label="🧭 一句话背景">🧭 一句话背景</a></li>
+                <li>
+                    <a href="#-ai%e5%8f%91%e5%b1%95%e8%84%89%e7%bb%9c%e4%bb%8e%e5%ad%a6%e8%af%ad%e8%a8%80%e5%88%b0%e7%90%86%e8%a7%a3%e4%b8%96%e7%95%8c" aria-label="🗺️ AI发展脉络：从&quot;学语言&quot;到&quot;理解世界&rdquo;">🗺️ AI发展脉络：从&quot;学语言&quot;到&quot;理解世界&rdquo;</a></li>
+                <li>
+                    <a href="#-%e6%a0%b8%e5%bf%83%e8%a7%82%e7%82%b9%e9%80%90%e5%b1%82%e6%8b%86%e8%a7%a3" aria-label="🔑 核心观点逐层拆解">🔑 核心观点逐层拆解</a><ul>
+                        
+                <li>
+                    <a href="#1-llm%e5%be%88%e6%9c%89%e7%94%a8%e4%bd%86%e5%ae%83%e6%9c%89%e4%b8%80%e4%b8%aa%e6%a0%b9%e6%9c%ac%e6%80%a7%e7%9a%84%e5%b1%80%e9%99%90" aria-label="1. LLM很有用，但它有一个根本性的局限">1. LLM很有用，但它有一个根本性的局限</a></li>
+                <li>
+                    <a href="#2-llm%e7%9a%84%e5%86%85%e7%94%9f%e7%bc%ba%e9%99%b7%e5%ae%83%e5%85%b6%e5%ae%9e%e4%b8%8d%e7%9f%a5%e9%81%93%e8%87%aa%e5%b7%b1%e5%9c%a8%e5%b9%b2%e4%bb%80%e4%b9%88" aria-label="2. LLM的内生缺陷：它其实不知道自己在干什么">2. LLM的内生缺陷：它其实不知道自己在干什么</a></li>
+                <li>
+                    <a href="#3-%e4%bb%80%e4%b9%88%e6%98%af%e4%b8%96%e7%95%8c%e6%a8%a1%e5%9e%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e5%ae%83%e5%be%88%e9%87%8d%e8%a6%81" aria-label="3. 什么是&quot;世界模型&quot;？为什么它很重要？">3. 什么是&quot;世界模型&quot;？为什么它很重要？</a></li>
+                <li>
+                    <a href="#4-jepa%e6%9d%a8%e7%ab%8b%e6%98%86%e7%9a%84%e7%ad%94%e6%a1%88" aria-label="4. JEPA：杨立昆的答案">4. JEPA：杨立昆的答案</a></li>
+                <li>
+                    <a href="#5-vla%e5%a4%b1%e8%b4%a5%e4%ba%86%e4%b8%96%e7%95%8c%e6%a8%a1%e5%9e%8b%e6%89%8d%e6%98%af%e6%9c%ba%e5%99%a8%e4%ba%ba%e7%9a%84%e5%87%ba%e8%b7%af" aria-label="5. VLA失败了，世界模型才是机器人的出路">5. VLA失败了，世界模型才是机器人的出路</a></li>
+                <li>
+                    <a href="#6-%e5%bc%80%e6%ba%90%e4%bc%9a%e8%bf%bd%e4%b8%8a%e9%97%ad%e6%ba%90openai%e6%98%af%e4%b8%8b%e4%b8%80%e4%b8%aasun-microsystems" aria-label="6. 开源会追上闭源：OpenAI是下一个Sun Microsystems">6. 开源会追上闭源：OpenAI是下一个Sun Microsystems</a></li>
+                <li>
+                    <a href="#7-ai%e4%b8%bb%e6%9d%83%e4%b8%8etapestry%e8%b0%81%e6%9d%a5%e5%ae%9a%e4%b9%89%e4%bd%a0%e7%9a%84%e8%ae%a4%e7%9f%a5%e4%b8%96%e7%95%8c" aria-label="7. AI主权与Tapestry：谁来定义你的认知世界？">7. AI主权与Tapestry：谁来定义你的认知世界？</a></li>
+                <li>
+                    <a href="#8-%e4%b8%89%e4%bd%8d%e5%9b%be%e7%81%b5%e5%a5%96%e5%be%97%e4%b8%bb%e4%b8%ba%e4%bb%80%e4%b9%88%e7%9c%8b%e6%b3%95%e4%b8%8d%e5%90%8c" aria-label="8. 三位图灵奖得主，为什么看法不同？">8. 三位图灵奖得主，为什么看法不同？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-%e6%89%a9%e5%b1%95%e9%98%85%e8%af%bb%e6%96%87%e7%ab%a0%e6%b6%89%e5%8f%8a%e7%9a%84%e6%a0%b8%e5%bf%83%e6%8a%80%e6%9c%af%e6%96%b9%e6%b3%95" aria-label="📚 扩展阅读：文章涉及的核心技术方法">📚 扩展阅读：文章涉及的核心技术方法</a><ul>
+                        
+                <li>
+                    <a href="#-%e8%87%aa%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0self-supervised-learning" aria-label="🔵 自监督学习（Self-Supervised Learning）">🔵 自监督学习（Self-Supervised Learning）</a></li>
+                <li>
+                    <a href="#-%e5%af%b9%e6%af%94%e5%ad%a6%e4%b9%a0contrastive-learning" aria-label="🔵 对比学习（Contrastive Learning）">🔵 对比学习（Contrastive Learning）</a></li>
+                <li>
+                    <a href="#-dino--byol%e8%92%b8%e9%a6%8f%e7%b1%bb%e8%87%aa%e7%9b%91%e7%9d%a3%e6%96%b9%e6%b3%95" aria-label="🔵 DINO / BYOL：蒸馏类自监督方法">🔵 DINO / BYOL：蒸馏类自监督方法</a></li>
+                <li>
+                    <a href="#-%e4%b8%96%e7%95%8c%e6%a8%a1%e5%9e%8bworld-model" aria-label="🔵 世界模型（World Model）">🔵 世界模型（World Model）</a></li>
+                <li>
+                    <a href="#-%e8%81%94%e9%82%a6%e5%ad%a6%e4%b9%a0federated-learning" aria-label="🔵 联邦学习（Federated Learning）">🔵 联邦学习（Federated Learning）</a></li>
+                <li>
+                    <a href="#-%e5%8f%8c%e7%b3%bb%e7%bb%9f%e7%90%86%e8%ae%basystem-1--system-2" aria-label="🔵 双系统理论（System 1 / System 2）">🔵 双系统理论（System 1 / System 2）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-%e6%80%bb%e7%bb%93%e8%bf%99%e5%9c%ba%e4%ba%89%e8%ae%ba%e7%9a%84%e6%9c%ac%e8%b4%a8%e6%98%af%e4%bb%80%e4%b9%88" aria-label="🧩 总结：这场争论的本质是什么？">🧩 总结：这场争论的本质是什么？</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>原文来源：51CTO技术栈《五年内，JEPA全面统治！LeCun直言：我对Llama没有任何贡献！OpenAI是下一个Sun公司！LLM有内生缺陷！开源会追上闭源》（2026年5月16日）</p>
+<p>原视频：https://youtu.be/ngBraLDqzdI</p></blockquote>
+<hr>
+<h2 id="-一句话背景">🧭 一句话背景<a hidden class="anchor" aria-hidden="true" href="#-一句话背景">#</a></h2>
+<p>图灵奖得主、&ldquo;AI教父&quot;之一<strong>杨立昆（Yann LeCun）</strong>，最近在一次深度播客访谈中，抛出了一系列颠覆行业主流认知的观点。他不是在骂ChatGPT没用——他是在说：<strong>ChatGPT和所有大语言模型，都只是AI长征路上的一个阶段，而不是终点。</strong></p>
+<p>这篇文章，我来帮你把访谈里的核心内容，从浅到深，一层一层讲清楚。</p>
+<hr>
+<h2 id="-ai发展脉络从学语言到理解世界">🗺️ AI发展脉络：从&quot;学语言&quot;到&quot;理解世界&rdquo;<a hidden class="anchor" aria-hidden="true" href="#-ai发展脉络从学语言到理解世界">#</a></h2>
+<p>要理解杨立昆在说什么，得先知道AI这几十年是怎么走过来的。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">早期AI（规则系统）
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">神经网络复兴（1980s-1990s，LeCun发明卷积神经网络CNN）
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">深度学习爆发（2012，ImageNet，GPU加速）
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">自监督学习 / 预训练模型（2018-，BERT/GPT系列）
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">大语言模型时代（2022-，ChatGPT，GPT-4，Llama...）
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">❓ 下一个范式？（JEPA / 世界模型）
+</span></span></code></pre></div><p>杨立昆的核心主张就是：<strong>当前LLM的成功是特殊情况，不是通用智能的路。</strong> 他自己的研究方向——<strong>JEPA（联合嵌入预测架构）和世界模型</strong>——才是他认为走向真正智能的下一步。</p>
+<hr>
+<h2 id="-核心观点逐层拆解">🔑 核心观点逐层拆解<a hidden class="anchor" aria-hidden="true" href="#-核心观点逐层拆解">#</a></h2>
+<h3 id="1-llm很有用但它有一个根本性的局限">1. LLM很有用，但它有一个根本性的局限<a hidden class="anchor" aria-hidden="true" href="#1-llm很有用但它有一个根本性的局限">#</a></h3>
+<p><strong>通俗理解：</strong> 大语言模型就像一个&quot;超级记忆+超级文字接龙&quot;的系统。它读遍了互联网上的文字，学会了大量的语言模式。你问它问题，它就根据训练过的模式&quot;接&quot;出下一句。</p>
+<p><strong>它擅长什么：</strong></p>
+<ul>
+<li>数学证明题（因为数学本身是用符号/语言表达的）</li>
+<li>写代码（代码是一种语言）</li>
+<li>总结文章、翻译、聊天</li>
+</ul>
+<p><strong>它做不到什么：</strong></p>
+<ul>
+<li>理解物理世界（瓶子会怎么倒，水会怎么流）</li>
+<li>真正的规划（它每次只是在&quot;预测下一个词&quot;，没有真正的搜索和规划）</li>
+<li>零样本解决全新任务（没见过的问题它会&quot;编&quot;而不是&quot;想&quot;）</li>
+</ul>
+<p>杨立昆说了一个很贴切的例子：</p>
+<blockquote>
+<p>一个17岁的年轻人，只需要大约20小时就能学会开车。但我们已经有了数百万小时的人类驾驶数据，却至今做不出真正的Level 5自动驾驶。这说明什么？单纯的&quot;模仿学习&quot;根本不够用。</p></blockquote>
+<hr>
+<h3 id="2-llm的内生缺陷它其实不知道自己在干什么">2. LLM的内生缺陷：它其实不知道自己在干什么<a hidden class="anchor" aria-hidden="true" href="#2-llm的内生缺陷它其实不知道自己在干什么">#</a></h3>
+<p>这是杨立昆最具争议的观点，也是他说&quot;LLM从根本上就是不安全的&quot;的原因。</p>
+<p><strong>打个比方：</strong></p>
+<p>想象你训练了一个厨师机器人，让它看了几百万道菜谱视频。它确实能&quot;做菜&quot;——因为它学会了&quot;如果前面步骤是这样，下一步通常是那样&quot;的模式。</p>
+<p>但如果你临时换了一种食材，或者厨房设备不一样，它可能就会按原来的模式乱来——比如把盐误当成糖还&quot;信心满满&quot;。</p>
+<p><strong>原因是：</strong> LLM系统内部没有&quot;真正理解这道菜是什么、吃起来应该是什么味道&quot;的能力。它只是在&quot;模式匹配&quot;。</p>
+<p><strong>技术说法：</strong> 系统内部没有硬编码的约束，去强制它理解任务目标、预测行动结果是否正确。它完成任务，仅仅是因为训练数据碰巧让它学会了这种模式。</p>
+<hr>
+<h3 id="3-什么是世界模型为什么它很重要">3. 什么是&quot;世界模型&quot;？为什么它很重要？<a hidden class="anchor" aria-hidden="true" href="#3-什么是世界模型为什么它很重要">#</a></h3>
+<p><strong>通俗理解：</strong> 世界模型就是&quot;在脑子里模拟世界&quot;的能力。</p>
+<p>人类做任何事之前，都会在脑子里先&quot;想象一下会发生什么&quot;：</p>
+<ul>
+<li>推这个瓶子，它会倒吗？往哪个方向倒？</li>
+<li>开车变道，后面的车会怎么反应？</li>
+</ul>
+<p><strong>这个&quot;脑内模拟&quot;就是世界模型。</strong></p>
+<p>杨立昆认为，任何真正意义上的智能系统，都必须具备两个核心能力：</p>
+<ol>
+<li><strong>预测自身行为的后果</strong></li>
+<li><strong>通过搜索和规划找到能达成目标的行动序列</strong></li>
+</ol>
+<p>LLM两个都没有——它只是在不断&quot;预测下一个token&quot;，而不是真正地&quot;思考&quot;。</p>
+<hr>
+<h3 id="4-jepa杨立昆的答案">4. JEPA：杨立昆的答案<a hidden class="anchor" aria-hidden="true" href="#4-jepa杨立昆的答案">#</a></h3>
+<p><strong>JEPA = Joint Embedding Predictive Architecture（联合嵌入预测架构）</strong></p>
+<p>这个名字有点学术，我们来拆解一下：</p>
+<p><strong>为什么不直接预测像素？</strong></p>
+<p>早期很多研究想让AI&quot;看懂视频&quot;，方法是：给AI看前半段视频，让它预测后半段的每一个像素。</p>
+<p>但这太难了，而且没有意义——你不需要知道每颗水滴会落在哪，你只需要知道&quot;水会洒出来&quot;。</p>
+<p><strong>JEPA的思路是：在抽象层面做预测，而不是在像素层面。</strong></p>
+
+<pre style="background:#f6f8fa;padding:1em;border-radius:6px;font-size:0.9em;line-height:1.6;">
 原始输入（图像/视频）
     ↓  编码器A            ↓  编码器B
  抽象表征A           抽象表征B
     ↑________________________________↑
          预测器：用B的表征预测A的表征
-</pre><p><strong>关键在于：</strong> 预测的是"抽象特征"，不是原始像素。这就像你的大脑不会记住每一帧画面，而是记住"概念"和"关系"。</p><p><strong>一个挑战：表征塌缩（Representation Collapse）</strong></p><p>如果两个编码器都输出一个"恒定值"（比如全零），预测也会"成功"——因为用零预测零，总是正确的。这就是表征塌缩，是JEPA最大的技术难题。</p><p><strong>解决方案（技术扩展）：</strong></p><ul><li><strong>对比学习（Contrastive Learning）</strong>：同时提供"应该能互相预测的样本对"和"不应该互相预测的样本对"，强迫系统学到有意义的区分</li><li><strong>蒸馏方法（Distillation）</strong>：如DINO、BYOL，用"教师-学生"网络机制防止塌缩</li><li><strong>信息正则化（SIGREG等）</strong>：通过正则项强制编码器输出足够丰富的信息</li></ul><hr><h3 id=5-vla失败了世界模型才是机器人的出路>5. VLA失败了，世界模型才是机器人的出路<a hidden class=anchor aria-hidden=true href=#5-vla失败了世界模型才是机器人的出路>#</a></h3><p><strong>VLA = Vision-Language-Action（视觉-语言-动作模型）</strong></p><p>简单说，就是把LLM技术直接用于机器人：给机器人看图片、听指令，然后输出动作。</p><p><strong>为什么失败了？</strong></p><ul><li>需要海量的示范数据，成本极高</li><li>非常脆弱：机器人每学一个新任务，都得重新收集大量数据</li><li>没有真正的泛化能力：换个场景就不会了</li></ul><p><strong>世界模型的优势：</strong></p><ul><li>机器人可以在脑子里"模拟"各种场景，然后规划行动</li><li>泛化能力强：用少量数据甚至零样本就能解决新问题</li><li>更像人类学习的方式</li></ul><hr><h3 id=6-开源会追上闭源openai是下一个sun-microsystems>6. 开源会追上闭源：OpenAI是下一个Sun Microsystems<a hidden class=anchor aria-hidden=true href=#6-开源会追上闭源openai是下一个sun-microsystems>#</a></h3><p>这是杨立昆最犀利的预测之一。</p><p><strong>历史类比：</strong></p><p>1995年，Sun Microsystems和HP等公司主导互联网服务器市场，他们的专有Unix系统（Solaris、HP-UX）被认为是无法替代的。</p><p>结果呢？Linux出来了，把他们全部干掉了。现在整个互联网——包括微软Azure——都跑在Linux上。</p><p><strong>杨立昆的判断：</strong></p><ul><li>现在的OpenAI、Anthropic，就相当于当年的Sun Microsystems</li><li>它们的闭源模型存在能力上限：公开文本数据基本已经训练完了，没有更多数据了</li><li>开源模型（通过Tapestry等联邦学习机制）最终会追上甚至超过闭源模型</li><li>理由：AI正在变成"平台"，而平台天然走向开放（就像Linux、互联网协议）</li></ul><hr><h3 id=7-ai主权与tapestry谁来定义你的认知世界>7. AI主权与Tapestry：谁来定义你的认知世界？<a hidden class=anchor aria-hidden=true href=#7-ai主权与tapestry谁来定义你的认知世界>#</a></h3><p>这是文章里最有前瞻性的一个议题。</p><p><strong>问题是这样的：</strong> 如果未来每个人都通过AI助手获取信息（就像现在你问ChatGPT而不是用谷歌搜索），那么：</p><ul><li>谁来决定AI助手给你什么答案？</li><li>如果你是印度农民、法国哲学家、或者越南工人，你的文化、语言、价值观能被一个硅谷或中国公司训练的AI代表吗？</li></ul><p><strong>Tapestry的解决方案：</strong></p><p>类似<strong>联邦学习</strong>——各国/各机构可以用本地数据在本地训练模型，只共享"参数向量"而不共享原始数据。最终所有人的参数汇聚成一个"全球共识模型"，相当于全人类知识的仓库。</p><p>任何人可以基于这个开放基础模型，针对自己的语言、文化、价值观进行微调。</p><hr><h3 id=8-三位图灵奖得主为什么看法不同>8. 三位图灵奖得主，为什么看法不同？<a hidden class=anchor aria-hidden=true href=#8-三位图灵奖得主为什么看法不同>#</a></h3><p>杨立昆、Geoffrey Hinton（辛顿）、Yoshua Bengio（本吉奥）三人共同获得了2018年图灵奖，但他们对AI现状和未来的看法存在显著分歧。</p><table><thead><tr><th>学者</th><th>对LLM的态度</th><th>主要担忧</th></tr></thead><tbody><tr><td>杨立昆</td><td>LLM有用但不是终点，路径有误</td><td>LLM内生不安全，AI风险被夸大</td></tr><tr><td>辛顿</td><td>GPT-4出来后认为LLM接近人类智能</td><td>AI可能带来的存在性风险</td></tr><tr><td>本吉奥</td><td>对LLM持较乐观态度</td><td>社会不平等、AI收益分配问题</td></tr></tbody></table><p>杨立昆认为，辛顿和本吉奥是在GPT-4出现后"改变了观点"，而他自己对LLM的判断始终一致：<strong>有用，但不是通往真正智能的路。</strong></p><hr><h2 id=-扩展阅读文章涉及的核心技术方法>📚 扩展阅读：文章涉及的核心技术方法<a hidden class=anchor aria-hidden=true href=#-扩展阅读文章涉及的核心技术方法>#</a></h2><h3 id=-自监督学习self-supervised-learning>🔵 自监督学习（Self-Supervised Learning）<a hidden class=anchor aria-hidden=true href=#-自监督学习self-supervised-learning>#</a></h3><p><strong>是什么：</strong> 不需要人工标注数据，让模型通过"预测被遮盖的部分"来学习。</p><ul><li><strong>BERT</strong>（2018，Google）：在NLP中，随机遮盖单词，让模型预测被遮盖的词</li><li><strong>MAE（Masked Autoencoder）</strong>（2021，Meta）：随机遮盖图片的一部分，让模型重建</li><li><strong>I-JEPA / V-JEPA</strong>（2023-2024，Meta）：在表征空间而非像素空间做预测</li></ul><blockquote><p>📖 推荐入门：Andrej Karpathy的博客《The Unreasonable Effectiveness of Recurrent Neural Networks》；Meta官方I-JEPA论文</p></blockquote><hr><h3 id=-对比学习contrastive-learning>🔵 对比学习（Contrastive Learning）<a hidden class=anchor aria-hidden=true href=#-对比学习contrastive-learning>#</a></h3><p><strong>是什么：</strong> 通过区分"相似样本对"和"不相似样本对"，学习有意义的表征。</p><ul><li><strong>SimCLR</strong>（2020，Google）：数据增强生成正负样本对</li><li><strong>MoCo</strong>（2020，Meta）：动量对比学习</li><li><strong>CLIP</strong>（2021，OpenAI）：图文对比学习，奠定多模态基础</li></ul><blockquote><p>📖 推荐论文：《A Simple Framework for Contrastive Learning of Visual Representations》(Chen et al., 2020)</p></blockquote><hr><h3 id=-dino--byol蒸馏类自监督方法>🔵 DINO / BYOL：蒸馏类自监督方法<a hidden class=anchor aria-hidden=true href=#-dino--byol蒸馏类自监督方法>#</a></h3><p><strong>是什么：</strong> 用"教师-学生"网络架构，在不使用负样本的情况下防止表征塌缩。</p><ul><li><strong>DINO</strong>（2021，Meta）：教师网络通过指数滑动平均更新，学生网络通过反向传播学习</li><li><strong>BYOL（Bootstrap Your Own Latent）</strong>（2020，DeepMind）：类似思路，无需负样本</li></ul><blockquote><p>这类方法"能用，但我们不完全理解为什么有效"——杨立昆本人如是说。</p></blockquote><hr><h3 id=-世界模型world-model>🔵 世界模型（World Model）<a hidden class=anchor aria-hidden=true href=#-世界模型world-model>#</a></h3><p><strong>是什么：</strong> 让AI系统能够在内部"模拟"世界运行，预测行动后果。</p><ul><li><strong>Dreamer系列</strong>（DeepMind）：在隐空间中训练世界模型，结合强化学习</li><li><strong>Genie</strong>（2024，Google DeepMind）：从视频中学习可交互世界模型</li><li><strong>Sora</strong>（2024，OpenAI）：生成式视频世界模型（但杨立昆认为这是像素预测的路线）</li></ul><blockquote><p>📖 核心概念来自：Schmidhuber 1991年《A Possibility for Implementing Curiosity and Boredom in Model-Building Neural Controllers》</p></blockquote><hr><h3 id=-联邦学习federated-learning>🔵 联邦学习（Federated Learning）<a hidden class=anchor aria-hidden=true href=#-联邦学习federated-learning>#</a></h3><p><strong>是什么：</strong> 多方在本地训练模型，只共享参数更新而非原始数据，保护隐私。</p><ul><li>Google在移动端的键盘预测中广泛使用</li><li>Tapestry项目本质是联邦学习的全球化延伸</li></ul><blockquote><p>📖 推荐：Google AI Blog《Federated Learning: Collaborative Machine Learning without Centralized Training Data》</p></blockquote><hr><h3 id=-双系统理论system-1--system-2>🔵 双系统理论（System 1 / System 2）<a hidden class=anchor aria-hidden=true href=#-双系统理论system-1--system-2>#</a></h3><p><strong>来自心理学家Daniel Kahneman的著作《思考，快与慢》。</strong></p><ul><li><strong>System 1（快思考）</strong>：直觉、自动化、快速反应——当前LLM就像这个</li><li><strong>System 2（慢思考）</strong>：深思熟虑、逻辑推理、规划——JEPA/世界模型试图实现这个</li></ul><blockquote><p>📖 推荐书目：《Thinking, Fast and Slow》（Daniel Kahneman）</p></blockquote><hr><h2 id=-总结这场争论的本质是什么>🧩 总结：这场争论的本质是什么？<a hidden class=anchor aria-hidden=true href=#-总结这场争论的本质是什么>#</a></h2><p>用一句话总结杨立昆的核心主张：</p><blockquote><p><strong>LLM是"会说话的AI"，但真正的智能需要"会思考的AI"。</strong> 说话和思考，是两件本质不同的事情。</p></blockquote><p>这场争论的更深层，是对"什么是智能"的根本分歧：</p><ul><li><strong>LLM派</strong>认为：规模足够大、数据足够多，&ldquo;涌现"就会出现真正的智能</li><li><strong>杨立昆派</strong>认为：没有世界模型、没有规划能力、没有行动后果预测，无论规模多大，都只是更好的"语言机器&rdquo;</li></ul><p>到底谁是对的？杨立昆说：<strong>2027年初，答案会对所有人变得显而易见。</strong></p><hr><p><em>作者按：本文基于2026年5月16日51CTO技术栈对杨立昆播客访谈的整理，结合相关技术背景扩展撰写。原始访谈视频：https://youtu.be/ngBraLDqzdI</em></p></div><footer class=post-footer><ul class=post-tags><li><a href=https://chenqiluo.github.io/tags/ai/>AI</a></li><li><a href=https://chenqiluo.github.io/tags/llm/>LLM</a></li><li><a href=https://chenqiluo.github.io/tags/jepa/>JEPA</a></li><li><a href=https://chenqiluo.github.io/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/>世界模型</a></li><li><a href=https://chenqiluo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/>深度学习</a></li><li><a href=https://chenqiluo.github.io/tags/%E6%9D%A8%E7%AB%8B%E6%98%86/>杨立昆</a></li><li><a href=https://chenqiluo.github.io/tags/lecun/>LeCun</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://chenqiluo.github.io/>luochenqi's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
-</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+</pre>
+
+
+<p><strong>关键在于：</strong> 预测的是&quot;抽象特征&quot;，不是原始像素。这就像你的大脑不会记住每一帧画面，而是记住&quot;概念&quot;和&quot;关系&quot;。</p>
+<p><strong>一个挑战：表征塌缩（Representation Collapse）</strong></p>
+<p>如果两个编码器都输出一个&quot;恒定值&quot;（比如全零），预测也会&quot;成功&quot;——因为用零预测零，总是正确的。这就是表征塌缩，是JEPA最大的技术难题。</p>
+<p><strong>解决方案（技术扩展）：</strong></p>
+<ul>
+<li><strong>对比学习（Contrastive Learning）</strong>：同时提供&quot;应该能互相预测的样本对&quot;和&quot;不应该互相预测的样本对&quot;，强迫系统学到有意义的区分</li>
+<li><strong>蒸馏方法（Distillation）</strong>：如DINO、BYOL，用&quot;教师-学生&quot;网络机制防止塌缩</li>
+<li><strong>信息正则化（SIGREG等）</strong>：通过正则项强制编码器输出足够丰富的信息</li>
+</ul>
+<hr>
+<h3 id="5-vla失败了世界模型才是机器人的出路">5. VLA失败了，世界模型才是机器人的出路<a hidden class="anchor" aria-hidden="true" href="#5-vla失败了世界模型才是机器人的出路">#</a></h3>
+<p><strong>VLA = Vision-Language-Action（视觉-语言-动作模型）</strong></p>
+<p>简单说，就是把LLM技术直接用于机器人：给机器人看图片、听指令，然后输出动作。</p>
+<p><strong>为什么失败了？</strong></p>
+<ul>
+<li>需要海量的示范数据，成本极高</li>
+<li>非常脆弱：机器人每学一个新任务，都得重新收集大量数据</li>
+<li>没有真正的泛化能力：换个场景就不会了</li>
+</ul>
+<p><strong>世界模型的优势：</strong></p>
+<ul>
+<li>机器人可以在脑子里&quot;模拟&quot;各种场景，然后规划行动</li>
+<li>泛化能力强：用少量数据甚至零样本就能解决新问题</li>
+<li>更像人类学习的方式</li>
+</ul>
+<hr>
+<h3 id="6-开源会追上闭源openai是下一个sun-microsystems">6. 开源会追上闭源：OpenAI是下一个Sun Microsystems<a hidden class="anchor" aria-hidden="true" href="#6-开源会追上闭源openai是下一个sun-microsystems">#</a></h3>
+<p>这是杨立昆最犀利的预测之一。</p>
+<p><strong>历史类比：</strong></p>
+<p>1995年，Sun Microsystems和HP等公司主导互联网服务器市场，他们的专有Unix系统（Solaris、HP-UX）被认为是无法替代的。</p>
+<p>结果呢？Linux出来了，把他们全部干掉了。现在整个互联网——包括微软Azure——都跑在Linux上。</p>
+<p><strong>杨立昆的判断：</strong></p>
+<ul>
+<li>现在的OpenAI、Anthropic，就相当于当年的Sun Microsystems</li>
+<li>它们的闭源模型存在能力上限：公开文本数据基本已经训练完了，没有更多数据了</li>
+<li>开源模型（通过Tapestry等联邦学习机制）最终会追上甚至超过闭源模型</li>
+<li>理由：AI正在变成&quot;平台&quot;，而平台天然走向开放（就像Linux、互联网协议）</li>
+</ul>
+<hr>
+<h3 id="7-ai主权与tapestry谁来定义你的认知世界">7. AI主权与Tapestry：谁来定义你的认知世界？<a hidden class="anchor" aria-hidden="true" href="#7-ai主权与tapestry谁来定义你的认知世界">#</a></h3>
+<p>这是文章里最有前瞻性的一个议题。</p>
+<p><strong>问题是这样的：</strong> 如果未来每个人都通过AI助手获取信息（就像现在你问ChatGPT而不是用谷歌搜索），那么：</p>
+<ul>
+<li>谁来决定AI助手给你什么答案？</li>
+<li>如果你是印度农民、法国哲学家、或者越南工人，你的文化、语言、价值观能被一个硅谷或中国公司训练的AI代表吗？</li>
+</ul>
+<p><strong>Tapestry的解决方案：</strong></p>
+<p>类似<strong>联邦学习</strong>——各国/各机构可以用本地数据在本地训练模型，只共享&quot;参数向量&quot;而不共享原始数据。最终所有人的参数汇聚成一个&quot;全球共识模型&quot;，相当于全人类知识的仓库。</p>
+<p>任何人可以基于这个开放基础模型，针对自己的语言、文化、价值观进行微调。</p>
+<hr>
+<h3 id="8-三位图灵奖得主为什么看法不同">8. 三位图灵奖得主，为什么看法不同？<a hidden class="anchor" aria-hidden="true" href="#8-三位图灵奖得主为什么看法不同">#</a></h3>
+<p>杨立昆、Geoffrey Hinton（辛顿）、Yoshua Bengio（本吉奥）三人共同获得了2018年图灵奖，但他们对AI现状和未来的看法存在显著分歧。</p>
+<table>
+  <thead>
+      <tr>
+          <th>学者</th>
+          <th>对LLM的态度</th>
+          <th>主要担忧</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>杨立昆</td>
+          <td>LLM有用但不是终点，路径有误</td>
+          <td>LLM内生不安全，AI风险被夸大</td>
+      </tr>
+      <tr>
+          <td>辛顿</td>
+          <td>GPT-4出来后认为LLM接近人类智能</td>
+          <td>AI可能带来的存在性风险</td>
+      </tr>
+      <tr>
+          <td>本吉奥</td>
+          <td>对LLM持较乐观态度</td>
+          <td>社会不平等、AI收益分配问题</td>
+      </tr>
+  </tbody>
+</table>
+<p>杨立昆认为，辛顿和本吉奥是在GPT-4出现后&quot;改变了观点&quot;，而他自己对LLM的判断始终一致：<strong>有用，但不是通往真正智能的路。</strong></p>
+<hr>
+<h2 id="-扩展阅读文章涉及的核心技术方法">📚 扩展阅读：文章涉及的核心技术方法<a hidden class="anchor" aria-hidden="true" href="#-扩展阅读文章涉及的核心技术方法">#</a></h2>
+<h3 id="-自监督学习self-supervised-learning">🔵 自监督学习（Self-Supervised Learning）<a hidden class="anchor" aria-hidden="true" href="#-自监督学习self-supervised-learning">#</a></h3>
+<p><strong>是什么：</strong> 不需要人工标注数据，让模型通过&quot;预测被遮盖的部分&quot;来学习。</p>
+<ul>
+<li><strong>BERT</strong>（2018，Google）：在NLP中，随机遮盖单词，让模型预测被遮盖的词</li>
+<li><strong>MAE（Masked Autoencoder）</strong>（2021，Meta）：随机遮盖图片的一部分，让模型重建</li>
+<li><strong>I-JEPA / V-JEPA</strong>（2023-2024，Meta）：在表征空间而非像素空间做预测</li>
+</ul>
+<blockquote>
+<p>📖 推荐入门：Andrej Karpathy的博客《The Unreasonable Effectiveness of Recurrent Neural Networks》；Meta官方I-JEPA论文</p></blockquote>
+<hr>
+<h3 id="-对比学习contrastive-learning">🔵 对比学习（Contrastive Learning）<a hidden class="anchor" aria-hidden="true" href="#-对比学习contrastive-learning">#</a></h3>
+<p><strong>是什么：</strong> 通过区分&quot;相似样本对&quot;和&quot;不相似样本对&quot;，学习有意义的表征。</p>
+<ul>
+<li><strong>SimCLR</strong>（2020，Google）：数据增强生成正负样本对</li>
+<li><strong>MoCo</strong>（2020，Meta）：动量对比学习</li>
+<li><strong>CLIP</strong>（2021，OpenAI）：图文对比学习，奠定多模态基础</li>
+</ul>
+<blockquote>
+<p>📖 推荐论文：《A Simple Framework for Contrastive Learning of Visual Representations》(Chen et al., 2020)</p></blockquote>
+<hr>
+<h3 id="-dino--byol蒸馏类自监督方法">🔵 DINO / BYOL：蒸馏类自监督方法<a hidden class="anchor" aria-hidden="true" href="#-dino--byol蒸馏类自监督方法">#</a></h3>
+<p><strong>是什么：</strong> 用&quot;教师-学生&quot;网络架构，在不使用负样本的情况下防止表征塌缩。</p>
+<ul>
+<li><strong>DINO</strong>（2021，Meta）：教师网络通过指数滑动平均更新，学生网络通过反向传播学习</li>
+<li><strong>BYOL（Bootstrap Your Own Latent）</strong>（2020，DeepMind）：类似思路，无需负样本</li>
+</ul>
+<blockquote>
+<p>这类方法&quot;能用，但我们不完全理解为什么有效&quot;——杨立昆本人如是说。</p></blockquote>
+<hr>
+<h3 id="-世界模型world-model">🔵 世界模型（World Model）<a hidden class="anchor" aria-hidden="true" href="#-世界模型world-model">#</a></h3>
+<p><strong>是什么：</strong> 让AI系统能够在内部&quot;模拟&quot;世界运行，预测行动后果。</p>
+<ul>
+<li><strong>Dreamer系列</strong>（DeepMind）：在隐空间中训练世界模型，结合强化学习</li>
+<li><strong>Genie</strong>（2024，Google DeepMind）：从视频中学习可交互世界模型</li>
+<li><strong>Sora</strong>（2024，OpenAI）：生成式视频世界模型（但杨立昆认为这是像素预测的路线）</li>
+</ul>
+<blockquote>
+<p>📖 核心概念来自：Schmidhuber 1991年《A Possibility for Implementing Curiosity and Boredom in Model-Building Neural Controllers》</p></blockquote>
+<hr>
+<h3 id="-联邦学习federated-learning">🔵 联邦学习（Federated Learning）<a hidden class="anchor" aria-hidden="true" href="#-联邦学习federated-learning">#</a></h3>
+<p><strong>是什么：</strong> 多方在本地训练模型，只共享参数更新而非原始数据，保护隐私。</p>
+<ul>
+<li>Google在移动端的键盘预测中广泛使用</li>
+<li>Tapestry项目本质是联邦学习的全球化延伸</li>
+</ul>
+<blockquote>
+<p>📖 推荐：Google AI Blog《Federated Learning: Collaborative Machine Learning without Centralized Training Data》</p></blockquote>
+<hr>
+<h3 id="-双系统理论system-1--system-2">🔵 双系统理论（System 1 / System 2）<a hidden class="anchor" aria-hidden="true" href="#-双系统理论system-1--system-2">#</a></h3>
+<p><strong>来自心理学家Daniel Kahneman的著作《思考，快与慢》。</strong></p>
+<ul>
+<li><strong>System 1（快思考）</strong>：直觉、自动化、快速反应——当前LLM就像这个</li>
+<li><strong>System 2（慢思考）</strong>：深思熟虑、逻辑推理、规划——JEPA/世界模型试图实现这个</li>
+</ul>
+<blockquote>
+<p>📖 推荐书目：《Thinking, Fast and Slow》（Daniel Kahneman）</p></blockquote>
+<hr>
+<h2 id="-总结这场争论的本质是什么">🧩 总结：这场争论的本质是什么？<a hidden class="anchor" aria-hidden="true" href="#-总结这场争论的本质是什么">#</a></h2>
+<p>用一句话总结杨立昆的核心主张：</p>
+<blockquote>
+<p><strong>LLM是&quot;会说话的AI&quot;，但真正的智能需要&quot;会思考的AI&quot;。</strong> 说话和思考，是两件本质不同的事情。</p></blockquote>
+<p>这场争论的更深层，是对&quot;什么是智能&quot;的根本分歧：</p>
+<ul>
+<li><strong>LLM派</strong>认为：规模足够大、数据足够多，&ldquo;涌现&quot;就会出现真正的智能</li>
+<li><strong>杨立昆派</strong>认为：没有世界模型、没有规划能力、没有行动后果预测，无论规模多大，都只是更好的&quot;语言机器&rdquo;</li>
+</ul>
+<p>到底谁是对的？杨立昆说：<strong>2027年初，答案会对所有人变得显而易见。</strong></p>
+<hr>
+<p><em>作者按：本文基于2026年5月16日51CTO技术栈对杨立昆播客访谈的整理，结合相关技术背景扩展撰写。原始访谈视频：https://youtu.be/ngBraLDqzdI</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://chenqiluo.github.io/tags/ai/">AI</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/llm/">LLM</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/jepa/">JEPA</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/">世界模型</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/%E6%9D%A8%E7%AB%8B%E6%98%86/">杨立昆</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/lecun/">LeCun</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://chenqiluo.github.io/">luochenqi&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

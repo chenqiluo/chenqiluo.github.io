@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>机器学习 on luochenqi's Blog</title><link>https://chenqiluo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link><description>Recent content in 机器学习 on luochenqi's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 04 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://chenqiluo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化</title><link>https://chenqiluo.github.io/wiki/transformer-coauthor-lukasz-kaiser-ai-insights-2026/</link><pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/wiki/transformer-coauthor-lukasz-kaiser-ai-insights-2026/</guid><description>Transformer 八位作者之一 Lukasz Kaiser 最新播客访谈全解读——AI 的泛化怪癖、一张 5090 显卡能干多少事、Anthropic 为什么专注编程赛道，以及写代码为何不再需要编辑器。</description></item><item><title>PCA 推导：从低秩结构到最优投影子空间</title><link>https://chenqiluo.github.io/wiki/pca-low-rank-derivation/</link><pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/wiki/pca-low-rank-derivation/</guid><description>从零理解 PCA 的推导过程——低秩假设、最小二乘投影、正交矩阵的最优解，通俗地建立从直觉到公式的完整认知。</description></item><item><title>Principles and Practice of Deep Representation Learning</title><link>https://chenqiluo.github.io/reading/deep-representation-learning-community/</link><pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/reading/deep-representation-learning-community/</guid><description>Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>机器学习 on luochenqi&#39;s Blog</title>
+    <link>https://chenqiluo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 机器学习 on luochenqi&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 04 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://chenqiluo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transformer 作者 Lukasz Kaiser 最新访谈深度解读：AI 正在以「外星人逻辑」泛化</title>
+      <link>https://chenqiluo.github.io/wiki/transformer-coauthor-lukasz-kaiser-ai-insights-2026/</link>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://chenqiluo.github.io/wiki/transformer-coauthor-lukasz-kaiser-ai-insights-2026/</guid>
+      <description>Transformer 八位作者之一 Lukasz Kaiser 最新播客访谈全解读——AI 的泛化怪癖、一张 5090 显卡能干多少事、Anthropic 为什么专注编程赛道，以及写代码为何不再需要编辑器。</description>
+    </item>
+    <item>
+      <title>PCA 推导：从低秩结构到最优投影子空间</title>
+      <link>https://chenqiluo.github.io/wiki/pca-low-rank-derivation/</link>
+      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://chenqiluo.github.io/wiki/pca-low-rank-derivation/</guid>
+      <description>从零理解 PCA 的推导过程——低秩假设、最小二乘投影、正交矩阵的最优解，通俗地建立从直觉到公式的完整认知。</description>
+    </item>
+    <item>
+      <title>Principles and Practice of Deep Representation Learning</title>
+      <link>https://chenqiluo.github.io/reading/deep-representation-learning-community/</link>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://chenqiluo.github.io/reading/deep-representation-learning-community/</guid>
+      <description>Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。</description>
+    </item>
+  </channel>
+</rss>

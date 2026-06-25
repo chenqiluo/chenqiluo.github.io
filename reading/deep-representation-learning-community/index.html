@@ -1,6 +1,572 @@
-<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Principles and Practice of Deep Representation Learning | luochenqi's Blog</title>
-<meta name=keywords content="Deep Learning,Representation Learning,机器学习,教材"><meta name=description content="Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。"><meta name=author content="luochenqi"><link rel=canonical href=https://chenqiluo.github.io/reading/deep-representation-learning-community/><link crossorigin=anonymous href=/assets/css/stylesheet.css rel="preload stylesheet" as=style><link rel=icon href=https://chenqiluo.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://chenqiluo.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://chenqiluo.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://chenqiluo.github.io/apple-touch-icon.png><link rel=mask-icon href=https://chenqiluo.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://chenqiluo.github.io/reading/deep-representation-learning-community/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>:root{--theme:transparent !important}html{background-image:url(/images/bg.jpg);background-size:cover;background-position:50%;background-attachment:fixed;background-repeat:no-repeat;background-color:#d4cfc6;min-height:100%}body{background:0 0!important;background-color:transparent!important}.main,#top,main,.list,.page,.post-single,.archive-posts{background:0 0!important;background-color:transparent!important}header.header{background-color:rgba(255,255,255,.8)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.post-entry,.first-entry,.home-info,.profile,.page-header,.post-header,.post-content,.toc,.post-footer,.pagination,.terms-tags{background-color:rgba(255,255,255,.88)!important;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border-radius:8px;padding:12px 16px;margin-bottom:8px}[data-theme=dark] header.header,.dark header.header{background-color:rgba(20,20,20,.8)!important}[data-theme=dark] .post-entry,[data-theme=dark] .first-entry,[data-theme=dark] .home-info,[data-theme=dark] .profile,[data-theme=dark] .page-header,[data-theme=dark] .post-header,[data-theme=dark] .post-content,[data-theme=dark] .toc,[data-theme=dark] .post-footer,[data-theme=dark] .pagination,[data-theme=dark] .terms-tags,.dark .post-entry,.dark .first-entry,.dark .home-info,.dark .profile,.dark .page-header,.dark .post-header,.dark .post-content,.dark .toc,.dark .post-footer,.dark .pagination,.dark .terms-tags{background-color:rgba(20,20,20,.85)!important}</style><meta property="og:url" content="https://chenqiluo.github.io/reading/deep-representation-learning-community/"><meta property="og:site_name" content="luochenqi's Blog"><meta property="og:title" content="Principles and Practice of Deep Representation Learning"><meta property="og:description" content="Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="reading"><meta property="article:published_time" content="2026-04-27T00:00:00+00:00"><meta property="article:modified_time" content="2026-04-27T00:00:00+00:00"><meta property="article:tag" content="Deep Learning"><meta property="article:tag" content="Representation Learning"><meta property="article:tag" content="机器学习"><meta property="article:tag" content="教材"><meta name=twitter:card content="summary"><meta name=twitter:title content="Principles and Practice of Deep Representation Learning"><meta name=twitter:description content="Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"研读","item":"https://chenqiluo.github.io/reading/"},{"@type":"ListItem","position":2,"name":"Principles and Practice of Deep Representation Learning","item":"https://chenqiluo.github.io/reading/deep-representation-learning-community/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Principles and Practice of Deep Representation Learning","name":"Principles and Practice of Deep Representation Learning","description":"Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。","keywords":["Deep Learning","Representation Learning","机器学习","教材"],"articleBody":" 原文链接：ma-lab-berkeley.github.io/deep-representation-learning-book/community.html\n© 2026 Sam Buchanan, Druv Pai, Peng Wang, and Yi Ma. All rights reserved.\nPrevious Versions Version 1 (PDF) — “Learning Deep Representations of Data Distributions”, released August 18, 2025. Community Translations The following are (unofficial) community translations of the book.\nA Romanian translation of Version 1, contributed by Jan Cavel at the Piatra Institute. Courses The following are university courses related to or using material from the book.\nThe University of Hong Kong — DATA8014, Fall 2025 Lecture 1 (Pursuing the Nature of Intelligence): slides, video part 1, video part 2, video part 3 Lecture 2 (Analytic Approach and Linear Models): slides, video part 1, video part 2, video part 3 Lecture 3 (Learning Linear and Mixed Linear Models): slides, video part 1, video part 2 Lecture 4 (Optimization Foundations of Deep Representation Learning): slides, video Lecture 5 (Learning Low-Dimensional Distributions via Denoising): slides, video part 1, video part 2 Lecture 6 (Pursuing Low-Dimensional Structures via Lossy Compression): slides, video part 1, video part 2 Lecture 7 (Deep Networks from Maximizing Rate Reduction): slides, video part 1, video part 2 Lecture 8 (White-Box Transformers for Representation Learning via Sparse Rate Reduction): slides, video part 1, video part 2 Lecture 9 (Self-Consistent Representations via Compressive Closed-Loop Transcription): slides, video part 1, video part 2 Lecture 10 (Inference with Learned Low-Dim Distributions): slides, video part 1, video part 2 Lecture 11 (Learning Deep Representations for Real-World Data): slides, video part 1, video part 2 Lecture 12 (Summary and Future of the Study of Intelligence): slides, video part 1, video part 2 Tutorials The following are some tutorials, or long-form lectures, about content which is highly relevant to the book.\nICCV 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data Tutorial homepage\nLecture 1 (Deductive Approaches to Analytical Low-Dimensional Models): slides Lecture 2 (Emergency of Low-dimensional Representations in Deep Models): slides Lecture 3 (Learning Deep Low-Dimensional Models from High-Dimensional Data: Theory to Practice): slides Lecture 4 (Explore Low-Dimensional Structures for Constrained and Controllable Diffusion Models in Scientific Applications): slides Lecture 5 (ReduNet: Deep Networks from Maximizing Rate Reduction): slides Lecture 6 (White-Box Transformers via Sparse Rate Reduction): slides IAISS 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data Tutorial homepage\nLecture 1 (The History of Intelligence and Mathematical Principles of Deep Learning): slides Lecture 2 (Learning Low-Dimensional Linear and Independent Structures): slides Lecture 3 (Learning Low-Dimensional Distributions via Denoising): slides Lecture 4 (Learning Low-Dimensional Structures via Lossy Compression): slides Lecture 5 (Deep Representations via Unrolled Optimization): slides Lecture 6 (White-Box Deep Network Architectures via Compression and Optimization): slides Lecture 7 (Inference with Low-Dimensional Structures): slides Lecture 8 (Consistent and Self-Consistent Representations via Compressive Autoencoding and Transcription): slides Lecture 9 (Future Directions of Machine Intelligence): slides Lecture 10 (Harnessing Low-Dimensionality in Diffusion Models: Generalizability): slides Lecture 11 (Harnessing Low-Dimensionality in Diffusion Models: Controllability and Training with Synthetic Data): slides Lecture 12 (Harnessing Low-Dimensionality in Diffusion Models: Solving Inverse Problems and AI for Science): slides CVPR 2024 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data Tutorial homepage\nLecture slides: Dropbox ","wordCount":"507","inLanguage":"zh","datePublished":"2026-04-27T00:00:00Z","dateModified":"2026-04-27T00:00:00Z","author":{"@type":"Person","name":"luochenqi"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chenqiluo.github.io/reading/deep-representation-learning-community/"},"publisher":{"@type":"Organization","name":"luochenqi's Blog","logo":{"@type":"ImageObject","url":"https://chenqiluo.github.io/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://chenqiluo.github.io/ accesskey=h title="luochenqi's Blog (Alt + H)">luochenqi's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://chenqiluo.github.io/posts/ title=文章><span>文章</span></a></li><li><a href=https://chenqiluo.github.io/daily/ title=每日目标><span>每日目标</span></a></li><li><a href=https://chenqiluo.github.io/wiki/ title=知识库><span>知识库</span></a></li><li><a href=https://chenqiluo.github.io/stock/ title=股票分析><span>股票分析</span></a></li><li><a href=https://chenqiluo.github.io/reading/ title=研读><span>研读</span></a></li><li><a href=https://arena.ai/leaderboard/text title=AI天梯榜><span>AI天梯榜</span>&nbsp;<svg fill="none" shape-rendering="geometricPrecision" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://chenqiluo.github.io/tags/ title=标签><span>标签</span></a></li><li><a href=https://chenqiluo.github.io/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://chenqiluo.github.io/>主页</a>&nbsp;»&nbsp;<a href=https://chenqiluo.github.io/reading/>研读</a></div><h1 class="post-title entry-hint-parent">Principles and Practice of Deep Representation Learning</h1><div class=post-description>Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。</div><div class=post-meta><span title='2026-04-27 00:00:00 +0000 UTC'>2026年4月27日</span>&nbsp;·&nbsp;<span>3 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#previous-versions aria-label="Previous Versions">Previous Versions</a></li><li><a href=#community-translations aria-label="Community Translations">Community Translations</a></li><li><a href=#courses aria-label=Courses>Courses</a><ul><li><a href=#the-university-of-hong-kong--data8014-fall-2025 aria-label="The University of Hong Kong — DATA8014, Fall 2025">The University of Hong Kong — DATA8014, Fall 2025</a></li></ul></li><li><a href=#tutorials aria-label=Tutorials>Tutorials</a><ul><li><a href=#iccv-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data aria-label="ICCV 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data">ICCV 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data</a></li><li><a href=#iaiss-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data aria-label="IAISS 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data">IAISS 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data</a></li><li><a href=#cvpr-2024-tutorial--learning-low-dimensional-models-from-high-dimensional-data aria-label="CVPR 2024 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data">CVPR 2024 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data</a></li></ul></li></ul></div></details></div><div class=post-content><blockquote><p>原文链接：<a href=https://ma-lab-berkeley.github.io/deep-representation-learning-book/community.html>ma-lab-berkeley.github.io/deep-representation-learning-book/community.html</a></p><p>© 2026 Sam Buchanan, Druv Pai, Peng Wang, and Yi Ma. All rights reserved.</p></blockquote><hr><h2 id=previous-versions>Previous Versions<a hidden class=anchor aria-hidden=true href=#previous-versions>#</a></h2><ul><li><a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/book_v1.pdf>Version 1 (PDF)</a> — <em>&ldquo;Learning Deep Representations of Data Distributions&rdquo;</em>, released August 18, 2025.</li></ul><hr><h2 id=community-translations>Community Translations<a hidden class=anchor aria-hidden=true href=#community-translations>#</a></h2><p>The following are (unofficial) community translations of the book.</p><ul><li><a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/book_v1_ro.pdf>A Romanian translation of Version 1</a>, contributed by Jan Cavel at the <a href=https://piatra.institute/>Piatra Institute</a>.</li></ul><hr><h2 id=courses>Courses<a hidden class=anchor aria-hidden=true href=#courses>#</a></h2><p>The following are university courses related to or using material from the book.</p><h3 id=the-university-of-hong-kong--data8014-fall-2025>The University of Hong Kong — DATA8014, Fall 2025<a hidden class=anchor aria-hidden=true href=#the-university-of-hong-kong--data8014-fall-2025>#</a></h3><ul><li><strong>Lecture 1</strong> (Pursuing the Nature of Intelligence): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec01.pdf>slides</a>, <a href=https://youtu.be/H6vt_OBO0dk>video part 1</a>, <a href=https://youtu.be/vcpHffMi6NY>video part 2</a>, <a href=https://youtu.be/7Q-SYdzeR0M>video part 3</a></li><li><strong>Lecture 2</strong> (Analytic Approach and Linear Models): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec02.pdf>slides</a>, <a href=https://youtu.be/ybxj5U1cUdM>video part 1</a>, <a href=https://youtu.be/iJ3GNlWCc4k>video part 2</a>, <a href=https://youtu.be/Giz1r7cajPY>video part 3</a></li><li><strong>Lecture 3</strong> (Learning Linear and Mixed Linear Models): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec03.pdf>slides</a>, <a href=https://youtu.be/ctmN-8p7zI8>video part 1</a>, <a href=https://youtu.be/NSwSh1quLqA>video part 2</a></li><li><strong>Lecture 4</strong> (Optimization Foundations of Deep Representation Learning): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec04.pdf>slides</a>, <a href=https://youtu.be/XDt6SE3kD58>video</a></li><li><strong>Lecture 5</strong> (Learning Low-Dimensional Distributions via Denoising): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec05.pdf>slides</a>, <a href=https://youtu.be/P4Dw0IG2UL8>video part 1</a>, <a href=https://youtu.be/thjqRBJc8Zw>video part 2</a></li><li><strong>Lecture 6</strong> (Pursuing Low-Dimensional Structures via Lossy Compression): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec06.pdf>slides</a>, <a href=https://youtu.be/KWuRFK7JKk4>video part 1</a>, <a href=https://youtu.be/TpnyTR9Y-m0>video part 2</a></li><li><strong>Lecture 7</strong> (Deep Networks from Maximizing Rate Reduction): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec07.pdf>slides</a>, <a href=https://youtu.be/lq_vbDC7Hp0>video part 1</a>, <a href=https://youtu.be/3t3UrWtsnq4>video part 2</a></li><li><strong>Lecture 8</strong> (White-Box Transformers for Representation Learning via Sparse Rate Reduction): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec08.pdf>slides</a>, <a href=https://youtu.be/6Ep6HNZSFVs>video part 1</a>, <a href=https://youtu.be/HdNKSGjVD5E>video part 2</a></li><li><strong>Lecture 9</strong> (Self-Consistent Representations via Compressive Closed-Loop Transcription): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec09.pdf>slides</a>, <a href=https://youtu.be/IJizSfcw6x8>video part 1</a>, <a href=https://youtu.be/3QFBEAesvFM>video part 2</a></li><li><strong>Lecture 10</strong> (Inference with Learned Low-Dim Distributions): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec10.pdf>slides</a>, <a href=https://youtu.be/MgDclnr0gY4>video part 1</a>, <a href=https://youtu.be/u5Gn6-S7jKo>video part 2</a></li><li><strong>Lecture 11</strong> (Learning Deep Representations for Real-World Data): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec11.pdf>slides</a>, <a href=https://youtu.be/1OP4T89dfIk>video part 1</a>, <a href=https://youtu.be/Vp6X90ojsPA>video part 2</a></li><li><strong>Lecture 12</strong> (Summary and Future of the Study of Intelligence): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec12.pdf>slides</a>, <a href=https://youtu.be/RJsV40-53WU>video part 1</a>, <a href=https://youtu.be/2-DYPz6jtlY>video part 2</a></li></ul><hr><h2 id=tutorials>Tutorials<a hidden class=anchor aria-hidden=true href=#tutorials>#</a></h2><p>The following are some tutorials, or long-form lectures, about content which is highly relevant to the book.</p><h3 id=iccv-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data>ICCV 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data<a hidden class=anchor aria-hidden=true href=#iccv-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data>#</a></h3><p><a href=https://low-dim-models-tutorials.github.io/iccv2025-tutorial/>Tutorial homepage</a></p><ul><li><strong>Lecture 1</strong> (Deductive Approaches to Analytical Low-Dimensional Models): <a href=https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec1.pdf>slides</a></li><li><strong>Lecture 2</strong> (Emergency of Low-dimensional Representations in Deep Models): <a href=https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec3.pdf>slides</a></li><li><strong>Lecture 3</strong> (Learning Deep Low-Dimensional Models from High-Dimensional Data: Theory to Practice): <a href=https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec4.pdf>slides</a></li><li><strong>Lecture 4</strong> (Explore Low-Dimensional Structures for Constrained and Controllable Diffusion Models in Scientific Applications): <a href=https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec5.pdf>slides</a></li><li><strong>Lecture 5</strong> (ReduNet: Deep Networks from Maximizing Rate Reduction): <a href=https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec6.pdf>slides</a></li><li><strong>Lecture 6</strong> (White-Box Transformers via Sparse Rate Reduction): <a href=https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec7.pdf>slides</a></li></ul><h3 id=iaiss-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data>IAISS 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data<a hidden class=anchor aria-hidden=true href=#iaiss-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data>#</a></h3><p><a href=https://2025.iaiss.cc/>Tutorial homepage</a></p><ul><li><strong>Lecture 1</strong> (The History of Intelligence and Mathematical Principles of Deep Learning): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec01.pdf>slides</a></li><li><strong>Lecture 2</strong> (Learning Low-Dimensional Linear and Independent Structures): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec02.pdf>slides</a></li><li><strong>Lecture 3</strong> (Learning Low-Dimensional Distributions via Denoising): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec03.pdf>slides</a></li><li><strong>Lecture 4</strong> (Learning Low-Dimensional Structures via Lossy Compression): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec04.pdf>slides</a></li><li><strong>Lecture 5</strong> (Deep Representations via Unrolled Optimization): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec05.pdf>slides</a></li><li><strong>Lecture 6</strong> (White-Box Deep Network Architectures via Compression and Optimization): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec06.pdf>slides</a></li><li><strong>Lecture 7</strong> (Inference with Low-Dimensional Structures): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec07.pdf>slides</a></li><li><strong>Lecture 8</strong> (Consistent and Self-Consistent Representations via Compressive Autoencoding and Transcription): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec08.pdf>slides</a></li><li><strong>Lecture 9</strong> (Future Directions of Machine Intelligence): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec09.pdf>slides</a></li><li><strong>Lecture 10</strong> (Harnessing Low-Dimensionality in Diffusion Models: Generalizability): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec10.pdf>slides</a></li><li><strong>Lecture 11</strong> (Harnessing Low-Dimensionality in Diffusion Models: Controllability and Training with Synthetic Data): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec11.pdf>slides</a></li><li><strong>Lecture 12</strong> (Harnessing Low-Dimensionality in Diffusion Models: Solving Inverse Problems and AI for Science): <a href=https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec12.pdf>slides</a></li></ul><h3 id=cvpr-2024-tutorial--learning-low-dimensional-models-from-high-dimensional-data>CVPR 2024 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data<a hidden class=anchor aria-hidden=true href=#cvpr-2024-tutorial--learning-low-dimensional-models-from-high-dimensional-data>#</a></h3><p><a href=https://low-dim-models-tutorials.github.io/cvpr2024-tutorial/>Tutorial homepage</a></p><ul><li><strong>Lecture slides</strong>: <a href="https://www.dropbox.com/scl/fo/7m57krmeordlohel4qxye/AKho1GYbOe0AbBlKNzm28Vk?rlkey=le2yuel4ipq50xhzxmyxxczxi&amp;e=4&amp;st=s8ndn2ix&amp;dl=0">Dropbox</a></li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=https://chenqiluo.github.io/tags/deep-learning/>Deep Learning</a></li><li><a href=https://chenqiluo.github.io/tags/representation-learning/>Representation Learning</a></li><li><a href=https://chenqiluo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/>机器学习</a></li><li><a href=https://chenqiluo.github.io/tags/%E6%95%99%E6%9D%90/>教材</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://chenqiluo.github.io/>luochenqi's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
-</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Principles and Practice of Deep Representation Learning | luochenqi&#39;s Blog</title>
+<meta name="keywords" content="Deep Learning, Representation Learning, 机器学习, 教材">
+<meta name="description" content="Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。">
+<meta name="author" content="luochenqi">
+<link rel="canonical" href="https://chenqiluo.github.io/reading/deep-representation-learning-community/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://chenqiluo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://chenqiluo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://chenqiluo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://chenqiluo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://chenqiluo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://chenqiluo.github.io/reading/deep-representation-learning-community/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><style>
+ 
+
+ 
+:root {
+    --theme: transparent !important;
+}
+
+html {
+    background-image: url('/images/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #d4cfc6;
+    min-height: 100%;
+}
+
+body {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+ 
+.main,
+#top,
+main,
+.list,
+.page,
+.post-single,
+.archive-posts {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+ 
+header.header {
+    background-color: rgba(255, 255, 255, 0.80) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+ 
+.post-entry,
+.first-entry,
+.home-info,
+.profile,
+.page-header,
+.post-header,
+.post-content,
+.toc,
+.post-footer,
+.pagination,
+.terms-tags {
+    background-color: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+
+ 
+[data-theme="dark"] header.header,
+.dark header.header {
+    background-color: rgba(20, 20, 20, 0.80) !important;
+}
+
+[data-theme="dark"] .post-entry,
+[data-theme="dark"] .first-entry,
+[data-theme="dark"] .home-info,
+[data-theme="dark"] .profile,
+[data-theme="dark"] .page-header,
+[data-theme="dark"] .post-header,
+[data-theme="dark"] .post-content,
+[data-theme="dark"] .toc,
+[data-theme="dark"] .post-footer,
+[data-theme="dark"] .pagination,
+[data-theme="dark"] .terms-tags,
+.dark .post-entry,
+.dark .first-entry,
+.dark .home-info,
+.dark .profile,
+.dark .page-header,
+.dark .post-header,
+.dark .post-content,
+.dark .toc,
+.dark .post-footer,
+.dark .pagination,
+.dark .terms-tags {
+    background-color: rgba(20, 20, 20, 0.85) !important;
+}
+</style>
+
+<meta property="og:url" content="https://chenqiluo.github.io/reading/deep-representation-learning-community/">
+  <meta property="og:site_name" content="luochenqi&#39;s Blog">
+  <meta property="og:title" content="Principles and Practice of Deep Representation Learning">
+  <meta property="og:description" content="Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="reading">
+    <meta property="article:published_time" content="2026-04-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-27T00:00:00+00:00">
+    <meta property="article:tag" content="Deep Learning">
+    <meta property="article:tag" content="Representation Learning">
+    <meta property="article:tag" content="机器学习">
+    <meta property="article:tag" content="教材">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Principles and Practice of Deep Representation Learning">
+  <meta name="twitter:description" content="Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "研读",
+      "item": "https://chenqiluo.github.io/reading/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Principles and Practice of Deep Representation Learning",
+      "item": "https://chenqiluo.github.io/reading/deep-representation-learning-community/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Principles and Practice of Deep Representation Learning",
+  "name": "Principles and Practice of Deep Representation Learning",
+  "description": "Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。",
+  "keywords": [
+    "Deep Learning", "Representation Learning", "机器学习", "教材"
+  ],
+  "articleBody": " 原文链接：ma-lab-berkeley.github.io/deep-representation-learning-book/community.html\n© 2026 Sam Buchanan, Druv Pai, Peng Wang, and Yi Ma. All rights reserved.\nPrevious Versions Version 1 (PDF) — “Learning Deep Representations of Data Distributions”, released August 18, 2025. Community Translations The following are (unofficial) community translations of the book.\nA Romanian translation of Version 1, contributed by Jan Cavel at the Piatra Institute. Courses The following are university courses related to or using material from the book.\nThe University of Hong Kong — DATA8014, Fall 2025 Lecture 1 (Pursuing the Nature of Intelligence): slides, video part 1, video part 2, video part 3 Lecture 2 (Analytic Approach and Linear Models): slides, video part 1, video part 2, video part 3 Lecture 3 (Learning Linear and Mixed Linear Models): slides, video part 1, video part 2 Lecture 4 (Optimization Foundations of Deep Representation Learning): slides, video Lecture 5 (Learning Low-Dimensional Distributions via Denoising): slides, video part 1, video part 2 Lecture 6 (Pursuing Low-Dimensional Structures via Lossy Compression): slides, video part 1, video part 2 Lecture 7 (Deep Networks from Maximizing Rate Reduction): slides, video part 1, video part 2 Lecture 8 (White-Box Transformers for Representation Learning via Sparse Rate Reduction): slides, video part 1, video part 2 Lecture 9 (Self-Consistent Representations via Compressive Closed-Loop Transcription): slides, video part 1, video part 2 Lecture 10 (Inference with Learned Low-Dim Distributions): slides, video part 1, video part 2 Lecture 11 (Learning Deep Representations for Real-World Data): slides, video part 1, video part 2 Lecture 12 (Summary and Future of the Study of Intelligence): slides, video part 1, video part 2 Tutorials The following are some tutorials, or long-form lectures, about content which is highly relevant to the book.\nICCV 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data Tutorial homepage\nLecture 1 (Deductive Approaches to Analytical Low-Dimensional Models): slides Lecture 2 (Emergency of Low-dimensional Representations in Deep Models): slides Lecture 3 (Learning Deep Low-Dimensional Models from High-Dimensional Data: Theory to Practice): slides Lecture 4 (Explore Low-Dimensional Structures for Constrained and Controllable Diffusion Models in Scientific Applications): slides Lecture 5 (ReduNet: Deep Networks from Maximizing Rate Reduction): slides Lecture 6 (White-Box Transformers via Sparse Rate Reduction): slides IAISS 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data Tutorial homepage\nLecture 1 (The History of Intelligence and Mathematical Principles of Deep Learning): slides Lecture 2 (Learning Low-Dimensional Linear and Independent Structures): slides Lecture 3 (Learning Low-Dimensional Distributions via Denoising): slides Lecture 4 (Learning Low-Dimensional Structures via Lossy Compression): slides Lecture 5 (Deep Representations via Unrolled Optimization): slides Lecture 6 (White-Box Deep Network Architectures via Compression and Optimization): slides Lecture 7 (Inference with Low-Dimensional Structures): slides Lecture 8 (Consistent and Self-Consistent Representations via Compressive Autoencoding and Transcription): slides Lecture 9 (Future Directions of Machine Intelligence): slides Lecture 10 (Harnessing Low-Dimensionality in Diffusion Models: Generalizability): slides Lecture 11 (Harnessing Low-Dimensionality in Diffusion Models: Controllability and Training with Synthetic Data): slides Lecture 12 (Harnessing Low-Dimensionality in Diffusion Models: Solving Inverse Problems and AI for Science): slides CVPR 2024 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data Tutorial homepage\nLecture slides: Dropbox ",
+  "wordCount" : "507",
+  "inLanguage": "zh",
+  "datePublished": "2026-04-27T00:00:00Z",
+  "dateModified": "2026-04-27T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "luochenqi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chenqiluo.github.io/reading/deep-representation-learning-community/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "luochenqi's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://chenqiluo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://chenqiluo.github.io/" accesskey="h" title="luochenqi&#39;s Blog (Alt + H)">luochenqi&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://chenqiluo.github.io/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/daily/" title="每日目标">
+                    <span>每日目标</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/wiki/" title="知识库">
+                    <span>知识库</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/stock/" title="股票分析">
+                    <span>股票分析</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/reading/" title="研读">
+                    <span>研读</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://arena.ai/leaderboard/text" title="AI天梯榜">
+                    <span>AI天梯榜</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://chenqiluo.github.io/search/" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://chenqiluo.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://chenqiluo.github.io/reading/">研读</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Principles and Practice of Deep Representation Learning
+    </h1>
+    <div class="post-description">
+      Berkeley Ma Lab 出品的深度表示学习教材，汇集了课程讲义、社区译本与顶会教程资源。
+    </div>
+    <div class="post-meta"><span title='2026-04-27 00:00:00 +0000 UTC'>2026年4月27日</span>&nbsp;·&nbsp;<span>3 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#previous-versions" aria-label="Previous Versions">Previous Versions</a></li>
+                <li>
+                    <a href="#community-translations" aria-label="Community Translations">Community Translations</a></li>
+                <li>
+                    <a href="#courses" aria-label="Courses">Courses</a><ul>
+                        
+                <li>
+                    <a href="#the-university-of-hong-kong--data8014-fall-2025" aria-label="The University of Hong Kong — DATA8014, Fall 2025">The University of Hong Kong — DATA8014, Fall 2025</a></li></ul>
+                </li>
+                <li>
+                    <a href="#tutorials" aria-label="Tutorials">Tutorials</a><ul>
+                        
+                <li>
+                    <a href="#iccv-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data" aria-label="ICCV 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data">ICCV 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data</a></li>
+                <li>
+                    <a href="#iaiss-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data" aria-label="IAISS 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data">IAISS 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data</a></li>
+                <li>
+                    <a href="#cvpr-2024-tutorial--learning-low-dimensional-models-from-high-dimensional-data" aria-label="CVPR 2024 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data">CVPR 2024 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>原文链接：<a href="https://ma-lab-berkeley.github.io/deep-representation-learning-book/community.html">ma-lab-berkeley.github.io/deep-representation-learning-book/community.html</a></p>
+<p>© 2026 Sam Buchanan, Druv Pai, Peng Wang, and Yi Ma. All rights reserved.</p></blockquote>
+<hr>
+<h2 id="previous-versions">Previous Versions<a hidden class="anchor" aria-hidden="true" href="#previous-versions">#</a></h2>
+<ul>
+<li><a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/book_v1.pdf">Version 1 (PDF)</a> — <em>&ldquo;Learning Deep Representations of Data Distributions&rdquo;</em>, released August 18, 2025.</li>
+</ul>
+<hr>
+<h2 id="community-translations">Community Translations<a hidden class="anchor" aria-hidden="true" href="#community-translations">#</a></h2>
+<p>The following are (unofficial) community translations of the book.</p>
+<ul>
+<li><a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/book_v1_ro.pdf">A Romanian translation of Version 1</a>, contributed by Jan Cavel at the <a href="https://piatra.institute/">Piatra Institute</a>.</li>
+</ul>
+<hr>
+<h2 id="courses">Courses<a hidden class="anchor" aria-hidden="true" href="#courses">#</a></h2>
+<p>The following are university courses related to or using material from the book.</p>
+<h3 id="the-university-of-hong-kong--data8014-fall-2025">The University of Hong Kong — DATA8014, Fall 2025<a hidden class="anchor" aria-hidden="true" href="#the-university-of-hong-kong--data8014-fall-2025">#</a></h3>
+<ul>
+<li><strong>Lecture 1</strong> (Pursuing the Nature of Intelligence): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec01.pdf">slides</a>, <a href="https://youtu.be/H6vt_OBO0dk">video part 1</a>, <a href="https://youtu.be/vcpHffMi6NY">video part 2</a>, <a href="https://youtu.be/7Q-SYdzeR0M">video part 3</a></li>
+<li><strong>Lecture 2</strong> (Analytic Approach and Linear Models): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec02.pdf">slides</a>, <a href="https://youtu.be/ybxj5U1cUdM">video part 1</a>, <a href="https://youtu.be/iJ3GNlWCc4k">video part 2</a>, <a href="https://youtu.be/Giz1r7cajPY">video part 3</a></li>
+<li><strong>Lecture 3</strong> (Learning Linear and Mixed Linear Models): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec03.pdf">slides</a>, <a href="https://youtu.be/ctmN-8p7zI8">video part 1</a>, <a href="https://youtu.be/NSwSh1quLqA">video part 2</a></li>
+<li><strong>Lecture 4</strong> (Optimization Foundations of Deep Representation Learning): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec04.pdf">slides</a>, <a href="https://youtu.be/XDt6SE3kD58">video</a></li>
+<li><strong>Lecture 5</strong> (Learning Low-Dimensional Distributions via Denoising): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec05.pdf">slides</a>, <a href="https://youtu.be/P4Dw0IG2UL8">video part 1</a>, <a href="https://youtu.be/thjqRBJc8Zw">video part 2</a></li>
+<li><strong>Lecture 6</strong> (Pursuing Low-Dimensional Structures via Lossy Compression): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec06.pdf">slides</a>, <a href="https://youtu.be/KWuRFK7JKk4">video part 1</a>, <a href="https://youtu.be/TpnyTR9Y-m0">video part 2</a></li>
+<li><strong>Lecture 7</strong> (Deep Networks from Maximizing Rate Reduction): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec07.pdf">slides</a>, <a href="https://youtu.be/lq_vbDC7Hp0">video part 1</a>, <a href="https://youtu.be/3t3UrWtsnq4">video part 2</a></li>
+<li><strong>Lecture 8</strong> (White-Box Transformers for Representation Learning via Sparse Rate Reduction): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec08.pdf">slides</a>, <a href="https://youtu.be/6Ep6HNZSFVs">video part 1</a>, <a href="https://youtu.be/HdNKSGjVD5E">video part 2</a></li>
+<li><strong>Lecture 9</strong> (Self-Consistent Representations via Compressive Closed-Loop Transcription): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec09.pdf">slides</a>, <a href="https://youtu.be/IJizSfcw6x8">video part 1</a>, <a href="https://youtu.be/3QFBEAesvFM">video part 2</a></li>
+<li><strong>Lecture 10</strong> (Inference with Learned Low-Dim Distributions): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec10.pdf">slides</a>, <a href="https://youtu.be/MgDclnr0gY4">video part 1</a>, <a href="https://youtu.be/u5Gn6-S7jKo">video part 2</a></li>
+<li><strong>Lecture 11</strong> (Learning Deep Representations for Real-World Data): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec11.pdf">slides</a>, <a href="https://youtu.be/1OP4T89dfIk">video part 1</a>, <a href="https://youtu.be/Vp6X90ojsPA">video part 2</a></li>
+<li><strong>Lecture 12</strong> (Summary and Future of the Study of Intelligence): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/hku_data8014fa25_slides/lec12.pdf">slides</a>, <a href="https://youtu.be/RJsV40-53WU">video part 1</a>, <a href="https://youtu.be/2-DYPz6jtlY">video part 2</a></li>
+</ul>
+<hr>
+<h2 id="tutorials">Tutorials<a hidden class="anchor" aria-hidden="true" href="#tutorials">#</a></h2>
+<p>The following are some tutorials, or long-form lectures, about content which is highly relevant to the book.</p>
+<h3 id="iccv-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data">ICCV 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data<a hidden class="anchor" aria-hidden="true" href="#iccv-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data">#</a></h3>
+<p><a href="https://low-dim-models-tutorials.github.io/iccv2025-tutorial/">Tutorial homepage</a></p>
+<ul>
+<li><strong>Lecture 1</strong> (Deductive Approaches to Analytical Low-Dimensional Models): <a href="https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec1.pdf">slides</a></li>
+<li><strong>Lecture 2</strong> (Emergency of Low-dimensional Representations in Deep Models): <a href="https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec3.pdf">slides</a></li>
+<li><strong>Lecture 3</strong> (Learning Deep Low-Dimensional Models from High-Dimensional Data: Theory to Practice): <a href="https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec4.pdf">slides</a></li>
+<li><strong>Lecture 4</strong> (Explore Low-Dimensional Structures for Constrained and Controllable Diffusion Models in Scientific Applications): <a href="https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec5.pdf">slides</a></li>
+<li><strong>Lecture 5</strong> (ReduNet: Deep Networks from Maximizing Rate Reduction): <a href="https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec6.pdf">slides</a></li>
+<li><strong>Lecture 6</strong> (White-Box Transformers via Sparse Rate Reduction): <a href="https://low-dim-models-tutorials.github.io/iccv2025-tutorial/assets/slides/ICCV2025_Lec7.pdf">slides</a></li>
+</ul>
+<h3 id="iaiss-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data">IAISS 2025 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data<a hidden class="anchor" aria-hidden="true" href="#iaiss-2025-tutorial--learning-low-dimensional-models-from-high-dimensional-data">#</a></h3>
+<p><a href="https://2025.iaiss.cc/">Tutorial homepage</a></p>
+<ul>
+<li><strong>Lecture 1</strong> (The History of Intelligence and Mathematical Principles of Deep Learning): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec01.pdf">slides</a></li>
+<li><strong>Lecture 2</strong> (Learning Low-Dimensional Linear and Independent Structures): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec02.pdf">slides</a></li>
+<li><strong>Lecture 3</strong> (Learning Low-Dimensional Distributions via Denoising): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec03.pdf">slides</a></li>
+<li><strong>Lecture 4</strong> (Learning Low-Dimensional Structures via Lossy Compression): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec04.pdf">slides</a></li>
+<li><strong>Lecture 5</strong> (Deep Representations via Unrolled Optimization): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec05.pdf">slides</a></li>
+<li><strong>Lecture 6</strong> (White-Box Deep Network Architectures via Compression and Optimization): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec06.pdf">slides</a></li>
+<li><strong>Lecture 7</strong> (Inference with Low-Dimensional Structures): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec07.pdf">slides</a></li>
+<li><strong>Lecture 8</strong> (Consistent and Self-Consistent Representations via Compressive Autoencoding and Transcription): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec08.pdf">slides</a></li>
+<li><strong>Lecture 9</strong> (Future Directions of Machine Intelligence): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec09.pdf">slides</a></li>
+<li><strong>Lecture 10</strong> (Harnessing Low-Dimensionality in Diffusion Models: Generalizability): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec10.pdf">slides</a></li>
+<li><strong>Lecture 11</strong> (Harnessing Low-Dimensionality in Diffusion Models: Controllability and Training with Synthetic Data): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec11.pdf">slides</a></li>
+<li><strong>Lecture 12</strong> (Harnessing Low-Dimensionality in Diffusion Models: Solving Inverse Problems and AI for Science): <a href="https://pub-dcf5d48f8a0b78deeef6d31ae32baeb1.r2.dev/iaiss2025_slides/lec12.pdf">slides</a></li>
+</ul>
+<h3 id="cvpr-2024-tutorial--learning-low-dimensional-models-from-high-dimensional-data">CVPR 2024 Tutorial — Learning Low-Dimensional Models from High-Dimensional Data<a hidden class="anchor" aria-hidden="true" href="#cvpr-2024-tutorial--learning-low-dimensional-models-from-high-dimensional-data">#</a></h3>
+<p><a href="https://low-dim-models-tutorials.github.io/cvpr2024-tutorial/">Tutorial homepage</a></p>
+<ul>
+<li><strong>Lecture slides</strong>: <a href="https://www.dropbox.com/scl/fo/7m57krmeordlohel4qxye/AKho1GYbOe0AbBlKNzm28Vk?rlkey=le2yuel4ipq50xhzxmyxxczxi&amp;e=4&amp;st=s8ndn2ix&amp;dl=0">Dropbox</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://chenqiluo.github.io/tags/deep-learning/">Deep Learning</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/representation-learning/">Representation Learning</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li>
+      <li><a href="https://chenqiluo.github.io/tags/%E6%95%99%E6%9D%90/">教材</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://chenqiluo.github.io/">luochenqi&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
