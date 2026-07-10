@@ -1,649 +1,94 @@
-<!DOCTYPE html>
-<html lang="zh" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>UE4 Texture 流式加载原理详解 | luochenqi&#39;s Blog</title>
-<meta name="keywords" content="UE4, Texture, 流式加载, 图形渲染, 内存优化">
-<meta name="description" content="深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。">
-<meta name="author" content="luochenqi">
-<link rel="canonical" href="https://chenqiluo.github.io/wiki/ue4-texture-streaming/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://chenqiluo.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://chenqiluo.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://chenqiluo.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://chenqiluo.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://chenqiluo.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://chenqiluo.github.io/wiki/ue4-texture-streaming/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script><style>
- 
-
- 
-:root {
-    --theme: transparent !important;
-}
-
-html {
-    background-image: url('/images/bg.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #d4cfc6;
-    min-height: 100%;
-}
-
-body {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
- 
-.main,
-#top,
-main,
-.list,
-.page,
-.post-single,
-.archive-posts {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
- 
-header.header {
-    background-color: rgba(255, 255, 255, 0.80) !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
- 
-.post-entry,
-.first-entry,
-.home-info,
-.profile,
-.page-header,
-.post-header,
-.post-content,
-.toc,
-.post-footer,
-.pagination,
-.terms-tags {
-    background-color: rgba(255, 255, 255, 0.88) !important;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 8px;
-}
-
- 
-[data-theme="dark"] header.header,
-.dark header.header {
-    background-color: rgba(20, 20, 20, 0.80) !important;
-}
-
-[data-theme="dark"] .post-entry,
-[data-theme="dark"] .first-entry,
-[data-theme="dark"] .home-info,
-[data-theme="dark"] .profile,
-[data-theme="dark"] .page-header,
-[data-theme="dark"] .post-header,
-[data-theme="dark"] .post-content,
-[data-theme="dark"] .toc,
-[data-theme="dark"] .post-footer,
-[data-theme="dark"] .pagination,
-[data-theme="dark"] .terms-tags,
-.dark .post-entry,
-.dark .first-entry,
-.dark .home-info,
-.dark .profile,
-.dark .page-header,
-.dark .post-header,
-.dark .post-content,
-.dark .toc,
-.dark .post-footer,
-.dark .pagination,
-.dark .terms-tags {
-    background-color: rgba(20, 20, 20, 0.85) !important;
-}
-</style>
-
-<meta property="og:url" content="https://chenqiluo.github.io/wiki/ue4-texture-streaming/">
-  <meta property="og:site_name" content="luochenqi&#39;s Blog">
-  <meta property="og:title" content="UE4 Texture 流式加载原理详解">
-  <meta property="og:description" content="深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。">
-  <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="wiki">
-    <meta property="article:published_time" content="2026-04-05T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-04-05T00:00:00+00:00">
-    <meta property="article:tag" content="UE4">
-    <meta property="article:tag" content="Texture">
-    <meta property="article:tag" content="流式加载">
-    <meta property="article:tag" content="图形渲染">
-    <meta property="article:tag" content="内存优化">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="UE4 Texture 流式加载原理详解">
-  <meta name="twitter:description" content="深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "知识库索引",
-      "item": "https://chenqiluo.github.io/wiki/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "UE4 Texture 流式加载原理详解",
-      "item": "https://chenqiluo.github.io/wiki/ue4-texture-streaming/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "UE4 Texture 流式加载原理详解",
-  "name": "UE4 Texture 流式加载原理详解",
-  "description": "深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。",
-  "keywords": [
-    "UE4", "Texture", "流式加载", "图形渲染", "内存优化"
-  ],
-  "articleBody": "一、流式加载的概念 流式加载是一种按需加载资源的技术，核心思想是：\n不一次性加载所有资源，而是根据实际需要动态加载 根据距离、可见性等因素，动态调整资源的质量 有效控制内存占用，避免内存溢出 二、Texture 流式加载的实现原理 1. 基于 Mipmap 的分级加载 Texture 流式加载的核心是 Mipmap（多级渐远纹理） 技术：\n原始纹理 (2048x2048) ↓ Mip 0: 2048x2048 (高分辨率，近距离使用) Mip 1: 1024x1024 Mip 2: 512x512 Mip 3: 256x256 ... Mip N: 1x1 (最低分辨率，远距离使用) 2. 关键数据结构 从 Texture2D.h 中可以看到：\n// Texture的平台数据，包含所有Mipmap层级 FTexturePlatformData *PlatformData; // Mipmap数据存储在PlatformData-\u003eMips中 FORCEINLINE int32 GetNumMips() const { if (PlatformData) { return PlatformData-\u003eMips.Num(); } return 0; } 3. 流式加载管理器 UE4 使用专门的流式加载管理器来处理 Texture：\nFStreamableManager（通用异步加载） 从 StreamableManager.h 可以看到：\n// 异步加载资源，返回一个Handle用于跟踪加载状态 TSharedPtr\u003cFStreamableHandle\u003e RequestAsyncLoad( TArray\u003cFSoftObjectPath\u003e TargetsToStream, FStreamableDelegate DelegateToCall, TAsyncLoadPriority Priority ); // 同步加载资源 UObject* LoadSynchronous(const FSoftObjectPath\u0026 Target); FRenderAssetStreamingManager（Texture 专用） 从 StreamingManagerTexture.cpp 可以看到：\n// 纹理流式加载管理器，负责： // 1. 根据距离计算需要的Mipmap层级 // 2. 异步加载/卸载Mipmap数据 // 3. 管理纹理内存池 class FRenderAssetStreamingManager { // 内存池大小 int64 EffectiveStreamingPoolSize; // 内存余量 int64 MemoryMargin; // 是否使用动态流式加载 bool bUseDynamicStreaming; }; 三、Texture 流式加载的完整流程 举例说明：一个角色贴图的流式加载 假设有一个 2048x2048 的角色贴图：\n┌─────────────────────────────────────────────────────────┐ │ 1. 初始化阶段 │ │ ┌──────────────────────────────────────────────────┐ │ │ │ 只加载最低分辨率的Mipmap（如64x64）作为基础 │ │ │ │ 内存占用：约 8KB │ │ │ └──────────────────────────────────────────────────┘ │ └─────────────────────────────────────────────────────────┘ ↓ ┌─────────────────────────────────────────────────────────┐ │ 2. 玩家接近角色（距离 \u003c 5米） │ │ ┌──────────────────────────────────────────────────┐ │ │ │ FRenderAssetStreamingManager检测到距离变化 │ │ │ │ 计算需要加载的Mipmap层级：Mip 0-3 │ │ │ │ 异步加载高分辨率Mipmap数据 │ │ │ │ 内存占用：约 5MB │ │ │ └──────────────────────────────────────────────────┘ │ └─────────────────────────────────────────────────────────┘ ↓ ┌─────────────────────────────────────────────────────────┐ │ 3. 玩家远离角色（距离 \u003e 50米） │ │ ┌──────────────────────────────────────────────────┐ │ │ │ 检测到距离增加，不再需要高分辨率 │ │ │ │ 卸载高分辨率Mipmap，只保留低分辨率 │ │ │ │ 内存占用：约 64KB │ │ │ └──────────────────────────────────────────────────┘ │ └─────────────────────────────────────────────────────────┘ 关键代码流程 从 Texture2D.h 中：\n// 流入高分辨率Mipmap bool StreamIn(int32 NewMipCount, bool bHighPrio) override; // 流出高分辨率Mipmap bool StreamOut(int32 NewMipCount) override; // 获取当前驻留在内存中的Mipmap数量 int32 GetNumResidentMips() const final override; 四、流式加载的优势 内存优化：只加载当前需要的分辨率，大幅减少内存占用 性能优化：远距离物体使用低分辨率纹理，减少 GPU 负担 加载速度：初始只加载低分辨率数据，快速进入游戏 动态适应：根据硬件性能自动调整纹理质量 五、配置参数 从 BaseDeviceProfiles.ini 中可以看到纹理 LOD 组配置：\n; 纹理LOD组配置，控制不同类型纹理的流式加载行为 TextureLODGroups=(Group=TEXTUREGROUP_World, MinLODSize=1, MaxLODSize=16384, LODBias=0, MinMagFilter=linear, MipFilter=point) ; Shadowmap的流式Mipmap数量 TextureLODGroups=(Group=TEXTUREGROUP_Shadowmap, NumStreamedMips=3) 总结 UE4 的 Texture 流式加载通过 Mipmap 分级 和 距离感知 实现了高效的内存管理。核心机制是：\n根据物体与相机的距离动态调整纹理分辨率 使用异步加载避免卡顿 通过内存池管理纹理内存 预计算流式加载数据提升性能 这种机制使得大型开放世界游戏能够在有限的内存中运行，同时保持良好的视觉质量。\n",
-  "wordCount" : "281",
-  "inLanguage": "zh",
-  "datePublished": "2026-04-05T00:00:00Z",
-  "dateModified": "2026-04-05T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "luochenqi"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://chenqiluo.github.io/wiki/ue4-texture-streaming/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "luochenqi's Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://chenqiluo.github.io/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
-<body id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://chenqiluo.github.io/" accesskey="h" title="luochenqi&#39;s Blog (Alt + H)">luochenqi&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://chenqiluo.github.io/posts/" title="文章">
-                    <span>文章</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://chenqiluo.github.io/daily/" title="每日目标">
-                    <span>每日目标</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://chenqiluo.github.io/wiki/" title="知识库">
-                    <span>知识库</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://chenqiluo.github.io/stock/" title="股票分析">
-                    <span>股票分析</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://chenqiluo.github.io/reading/" title="研读">
-                    <span>研读</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://arena.ai/leaderboard/text" title="AI天梯榜">
-                    <span>AI天梯榜</span>&nbsp;
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="https://chenqiluo.github.io/tags/" title="标签">
-                    <span>标签</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://chenqiluo.github.io/search/" title="搜索 (Alt &#43; /)" accesskey=/>
-                    <span>搜索</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://chenqiluo.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://chenqiluo.github.io/wiki/">知识库索引</a></div>
-    <h1 class="post-title entry-hint-parent">
-      UE4 Texture 流式加载原理详解
-    </h1>
-    <div class="post-description">
-      深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。
-    </div>
-    <div class="post-meta"><span title='2026-04-05 00:00:00 +0000 UTC'>2026年4月5日</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span>
-
-</div>
-  </header> <div class="toc">
-    <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">目录</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e4%b8%80%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%9a%84%e6%a6%82%e5%bf%b5" aria-label="一、流式加载的概念">一、流式加载的概念</a></li>
-                <li>
-                    <a href="#%e4%ba%8ctexture-%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" aria-label="二、Texture 流式加载的实现原理">二、Texture 流式加载的实现原理</a><ul>
-                        
-                <li>
-                    <a href="#1-%e5%9f%ba%e4%ba%8e-mipmap-%e7%9a%84%e5%88%86%e7%ba%a7%e5%8a%a0%e8%bd%bd" aria-label="1. 基于 Mipmap 的分级加载">1. 基于 Mipmap 的分级加载</a></li>
-                <li>
-                    <a href="#2-%e5%85%b3%e9%94%ae%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" aria-label="2. 关键数据结构">2. 关键数据结构</a></li>
-                <li>
-                    <a href="#3-%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%ae%a1%e7%90%86%e5%99%a8" aria-label="3. 流式加载管理器">3. 流式加载管理器</a><ul>
-                        
-                <li>
-                    <a href="#fstreamablemanager%e9%80%9a%e7%94%a8%e5%bc%82%e6%ad%a5%e5%8a%a0%e8%bd%bd" aria-label="FStreamableManager（通用异步加载）">FStreamableManager（通用异步加载）</a></li>
-                <li>
-                    <a href="#frenderassetstreamingmanagertexture-%e4%b8%93%e7%94%a8" aria-label="FRenderAssetStreamingManager（Texture 专用）">FRenderAssetStreamingManager（Texture 专用）</a></li></ul>
-                </li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%b8%89texture-%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%9a%84%e5%ae%8c%e6%95%b4%e6%b5%81%e7%a8%8b" aria-label="三、Texture 流式加载的完整流程">三、Texture 流式加载的完整流程</a><ul>
-                        
-                <li>
-                    <a href="#%e4%b8%be%e4%be%8b%e8%af%b4%e6%98%8e%e4%b8%80%e4%b8%aa%e8%a7%92%e8%89%b2%e8%b4%b4%e5%9b%be%e7%9a%84%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd" aria-label="举例说明：一个角色贴图的流式加载">举例说明：一个角色贴图的流式加载</a></li>
-                <li>
-                    <a href="#%e5%85%b3%e9%94%ae%e4%bb%a3%e7%a0%81%e6%b5%81%e7%a8%8b" aria-label="关键代码流程">关键代码流程</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%9b%9b%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%9a%84%e4%bc%98%e5%8a%bf" aria-label="四、流式加载的优势">四、流式加载的优势</a></li>
-                <li>
-                    <a href="#%e4%ba%94%e9%85%8d%e7%bd%ae%e5%8f%82%e6%95%b0" aria-label="五、配置参数">五、配置参数</a></li>
-                <li>
-                    <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
-  <div class="post-content"><h2 id="一流式加载的概念">一、流式加载的概念<a hidden class="anchor" aria-hidden="true" href="#一流式加载的概念">#</a></h2>
-<p><strong>流式加载</strong>是一种按需加载资源的技术，核心思想是：</p>
-<ul>
-<li><strong>不一次性加载所有资源</strong>，而是根据实际需要动态加载</li>
-<li><strong>根据距离、可见性等因素</strong>，动态调整资源的质量</li>
-<li><strong>有效控制内存占用</strong>，避免内存溢出</li>
-</ul>
-<h2 id="二texture-流式加载的实现原理">二、Texture 流式加载的实现原理<a hidden class="anchor" aria-hidden="true" href="#二texture-流式加载的实现原理">#</a></h2>
-<h3 id="1-基于-mipmap-的分级加载">1. 基于 Mipmap 的分级加载<a hidden class="anchor" aria-hidden="true" href="#1-基于-mipmap-的分级加载">#</a></h3>
-<p>Texture 流式加载的核心是 <strong>Mipmap（多级渐远纹理）</strong> 技术：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">原始纹理 (2048x2048) 
-</span></span><span class="line"><span class="cl">    ↓
-</span></span><span class="line"><span class="cl">Mip 0: 2048x2048 (高分辨率，近距离使用)
-</span></span><span class="line"><span class="cl">Mip 1: 1024x1024
-</span></span><span class="line"><span class="cl">Mip 2: 512x512
-</span></span><span class="line"><span class="cl">Mip 3: 256x256
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">Mip N: 1x1 (最低分辨率，远距离使用)
-</span></span></code></pre></div><h3 id="2-关键数据结构">2. 关键数据结构<a hidden class="anchor" aria-hidden="true" href="#2-关键数据结构">#</a></h3>
-<p>从 <code>Texture2D.h</code> 中可以看到：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Texture的平台数据，包含所有Mipmap层级
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">FTexturePlatformData</span> <span class="o">*</span><span class="n">PlatformData</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Mipmap数据存储在PlatformData-&gt;Mips中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">FORCEINLINE</span> <span class="n">int32</span> <span class="nf">GetNumMips</span><span class="p">()</span> <span class="k">const</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">PlatformData</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">PlatformData</span><span class="o">-&gt;</span><span class="n">Mips</span><span class="p">.</span><span class="n">Num</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="3-流式加载管理器">3. 流式加载管理器<a hidden class="anchor" aria-hidden="true" href="#3-流式加载管理器">#</a></h3>
-<p>UE4 使用专门的流式加载管理器来处理 Texture：</p>
-<h4 id="fstreamablemanager通用异步加载">FStreamableManager（通用异步加载）<a hidden class="anchor" aria-hidden="true" href="#fstreamablemanager通用异步加载">#</a></h4>
-<p>从 <code>StreamableManager.h</code> 可以看到：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 异步加载资源，返回一个Handle用于跟踪加载状态
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TSharedPtr</span><span class="o">&lt;</span><span class="n">FStreamableHandle</span><span class="o">&gt;</span> <span class="n">RequestAsyncLoad</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TArray</span><span class="o">&lt;</span><span class="n">FSoftObjectPath</span><span class="o">&gt;</span> <span class="n">TargetsToStream</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">FStreamableDelegate</span> <span class="n">DelegateToCall</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TAsyncLoadPriority</span> <span class="n">Priority</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 同步加载资源
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UObject</span><span class="o">*</span> <span class="nf">LoadSynchronous</span><span class="p">(</span><span class="k">const</span> <span class="n">FSoftObjectPath</span><span class="o">&amp;</span> <span class="n">Target</span><span class="p">);</span>
-</span></span></code></pre></div><h4 id="frenderassetstreamingmanagertexture-专用">FRenderAssetStreamingManager（Texture 专用）<a hidden class="anchor" aria-hidden="true" href="#frenderassetstreamingmanagertexture-专用">#</a></h4>
-<p>从 <code>StreamingManagerTexture.cpp</code> 可以看到：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 纹理流式加载管理器，负责：
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 1. 根据距离计算需要的Mipmap层级
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 2. 异步加载/卸载Mipmap数据
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 3. 管理纹理内存池
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">FRenderAssetStreamingManager</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 内存池大小
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">int64</span> <span class="n">EffectiveStreamingPoolSize</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// 内存余量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">int64</span> <span class="n">MemoryMargin</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// 是否使用动态流式加载
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="n">bUseDynamicStreaming</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><h2 id="三texture-流式加载的完整流程">三、Texture 流式加载的完整流程<a hidden class="anchor" aria-hidden="true" href="#三texture-流式加载的完整流程">#</a></h2>
-<h3 id="举例说明一个角色贴图的流式加载">举例说明：一个角色贴图的流式加载<a hidden class="anchor" aria-hidden="true" href="#举例说明一个角色贴图的流式加载">#</a></h3>
-<p>假设有一个 2048x2048 的角色贴图：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">┌─────────────────────────────────────────────────────────┐
-</span></span><span class="line"><span class="cl">│  1. 初始化阶段                                            │
-</span></span><span class="line"><span class="cl">│  ┌──────────────────────────────────────────────────┐  │
-</span></span><span class="line"><span class="cl">│  │ 只加载最低分辨率的Mipmap（如64x64）作为基础        │  │
-</span></span><span class="line"><span class="cl">│  │ 内存占用：约 8KB                                   │  │
-</span></span><span class="line"><span class="cl">│  └──────────────────────────────────────────────────┘  │
-</span></span><span class="line"><span class="cl">└─────────────────────────────────────────────────────────┘
-</span></span><span class="line"><span class="cl">                          ↓
-</span></span><span class="line"><span class="cl">┌─────────────────────────────────────────────────────────┐
-</span></span><span class="line"><span class="cl">│  2. 玩家接近角色（距离 &lt; 5米）                            │
-</span></span><span class="line"><span class="cl">│  ┌──────────────────────────────────────────────────┐  │
-</span></span><span class="line"><span class="cl">│  │ FRenderAssetStreamingManager检测到距离变化        │  │
-</span></span><span class="line"><span class="cl">│  │ 计算需要加载的Mipmap层级：Mip 0-3                 │  │
-</span></span><span class="line"><span class="cl">│  │ 异步加载高分辨率Mipmap数据                        │  │
-</span></span><span class="line"><span class="cl">│  │ 内存占用：约 5MB                                  │  │
-</span></span><span class="line"><span class="cl">│  └──────────────────────────────────────────────────┘  │
-</span></span><span class="line"><span class="cl">└─────────────────────────────────────────────────────────┘
-</span></span><span class="line"><span class="cl">                          ↓
-</span></span><span class="line"><span class="cl">┌─────────────────────────────────────────────────────────┐
-</span></span><span class="line"><span class="cl">│  3. 玩家远离角色（距离 &gt; 50米）                           │
-</span></span><span class="line"><span class="cl">│  ┌──────────────────────────────────────────────────┐  │
-</span></span><span class="line"><span class="cl">│  │ 检测到距离增加，不再需要高分辨率                   │  │
-</span></span><span class="line"><span class="cl">│  │ 卸载高分辨率Mipmap，只保留低分辨率                │  │
-</span></span><span class="line"><span class="cl">│  │ 内存占用：约 64KB                                 │  │
-</span></span><span class="line"><span class="cl">│  └──────────────────────────────────────────────────┘  │
-</span></span><span class="line"><span class="cl">└─────────────────────────────────────────────────────────┘</span></span></code></pre></div>
-<h3 id="关键代码流程">关键代码流程<a hidden class="anchor" aria-hidden="true" href="#关键代码流程">#</a></h3>
-<p>从 <code>Texture2D.h</code> 中：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 流入高分辨率Mipmap
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">StreamIn</span><span class="p">(</span><span class="n">int32</span> <span class="n">NewMipCount</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bHighPrio</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 流出高分辨率Mipmap
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">StreamOut</span><span class="p">(</span><span class="n">int32</span> <span class="n">NewMipCount</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 获取当前驻留在内存中的Mipmap数量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">int32</span> <span class="nf">GetNumResidentMips</span><span class="p">()</span> <span class="k">const</span> <span class="k">final</span> <span class="k">override</span><span class="p">;</span>
-</span></span></code></pre></div><h2 id="四流式加载的优势">四、流式加载的优势<a hidden class="anchor" aria-hidden="true" href="#四流式加载的优势">#</a></h2>
-<ol>
-<li><strong>内存优化</strong>：只加载当前需要的分辨率，大幅减少内存占用</li>
-<li><strong>性能优化</strong>：远距离物体使用低分辨率纹理，减少 GPU 负担</li>
-<li><strong>加载速度</strong>：初始只加载低分辨率数据，快速进入游戏</li>
-<li><strong>动态适应</strong>：根据硬件性能自动调整纹理质量</li>
-</ol>
-<h2 id="五配置参数">五、配置参数<a hidden class="anchor" aria-hidden="true" href="#五配置参数">#</a></h2>
-<p>从 <code>BaseDeviceProfiles.ini</code> 中可以看到纹理 LOD 组配置：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="c1">; 纹理LOD组配置，控制不同类型纹理的流式加载行为</span>
-</span></span><span class="line"><span class="cl"><span class="na">TextureLODGroups</span><span class="o">=</span><span class="s">(Group=TEXTUREGROUP_World,
-</span></span></span><span class="line"><span class="cl"><span class="s">    MinLODSize=1,
-</span></span></span><span class="line"><span class="cl"><span class="s">    MaxLODSize=16384,
-</span></span></span><span class="line"><span class="cl"><span class="s">    LODBias=0,
-</span></span></span><span class="line"><span class="cl"><span class="s">    MinMagFilter=linear,
-</span></span></span><span class="line"><span class="cl"><span class="s">    MipFilter=point)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">; Shadowmap的流式Mipmap数量</span>
-</span></span><span class="line"><span class="cl"><span class="na">TextureLODGroups</span><span class="o">=</span><span class="s">(Group=TEXTUREGROUP_Shadowmap,
-</span></span></span><span class="line"><span class="cl"><span class="s">    NumStreamedMips=3)</span>
-</span></span></code></pre></div><h2 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h2>
-<p>UE4 的 Texture 流式加载通过 <strong>Mipmap 分级</strong> 和 <strong>距离感知</strong> 实现了高效的内存管理。核心机制是：</p>
-<ul>
-<li>根据物体与相机的距离动态调整纹理分辨率</li>
-<li>使用异步加载避免卡顿</li>
-<li>通过内存池管理纹理内存</li>
-<li>预计算流式加载数据提升性能</li>
-</ul>
-<p>这种机制使得大型开放世界游戏能够在有限的内存中运行，同时保持良好的视觉质量。</p>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://chenqiluo.github.io/tags/ue4/">UE4</a></li>
-      <li><a href="https://chenqiluo.github.io/tags/texture/">Texture</a></li>
-      <li><a href="https://chenqiluo.github.io/tags/%E6%B5%81%E5%BC%8F%E5%8A%A0%E8%BD%BD/">流式加载</a></li>
-      <li><a href="https://chenqiluo.github.io/tags/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/">图形渲染</a></li>
-      <li><a href="https://chenqiluo.github.io/tags/%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/">内存优化</a></li>
-    </ul>
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://chenqiluo.github.io/">luochenqi&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = '复制';
-
-        function copyingDone() {
-            copybutton.innerHTML = '已复制！';
-            setTimeout(() => {
-                copybutton.innerHTML = '复制';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
-
-</html>
+<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>UE4 Texture 流式加载原理详解 | luochenqi's Blog</title>
+<meta name=keywords content="UE4,Texture,流式加载,图形渲染,内存优化"><meta name=description content="深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。"><meta name=author content="luochenqi"><link rel=canonical href=https://chenqiluo.github.io/wiki/ue4-texture-streaming/><link crossorigin=anonymous href=/assets/css/stylesheet.css rel="preload stylesheet" as=style><link rel=icon href=https://chenqiluo.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://chenqiluo.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://chenqiluo.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://chenqiluo.github.io/apple-touch-icon.png><link rel=mask-icon href=https://chenqiluo.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://chenqiluo.github.io/wiki/ue4-texture-streaming/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>:root{--theme:transparent !important}html{background-image:url(/images/bg.jpg);background-size:cover;background-position:50%;background-attachment:fixed;background-repeat:no-repeat;background-color:#d4cfc6;min-height:100%}body{background:0 0!important;background-color:transparent!important}.main,#top,main,.list,.page,.post-single,.archive-posts{background:0 0!important;background-color:transparent!important}header.header{background-color:rgba(255,255,255,.8)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.post-entry,.first-entry,.home-info,.profile,.page-header,.post-header,.post-content,.toc,.post-footer,.pagination,.terms-tags{background-color:rgba(255,255,255,.88)!important;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border-radius:8px;padding:12px 16px;margin-bottom:8px}[data-theme=dark] header.header,.dark header.header{background-color:rgba(20,20,20,.8)!important}[data-theme=dark] .post-entry,[data-theme=dark] .first-entry,[data-theme=dark] .home-info,[data-theme=dark] .profile,[data-theme=dark] .page-header,[data-theme=dark] .post-header,[data-theme=dark] .post-content,[data-theme=dark] .toc,[data-theme=dark] .post-footer,[data-theme=dark] .pagination,[data-theme=dark] .terms-tags,.dark .post-entry,.dark .first-entry,.dark .home-info,.dark .profile,.dark .page-header,.dark .post-header,.dark .post-content,.dark .toc,.dark .post-footer,.dark .pagination,.dark .terms-tags{background-color:rgba(20,20,20,.85)!important}</style><meta property="og:url" content="https://chenqiluo.github.io/wiki/ue4-texture-streaming/"><meta property="og:site_name" content="luochenqi's Blog"><meta property="og:title" content="UE4 Texture 流式加载原理详解"><meta property="og:description" content="深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="wiki"><meta property="article:published_time" content="2026-04-05T00:00:00+00:00"><meta property="article:modified_time" content="2026-04-05T00:00:00+00:00"><meta property="article:tag" content="UE4"><meta property="article:tag" content="Texture"><meta property="article:tag" content="流式加载"><meta property="article:tag" content="图形渲染"><meta property="article:tag" content="内存优化"><meta name=twitter:card content="summary"><meta name=twitter:title content="UE4 Texture 流式加载原理详解"><meta name=twitter:description content="深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"知识库索引","item":"https://chenqiluo.github.io/wiki/"},{"@type":"ListItem","position":2,"name":"UE4 Texture 流式加载原理详解","item":"https://chenqiluo.github.io/wiki/ue4-texture-streaming/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"UE4 Texture 流式加载原理详解","name":"UE4 Texture 流式加载原理详解","description":"深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。","keywords":["UE4","Texture","流式加载","图形渲染","内存优化"],"articleBody":"一、流式加载的概念 流式加载是一种按需加载资源的技术，核心思想是：\n不一次性加载所有资源，而是根据实际需要动态加载 根据距离、可见性等因素，动态调整资源的质量 有效控制内存占用，避免内存溢出 二、Texture 流式加载的实现原理 1. 基于 Mipmap 的分级加载 Texture 流式加载的核心是 Mipmap（多级渐远纹理） 技术：\n原始纹理 (2048x2048) ↓ Mip 0: 2048x2048 (高分辨率，近距离使用) Mip 1: 1024x1024 Mip 2: 512x512 Mip 3: 256x256 ... Mip N: 1x1 (最低分辨率，远距离使用) 2. 关键数据结构 从 Texture2D.h 中可以看到：\n// Texture的平台数据，包含所有Mipmap层级 FTexturePlatformData *PlatformData; // Mipmap数据存储在PlatformData-\u003eMips中 FORCEINLINE int32 GetNumMips() const { if (PlatformData) { return PlatformData-\u003eMips.Num(); } return 0; } 3. 流式加载管理器 UE4 使用专门的流式加载管理器来处理 Texture：\nFStreamableManager（通用异步加载） 从 StreamableManager.h 可以看到：\n// 异步加载资源，返回一个Handle用于跟踪加载状态 TSharedPtr\u003cFStreamableHandle\u003e RequestAsyncLoad( TArray\u003cFSoftObjectPath\u003e TargetsToStream, FStreamableDelegate DelegateToCall, TAsyncLoadPriority Priority ); // 同步加载资源 UObject* LoadSynchronous(const FSoftObjectPath\u0026 Target); FRenderAssetStreamingManager（Texture 专用） 从 StreamingManagerTexture.cpp 可以看到：\n// 纹理流式加载管理器，负责： // 1. 根据距离计算需要的Mipmap层级 // 2. 异步加载/卸载Mipmap数据 // 3. 管理纹理内存池 class FRenderAssetStreamingManager { // 内存池大小 int64 EffectiveStreamingPoolSize; // 内存余量 int64 MemoryMargin; // 是否使用动态流式加载 bool bUseDynamicStreaming; }; 三、Texture 流式加载的完整流程 举例说明：一个角色贴图的流式加载 假设有一个 2048x2048 的角色贴图：\n┌─────────────────────────────────────────────────────────┐ │ 1. 初始化阶段 │ │ ┌──────────────────────────────────────────────────┐ │ │ │ 只加载最低分辨率的Mipmap（如64x64）作为基础 │ │ │ │ 内存占用：约 8KB │ │ │ └──────────────────────────────────────────────────┘ │ └─────────────────────────────────────────────────────────┘ ↓ ┌─────────────────────────────────────────────────────────┐ │ 2. 玩家接近角色（距离 \u003c 5米） │ │ ┌──────────────────────────────────────────────────┐ │ │ │ FRenderAssetStreamingManager检测到距离变化 │ │ │ │ 计算需要加载的Mipmap层级：Mip 0-3 │ │ │ │ 异步加载高分辨率Mipmap数据 │ │ │ │ 内存占用：约 5MB │ │ │ └──────────────────────────────────────────────────┘ │ └─────────────────────────────────────────────────────────┘ ↓ ┌─────────────────────────────────────────────────────────┐ │ 3. 玩家远离角色（距离 \u003e 50米） │ │ ┌──────────────────────────────────────────────────┐ │ │ │ 检测到距离增加，不再需要高分辨率 │ │ │ │ 卸载高分辨率Mipmap，只保留低分辨率 │ │ │ │ 内存占用：约 64KB │ │ │ └──────────────────────────────────────────────────┘ │ └─────────────────────────────────────────────────────────┘ 关键代码流程 从 Texture2D.h 中：\n// 流入高分辨率Mipmap bool StreamIn(int32 NewMipCount, bool bHighPrio) override; // 流出高分辨率Mipmap bool StreamOut(int32 NewMipCount) override; // 获取当前驻留在内存中的Mipmap数量 int32 GetNumResidentMips() const final override; 四、流式加载的优势 内存优化：只加载当前需要的分辨率，大幅减少内存占用 性能优化：远距离物体使用低分辨率纹理，减少 GPU 负担 加载速度：初始只加载低分辨率数据，快速进入游戏 动态适应：根据硬件性能自动调整纹理质量 五、配置参数 从 BaseDeviceProfiles.ini 中可以看到纹理 LOD 组配置：\n; 纹理LOD组配置，控制不同类型纹理的流式加载行为 TextureLODGroups=(Group=TEXTUREGROUP_World, MinLODSize=1, MaxLODSize=16384, LODBias=0, MinMagFilter=linear, MipFilter=point) ; Shadowmap的流式Mipmap数量 TextureLODGroups=(Group=TEXTUREGROUP_Shadowmap, NumStreamedMips=3) 总结 UE4 的 Texture 流式加载通过 Mipmap 分级 和 距离感知 实现了高效的内存管理。核心机制是：\n根据物体与相机的距离动态调整纹理分辨率 使用异步加载避免卡顿 通过内存池管理纹理内存 预计算流式加载数据提升性能 这种机制使得大型开放世界游戏能够在有限的内存中运行，同时保持良好的视觉质量。\n","wordCount":"281","inLanguage":"zh","datePublished":"2026-04-05T00:00:00Z","dateModified":"2026-04-05T00:00:00Z","author":{"@type":"Person","name":"luochenqi"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://chenqiluo.github.io/wiki/ue4-texture-streaming/"},"publisher":{"@type":"Organization","name":"luochenqi's Blog","logo":{"@type":"ImageObject","url":"https://chenqiluo.github.io/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://chenqiluo.github.io/ accesskey=h title="luochenqi's Blog (Alt + H)">luochenqi's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://chenqiluo.github.io/posts/ title=文章><span>文章</span></a></li><li><a href=https://chenqiluo.github.io/daily/ title=每日目标><span>每日目标</span></a></li><li><a href=https://chenqiluo.github.io/wiki/ title=知识库><span>知识库</span></a></li><li><a href=https://chenqiluo.github.io/stock/ title=股票分析><span>股票分析</span></a></li><li><a href=https://chenqiluo.github.io/reading/ title=研读><span>研读</span></a></li><li><a href=https://arena.ai/leaderboard/text title=AI天梯榜><span>AI天梯榜</span>&nbsp;<svg fill="none" shape-rendering="geometricPrecision" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://chenqiluo.github.io/tags/ title=标签><span>标签</span></a></li><li><a href=https://chenqiluo.github.io/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://chenqiluo.github.io/>主页</a>&nbsp;»&nbsp;<a href=https://chenqiluo.github.io/wiki/>知识库索引</a></div><h1 class="post-title entry-hint-parent">UE4 Texture 流式加载原理详解</h1><div class=post-description>深入解析 UE4 Texture 流式加载的核心原理，包括 Mipmap 分级加载、流式管理器架构、完整加载流程及配置参数。</div><div class=post-meta><span title='2026-04-05 00:00:00 +0000 UTC'>2026年4月5日</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#%e4%b8%80%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%9a%84%e6%a6%82%e5%bf%b5 aria-label=一、流式加载的概念>一、流式加载的概念</a></li><li><a href=#%e4%ba%8ctexture-%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86 aria-label="二、Texture 流式加载的实现原理">二、Texture 流式加载的实现原理</a><ul><li><a href=#1-%e5%9f%ba%e4%ba%8e-mipmap-%e7%9a%84%e5%88%86%e7%ba%a7%e5%8a%a0%e8%bd%bd aria-label="1. 基于 Mipmap 的分级加载">1. 基于 Mipmap 的分级加载</a></li><li><a href=#2-%e5%85%b3%e9%94%ae%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84 aria-label="2. 关键数据结构">2. 关键数据结构</a></li><li><a href=#3-%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%ae%a1%e7%90%86%e5%99%a8 aria-label="3. 流式加载管理器">3. 流式加载管理器</a><ul><li><a href=#fstreamablemanager%e9%80%9a%e7%94%a8%e5%bc%82%e6%ad%a5%e5%8a%a0%e8%bd%bd aria-label=FStreamableManager（通用异步加载）>FStreamableManager（通用异步加载）</a></li><li><a href=#frenderassetstreamingmanagertexture-%e4%b8%93%e7%94%a8 aria-label="FRenderAssetStreamingManager（Texture 专用）">FRenderAssetStreamingManager（Texture 专用）</a></li></ul></li></ul></li><li><a href=#%e4%b8%89texture-%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%9a%84%e5%ae%8c%e6%95%b4%e6%b5%81%e7%a8%8b aria-label="三、Texture 流式加载的完整流程">三、Texture 流式加载的完整流程</a><ul><li><a href=#%e4%b8%be%e4%be%8b%e8%af%b4%e6%98%8e%e4%b8%80%e4%b8%aa%e8%a7%92%e8%89%b2%e8%b4%b4%e5%9b%be%e7%9a%84%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd aria-label=举例说明：一个角色贴图的流式加载>举例说明：一个角色贴图的流式加载</a></li><li><a href=#%e5%85%b3%e9%94%ae%e4%bb%a3%e7%a0%81%e6%b5%81%e7%a8%8b aria-label=关键代码流程>关键代码流程</a></li></ul></li><li><a href=#%e5%9b%9b%e6%b5%81%e5%bc%8f%e5%8a%a0%e8%bd%bd%e7%9a%84%e4%bc%98%e5%8a%bf aria-label=四、流式加载的优势>四、流式加载的优势</a></li><li><a href=#%e4%ba%94%e9%85%8d%e7%bd%ae%e5%8f%82%e6%95%b0 aria-label=五、配置参数>五、配置参数</a></li><li><a href=#%e6%80%bb%e7%bb%93 aria-label=总结>总结</a></li></ul></div></details></div><div class=post-content><h2 id=一流式加载的概念>一、流式加载的概念<a hidden class=anchor aria-hidden=true href=#一流式加载的概念>#</a></h2><p><strong>流式加载</strong>是一种按需加载资源的技术，核心思想是：</p><ul><li><strong>不一次性加载所有资源</strong>，而是根据实际需要动态加载</li><li><strong>根据距离、可见性等因素</strong>，动态调整资源的质量</li><li><strong>有效控制内存占用</strong>，避免内存溢出</li></ul><h2 id=二texture-流式加载的实现原理>二、Texture 流式加载的实现原理<a hidden class=anchor aria-hidden=true href=#二texture-流式加载的实现原理>#</a></h2><h3 id=1-基于-mipmap-的分级加载>1. 基于 Mipmap 的分级加载<a hidden class=anchor aria-hidden=true href=#1-基于-mipmap-的分级加载>#</a></h3><p>Texture 流式加载的核心是 <strong>Mipmap（多级渐远纹理）</strong> 技术：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>原始纹理 (2048x2048) 
+</span></span><span class=line><span class=cl>    ↓
+</span></span><span class=line><span class=cl>Mip 0: 2048x2048 (高分辨率，近距离使用)
+</span></span><span class=line><span class=cl>Mip 1: 1024x1024
+</span></span><span class=line><span class=cl>Mip 2: 512x512
+</span></span><span class=line><span class=cl>Mip 3: 256x256
+</span></span><span class=line><span class=cl>...
+</span></span><span class=line><span class=cl>Mip N: 1x1 (最低分辨率，远距离使用)
+</span></span></code></pre></div><h3 id=2-关键数据结构>2. 关键数据结构<a hidden class=anchor aria-hidden=true href=#2-关键数据结构>#</a></h3><p>从 <code>Texture2D.h</code> 中可以看到：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// Texture的平台数据，包含所有Mipmap层级
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>FTexturePlatformData</span> <span class=o>*</span><span class=n>PlatformData</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Mipmap数据存储在PlatformData-&gt;Mips中
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>FORCEINLINE</span> <span class=n>int32</span> <span class=nf>GetNumMips</span><span class=p>()</span> <span class=k>const</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>PlatformData</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>PlatformData</span><span class=o>-&gt;</span><span class=n>Mips</span><span class=p>.</span><span class=n>Num</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=3-流式加载管理器>3. 流式加载管理器<a hidden class=anchor aria-hidden=true href=#3-流式加载管理器>#</a></h3><p>UE4 使用专门的流式加载管理器来处理 Texture：</p><h4 id=fstreamablemanager通用异步加载>FStreamableManager（通用异步加载）<a hidden class=anchor aria-hidden=true href=#fstreamablemanager通用异步加载>#</a></h4><p>从 <code>StreamableManager.h</code> 可以看到：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// 异步加载资源，返回一个Handle用于跟踪加载状态
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>TSharedPtr</span><span class=o>&lt;</span><span class=n>FStreamableHandle</span><span class=o>&gt;</span> <span class=n>RequestAsyncLoad</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>TArray</span><span class=o>&lt;</span><span class=n>FSoftObjectPath</span><span class=o>&gt;</span> <span class=n>TargetsToStream</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=n>FStreamableDelegate</span> <span class=n>DelegateToCall</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>TAsyncLoadPriority</span> <span class=n>Priority</span>
+</span></span><span class=line><span class=cl><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 同步加载资源
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>UObject</span><span class=o>*</span> <span class=nf>LoadSynchronous</span><span class=p>(</span><span class=k>const</span> <span class=n>FSoftObjectPath</span><span class=o>&amp;</span> <span class=n>Target</span><span class=p>);</span>
+</span></span></code></pre></div><h4 id=frenderassetstreamingmanagertexture-专用>FRenderAssetStreamingManager（Texture 专用）<a hidden class=anchor aria-hidden=true href=#frenderassetstreamingmanagertexture-专用>#</a></h4><p>从 <code>StreamingManagerTexture.cpp</code> 可以看到：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// 纹理流式加载管理器，负责：
+</span></span></span><span class=line><span class=cl><span class=c1>// 1. 根据距离计算需要的Mipmap层级
+</span></span></span><span class=line><span class=cl><span class=c1>// 2. 异步加载/卸载Mipmap数据
+</span></span></span><span class=line><span class=cl><span class=c1>// 3. 管理纹理内存池
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>class</span> <span class=nc>FRenderAssetStreamingManager</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 内存池大小
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>int64</span> <span class=n>EffectiveStreamingPoolSize</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1>// 内存余量
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>int64</span> <span class=n>MemoryMargin</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1>// 是否使用动态流式加载
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>bool</span> <span class=n>bUseDynamicStreaming</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></div><h2 id=三texture-流式加载的完整流程>三、Texture 流式加载的完整流程<a hidden class=anchor aria-hidden=true href=#三texture-流式加载的完整流程>#</a></h2><h3 id=举例说明一个角色贴图的流式加载>举例说明：一个角色贴图的流式加载<a hidden class=anchor aria-hidden=true href=#举例说明一个角色贴图的流式加载>#</a></h3><p>假设有一个 2048x2048 的角色贴图：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>┌─────────────────────────────────────────────────────────┐
+</span></span><span class=line><span class=cl>│  1. 初始化阶段                                            │
+</span></span><span class=line><span class=cl>│  ┌──────────────────────────────────────────────────┐  │
+</span></span><span class=line><span class=cl>│  │ 只加载最低分辨率的Mipmap（如64x64）作为基础        │  │
+</span></span><span class=line><span class=cl>│  │ 内存占用：约 8KB                                   │  │
+</span></span><span class=line><span class=cl>│  └──────────────────────────────────────────────────┘  │
+</span></span><span class=line><span class=cl>└─────────────────────────────────────────────────────────┘
+</span></span><span class=line><span class=cl>                          ↓
+</span></span><span class=line><span class=cl>┌─────────────────────────────────────────────────────────┐
+</span></span><span class=line><span class=cl>│  2. 玩家接近角色（距离 &lt; 5米）                            │
+</span></span><span class=line><span class=cl>│  ┌──────────────────────────────────────────────────┐  │
+</span></span><span class=line><span class=cl>│  │ FRenderAssetStreamingManager检测到距离变化        │  │
+</span></span><span class=line><span class=cl>│  │ 计算需要加载的Mipmap层级：Mip 0-3                 │  │
+</span></span><span class=line><span class=cl>│  │ 异步加载高分辨率Mipmap数据                        │  │
+</span></span><span class=line><span class=cl>│  │ 内存占用：约 5MB                                  │  │
+</span></span><span class=line><span class=cl>│  └──────────────────────────────────────────────────┘  │
+</span></span><span class=line><span class=cl>└─────────────────────────────────────────────────────────┘
+</span></span><span class=line><span class=cl>                          ↓
+</span></span><span class=line><span class=cl>┌─────────────────────────────────────────────────────────┐
+</span></span><span class=line><span class=cl>│  3. 玩家远离角色（距离 &gt; 50米）                           │
+</span></span><span class=line><span class=cl>│  ┌──────────────────────────────────────────────────┐  │
+</span></span><span class=line><span class=cl>│  │ 检测到距离增加，不再需要高分辨率                   │  │
+</span></span><span class=line><span class=cl>│  │ 卸载高分辨率Mipmap，只保留低分辨率                │  │
+</span></span><span class=line><span class=cl>│  │ 内存占用：约 64KB                                 │  │
+</span></span><span class=line><span class=cl>│  └──────────────────────────────────────────────────┘  │
+</span></span><span class=line><span class=cl>└─────────────────────────────────────────────────────────┘</span></span></code></pre></div><h3 id=关键代码流程>关键代码流程<a hidden class=anchor aria-hidden=true href=#关键代码流程>#</a></h3><p>从 <code>Texture2D.h</code> 中：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// 流入高分辨率Mipmap
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>bool</span> <span class=nf>StreamIn</span><span class=p>(</span><span class=n>int32</span> <span class=n>NewMipCount</span><span class=p>,</span> <span class=kt>bool</span> <span class=n>bHighPrio</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 流出高分辨率Mipmap
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>bool</span> <span class=nf>StreamOut</span><span class=p>(</span><span class=n>int32</span> <span class=n>NewMipCount</span><span class=p>)</span> <span class=k>override</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 获取当前驻留在内存中的Mipmap数量
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>int32</span> <span class=nf>GetNumResidentMips</span><span class=p>()</span> <span class=k>const</span> <span class=k>final</span> <span class=k>override</span><span class=p>;</span>
+</span></span></code></pre></div><h2 id=四流式加载的优势>四、流式加载的优势<a hidden class=anchor aria-hidden=true href=#四流式加载的优势>#</a></h2><ol><li><strong>内存优化</strong>：只加载当前需要的分辨率，大幅减少内存占用</li><li><strong>性能优化</strong>：远距离物体使用低分辨率纹理，减少 GPU 负担</li><li><strong>加载速度</strong>：初始只加载低分辨率数据，快速进入游戏</li><li><strong>动态适应</strong>：根据硬件性能自动调整纹理质量</li></ol><h2 id=五配置参数>五、配置参数<a hidden class=anchor aria-hidden=true href=#五配置参数>#</a></h2><p>从 <code>BaseDeviceProfiles.ini</code> 中可以看到纹理 LOD 组配置：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=c1>; 纹理LOD组配置，控制不同类型纹理的流式加载行为</span>
+</span></span><span class=line><span class=cl><span class=na>TextureLODGroups</span><span class=o>=</span><span class=s>(Group=TEXTUREGROUP_World,
+</span></span></span><span class=line><span class=cl><span class=s>    MinLODSize=1,
+</span></span></span><span class=line><span class=cl><span class=s>    MaxLODSize=16384,
+</span></span></span><span class=line><span class=cl><span class=s>    LODBias=0,
+</span></span></span><span class=line><span class=cl><span class=s>    MinMagFilter=linear,
+</span></span></span><span class=line><span class=cl><span class=s>    MipFilter=point)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>; Shadowmap的流式Mipmap数量</span>
+</span></span><span class=line><span class=cl><span class=na>TextureLODGroups</span><span class=o>=</span><span class=s>(Group=TEXTUREGROUP_Shadowmap,
+</span></span></span><span class=line><span class=cl><span class=s>    NumStreamedMips=3)</span>
+</span></span></code></pre></div><h2 id=总结>总结<a hidden class=anchor aria-hidden=true href=#总结>#</a></h2><p>UE4 的 Texture 流式加载通过 <strong>Mipmap 分级</strong> 和 <strong>距离感知</strong> 实现了高效的内存管理。核心机制是：</p><ul><li>根据物体与相机的距离动态调整纹理分辨率</li><li>使用异步加载避免卡顿</li><li>通过内存池管理纹理内存</li><li>预计算流式加载数据提升性能</li></ul><p>这种机制使得大型开放世界游戏能够在有限的内存中运行，同时保持良好的视觉质量。</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://chenqiluo.github.io/tags/ue4/>UE4</a></li><li><a href=https://chenqiluo.github.io/tags/texture/>Texture</a></li><li><a href=https://chenqiluo.github.io/tags/%E6%B5%81%E5%BC%8F%E5%8A%A0%E8%BD%BD/>流式加载</a></li><li><a href=https://chenqiluo.github.io/tags/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/>图形渲染</a></li><li><a href=https://chenqiluo.github.io/tags/%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/>内存优化</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://chenqiluo.github.io/>luochenqi's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

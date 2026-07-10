@@ -1,20 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>航空零部件 on luochenqi&#39;s Blog</title>
-    <link>https://chenqiluo.github.io/tags/%E8%88%AA%E7%A9%BA%E9%9B%B6%E9%83%A8%E4%BB%B6/</link>
-    <description>Recent content in 航空零部件 on luochenqi&#39;s Blog</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://chenqiluo.github.io/tags/%E8%88%AA%E7%A9%BA%E9%9B%B6%E9%83%A8%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>爱乐达(300696) 全面行情分析报告 — 2026-07-07</title>
-      <link>https://chenqiluo.github.io/stock/sz300696-aileda-20260707/</link>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>https://chenqiluo.github.io/stock/sz300696-aileda-20260707/</guid>
-      <description>&lt;style&gt;
-.sr-wrap{max-width:960px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,&#34;Segoe UI&#34;,&#34;PingFang SC&#34;,&#34;Microsoft YaHei&#34;,sans-serif;color:#202124;line-height:1.7}
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>航空零部件 on luochenqi's Blog</title><link>https://chenqiluo.github.io/tags/%E8%88%AA%E7%A9%BA%E9%9B%B6%E9%83%A8%E4%BB%B6/</link><description>Recent content in 航空零部件 on luochenqi's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://chenqiluo.github.io/tags/%E8%88%AA%E7%A9%BA%E9%9B%B6%E9%83%A8%E4%BB%B6/index.xml" rel="self" type="application/rss+xml"/><item><title>爱乐达(300696) 全面行情分析报告 — 2026-07-07</title><link>https://chenqiluo.github.io/stock/sz300696-aileda-20260707/</link><pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/sz300696-aileda-20260707/</guid><description>&lt;style>
+.sr-wrap{max-width:960px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#202124;line-height:1.7}
 .sr-wrap *{box-sizing:border-box}
 .sr-hero{background:linear-gradient(135deg,#1b5e20,#2e7d32);border-radius:14px;padding:26px 28px;color:#fff;margin:18px 0 24px}
 .sr-hero h2{margin:0 0 6px;font-size:26px;color:#fff;border:none}
@@ -61,42 +46,32 @@
 .dark .sr-section-title{color:#a5d6a7}
 .dark .sr-note{background:#332b00;color:#ffe082}
 .dark .sr-warn{background:#3a1a1a;color:#ff8a80}
-&lt;/style&gt;
-&lt;div class=&#34;sr-wrap&#34;&gt;
-&lt;div class=&#34;sr-hero&#34;&gt;
-&lt;h2&gt;爱乐达 300696.SZ&lt;/h2&gt;
-&lt;div class=&#34;sr-sub&#34;&gt;全面行情分析报告 · 数据截至 2026-07-07 收盘&lt;/div&gt;
-&lt;div class=&#34;sr-price&#34;&gt;¥ 24.64 &lt;span class=&#34;sr-chg sr-down&#34;&gt;▼ -1.52% (-0.38)&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-sub&#34;&gt;国防军工 · 航空零部件精密加工 · 创业板 · 总市值约 72.5 亿元&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;sr-section&#34;&gt;
-&lt;div class=&#34;sr-section-title&#34;&gt;一、基本行情概览&lt;/div&gt;
-&lt;div class=&#34;sr-kv-row&#34;&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;收盘价&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;24.64 元&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;涨跌幅&lt;/div&gt;&lt;div class=&#34;sr-v sr-val-red&#34;&gt;-1.52%&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;开盘/最高/最低&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;25.04 / 25.60 / 24.50&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;振幅&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;4.40%&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;sr-kv-row&#34;&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;成交额&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;1.28 亿元&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;换手率&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;1.92%&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;量比&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;0.91 缩量&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;平均价&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;25.09&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;sr-kv-row&#34;&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;52周最高&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;44.51&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;52周最低&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;20.33&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;近20日涨幅&lt;/div&gt;&lt;div class=&#34;sr-v sr-val-red&#34;&gt;-15.16%&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;近60日/年内&lt;/div&gt;&lt;div class=&#34;sr-v sr-val-red&#34;&gt;-12.72% / -22.62%&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;7月7日爱乐达收报 24.64 元（&lt;b&gt;-1.52%&lt;/b&gt;），缩量下跌（量比0.91、换手率仅1.92%），全天在24.50-25.60窄幅震荡。当日走势并非孤立，而是延续了一轮深度下跌趋势：股价从5月11日的 &lt;b&gt;44.51 元高点&lt;/b&gt;一路下挫至当前 24.64 元，&lt;b&gt;两个月跌幅接近45%&lt;/b&gt;，近20日 -15.16%、年内 -22.62%。7月初虽有过一次技术性反弹（7/3盘中冲高至29.29元），但迅速回落，7/6跌5%、7/7再创阶段新低，反弹夭折。整体处于**弱势下跌通道中的缩量阴跌**格局。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>爱乐达(300696) 全面行情分析报告 — 2026-06-05</title>
-      <link>https://chenqiluo.github.io/stock/sz300696-aieda-20260605/</link>
-      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://chenqiluo.github.io/stock/sz300696-aieda-20260605/</guid>
-      <description>爱乐达(300696)2026年6月5日全面行情分析，覆盖资金流向、筹码分布、K线技术面、基本面、消息面、政策面及估值分析，综合评分6.2/10，谨慎参与评级。</description>
-    </item>
-  </channel>
-</rss>
+&lt;/style>
+&lt;div class="sr-wrap">
+&lt;div class="sr-hero">
+&lt;h2>爱乐达 300696.SZ&lt;/h2>
+&lt;div class="sr-sub">全面行情分析报告 · 数据截至 2026-07-07 收盘&lt;/div>
+&lt;div class="sr-price">¥ 24.64 &lt;span class="sr-chg sr-down">▼ -1.52% (-0.38)&lt;/span>&lt;/div>
+&lt;div class="sr-sub">国防军工 · 航空零部件精密加工 · 创业板 · 总市值约 72.5 亿元&lt;/div>
+&lt;/div>
+&lt;div class="sr-section">
+&lt;div class="sr-section-title">一、基本行情概览&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">收盘价&lt;/div>&lt;div class="sr-v">24.64 元&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">涨跌幅&lt;/div>&lt;div class="sr-v sr-val-red">-1.52%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">开盘/最高/最低&lt;/div>&lt;div class="sr-v">25.04 / 25.60 / 24.50&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">振幅&lt;/div>&lt;div class="sr-v">4.40%&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">成交额&lt;/div>&lt;div class="sr-v">1.28 亿元&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">换手率&lt;/div>&lt;div class="sr-v">1.92%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">量比&lt;/div>&lt;div class="sr-v">0.91 缩量&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">平均价&lt;/div>&lt;div class="sr-v">25.09&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">52周最高&lt;/div>&lt;div class="sr-v">44.51&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">52周最低&lt;/div>&lt;div class="sr-v">20.33&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">近20日涨幅&lt;/div>&lt;div class="sr-v sr-val-red">-15.16%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">近60日/年内&lt;/div>&lt;div class="sr-v sr-val-red">-12.72% / -22.62%&lt;/div>&lt;/div>
+&lt;/div>
+&lt;p>7月7日爱乐达收报 24.64 元（&lt;b>-1.52%&lt;/b>），缩量下跌（量比0.91、换手率仅1.92%），全天在24.50-25.60窄幅震荡。当日走势并非孤立，而是延续了一轮深度下跌趋势：股价从5月11日的 &lt;b>44.51 元高点&lt;/b>一路下挫至当前 24.64 元，&lt;b>两个月跌幅接近45%&lt;/b>，近20日 -15.16%、年内 -22.62%。7月初虽有过一次技术性反弹（7/3盘中冲高至29.29元），但迅速回落，7/6跌5%、7/7再创阶段新低，反弹夭折。整体处于**弱势下跌通道中的缩量阴跌**格局。&lt;/p></description></item><item><title>爱乐达(300696) 全面行情分析报告 — 2026-06-05</title><link>https://chenqiluo.github.io/stock/sz300696-aieda-20260605/</link><pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/sz300696-aieda-20260605/</guid><description>爱乐达(300696)2026年6月5日全面行情分析，覆盖资金流向、筹码分布、K线技术面、基本面、消息面、政策面及估值分析，综合评分6.2/10，谨慎参与评级。</description></item></channel></rss>

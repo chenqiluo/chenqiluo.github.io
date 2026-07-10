@@ -1,20 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>03317 on luochenqi&#39;s Blog</title>
-    <link>https://chenqiluo.github.io/tags/03317/</link>
-    <description>Recent content in 03317 on luochenqi&#39;s Blog</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Fri, 10 Jul 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://chenqiluo.github.io/tags/03317/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>迅策科技(03317) 全面行情分析报告 — 2026-07-10</title>
-      <link>https://chenqiluo.github.io/stock/hk03317-xunce-20260710/</link>
-      <pubDate>Fri, 10 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260710/</guid>
-      <description>&lt;style&gt;
-.sr-wrap{max-width:960px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,&#34;Segoe UI&#34;,&#34;PingFang SC&#34;,&#34;Microsoft YaHei&#34;,sans-serif;color:#202124;line-height:1.7}
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>03317 on luochenqi's Blog</title><link>https://chenqiluo.github.io/tags/03317/</link><description>Recent content in 03317 on luochenqi's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 10 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://chenqiluo.github.io/tags/03317/index.xml" rel="self" type="application/rss+xml"/><item><title>迅策科技(03317) 全面行情分析报告 — 2026-07-10</title><link>https://chenqiluo.github.io/stock/hk03317-xunce-20260710/</link><pubDate>Fri, 10 Jul 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260710/</guid><description>&lt;style>
+.sr-wrap{max-width:960px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#202124;line-height:1.7}
 .sr-wrap *{box-sizing:border-box}
 .sr-hero{background:linear-gradient(135deg,#4a148c,#7b1fa2);border-radius:14px;padding:26px 28px;color:#fff;margin:18px 0 24px}
 .sr-hero h2{margin:0 0 6px;font-size:26px;color:#fff;border:none}
@@ -60,44 +45,37 @@
 .dark .sr-section-title{color:#ce93d8}
 .dark .sr-note{background:#332b00;color:#ffe082}
 .dark .sr-warn{background:#3a1a1a;color:#ff8a80}
-&lt;/style&gt;
-&lt;div class=&#34;sr-wrap&#34;&gt;
-&lt;div class=&#34;sr-hero&#34;&gt;
-&lt;h2&gt;迅策科技 03317.HK&lt;/h2&gt;
-&lt;div class=&#34;sr-sub&#34;&gt;全面行情分析报告 · 数据截至 2026-07-10 收盘&lt;/div&gt;
-&lt;div class=&#34;sr-price&#34;&gt;HK$ 91.95 &lt;span class=&#34;sr-chg sr-down&#34;&gt;▼ -13.74% (-14.65)&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-sub&#34;&gt;资讯科技业 · 实时数据基础设施 / AI数据分析 · 港股次新股（2025-12-30上市）&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;sr-note&#34;&gt;&lt;b&gt;连续跟踪提示：&lt;/b&gt;本报告是继 &lt;b&gt;7月7日&lt;/b&gt;（当时收117港元、评分4.5、判定&#34;高风险投机品、不建议加仓&#34;）之后的跟踪分析。7月7日至7月10日，仅3个交易日股价再度&lt;b&gt;暴跌约21%&lt;/b&gt;（117→91.95），此前的高风险判断已被市场进一步验证。本篇重点分析新增的&#34;融资计划施压&#34;利空与最新走势。&lt;/div&gt;
-&lt;div class=&#34;sr-section&#34;&gt;
-&lt;div class=&#34;sr-section-title&#34;&gt;一、基本行情概览&lt;/div&gt;
-&lt;div class=&#34;sr-kv-row&#34;&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;收盘价&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;91.95 港元&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;涨跌幅&lt;/div&gt;&lt;div class=&#34;sr-v sr-val-red&#34;&gt;-13.74%&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;开盘/最高/最低&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;106.6 / 106.6 / 90.2&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;振幅&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;15.38%&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;sr-kv-row&#34;&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;成交额&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;约 3.77 亿港元&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;换手率&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;1.45%&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;量比&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;1.61&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;均价&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;97.53&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;sr-kv-row&#34;&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;52周最高&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;382.80&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;52周最低&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;38.02&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;近5日/10日&lt;/div&gt;&lt;div class=&#34;sr-v sr-val-red&#34;&gt;-21.61% / -16.41%&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;近60日/年内&lt;/div&gt;&lt;div class=&#34;sr-v sr-val-red&#34;&gt;-74.34% / &lt;span style=&#34;color:#e53935&#34;&gt;+82.08%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;7月10日迅策科技&lt;b&gt;再度暴跌13.74%，收报91.95港元&lt;/b&gt;，盘中最低下探90.2元，&lt;b&gt;创60日新低&lt;/b&gt;，全天振幅高达15.38%。这是继本周持续阴跌后的加速下杀——从7月7日的117元到7月10日的91.95元，仅3个交易日再跌约21%；相较4月13日的历史高点 &lt;b&gt;382.8元已回撤约76%&lt;/b&gt;，近60日累计暴跌74.34%。作为2025年12月30日才上市的次新股，迅策在经历上市初期的暴炒后，正处于泡沫破裂后的持续价值回归通道之中，且当日出现新的实质性利空催化。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>迅策科技(03317) 全面行情分析报告 — 2026-07-07</title>
-      <link>https://chenqiluo.github.io/stock/hk03317-xunce-20260707/</link>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260707/</guid>
-      <description>&lt;style&gt;
-.sr-wrap{max-width:960px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,&#34;Segoe UI&#34;,&#34;PingFang SC&#34;,&#34;Microsoft YaHei&#34;,sans-serif;color:#202124;line-height:1.7}
+&lt;/style>
+&lt;div class="sr-wrap">
+&lt;div class="sr-hero">
+&lt;h2>迅策科技 03317.HK&lt;/h2>
+&lt;div class="sr-sub">全面行情分析报告 · 数据截至 2026-07-10 收盘&lt;/div>
+&lt;div class="sr-price">HK$ 91.95 &lt;span class="sr-chg sr-down">▼ -13.74% (-14.65)&lt;/span>&lt;/div>
+&lt;div class="sr-sub">资讯科技业 · 实时数据基础设施 / AI数据分析 · 港股次新股（2025-12-30上市）&lt;/div>
+&lt;/div>
+&lt;div class="sr-note">&lt;b>连续跟踪提示：&lt;/b>本报告是继 &lt;b>7月7日&lt;/b>（当时收117港元、评分4.5、判定"高风险投机品、不建议加仓"）之后的跟踪分析。7月7日至7月10日，仅3个交易日股价再度&lt;b>暴跌约21%&lt;/b>（117→91.95），此前的高风险判断已被市场进一步验证。本篇重点分析新增的"融资计划施压"利空与最新走势。&lt;/div>
+&lt;div class="sr-section">
+&lt;div class="sr-section-title">一、基本行情概览&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">收盘价&lt;/div>&lt;div class="sr-v">91.95 港元&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">涨跌幅&lt;/div>&lt;div class="sr-v sr-val-red">-13.74%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">开盘/最高/最低&lt;/div>&lt;div class="sr-v">106.6 / 106.6 / 90.2&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">振幅&lt;/div>&lt;div class="sr-v">15.38%&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">成交额&lt;/div>&lt;div class="sr-v">约 3.77 亿港元&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">换手率&lt;/div>&lt;div class="sr-v">1.45%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">量比&lt;/div>&lt;div class="sr-v">1.61&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">均价&lt;/div>&lt;div class="sr-v">97.53&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">52周最高&lt;/div>&lt;div class="sr-v">382.80&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">52周最低&lt;/div>&lt;div class="sr-v">38.02&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">近5日/10日&lt;/div>&lt;div class="sr-v sr-val-red">-21.61% / -16.41%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">近60日/年内&lt;/div>&lt;div class="sr-v sr-val-red">-74.34% / &lt;span style="color:#e53935">+82.08%&lt;/span>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;p>7月10日迅策科技&lt;b>再度暴跌13.74%，收报91.95港元&lt;/b>，盘中最低下探90.2元，&lt;b>创60日新低&lt;/b>，全天振幅高达15.38%。这是继本周持续阴跌后的加速下杀——从7月7日的117元到7月10日的91.95元，仅3个交易日再跌约21%；相较4月13日的历史高点 &lt;b>382.8元已回撤约76%&lt;/b>，近60日累计暴跌74.34%。作为2025年12月30日才上市的次新股，迅策在经历上市初期的暴炒后，正处于泡沫破裂后的持续价值回归通道之中，且当日出现新的实质性利空催化。&lt;/p></description></item><item><title>迅策科技(03317) 全面行情分析报告 — 2026-07-07</title><link>https://chenqiluo.github.io/stock/hk03317-xunce-20260707/</link><pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260707/</guid><description>&lt;style>
+.sr-wrap{max-width:960px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#202124;line-height:1.7}
 .sr-wrap *{box-sizing:border-box}
 .sr-hero{background:linear-gradient(135deg,#4527a0,#7b1fa2);border-radius:14px;padding:26px 28px;color:#fff;margin:18px 0 24px}
 .sr-hero h2{margin:0 0 6px;font-size:26px;color:#fff;border:none}
@@ -144,77 +122,32 @@
 .dark .sr-section-title{color:#b39ddb}
 .dark .sr-note{background:#332b00;color:#ffe082}
 .dark .sr-warn{background:#3a1a1a;color:#ff8a80}
-&lt;/style&gt;
-&lt;div class=&#34;sr-wrap&#34;&gt;
-&lt;div class=&#34;sr-hero&#34;&gt;
-&lt;h2&gt;迅策科技 03317.HK&lt;/h2&gt;
-&lt;div class=&#34;sr-sub&#34;&gt;全面行情分析报告 · 数据截至 2026-07-07 收盘&lt;/div&gt;
-&lt;div class=&#34;sr-price&#34;&gt;HK$ 117.00 &lt;span class=&#34;sr-chg sr-up&#34;&gt;▲ +3.36% (+3.80)&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-sub&#34;&gt;资讯科技业 · 总市值约 377.6 亿港元 · 2025-12-30 上市次新股 · 尚未盈利(PE为负)&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;sr-section&#34;&gt;
-&lt;div class=&#34;sr-section-title&#34;&gt;一、基本行情概览&lt;/div&gt;
-&lt;div class=&#34;sr-kv-row&#34;&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;收盘价&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;117.00 港元&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;涨跌幅&lt;/div&gt;&lt;div class=&#34;sr-v sr-val-green&#34;&gt;+3.36%&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;开盘/最高/最低&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;111.6 / 123.0 / 111.6&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;振幅&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;10.07%&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;sr-kv-row&#34;&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;成交额&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;约 1.84 亿港元&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;成交量&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;156 万股&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;量比&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;0.85 缩量&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;换手率&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;0.59%&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;sr-kv-row&#34;&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;52周最高&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;382.80&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;52周最低&lt;/div&gt;&lt;div class=&#34;sr-v&#34;&gt;38.02&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;近20日涨幅&lt;/div&gt;&lt;div class=&#34;sr-v sr-val-red&#34;&gt;-29.52%&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&#34;sr-kv&#34;&gt;&lt;div class=&#34;sr-k&#34;&gt;近60日涨幅&lt;/div&gt;&lt;div class=&#34;sr-v sr-val-red&#34;&gt;-49.66%&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;7月7日迅策科技盘中一度涨超8%，最终收报 117.00 港元（&lt;b&gt;+3.36%&lt;/b&gt;），振幅高达 10.07%，波动极为剧烈。但这根阳线必须放到极端背景中理解：迅策是&lt;b&gt;2025年12月30日刚上市&lt;/b&gt;的次新股，上市初期在 50-90 元徘徊，随后被资金极致爆炒，于 &lt;b&gt;4月13日冲上 382.80 港元&lt;/b&gt;历史高点，此后一路暴跌——&lt;b&gt;近60日跌 -49.66%（腰斩）、较高点回撤近 70%&lt;/b&gt;，近20日续跌 -29.52%。当前 117 元是深度回撤后、在利好密集催化下的技术性反弹。这是一只&lt;b&gt;投机属性极强、波动巨大的次新概念股&lt;/b&gt;，任何操作都需以高风险为前提。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>迅策(03317.HK) 全面行情分析报告 — 2026-06-22</title>
-      <link>https://chenqiluo.github.io/stock/hk03317-xunce-20260622/</link>
-      <pubDate>Mon, 22 Jun 2026 16:00:00 +0800</pubDate>
-      <guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260622/</guid>
-      <description>迅策03317.HK 2026年6月22日全面分析：AI概念股从382.8暴跌66%至130，营收增长108%但仍在亏损，技术面极端超卖，含投资建议</description>
-    </item>
-    <item>
-      <title>迅策(03317) 全面行情分析报告 — 2026-05-12</title>
-      <link>https://chenqiluo.github.io/stock/hk03317-xunce-20260512/</link>
-      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260512/</guid>
-      <description>港股迅策(03317) 2026年5月12日全面行情分析，涵盖K线、资金流向、技术面、基本面与投资建议，成本252元持仓补仓参考。</description>
-    </item>
-    <item>
-      <title>迅策(03317) 全面行情分析报告 — 2026-05-08</title>
-      <link>https://chenqiluo.github.io/stock/hk03317-xunce-20260508/</link>
-      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260508/</guid>
-      <description>深度解析迅策(03317) 2026年5月8日行情：德银大幅上调目标价至351港元、Token调用ARR暴涨300%利好催化，结合港股通资金流向、筹码分布与技术面，综合评分及补仓建议。</description>
-    </item>
-    <item>
-      <title>迅策(03317) 全面行情分析报告 — 2026-04-28</title>
-      <link>https://chenqiluo.github.io/stock/hk03317-xunce-20260428/</link>
-      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260428/</guid>
-      <description>迅策(03317) 4月28日港股行情深度解析：ARR季度暴涨300%利好出尽，今日高开低走跌12.52%，德银目标价351港元，能否加仓？</description>
-    </item>
-    <item>
-      <title>迅策科技(03317) 全面行情分析报告 — 2026-04-22</title>
-      <link>https://chenqiluo.github.io/stock/hk03317-xunce-20260422/</link>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260422/</guid>
-      <description>迅策科技(03317) 2026-04-22深度分析：收盘342港元，今日上涨3.83%，年初至今暴涨577%，目前处于高位震荡，综合评分5.5/10，技术超买严重，仅适合激进投资者，建议高度谨慎或等待大幅回调后再考虑。</description>
-    </item>
-    <item>
-      <title>迅策科技(03317) 全面行情分析报告 — 2026-04-14</title>
-      <link>https://chenqiluo.github.io/stock/hk03317-xunce-20260414/</link>
-      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260414/</guid>
-      <description>结合港股通资金流向、国际局势、筹码分析、K线技术面与基本面，全面研判迅策科技2026年4月14日行情及走势预估。综合评分4.2/10，建议谨慎观望，高位不宜追涨加仓。</description>
-    </item>
-  </channel>
-</rss>
+&lt;/style>
+&lt;div class="sr-wrap">
+&lt;div class="sr-hero">
+&lt;h2>迅策科技 03317.HK&lt;/h2>
+&lt;div class="sr-sub">全面行情分析报告 · 数据截至 2026-07-07 收盘&lt;/div>
+&lt;div class="sr-price">HK$ 117.00 &lt;span class="sr-chg sr-up">▲ +3.36% (+3.80)&lt;/span>&lt;/div>
+&lt;div class="sr-sub">资讯科技业 · 总市值约 377.6 亿港元 · 2025-12-30 上市次新股 · 尚未盈利(PE为负)&lt;/div>
+&lt;/div>
+&lt;div class="sr-section">
+&lt;div class="sr-section-title">一、基本行情概览&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">收盘价&lt;/div>&lt;div class="sr-v">117.00 港元&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">涨跌幅&lt;/div>&lt;div class="sr-v sr-val-green">+3.36%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">开盘/最高/最低&lt;/div>&lt;div class="sr-v">111.6 / 123.0 / 111.6&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">振幅&lt;/div>&lt;div class="sr-v">10.07%&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">成交额&lt;/div>&lt;div class="sr-v">约 1.84 亿港元&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">成交量&lt;/div>&lt;div class="sr-v">156 万股&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">量比&lt;/div>&lt;div class="sr-v">0.85 缩量&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">换手率&lt;/div>&lt;div class="sr-v">0.59%&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">52周最高&lt;/div>&lt;div class="sr-v">382.80&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">52周最低&lt;/div>&lt;div class="sr-v">38.02&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">近20日涨幅&lt;/div>&lt;div class="sr-v sr-val-red">-29.52%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">近60日涨幅&lt;/div>&lt;div class="sr-v sr-val-red">-49.66%&lt;/div>&lt;/div>
+&lt;/div>
+&lt;p>7月7日迅策科技盘中一度涨超8%，最终收报 117.00 港元（&lt;b>+3.36%&lt;/b>），振幅高达 10.07%，波动极为剧烈。但这根阳线必须放到极端背景中理解：迅策是&lt;b>2025年12月30日刚上市&lt;/b>的次新股，上市初期在 50-90 元徘徊，随后被资金极致爆炒，于 &lt;b>4月13日冲上 382.80 港元&lt;/b>历史高点，此后一路暴跌——&lt;b>近60日跌 -49.66%（腰斩）、较高点回撤近 70%&lt;/b>，近20日续跌 -29.52%。当前 117 元是深度回撤后、在利好密集催化下的技术性反弹。这是一只&lt;b>投机属性极强、波动巨大的次新概念股&lt;/b>，任何操作都需以高风险为前提。&lt;/p></description></item><item><title>迅策(03317.HK) 全面行情分析报告 — 2026-06-22</title><link>https://chenqiluo.github.io/stock/hk03317-xunce-20260622/</link><pubDate>Mon, 22 Jun 2026 16:00:00 +0800</pubDate><guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260622/</guid><description>迅策03317.HK 2026年6月22日全面分析：AI概念股从382.8暴跌66%至130，营收增长108%但仍在亏损，技术面极端超卖，含投资建议</description></item><item><title>迅策(03317) 全面行情分析报告 — 2026-05-12</title><link>https://chenqiluo.github.io/stock/hk03317-xunce-20260512/</link><pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260512/</guid><description>港股迅策(03317) 2026年5月12日全面行情分析，涵盖K线、资金流向、技术面、基本面与投资建议，成本252元持仓补仓参考。</description></item><item><title>迅策(03317) 全面行情分析报告 — 2026-05-08</title><link>https://chenqiluo.github.io/stock/hk03317-xunce-20260508/</link><pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260508/</guid><description>深度解析迅策(03317) 2026年5月8日行情：德银大幅上调目标价至351港元、Token调用ARR暴涨300%利好催化，结合港股通资金流向、筹码分布与技术面，综合评分及补仓建议。</description></item><item><title>迅策(03317) 全面行情分析报告 — 2026-04-28</title><link>https://chenqiluo.github.io/stock/hk03317-xunce-20260428/</link><pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260428/</guid><description>迅策(03317) 4月28日港股行情深度解析：ARR季度暴涨300%利好出尽，今日高开低走跌12.52%，德银目标价351港元，能否加仓？</description></item><item><title>迅策科技(03317) 全面行情分析报告 — 2026-04-22</title><link>https://chenqiluo.github.io/stock/hk03317-xunce-20260422/</link><pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260422/</guid><description>迅策科技(03317) 2026-04-22深度分析：收盘342港元，今日上涨3.83%，年初至今暴涨577%，目前处于高位震荡，综合评分5.5/10，技术超买严重，仅适合激进投资者，建议高度谨慎或等待大幅回调后再考虑。</description></item><item><title>迅策科技(03317) 全面行情分析报告 — 2026-04-14</title><link>https://chenqiluo.github.io/stock/hk03317-xunce-20260414/</link><pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk03317-xunce-20260414/</guid><description>结合港股通资金流向、国际局势、筹码分析、K线技术面与基本面，全面研判迅策科技2026年4月14日行情及走势预估。综合评分4.2/10，建议谨慎观望，高位不宜追涨加仓。</description></item></channel></rss>
