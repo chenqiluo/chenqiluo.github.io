@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>腾讯控股 on luochenqi's Blog</title><link>https://chenqiluo.github.io/tags/%E8%85%BE%E8%AE%AF%E6%8E%A7%E8%82%A1/</link><description>Recent content in 腾讯控股 on luochenqi's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 10 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://chenqiluo.github.io/tags/%E8%85%BE%E8%AE%AF%E6%8E%A7%E8%82%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>腾讯控股(00700) 全面行情分析报告 — 2026-07-10</title><link>https://chenqiluo.github.io/stock/hk00700-tencent-20260710/</link><pubDate>Fri, 10 Jul 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk00700-tencent-20260710/</guid><description>&lt;style>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>腾讯控股 on luochenqi's Blog</title><link>https://chenqiluo.github.io/tags/%E8%85%BE%E8%AE%AF%E6%8E%A7%E8%82%A1/</link><description>Recent content in 腾讯控股 on luochenqi's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 16 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://chenqiluo.github.io/tags/%E8%85%BE%E8%AE%AF%E6%8E%A7%E8%82%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>腾讯控股(00700) 全面行情分析报告 — 2026-07-16</title><link>https://chenqiluo.github.io/stock/hk00700-tencent-20260716/</link><pubDate>Thu, 16 Jul 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk00700-tencent-20260716/</guid><description>&lt;style>
+.sr-wrap{max-width:960px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#202124;line-height:1.7}
+.sr-wrap *{box-sizing:border-box}
+.sr-hero{background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:14px;padding:26px 28px;color:#fff;margin:18px 0 24px}
+.sr-hero h2{margin:0 0 6px;font-size:26px;color:#fff;border:none}
+.sr-hero .sr-sub{opacity:.9;font-size:14px}
+.sr-hero .sr-price{font-size:40px;font-weight:700;margin:14px 0 2px}
+.sr-hero .sr-chg{font-size:18px;font-weight:600}
+.sr-up{color:#ffcdd2}
+.sr-section{background:#fff;border:1px solid #dadce0;border-radius:12px;padding:20px 24px;margin:18px 0;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.sr-section-title{font-size:19px;font-weight:700;color:#0d47a1;margin:0 0 14px;padding-left:10px;border-left:4px solid #1565c0}
+.sr-section-subtitle{font-size:15px;font-weight:700;color:#1976d2;margin:16px 0 8px}
+.sr-kv-row{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0}
+.sr-kv{flex:1;min-width:120px;background:#e3f2fd;border-radius:8px;padding:10px 12px}
+.sr-k{font-size:12px;color:#5f6368;margin-bottom:3px}
+.sr-v{font-size:17px;font-weight:700;color:#202124}
+.sr-val-green{color:#e53935}
+.sr-val-red{color:#2e9e57}
+.sr-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sr-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.sr-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+.sr-table th{background:#e3f2fd;color:#0d47a1;padding:9px 10px;text-align:left;border:1px solid #dadce0}
+.sr-table td{padding:8px 10px;border:1px solid #dadce0}
+.sr-green{color:#e53935;font-weight:600}
+.sr-red{color:#2e9e57;font-weight:600}
+.sr-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:13px;font-weight:600;margin:2px}
+.sr-badge-buy{background:#fce4ec;color:#c2185b}
+.sr-badge-warn{background:#fff3e0;color:#e65100}
+.sr-badge-info{background:#e3f2fd;color:#1565c0}
+.sr-score{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:10px 0}
+.sr-score-num{font-size:44px;font-weight:800;color:#2e9e57}
+.sr-bar{background:#eef1f5;border-radius:6px;height:22px;overflow:hidden;position:relative;margin:6px 0}
+.sr-bar-fill{height:100%;background:linear-gradient(90deg,#1565c0,#0d47a1);border-radius:6px}
+.sr-bar-label{position:absolute;left:8px;top:0;line-height:22px;font-size:12px;color:#fff;font-weight:600}
+.sr-note{background:#fff8e1;border-left:4px solid #f9a825;padding:10px 14px;border-radius:6px;font-size:13px;color:#6d4c00;margin:12px 0}
+.sr-warn{background:#ffebee;border-left:4px solid #e53935;padding:10px 14px;border-radius:6px;font-size:13px;color:#8e0000;margin:12px 0}
+.sr-good{background:#e8f5e9;border-left:4px solid #2e9e57;padding:10px 14px;border-radius:6px;font-size:13px;color:#1b5e20;margin:12px 0}
+.sr-chart-img{width:100%;border-radius:8px;border:1px solid #dadce0;margin:8px 0}
+.sr-li{margin:6px 0}
+.dark .sr-wrap{color:#e8eaed}
+.dark .sr-section{background:#1e1e1e;border-color:#3c4043}
+.dark .sr-kv{background:#12283f}
+.dark .sr-v{color:#e8eaed}
+.dark .sr-k{color:#9aa0a6}
+.dark .sr-table td{border-color:#3c4043}
+.dark .sr-table th{background:#12283f;color:#90caf9;border-color:#3c4043}
+.dark .sr-section-title{color:#90caf9}
+.dark .sr-note{background:#332b00;color:#ffe082}
+.dark .sr-warn{background:#3a1a1a;color:#ff8a80}
+.dark .sr-good{background:#14331c;color:#a5d6a7}
+&lt;/style>
+&lt;div class="sr-wrap">
+&lt;div class="sr-hero">
+&lt;h2>腾讯控股 00700.HK&lt;/h2>
+&lt;div class="sr-sub">全面行情分析报告 · 数据截至 2026-07-16 收盘 · 7月10日报告的跟踪兑现&lt;/div>
+&lt;div class="sr-price">HK$ 484.60 &lt;span class="sr-chg sr-up">▲ +2.24% (+10.60)&lt;/span>&lt;/div>
+&lt;div class="sr-sub">资讯科技业 · 互联网 / 社交 / 游戏 / AI大模型 · 港股 · 总市值约 4.41 万亿港元&lt;/div>
+&lt;/div>
+&lt;div class="sr-good">&lt;b>跟踪回顾：&lt;/b>7月10日本人分析报告判断腾讯"缩量回调是健康休整、超买消化、可以加仓、建议458-465分批"（当时收461.0元、评分7.0→7.5）。此后6个交易日腾讯自461元稳步反弹，7/16收484.6元、&lt;b>累计上涨约5.1%&lt;/b>，并放量突破近期平台，&lt;b>精准兑现了"回调分批加仓"的判断&lt;/b>——7/10在458-465元加仓的仓位已获约5%浮盈。当前AI催化持续、南向大举扫货，趋势重新转强。&lt;/div>
+&lt;div class="sr-section">
+&lt;div class="sr-section-title">一、基本行情概览&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">收盘价&lt;/div>&lt;div class="sr-v">484.60 港元&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">涨跌幅&lt;/div>&lt;div class="sr-v sr-val-green">+2.24%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">开盘/最高/最低&lt;/div>&lt;div class="sr-v">478.0 / 494.8 / 477.4&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">振幅&lt;/div>&lt;div class="sr-v">3.67%&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">成交额&lt;/div>&lt;div class="sr-v">约 170 亿港元&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">换手率&lt;/div>&lt;div class="sr-v">0.39%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">量比&lt;/div>&lt;div class="sr-v">1.36 温和放量&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">均价&lt;/div>&lt;div class="sr-v">485.90&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div class="sr-kv-row">
+&lt;div class="sr-kv">&lt;div class="sr-k">52周最高&lt;/div>&lt;div class="sr-v">677.70&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">52周最低&lt;/div>&lt;div class="sr-v">411.00&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">近5日/10日&lt;/div>&lt;div class="sr-v sr-val-green">+3.19% / +12.65%&lt;/div>&lt;/div>
+&lt;div class="sr-kv">&lt;div class="sr-k">近60日/年内&lt;/div>&lt;div class="sr-v sr-val-red">-4.08% / -18.38%&lt;/div>&lt;/div>
+&lt;/div>
+&lt;p>7月16日腾讯控股收报 484.60 港元（&lt;b>+2.24%&lt;/b>），全天&lt;b>放量收阳、盘中一度冲高至494.8港元&lt;/b>（成交放大至约170亿港元、量比1.36、振幅3.67%）。这是继7月上旬回调后的一波强势反弹：股价自7/3的431元低点连续走高，短短9个交易日反弹超12%，&lt;b>近10日大涨12.65%、近5日再涨3.19%&lt;/b>，重新站上所有短中期均线。虽距3月高点560元及52周高点677.7元仍有距离（年内-18.38%），但中期底部抬升、上行结构清晰，7/16的放量突破进一步确认了反弹趋势。当日盘中最高494.8已逼近BOLL上轨(488)与500元整数关，短线进入前期成交密集区。&lt;/p></description></item><item><title>腾讯控股(00700) 全面行情分析报告 — 2026-07-10</title><link>https://chenqiluo.github.io/stock/hk00700-tencent-20260710/</link><pubDate>Fri, 10 Jul 2026 00:00:00 +0000</pubDate><guid>https://chenqiluo.github.io/stock/hk00700-tencent-20260710/</guid><description>&lt;style>
 .sr-wrap{max-width:960px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#202124;line-height:1.7}
 .sr-wrap *{box-sizing:border-box}
 .sr-hero{background:linear-gradient(135deg,#0d47a1,#1976d2);border-radius:14px;padding:26px 28px;color:#fff;margin:18px 0 24px}
