@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>持仓管理 on luochenqi's Blog</title><link>https://chenqiluo.github.io/tags/%E6%8C%81%E4%BB%93%E7%AE%A1%E7%90%86/</link><description>Recent content in 持仓管理 on luochenqi's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 16 Oct 2026 16:30:00 +0800</lastBuildDate><atom:link href="https://chenqiluo.github.io/tags/%E6%8C%81%E4%BB%93%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>联想集团(00992.HK) 深度分析 · 2026年10月16日 — 减半仓后如何操作：反弹7.93%遇缺口压制，剩余五成怎么走</title><link>https://chenqiluo.github.io/stock/hk00992-lenovo-20261016/</link><pubDate>Fri, 16 Oct 2026 16:30:00 +0800</pubDate><guid>https://chenqiluo.github.io/stock/hk00992-lenovo-20261016/</guid><description>&lt;style>
+.sr-wrap{max-width:980px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.75;--sr-bg:#f0f2f5;--sr-card:#fff;--sr-text:#202124;--sr-sub:#5f6368;--sr-border:#dadce0;--sr-blue:#1a73e8;--sr-green:#34a853;--sr-red:#ea4335;--sr-orange:#f57c00;color:var(--sr-text)}
+.dark .sr-wrap{--sr-bg:#1b1b1f;--sr-card:#26262b;--sr-text:#e8eaed;--sr-sub:#9aa0a6;--sr-border:#3c4043}
+.sr-wrap .sr-header{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;border-radius:14px;padding:22px 24px;margin-bottom:18px}
+.sr-wrap .sr-h-name{font-size:23px;font-weight:700;margin-bottom:6px}
+.sr-wrap .sr-h-price{font-size:36px;font-weight:800;letter-spacing:-1px}
+.sr-wrap .sr-h-chg{font-size:16px;margin-top:4px;opacity:.96}
+.sr-wrap .sr-h-meta{margin-top:12px;font-size:13px;opacity:.9;line-height:1.9}
+.sr-wrap .sr-tldr{background:#fff8e1;border-left:5px solid #f9ab00;border-radius:10px;padding:16px 18px;margin:18px 0;font-size:15.5px;font-weight:600}
+.dark .sr-wrap .sr-tldr{background:#33302a;color:#f3e5c0}
+.sr-wrap .sr-section{background:var(--sr-card);border:1px solid var(--sr-border);border-radius:12px;padding:20px 22px;margin:16px 0}
+.sr-wrap .sr-section-title{font-size:18px;font-weight:700;margin-bottom:14px;padding-bottom:9px;border-bottom:2px solid var(--sr-border)}
+.sr-wrap .sr-section-subtitle{font-size:15px;font-weight:700;margin:16px 0 9px;color:var(--sr-blue)}
+.sr-wrap .sr-kv-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(142px,1fr));gap:11px;margin:13px 0}
+.sr-wrap .sr-kv{background:var(--sr-bg);border-radius:9px;padding:11px 13px}
+.sr-wrap .sr-k{font-size:12px;color:var(--sr-sub);margin-bottom:4px}
+.sr-wrap .sr-v{font-size:17px;font-weight:700}
+.sr-wrap .sr-val-green{color:var(--sr-green)}
+.sr-wrap .sr-val-red{color:var(--sr-red)}
+.sr-wrap .sr-val-orange{color:var(--sr-orange)}
+.sr-wrap .sr-green{color:var(--sr-green);font-weight:600}
+.sr-wrap .sr-red{color:var(--sr-red);font-weight:600}
+.sr-wrap .sr-orange{color:var(--sr-orange);font-weight:600}
+.sr-wrap .sr-table{width:100%;border-collapse:collapse;margin:13px 0;font-size:13.5px}
+.sr-wrap .sr-table th{background:var(--sr-bg);padding:10px 11px;text-align:left;font-weight:700;border:1px solid var(--sr-border)}
+.sr-wrap .sr-table td{padding:9px 11px;border:1px solid var(--sr-border)}
+.sr-wrap .sr-badge{display:inline-block;padding:3px 11px;border-radius:12px;font-size:12.5px;font-weight:700;color:#fff}
+.sr-wrap .sr-badge-green{background:var(--sr-green)}
+.sr-wrap .sr-badge-red{background:var(--sr-red)}
+.sr-wrap .sr-badge-orange{background:var(--sr-orange)}
+.sr-wrap .sr-badge-blue{background:var(--sr-blue)}
+.sr-wrap .sr-score-banner{background:linear-gradient(135deg,#f57c00,#e65100);color:#fff;border-radius:12px;padding:18px 22px;margin:16px 0}
+.sr-wrap .sr-score-num{font-size:34px;font-weight:800}
+.sr-wrap .sr-note{background:#e8f0fe;border-left:4px solid var(--sr-blue);border-radius:8px;padding:13px 15px;margin:13px 0;font-size:14px}
+.dark .sr-wrap .sr-note{background:#1f2a3d}
+.sr-wrap .sr-warn-box{background:#fef7e0;border-left:4px solid var(--sr-orange);border-radius:8px;padding:13px 15px;margin:13px 0;font-size:14px}
+.dark .sr-wrap .sr-warn-box{background:#332d1f}
+.sr-wrap .sr-danger-box{background:#fce8e6;border-left:4px solid var(--sr-red);border-radius:8px;padding:13px 15px;margin:13px 0;font-size:14px}
+.dark .sr-wrap .sr-danger-box{background:#331f1e}
+.sr-wrap .sr-good-box{background:#e6f4ea;border-left:4px solid var(--sr-green);border-radius:8px;padding:13px 15px;margin:13px 0;font-size:14px}
+.dark .sr-wrap .sr-good-box{background:#1f3326}
+.sr-wrap .sr-chart-wrap{margin:16px 0}
+.sr-wrap canvas{width:100%;max-width:100%;background:var(--sr-card);border:1px solid var(--sr-border);border-radius:10px}
+.sr-wrap .sr-news-item{padding:11px 0;border-bottom:1px dashed var(--sr-border)}
+.sr-wrap .sr-news-title{font-weight:600;font-size:14.5px;margin-bottom:3px}
+.sr-wrap .sr-news-meta{font-size:12px;color:var(--sr-sub)}
+.sr-wrap .sr-price-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:12px;margin:14px 0}
+.sr-wrap .sr-price-box{border:2px solid var(--sr-border);border-radius:10px;padding:13px;text-align:center}
+.sr-wrap .sr-price-label{font-size:12px;color:var(--sr-sub);margin-bottom:5px}
+.sr-wrap .sr-price-val{font-size:19px;font-weight:800}
+.sr-wrap ul{padding-left:21px}
+.sr-wrap li{margin:6px 0}
+&lt;/style>
+&lt;div class="sr-wrap">
+&lt;div class="sr-header">
+&lt;div class="sr-h-name">联想集团 · 00992.HK · 资讯科技业&lt;/div>
+&lt;div class="sr-h-price">28.04 &lt;span style="font-size:17px;font-weight:600">港元&lt;/span>&lt;/div>
+&lt;div class="sr-h-chg">▲ +2.06 (+7.93%) · 2026-10-16 收盘&lt;/div>
+&lt;div class="sr-h-meta">
+市值 3,596亿港元 · PE(TTM) 57.47倍 · PB 6.36倍 · 股息率 1.46%&lt;br>
+今日振幅 8.24% · 成交额 26.33亿港元 · 换手 0.76% · 量比 1.62&lt;br>
+52周区间 8.183 ~ 37.88 · 年初至今 +214.24% · 近5日 -14.62% · 近20日 -18.30%
+&lt;/div>
+&lt;/div>
+&lt;div class="sr-tldr">
+📌 一句话解读：联想今天反弹7.93%收28.04港元，靠的是「开始全球交付英伟达Vera Rubin NVL72」这个真利好，但最高28.20正好顶在缺口下沿就被压回来了，而且主力资金还在净流出、全靠散户在买。你昨天卖一半是对的，今天不要急着把剩下的卖光，也别加回去——拿着五成等11月19日业绩，反弹到30.8以上再减、跌破25.05才清仓。
+&lt;/div>
+&lt;div class="sr-score-banner">
+&lt;div style="font-size:13px;opacity:.95;margin-bottom:5px">综合评分（五维加权）&lt;/div>
+&lt;div class="sr-score-num">5.6 &lt;span style="font-size:17px;font-weight:600">/ 10&lt;/span>&lt;/div>
+&lt;div style="margin-top:7px;font-size:15px;font-weight:700">投资建议：持有观察 · 维持五成仓位不变（不加不减）&lt;/div>
+&lt;div style="margin-top:5px;font-size:13px;opacity:.95">你的成本 22.807 港元 · 当前浮盈 +22.9% · 已减持一半锁定利润&lt;/div>
+&lt;/div>
+&lt;div class="sr-section">
+&lt;div class="sr-section-title">⚡ 一、先回答你的问题：今天该怎么操作&lt;/div>
+&lt;div class="sr-good-box">
+&lt;b>结论：维持现状，剩余五成仓位既不加也不减。&lt;/b>今天是反弹日而不是反转日，在「缺口没补、主力没回、业绩没出」三个条件全部未满足之前，任何方向的重仓动作都是在赌运气。
+&lt;/div>
+&lt;div class="sr-section-subtitle">你昨天减仓一半这个决定，现在回看对不对？&lt;/div>
+&lt;p>完全正确，而且时机比你想象的要好。昨天（10月15日）收盘25.98，今天收28.04。单看这两天，你卖掉的那一半如果拿到今天能多赚约7.9%，看似「卖早了」。但这不是正确的评估方式——昨天那根K线是&lt;b>低开暴跌11.64%、收盘几乎贴在全天最低点、成交量放大到2.42亿股（是前一日的2.4倍）&lt;/b>的恐慌阴线。在那种结构下，谁也无法预知第二天是继续跌15%还是反弹8%。你在风险失控的位置主动降低了暴露，这是纪律，不是择时失误。&lt;/p></description></item></channel></rss>
