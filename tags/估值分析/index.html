@@ -1,5 +1,219 @@
 <!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>估值分析 | luochenqi's Blog</title>
-<meta name=keywords content><meta name=description content="记录日常、分享知识、沉淀思考"><meta name=author content="luochenqi"><link rel=canonical href=https://chenqiluo.github.io/tags/%E4%BC%B0%E5%80%BC%E5%88%86%E6%9E%90/><link crossorigin=anonymous href=/assets/css/stylesheet.css rel="preload stylesheet" as=style><link rel=icon href=https://chenqiluo.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://chenqiluo.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://chenqiluo.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://chenqiluo.github.io/apple-touch-icon.png><link rel=mask-icon href=https://chenqiluo.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://chenqiluo.github.io/tags/%E4%BC%B0%E5%80%BC%E5%88%86%E6%9E%90/index.xml title=rss><link rel=alternate hreflang=zh href=https://chenqiluo.github.io/tags/%E4%BC%B0%E5%80%BC%E5%88%86%E6%9E%90/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>:root{--theme:transparent !important}html{background-image:url(/images/bg.jpg);background-size:cover;background-position:50%;background-attachment:fixed;background-repeat:no-repeat;background-color:#d4cfc6;min-height:100%}body{background:0 0!important;background-color:transparent!important}.main,#top,main,.list,.page,.post-single,.archive-posts{background:0 0!important;background-color:transparent!important}header.header{background-color:rgba(255,255,255,.8)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.post-entry,.first-entry,.home-info,.profile,.page-header,.post-header,.post-content,.toc,.post-footer,.pagination,.terms-tags{background-color:rgba(255,255,255,.88)!important;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border-radius:8px;padding:12px 16px;margin-bottom:8px}[data-theme=dark] header.header,.dark header.header{background-color:rgba(20,20,20,.8)!important}[data-theme=dark] .post-entry,[data-theme=dark] .first-entry,[data-theme=dark] .home-info,[data-theme=dark] .profile,[data-theme=dark] .page-header,[data-theme=dark] .post-header,[data-theme=dark] .post-content,[data-theme=dark] .toc,[data-theme=dark] .post-footer,[data-theme=dark] .pagination,[data-theme=dark] .terms-tags,.dark .post-entry,.dark .first-entry,.dark .home-info,.dark .profile,.dark .page-header,.dark .post-header,.dark .post-content,.dark .toc,.dark .post-footer,.dark .pagination,.dark .terms-tags{background-color:rgba(20,20,20,.85)!important}</style><meta property="og:url" content="https://chenqiluo.github.io/tags/%E4%BC%B0%E5%80%BC%E5%88%86%E6%9E%90/"><meta property="og:site_name" content="luochenqi's Blog"><meta property="og:title" content="估值分析"><meta property="og:description" content="记录日常、分享知识、沉淀思考"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="估值分析"><meta name=twitter:description content="记录日常、分享知识、沉淀思考"></head><body class=list id=top><header class=header><nav class=nav><div class=logo><a href=https://chenqiluo.github.io/ accesskey=h title="luochenqi's Blog (Alt + H)">luochenqi's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://chenqiluo.github.io/posts/ title=文章><span>文章</span></a></li><li><a href=https://chenqiluo.github.io/daily/ title=每日目标><span>每日目标</span></a></li><li><a href=https://chenqiluo.github.io/wiki/ title=知识库><span>知识库</span></a></li><li><a href=https://chenqiluo.github.io/stock/ title=股票分析><span>股票分析</span></a></li><li><a href=https://chenqiluo.github.io/reading/ title=研读><span>研读</span></a></li><li><a href=https://arena.ai/leaderboard/text title=AI天梯榜><span>AI天梯榜</span>&nbsp;<svg fill="none" shape-rendering="geometricPrecision" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://chenqiluo.github.io/tags/ title=标签><span>标签</span></a></li><li><a href=https://chenqiluo.github.io/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://chenqiluo.github.io/>主页</a>&nbsp;»&nbsp;<a href=https://chenqiluo.github.io/tags/>Tags</a></div><h1>估值分析</h1></header><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>联想集团(00992) 全面行情分析报告 — 2026-07-23</h2></header><div class=entry-content><p>联想集团 00992.HK七维全面行情分析 · 数据截至 2026-07-23 收盘HK$ 24.62 ▲ +2.16%开盘24.88 · 最高26.22 · 最低24.54 · 总市值约3054亿港元 结论先行：联想7月23日上涨2.16%，并连续两日反弹，收盘已站上5/10/20/30日均线及近5至60日估算筹码成本，短线趋势显著修复；但当天从26.22高点回落至24.62，留下较长上影线。主力净流入约7673万港元是积极信号，但总资金仍净流出约5007万港元，南向最新披露减持407万股且已连续7日减持，资金分歧仍大。已有低成本仓位可以继续持有，但24.62附近不适合重仓追涨；回踩23.2至23.8企稳可小幅加仓，或等放量站稳26.2后右侧确认。 一、7月23日行情复盘收盘 / 涨跌24.62 / +2.16%开高低24.88 / 26.22 / 24.54振幅6.97%成交量9694万股估算成交额约24.48亿港元换手 / 量比0.78% / 1.04当日均价25.25港元近5日 / 年内+10.60% / +165.87%股价承接7月21日与22日的修复行情，高开后冲到26.22，距离52周高点27.42只差约4.4%，但随后回落并收在24.62，收盘低于开盘及当日均价。形态上属于上涨但冲高回落，说明24.8至26.2区域兑现盘明显。成交量较7月22日下降约43%，但仍处活跃水平，不能只看红盘就认定已突破。
+<meta name=keywords content><meta name=description content="记录日常、分享知识、沉淀思考"><meta name=author content="luochenqi"><link rel=canonical href=https://chenqiluo.github.io/tags/%E4%BC%B0%E5%80%BC%E5%88%86%E6%9E%90/><link crossorigin=anonymous href=/assets/css/stylesheet.css rel="preload stylesheet" as=style><link rel=icon href=https://chenqiluo.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://chenqiluo.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://chenqiluo.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://chenqiluo.github.io/apple-touch-icon.png><link rel=mask-icon href=https://chenqiluo.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://chenqiluo.github.io/tags/%E4%BC%B0%E5%80%BC%E5%88%86%E6%9E%90/index.xml title=rss><link rel=alternate hreflang=zh href=https://chenqiluo.github.io/tags/%E4%BC%B0%E5%80%BC%E5%88%86%E6%9E%90/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>:root{--theme:transparent !important}html{background-image:url(/images/bg.jpg);background-size:cover;background-position:50%;background-attachment:fixed;background-repeat:no-repeat;background-color:#d4cfc6;min-height:100%}body{background:0 0!important;background-color:transparent!important}.main,#top,main,.list,.page,.post-single,.archive-posts{background:0 0!important;background-color:transparent!important}header.header{background-color:rgba(255,255,255,.8)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.post-entry,.first-entry,.home-info,.profile,.page-header,.post-header,.post-content,.toc,.post-footer,.pagination,.terms-tags{background-color:rgba(255,255,255,.88)!important;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border-radius:8px;padding:12px 16px;margin-bottom:8px}[data-theme=dark] header.header,.dark header.header{background-color:rgba(20,20,20,.8)!important}[data-theme=dark] .post-entry,[data-theme=dark] .first-entry,[data-theme=dark] .home-info,[data-theme=dark] .profile,[data-theme=dark] .page-header,[data-theme=dark] .post-header,[data-theme=dark] .post-content,[data-theme=dark] .toc,[data-theme=dark] .post-footer,[data-theme=dark] .pagination,[data-theme=dark] .terms-tags,.dark .post-entry,.dark .first-entry,.dark .home-info,.dark .profile,.dark .page-header,.dark .post-header,.dark .post-content,.dark .toc,.dark .post-footer,.dark .pagination,.dark .terms-tags{background-color:rgba(20,20,20,.85)!important}</style><meta property="og:url" content="https://chenqiluo.github.io/tags/%E4%BC%B0%E5%80%BC%E5%88%86%E6%9E%90/"><meta property="og:site_name" content="luochenqi's Blog"><meta property="og:title" content="估值分析"><meta property="og:description" content="记录日常、分享知识、沉淀思考"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="估值分析"><meta name=twitter:description content="记录日常、分享知识、沉淀思考"></head><body class=list id=top><header class=header><nav class=nav><div class=logo><a href=https://chenqiluo.github.io/ accesskey=h title="luochenqi's Blog (Alt + H)">luochenqi's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://chenqiluo.github.io/posts/ title=文章><span>文章</span></a></li><li><a href=https://chenqiluo.github.io/daily/ title=每日目标><span>每日目标</span></a></li><li><a href=https://chenqiluo.github.io/wiki/ title=知识库><span>知识库</span></a></li><li><a href=https://chenqiluo.github.io/stock/ title=股票分析><span>股票分析</span></a></li><li><a href=https://chenqiluo.github.io/reading/ title=研读><span>研读</span></a></li><li><a href=https://arena.ai/leaderboard/text title=AI天梯榜><span>AI天梯榜</span>&nbsp;<svg fill="none" shape-rendering="geometricPrecision" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://chenqiluo.github.io/tags/ title=标签><span>标签</span></a></li><li><a href=https://chenqiluo.github.io/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://chenqiluo.github.io/>主页</a>&nbsp;»&nbsp;<a href=https://chenqiluo.github.io/tags/>Tags</a></div><h1>估值分析</h1></header><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>联想集团(00992.HK) 全面行情分析报告 — 2026-11-24（业绩后反弹第二日）</h2></header><div class=entry-content><p>港股 · 联想集团 · 00992.HK · 2026-11-24 收盘
+联想集团(00992.HK) 全面行情分析报告
+18.20
++0.61 (+3.47%)
+港元  |  今日震幅 9.44%  |  成交额 34.51亿港元  |  盘中最高 19.60（+11.4%）后回落
+📌 一句话解读
+联想业绩后连涨两天，今天借黄仁勋回归英伟达的东风一度大涨11%，收盘回吐一半仍涨3.5%、重新站回年线；主业其实赚得很好，账面亏损只是会计重估，按明年利润算只要7-9倍市盈率，便宜且南向资金开始回流，但上方19-19.6压力明显，适合回踩17.2-17.8分批加，不追高。
+基本面
+8.0
+/ 10  经调整利润超预期
+新闻面
+7.5
+/ 10  券商密集维持买入
+资金面
+6.0
+/ 10  南向连增、主力回流
+技术面
+4.5
+/ 10  收复年线、受压MA20
+盈利质量
+8.5
+/ 10  账面亏·主业实盈
+综合评分
+7.2
+/ 10  推荐买入(回踩分批)
+评分权重（科技成长股五维）：基本面30% · 新闻面15% · 资金面25% · 技术面10% · 盈利质量20%。8.0×0.30 + 7.5×0.15 + 6.0×0.25 + 4.5×0.10 + 8.5×0.20 = 7.18 ≈ 7.2。较11月19日报告的6.0分上调，主要来自资金面（南向由减转增）、技术面（收复年线、MACD/KDJ金叉）与消息面（业绩超预期获券商确认）的边际改善。
+一、基本行情概览
+收盘价18.20 港元
+今日涨跌+0.61 (+3.47%)
+开盘 / 昨收19.42 / 17.59
+今日高 / 低19.60 / 17.94
+成交额34.51 亿港元
+换手率 / 量比1.44% / 1.30
+PE(TTM) / PB-163.4 / 4.65
+总市值2334 亿港元
+52周高 / 低37.88 / 8.18
+距52周高-52.0%
+年初至今+104.0%
+近60日-39.3%
+近5日 / 20日+10.6% / -18.7%
+股息率(TTM)2.24%
+今日成交均价18.696
+每手股数2000 股
+PE(TTM)为负的说明：-163 倍完全是会计假象。联想2025年1月向沙特Alat发行的认股权证被确认为衍生金融负债，需按季末股价重估，股价涨得越多账面亏损越大。上半财年此项非现金亏损达35.96亿美元，导致滚动HKFRS利润为负。判断经营实质须看经调整口径（第七章）。今日港股收盘18.20港元，美国ADR折算价19.54港元（溢价约7.4%，反映美股盘后对AI链的更高热情）。
+二、K线走势（近48个交易日）
+走势回顾：9月18日见顶37.88港元后单边下行两个月，10月15日、10月22日、10月30日三次跳空下台阶。11月19日业绩日盘中探至14.92（近半年新低）后收出长下影线，成为本轮下跌的阶段低点。随后三日连续收阳：11月20日+0.62%、11月23日+7.58%、今日受黄仁勋回归英伟达消息刺激高开10.4%至19.42，盘中最高19.60，但未能守住，收盘回落至18.20，留下1.40港元长上影线。今日最低17.94高于昨日最高17.72，留下17.72-17.94向上跳空缺口。自14.92低点三个交易日最大反弹31.4%，收盘口径反弹22.0%。
+三、技术面分析
+均线系统（短线修复，中线仍空）
+均线数值信号
+MA517.12价格在上 拐头向上
+MA1017.46价格在上
+MA2018.92价格在下 第一压力
+MA3021.17价格在下
+MA6027.39价格在下 远离
+MA12026.26价格在下
+MA25017.99重新站上年线
+主要技术指标
+指标数值信号
+MACD(DIF/DEA/柱)-2.529 / -2.875 / +0.692零轴下金叉放大
+KDJ(K/D/J)42.7 / 31.2 / 65.7低位金叉
+RSI(6/12/24)54.3 / 40.6 / 38.9脱离超卖
+布林带(上/中/下)22.87 / 18.92 / 14.98逼近中轨
+SAR抛物线14.92翻多 价格在上
+BIAS(6/12/24)7.01 / 2.83 / -6.74短线乖离偏高
+WR(6/10)29.9 / 37.4中性偏强
+DMI(PDI/MDI/ADX)21.2 / 30.7 / 43.0空头减弱未逆转
+CCI(14)40.0回到常态区
+VR / PSY64.4 / 50.0量能回暖
+支撑与压力位
+强压力19.42-19.60（今日高点）
+次压力18.92（MA20/布林中轨）
+支撑117.72-17.99（缺口+年线）
+支撑216.9-17.3（5/10日均价）
+技术面小结：与11月19日相比，技术形态出现了三项实质改善：①收盘重新站上MA250年线17.99；②MACD零轴下金叉且红柱放大到+0.692，KDJ低位金叉；③SAR从19.49翻到14.92，转为看多。但趋势反转证据仍不足：股价仍在MA20(18.92)之下，MA30/MA60仍在下行；DMI中MDI仍高于PDI，ADX 43说明原空头趋势惯性大；今日高开10%后回落、留下1.40港元长上影，说明19.4-19.6一带抛压集中（这里正是11月10-12日的套牢区）。结论是「超跌反弹进入第二阶段，从抢反弹转为测试MA20」。只要17.72缺口不补，短线多头结构维持；若放量站上19.6，才打开向MA30（21.2）的空间。
+四、资金面分析（主力资金 / 港股通南向）
+主力净流入（今日）
++1.19 亿港元
+流入 2.30亿 / 流出 1.11亿 · 净比约3.4%
+散户净流入（今日）
++4.77 亿港元
+流入 16.25亿 / 流出 11.48亿
+合计净流入
++5.95 亿港元
+主力均价 18.72 / 散户均价 18.64
+港股通南向资金持股变动
+指标数值解读
+南向持股比例6.94%较11/19的6.71%回升
+南向持股数量8.895 亿股较11/19的8.60亿股增加约2950万股
+最新单日变动（11/23）+1322.8 万股净买入 连续3日增持
+单日变动市值+2.26 亿港元净流入
+近一季变动份额-5683 万股季度仍为净减持
+近一季变动市值-11.18 亿港元减持幅度明显收窄
+资金面小结（6.0/10）：资金面出现了11月19日报告中列为「中期底部首要信号」的变化——南向资金由减持转为连续3日净增持，持股比例从6.71%回升至6.94%，近一季累计减持也从1.47亿股收窄到5683万股，说明港股通在业绩落地后开始回补。今日主力净流入1.19亿港元，主力成交均价18.72高于收盘价18.20，主力在高位有买入、今日收盘处于浮亏状态，后续是否继续承接值得观察。扣分项：①今日合计5.95亿净流入中约80%来自散户，结构仍偏散户驱动；②主力净比3.4%力度一般；③季度维度南向仍是净卖方，需要更长时间的持续回补才能确认趋势。
+五、平均筹码价格分析
+今日成交均价18.70
+近5日均价16.94
+近10日均价17.31
+近20日均价18.69
+近60日均价25.30
+近100日均价25.91
+距5日 / 10日筹码+7.4% / +5.1%
+距20日 / 60日筹码-2.6% / -28.1%
+口径说明：港股无筹码分布数据，此处以区间成交额÷成交量计算的成交均价（VWAP）作为该时段入场资金的平均持仓成本。
+筹码分析小结：短期筹码已明显改善：近5日、近10日成本分别为16.94、17.31，现价高出5-7%，业绩日前后低位接盘的资金全部获利，形成了下方的「获利盘支撑带」16.9-17.3。但现价离近20日成本18.69仅差2.6%，今日成交均价18.70也恰好卡在这里——今日冲高回落的本质，就是近20日套牢盘在18.7-19.6一带解套卖出。再往上，近60日成本25.30、近100日25.91还压着一座约28%的「套牢塔」。筹码修复的下一个确认信号：近5日均价上穿近20日均价（目前16.94 vs 18.69，尚需数日放量站稳19上方）。
+六、缠论与时空量化技术图
+缠论趋势结构图
+红线为顶分型高点连线（压力），绿线为底分型低点连线（支撑）。9月18日37.88高点之后形成逐级下移的顶分型序列；11月19日14.92的长下影在随后三日连阳中被确认为底分型，日线级别出现了本轮下跌以来首个有效底分型。今日长上影线若明日继续收低，将形成小级别顶分型，即「向上一笔」可能在19.6附近暂时完成、转入回踩；回踩不破17.72缺口则构成更高的底，是右侧加仓的理想位置。
+时空量化分析图
+时空量化副图（0.40×RSI6 + 0.30×KDJ_K + 0.30×(100-WR6)，EMA21平滑）在11月中旬进入安全线附近的超卖区后已开始拐头上行，今日RSI6 54、K值43、WR6 30，合成值回到中性区间，尚未接近68的超买卖出线——从量化节奏看，反弹尚有空间，并未过热。量能方面，近三日成交额3.5亿、2.6亿、3.5亿港元维持温和放大，VR从41升至64，属于反弹期的健康配合。
+七、基本面与盈利质量穿透分析
+FY2026/27 中期业绩核心数据（截至2026年9月30日，百万美元）
+指标Q2单季同比上半财年同比
+收入30,238+48%57,180+46%
+AI相关收入10,800+79%—占Q2收入36%
+毛利率约16.0%提升16.3%+1.2pct
+认股权证公允值亏损-1,906非现金-3,596非现金
+HKFRS 归母(亏损)-640上年+340-1,248上年+846
+经调整归母溢利1,361+166%2,436+170%
+经调整净利率4.5%+2.0pct4.3%历史最佳
+经调整每股收益(基本/摊薄)11.0 / 8.59 美仙+164% / +147%——
+经营现金流 / 自由现金流1,600 / 1,200环比+320%约2,000—
+超预期幅度：彭博一致预期Q2经调整净利约11.29亿美元，实际13.61亿美元，超预期约20.5%；摊薄经调整EPS预期7.05美仙，实际8.59美仙，超预期约22%；LSEG汇总营收预期约276亿美元，实际302亿美元。
+🔬 盈利质量五步穿透
+①表面结果：上半财年HKFRS归母亏损12.48亿美元，表观「由盈转亏」，这是11月19日股价盘中跌13%的直接诱因。
+②拆非经营项目：认股权证衍生负债公允值亏损上半年35.96亿美元，占税前亏损的比重远超100%，单这一项就把约34.6亿美元的经营溢利抹平。另有可换股债券名义利息等小额非现金项。
+③看经调整口径：剔除上述非现金项目后经调整归母溢利24.36亿美元，同比+170%。这里的调整方向是「剔除浮亏」，与港股常见的「只加回股份支付、不剔除浮盈」式美化性质相反，属合理调整。
+④看边际改善：Q2经调整净利环比+26.6%，净利率从上财年Q4的2.6%连升到4.0%、4.5%；ISG经营利润率环比再升0.49pct至9.6%。
+⑤现金流验证：上半年经营现金流约156亿港元（约20亿美元），Q2自由现金流12亿美元，中期股息由8.5港仙提高到9.0港仙。利润有真金白银支撑，验证通过。
+✅ 主业性质：主业真实盈利（账面亏损，主业实盈），盈利质量8.5/10。扣分项：毛利率仅约16%，服务器业务规模扩张下存货与应收占用资金明显上升。
+一个对下季度非常重要的推论：认股权证按季末股价重估。9月30日收盘34.54港元，如果12月31日股价维持在18-20港元区间，FY27 Q3这项科目将从大额亏损翻转为大额账面收益，届时HKFRS净利会被反向「夸大」，PE(TTM)会从负值迅速回到正常甚至偏低的数字。这对按表观EPS定价的量化与被动资金是一个潜在的正面催化（约2027年2月公布）。
+三大业务集团（Q2单季）
+业务集团收入(亿美元)同比经营利润(亿美元)利润率看点
+ISG 基础设施113.45+178%10.919.6%AI服务器收入+300%，储备800亿美元（上季540亿）
+IDG 智能设备173.65+15%12.267.1%PC出货-22%但高端占比63%，均价双位数提升
+SSG 方案服务30.77+20%8.0126%运维+方案收入占比63%，AI服务三位数增长
+资产负债与风险项（2026-09-30，港元口径）
+指标数值评估
+资产负债率90.5%偏高（含权证衍生负债）
+流动比率0.976流动性偏紧
+现金481.0 亿港元较期初383.4亿增加
+存货1615.6 亿港元（约206亿美元）较3月末+76%，服务器备货
+应收账款2333.4 亿港元周转天数约54天
+区域收入美洲37.2% / 中国23.1% / 欧洲中东非洲22.2% / 亚太17.5%
+基本面小结（8.0/10）：收入、经调整利润、利润率、现金流、股息全面向好且超预期，利润重心正从PC向算力与服务迁移（ISG+SSG约贡献六成经营利润）。CFO预计ISG最快下一财季收入超过IDG成为第一大业务。扣分项：①存货半年增加76%、零部件涨价与部分客户回款周期拉长推高营运资金需求；②新云服务商（neocloud）存在债务与信用风险，公司需以预付款、应收账款保险管控；③ISG利润率9.6%仍低于戴尔约15%的水平，存储等高毛利业务规模有差距。
+八、估值分析 · FY26/27E~FY28/29E 前瞻PE
+PE(TTM, HKFRS)失真为负
+FY26/27E 摊薄PE约8.7x
+FY27/28E 摊薄PE约7.3x
+FY28/29E 摊薄PE约5.6x
+财年经调整归母净利(亿美元)基本EPS(港元)摊薄EPS(港元)现价对应PE(基本/摊薄)合理区间(港元)
+FY26/27E44.242.692.106.8x / 8.7x16.8-25.2（摊薄8-12x）
+FY27/28E52.293.182.485.7x / 7.3x19.9-29.8（摊薄8-12x）
+FY28/29E68.154.143.244.4x / 5.6x25.9-38.9（摊薄8-12x）
+测算口径：净利预测采用申万宏源2026-11-23研报（FY26/27E-FY28/29E经调整归母净利44.24/52.29/68.15亿美元）；基本股本128.26亿股，汇率1美元=7.8港元；因认股权证与可转债存在摊薄，按Q2基本EPS 11.0美仙/摊薄8.59美仙的比例（约1.28倍）折算摊薄EPS。合理PE参考硬件+服务器同业8-12倍区间。以上为笔者自行测算，非机构一致预期。
+估值结论：以更保守的摊薄口径，当前18.20港元对应FY26/27E约8.7倍、FY27/28E约7.3倍，处于全球硬件/服务器同业的最低档。中性情形（FY27/28E摊薄10倍）对应约24.8港元，较现价有约36%空间；悲观情形（FY26/27E摊薄8倍）对应约16.8港元，即现价下方约8%。风险收益比偏向有利，但前提是AI服务器订单储备能按节奏转化为收入。
+九、同赛道横向对比 · 赛道定位
+可比标的选取：产业链查询未返回联想所属主题，故按业务结构（PC+AI服务器+服务）人工划定候选池，并逐一经搜索验证代码：戴尔科技（usDELL，PC+AI服务器直接竞品）、惠普（usHPQ，PC直接竞品）、超微电脑（usSMCI，AI服务器竞品）、浪潮信息（sz000977，国内服务器龙头）、工业富联（sh601138，AI服务器ODM龙头）。口径提示：联想为HKFRS且财年截至3月；美股为GAAP；A股为CAS自然年度，不可等量齐观。美股行情为11月23日收盘。
+公司代码最新价当日涨跌PE(TTM)总市值近60日年初至今
+联想集团hk0099218.20 港元+3.47%负值（经调整摊薄FWD约8.7x）2334亿港元-39.3%+104.0%
+戴尔科技usDELL334.91 美元+20.46%19.5x2129亿美元-26.5%+168.9%
+惠普usHPQ28.90 美元+3.36%11.0x261亿美元-4.4%+34.7%
+超微电脑usSMCI24.53 美元+13.30%5.2x（数据源值，存疑）162亿美元-33.9%-16.2%
+浪潮信息sz00097743.99 元-0.38%13.3x（FWD 12.3x）646亿元-39.9%-33.9%
+工业富联sh60113840.96 元+6.97%15.3x（FWD 15.1x）8128亿元-32.2%-32.9%
+商业模式本质拆解（同讲AI服务器，含义不同）
+公司价值链位置收入来源一句话定位
+联想集团终端+基础设施+服务全栈PC/手机 + 服务器 + 运维方案三条腿走路，SSG 26%利润率是独有缓冲垫
+戴尔科技PC+企业级服务器/存储美国大客户AI服务器+存储最直接竞品，ISG利润率约15%高于联想
+惠普PC+打印终端与耗材纯终端，无AI服务器弹性
+超微电脑AI服务器整机GPU服务器机架纯AI服务器，高弹性高波动，治理风险曾受质疑
+浪潮信息国内服务器整机国内云厂商集采纯硬件，低毛利，依赖国内资本开支
+工业富联AI服务器ODM代工北美云厂商代工体量最大毛利最薄，代工属性
+多维排序：按估值（前瞻）便宜程度：联想(约7-9x) &lt; 惠普(11x) &lt; 浪潮(12x) &lt; 工业富联(15x) &lt; 戴尔(19.5x)；按AI服务器纯粹度：超微 > 工业富联 ≈ 浪潮 > 戴尔 > 联想 > 惠普；按业务多元/抗周期：联想 > 戴尔 > 惠普 > 其余。收敛回联想：它在同赛道里是「估值最低、业务最多元」的一档，弹性不如超微、利润率不如戴尔，但三业务对冲使其在PC下行周期仍能维持利润增长。昨夜戴尔单日+20.5%、超微+13.3%，显示AI服务器链情绪正在修复，联想相对戴尔约一半的前瞻估值存在修复空间；但折价也有合理部分：认股权证导致报表失真、资产负债率90.5%、港股流动性折价。
+十、消息面、政策面与机构评级
+今日核心消息
+① 黄仁勋恢复担任英伟达总裁、CEO及董事，英伟达隔夜收涨31.48%，AI链全球普涨；联想盘中涨超11%
+2026-11-24 · 经济导报 / 财闻 / 格隆汇  |  重大利好（情绪）
+② 申万宏源：联想业绩超预期，悲观叙事下仍具坚实基本面，市场对其未来2-3年稳态经营定价过于悲观，维持「买入」
+2026-11-24 13:20 · 格隆汇  |  利好
+③ 国海证券维持「买入」：混合式AI驱动全方位增长，受益算力需求持续增长
+2026-11-24 12:50 · 金吾财讯  |  利好
+④ 开源证券：联想FY2027Q2业绩超预期，AI业务份额进击向上
+2026-11-24 12:14 · 开源证券  |  利好
+⑤ 南向资金11月23日净买入联想集团1322.80万股，连续3日增持
+2026-11-24 09:30 · 市场透视  |  利好
+⑥ 1027万大单：深信服、华为、联想、H3C、超聚变、SmartX等中标；联想旗下机构参与入股深圳全光时代
+2026-11-24 · 云头条 / ITBEAR  |  中性偏好
+⑦ 日经亚洲：黄仁勋回归未消除不确定性，英伟达亚洲供应商仍担忧美国对东南亚货运与出口政策变化
+2026-11-24 14:55 · 格隆汇  |  政策风险提示
+⑧ 公告：宣派中期股息每股9.0港仙（上年8.5港仙），除息日2026年12月9日
+2026-11-19 · 港交所公告  |  利好
+政策面
+①美国出口管制与供应链政策：英伟达管理层变动后，市场仍担心美国对AI芯片出口及东南亚转运的政策方向，联想海外收入占比约77%、美洲占37%，对此高度敏感；②国内算力与信创政策：国内政企AI私有化部署（如本次1027万大单）对联想中国区ISG/SSG构成支撑；③港股通：南向资金回流中国科技资产（港股科技ETF日内大额申购）是港股科技股的流动性利好。
+机构评级（19家机构，24条评级）
+评级数量占比趋势
+买入 + 增持13 + 470.8%较10月96.4%回落
+中性/持有729.2%升温
+减持/卖出00%无看空
+消息面小结（7.5/10）：业绩超预期被多家券商在业绩后第一时间确认并维持买入，高盛此前给出51港元目标价；叠加黄仁勋回归带来的AI链情绪修复，消息面明显好于11月19日。扣分项是看多比例从96%降到71%，以及美国政策不确定性仍在。
+十一、未来走势预估
+短期（1-2周）
+冲高回踩，测试MA20
+今日长上影说明19.4-19.6抛压重，短线大概率回踩17.7-18.0（缺口+年线）消化获利盘。缺口不补则二次上攻18.9-19.6；放量突破19.6可看21.2（MA30）。预计区间 17.2-19.8。
+中期（1-3个月）
+磨底转修复
+催化剂：①南向持续回补；②12月9日除息；③约2027年2月FY27 Q3业绩，认股权证科目大概率由亏转盈，HKFRS利润大幅转正。若AI链情绪不再恶化，预计区间 17-24，上沿对应MA30-MA60间的密集成交区。
+长期（6-12个月）
+估值修复空间可观
+千亿美元营收提前一年达成、AI服务器储备800亿美元、利润结构持续向ISG/SSG迁移。按FY27/28E摊薄10-12倍，合理价值 24.8-29.8 港元；乐观情形下机构目标价最高51港元。
+主要风险：①超大云厂商资本开支可能在2027年前后触顶，AI服务器增速放缓；②800亿美元储备并非已签约订单，内存/芯片供应制约交付；③新云服务商信用风险与回款周期拉长；④存货+76%带来的减值风险；⑤PC出货仍在下滑（Q3全球-20%），高端化对冲空间有限；⑥认股权证扰动持续到FY27/28年末，报表失真；⑦美国出口管制与关税政策；⑧资产负债率90.5%、流动比率0.976。
+十二、综合投资建议与加仓判断
+综合评分 7.2/10 — 推荐买入（回踩分批），不追高
+11月19日报告的结论是「价值已现、趋势未转」，并列出两个中期确认信号：南向转向、站回年线。三个交易日后，两项都已初步出现：南向连续3日增持、持股比例回升到6.94%，股价收复年线17.99；同时Q2业绩超预期获得申万、国海、开源等确认，黄仁勋回归缓和了AI链的悲观情绪。按摊薄口径FY27/28E约7.3倍PE，在全球硬件/服务器同业中最低。
+但今天的K线也提醒不要急：高开10.4%后回吐大半，长上影线正好落在近20日成本18.7和11月中旬套牢区19.6附近，MA20以上仍有MA30/MA60两层压力。操作上应从「观察」升级为「回踩分批建仓/加仓」，但不在19以上追。
+...</p></div><footer class=entry-footer><span title='2026-11-24 00:00:00 +0000 UTC'>2026年11月24日</span>&nbsp;·&nbsp;<span>3 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span></footer><a class=entry-link aria-label="post link to 联想集团(00992.HK) 全面行情分析报告 — 2026-11-24（业绩后反弹第二日）" href=https://chenqiluo.github.io/stock/hk00992-lenovo-20261124/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>联想集团(00992) 全面行情分析报告 — 2026-07-23</h2></header><div class=entry-content><p>联想集团 00992.HK七维全面行情分析 · 数据截至 2026-07-23 收盘HK$ 24.62 ▲ +2.16%开盘24.88 · 最高26.22 · 最低24.54 · 总市值约3054亿港元 结论先行：联想7月23日上涨2.16%，并连续两日反弹，收盘已站上5/10/20/30日均线及近5至60日估算筹码成本，短线趋势显著修复；但当天从26.22高点回落至24.62，留下较长上影线。主力净流入约7673万港元是积极信号，但总资金仍净流出约5007万港元，南向最新披露减持407万股且已连续7日减持，资金分歧仍大。已有低成本仓位可以继续持有，但24.62附近不适合重仓追涨；回踩23.2至23.8企稳可小幅加仓，或等放量站稳26.2后右侧确认。 一、7月23日行情复盘收盘 / 涨跌24.62 / +2.16%开高低24.88 / 26.22 / 24.54振幅6.97%成交量9694万股估算成交额约24.48亿港元换手 / 量比0.78% / 1.04当日均价25.25港元近5日 / 年内+10.60% / +165.87%股价承接7月21日与22日的修复行情，高开后冲到26.22，距离52周高点27.42只差约4.4%，但随后回落并收在24.62，收盘低于开盘及当日均价。形态上属于上涨但冲高回落，说明24.8至26.2区域兑现盘明显。成交量较7月22日下降约43%，但仍处活跃水平，不能只看红盘就认定已突破。
 ...</p></div><footer class=entry-footer><span title='2026-07-23 00:00:00 +0000 UTC'>2026年7月23日</span>&nbsp;·&nbsp;<span>1 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span></footer><a class=entry-link aria-label="post link to 联想集团(00992) 全面行情分析报告 — 2026-07-23" href=https://chenqiluo.github.io/stock/hk00992-lenovo-20260723/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>腾讯控股(00700) 全面行情分析报告 — 2026-07-22</h2></header><div class=entry-content><p>腾讯控股 00700.HK 七维全面行情分析 · 数据截至 2026-07-22 收盘 HK$ 443.80 ▼ -6.37% 开盘468.0 · 最高468.0 · 最低443.2 · 总市值约4.04万亿港元 结论先行：7月22日腾讯放量下跌6.37%，开盘即为全日最高，尾盘接近最低点收市，是一根明确的弱势长阴。主力净流出约21.65亿港元、总净流出约28.40亿港元；南向资金当日减持57.24万股、季度累计减持1782.61万股，资金承接明显不足。现价已跌破MA5/10/20/30/60和近5至60日估算筹码成本，短线趋势从“回踩”恶化为“破位寻底”。但公司基本面、现金流和估值仍有吸引力，443港元已接近阶段支撑。可以加仓，但只适合轻仓左侧分批，不能一次性重仓；更稳妥的选择是等待450至455港元重新站稳后再右侧加仓。 一、7月22日行情与下跌原因 收盘 / 涨跌443.80 / -6.37%开高低468.0 / 468.0 / 443.2振幅5.23%成交量4978.3万股 估算成交额约224.5亿港元换手 / 量比0.55% / 2.19当日均价451.03港元52周区间411至677.7港元 腾讯较前收474港元低开至468，开盘价就是全天最高价，此后持续下行，最低443.2，收盘443.8，几乎没有像样反抽。量比2.19、成交量较前一日放大约133%，属于放量下跌而非缩量回调。
 ...</p></div><footer class=entry-footer><span title='2026-07-22 00:00:00 +0000 UTC'>2026年7月22日</span>&nbsp;·&nbsp;<span>1 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span></footer><a class=entry-link aria-label="post link to 腾讯控股(00700) 全面行情分析报告 — 2026-07-22" href=https://chenqiluo.github.io/stock/hk00700-tencent-20260722/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>联想集团(00992) 全面行情分析报告 — 2026-07-20</h2></header><div class=entry-content><p>联想集团 00992.HK 七维全面行情分析 · 数据截至 2026-07-20 收盘 HK$ 21.44 +0.09% 开盘22.02 · 最高22.62 · 最低21.24 · 总市值约2659.6亿港元 结论先行：7月20日表面微涨0.09%，但实际是高开冲高后回落，收盘远低于盘中高点22.62，反弹承接不足。股价仍在5/10/20/30日均线下方，MACD死叉扩大；港股通最新披露再减持约844.86万股，近一季度累计减持约1.59亿股。公司基本面和AI产业逻辑仍强，但短线资金与技术趋势未转好。当前不适合一次性加仓；只适合已有低成本仓位者在20.3至21.0港元企稳时小比例分批，或等待放量站回22.8至23.1港元后右侧加仓。 一、7月20日行情复盘 收盘 / 涨跌21.44 / +0.09% 开高低22.02 / 22.62 / 21.24 振幅6.44% 成交量5447.6万股 换手 / 量比0.44% / 0.74 当日成交均价21.833港元 近5日 / 20日-7.98% / -9.84% 近60日 / 年内+94.91% / +131.53% 当天股价较前收21.42只上涨0.02港元，但开盘即在22.02，盘中最高冲到22.62，最终回落至21.44。换句话说，这不是强势反弹，而是冲高失败后勉强收平。成交量仅为7月17日的一半左右、量比0.74，说明抛压有所减弱，但愿意追价的买盘也不足。经过7月10日26.24港元高点后的连续回撤，股价短期已释放部分过热风险，却尚未证明调整结束。
 ...</p></div><footer class=entry-footer><span title='2026-07-20 00:00:00 +0000 UTC'>2026年7月20日</span>&nbsp;·&nbsp;<span>1 分钟</span>&nbsp;·&nbsp;<span>luochenqi</span></footer><a class=entry-link aria-label="post link to 联想集团(00992) 全面行情分析报告 — 2026-07-20" href=https://chenqiluo.github.io/stock/hk00992-lenovo-20260720/></a></article><article class="post-entry tag-entry"><figure class=entry-cover><img loading=lazy src=https://chenqiluo.github.io/stock/hk00992_chanlun_20260603.png alt="联想集团缠论趋势图 2026-06-03"></figure><header class=entry-header><h2 class=entry-hint-parent>联想集团(00992.HK) 6月3日行情全面分析 | 高位回调+AI PC主题+估值深度分析</h2></header><div class=entry-content><p>联想集团6月3日大幅低开（-7.8%）后回升，收盘25.94港元跌2.41%，成交47亿港元较昨日大幅缩量42%。技术面KDJ/RSI双超90严重超买，布林突破上轨。主力净流入+3.89亿，散户净流出-5.07亿，南下资金逆势+5.8亿。估值面：当前PE 21.48x，2027E前瞻PE约23x，与戴尔持平，高位追入风险较大，建议等回调24~25港元区间再介入。</p></div><footer class=entry-footer><span title='2026-06-03 00:00:00 +0000 UTC'>2026年6月3日</span>&nbsp;·&nbsp;<span>3 分钟</span>&nbsp;·&nbsp;<span>StockPro · Knot</span></footer><a class=entry-link aria-label="post link to 联想集团(00992.HK) 6月3日行情全面分析 | 高位回调+AI PC主题+估值深度分析" href=https://chenqiluo.github.io/stock/hk00992-lenovo-20260603/></a></article><article class="post-entry tag-entry"><figure class=entry-cover><img loading=lazy src=https://chenqiluo.github.io/stock/hk00700_chanlun_20260603.png alt="腾讯控股缠论趋势图 2026-06-03"></figure><header class=entry-header><h2 class=entry-hint-parent>腾讯控股(00700.HK) 6月3日行情全面分析 | 高位回调+估值重估+投资建议</h2></header><div class=entry-content><p>腾讯6月3日收盘462.80港元下跌3.90%，昨日暴涨后技术性回调，成交额约108亿港元（大幅萎缩），主力净流出9.61亿，散户净流出3.21亿。技术面MACD仍金叉、SAR多头，回踩健康。新增26/27/28年前瞻PE：按1520%净利增速，2027E前瞻PE仅11.612.5倍，2028E约9.7倍，估值极具吸引力。综合评分7.2/10，稳健建仓区465~475，止损450以下。</p></div><footer class=entry-footer><span title='2026-06-03 00:00:00 +0000 UTC'>2026年6月3日</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>StockPro · Knot</span></footer><a class=entry-link aria-label="post link to 腾讯控股(00700.HK) 6月3日行情全面分析 | 高位回调+估值重估+投资建议" href=https://chenqiluo.github.io/stock/hk00700-tencent-20260603/></a></article></main><footer class=footer><span>&copy; 2026 <a href=https://chenqiluo.github.io/>luochenqi's Blog</a></span> ·
